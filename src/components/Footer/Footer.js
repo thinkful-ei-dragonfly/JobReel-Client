@@ -1,21 +1,22 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import './Footer.css'
 
 
-
-class Footer extends React.Component() {
+function Footer(props) {
   
-  
-  render() {
     return(
       <footer className='footer'>
         <div className='team-info'>
           'Some Team Information goes here'
         </div>
         <div className='links-to-tech'>
-          <link to='#'>GitHub Client</link>
-          <link to='#'>GitHub Server</link>
+          <Link to='/'>GitHub Client</Link>
+          <br/>
+          <Link to='/'>GitHub Server</Link>
         </div>
       </footer>
     )
-  }
 }
+
+export default Footer;
