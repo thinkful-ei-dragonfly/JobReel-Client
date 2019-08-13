@@ -46,11 +46,9 @@ class Header extends React.Component {
     return (
       <header className='header'>
         <div className='logo'>
-          <h1>
             <Link to ='/'>
               JobReel
             </Link>
-          </h1>
         </div>
           {TokenService.hasAuthToken()
           ? this.renderLogoutLink()

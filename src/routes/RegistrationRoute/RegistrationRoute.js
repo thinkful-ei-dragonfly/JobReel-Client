@@ -122,7 +122,6 @@ export default class RegistrationRoute extends Component {
                         {' '}
                         <Link className="already" to='/login'>Already have an account?</Link>
                     </form>
-                    <Description />
                 </div>
             </div>
         )

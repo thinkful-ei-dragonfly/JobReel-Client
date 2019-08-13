@@ -7,6 +7,7 @@ import './App.css';
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
+import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 
 export default function App() {
   return (
@@ -23,7 +24,8 @@ export default function App() {
               component={LoginRoute}
             />
             <PrivateRoute
-              
+              path={'/dashboard'}
+              component={DashboardRoute}
             />
           </Switch>
         </main>

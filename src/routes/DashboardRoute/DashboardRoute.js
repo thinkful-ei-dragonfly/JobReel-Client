@@ -26,3 +26,5 @@ class DashboardRoute extends React.Component {
     )
   }
 }
+
+export default DashboardRoute
