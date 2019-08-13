@@ -14,8 +14,9 @@
 
 .logo > a {
   text-decoration: none;
+  font-size: 26px;
 }
 
-nav > a {
-  text-decoration: none;
+.nav {
+  width: 50%;
 }

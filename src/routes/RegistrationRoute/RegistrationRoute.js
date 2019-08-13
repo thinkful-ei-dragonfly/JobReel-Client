@@ -55,7 +55,6 @@ export default class RegistrationRoute extends Component {
                 <Description />
                 <div className='form'>
                 <form id="form-container"
-<<<<<<< HEAD
                       onSubmit={this.handleSubmit}
                   >
                       <div role='alert'>
@@ -106,76 +105,6 @@ export default class RegistrationRoute extends Component {
                   </form>
                 </div>
             </div>
-=======
-                    onSubmit={this.handleSubmit}
-                >
-                    <div role='alert'>
-                        {error && <p>{error}</p>}
-                    </div>
-                    <div>
-                        <Label htmlFor='registration-email-input'>
-                            Email:<Required />
-                        </Label>
-                        <Input
-                            ref={this.firstInput}
-                            id='registration-email-input'
-                            name='email'
-                            required
-                        />
-                    </div>
-                    <div>
-                        <Label htmlFor='registration-first-name-input'>
-                            First name:<Required />
-                        </Label>
-                        <Input
-
-                            id='registration-first-name-input'
-                            name='first_name'
-                            required
-                        />
-                    </div>
-                    <div>
-                        <Label htmlFor='registration-last-name-input'>
-                            Last name:<Required />
-                        </Label>
-                        <Input
-                            id='registration-last-name-input'
-                            name='last_name'
-                            required
-                        />
-                    </div>
-                <div>
-                    <Label htmlFor='registration-username-input'>
-                        Choose a username<Required />
-                    </Label>
-                    <Input
-                        id='registration-username-input'
-                        name='username'
-                        required
-                    />
-                </div>
-                <div>
-                    <Label htmlFor='registration-password-input'>
-                        Choose a password<Required />
-                    </Label>
-                    <Input
-                        id='registration-password-input'
-                        name='password'
-                        type='password'
-                        required
-                    />
-                </div>
-                <div>
-                    <Button type="submit">
-                        Sign up
-                        </Button>
-                </div>
-                {' '}
-                <Link className="already" to='/login'>Already have an account?</Link>
-                <Description />
-                </form>
-            </section >
->>>>>>> 9879528d69d7153a7754121a3c82ca32a4b354c7
         )
     }
 }
