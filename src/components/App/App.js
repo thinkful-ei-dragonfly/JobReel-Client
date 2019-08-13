@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import { Route } from 'react-router';
-import Landing from './routes/Landing'
+import Landing from '../../routes/Landing/Landing'
 import './App.css';
 
 class App extends React.Component {
