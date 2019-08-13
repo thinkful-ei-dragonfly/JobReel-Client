@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
@@ -11,7 +11,7 @@ export default function App() {
         <main>
           <Switch>
             <Route
-              path={'/register'}
+              path={'/'}
               component={RegistrationRoute}
             />
             {/* <PublicOnlyRoute
