@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import TokenService from '../../services/token-service';
 
 import './Header.css';
 
@@ -48,12 +49,15 @@ class Header exteds React.Component {
             JobReel
           </Link>
         </h1>
-        <div className='conditional render based on auth'>
-          {this.renderLoginLink}
-          {this.renderLogoutLink}
+        <div className='login-logout'>
+          {TokenService.hasAuthToken()
+          ? this.renderLogoutLink()
+          : this.renderLoginLink()}
         </div>
 
       </header>
     )
   }
 }
+
+export default Header;
