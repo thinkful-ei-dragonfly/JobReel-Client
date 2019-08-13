@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Description from '../../components/Description/Description'
 import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../../components/Form/Form'
 import AuthApiService from '../../services/auth-api-service'
@@ -90,6 +91,7 @@ export default class RegistrationRoute extends Component {
                     </div>
                     {' '}
                     <Link className="already" to='/login'>Already have an account?</Link>
+                    <Description />
                 </form>
             </section>
         )
