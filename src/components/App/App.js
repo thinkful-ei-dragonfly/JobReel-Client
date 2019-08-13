@@ -11,21 +11,17 @@ export default function App() {
       <div className='App'>
         <main>
           <Switch>
-            <Route
+            <PublicOnlyRoute
               exact path={'/'}
               component={RegistrationRoute}
             />
-            {/* <PublicOnlyRoute
-              path={'/login'}
-              component={LoginRoute}
-            /> */}
-            <Route
+            <PublicOnlyRoute
               path={'/login'}
               component={LoginRoute}
             />
-            {/* <Route
-              component={NotFoundRoute}
-            /> */}
+            <PrivateRoute
+              
+            />
           </Switch>
         </main>
       </div>

@@ -1,21 +1,21 @@
-// import React from 'react'
-// import { Route, Redirect } from 'react-router-dom'
-// import UserContext from '../../contexts/UserContext'
+import React from 'react'
+import { Route, Redirect } from 'react-router-dom'
+import JobReelContext from '../../context/JobReelContext'
 
-// export default function PublicOnlyRoute({ component, ...props }) {
-//   const Component = component
-//   return (
-//     <Route
-//       {...props}
-//       render={componentProps => (
-//         <UserContext.Consumer>
-//           {userContext =>
-//             !!userContext.user.id
-//               ? <Redirect to={'/'} />
-//               : <Component {...componentProps} />
-//           }
-//         </UserContext.Consumer>
-//       )}
-//     />
-//   )
-// }
+export default function PublicOnlyRoute({ component, ...props }) {
+  const Component = component
+  return (
+    <Route
+      {...props}
+      render={componentProps => (
+        <JobReelContext.Consumer>
+          {jobReelContext =>
+            !!jobReelContext.user.id
+              ? <Redirect to={'/'} />
+              : <Component {...componentProps} />
+          }
+        </JobReelContext.Consumer>
+      )}
+    />
+  )
+}
