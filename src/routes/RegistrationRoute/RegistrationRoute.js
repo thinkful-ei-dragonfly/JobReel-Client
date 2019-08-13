@@ -20,14 +20,19 @@ export default class RegistrationRoute extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault()
-        const { name, username, password } = ev.target
+        const { email, first_name, last_name, username, password } = ev.target
+        console.log(email)
         AuthApiService.postUser({
-            name: name.value,
+            email: email.value,
+            first_name: first_name.value,
+            last_name: last_name.value,
             username: username.value,
             password: password.value,
         })
-            .then(user => {
-                name.value = ''
+            .then(() => {
+                email.value = ''
+                first_name.value = ''
+                last_name.value = ''
                 username.value = ''
                 password.value = ''
                 const { history } = this.props
@@ -53,47 +58,68 @@ export default class RegistrationRoute extends Component {
                         {error && <p>{error}</p>}
                     </div>
                     <div>
-                        <Label htmlFor='registration-name-input'>
-                            Enter your name<Required />
+                        <Label htmlFor='registration-email-input'>
+                            Email:<Required />
                         </Label>
                         <Input
                             ref={this.firstInput}
-                            id='registration-name-input'
-                            name='name'
+                            id='registration-email-input'
+                            name='email'
                             required
                         />
                     </div>
                     <div>
-                        <Label htmlFor='registration-username-input'>
-                            Choose a username<Required />
+                        <Label htmlFor='registration-first-name-input'>
+                            First name:<Required />
                         </Label>
                         <Input
-                            id='registration-username-input'
-                            name='username'
+
+                            id='registration-first-name-input'
+                            name='first_name'
                             required
                         />
                     </div>
                     <div>
-                        <Label htmlFor='registration-password-input'>
-                            Choose a password<Required />
+                        <Label htmlFor='registration-last-name-input'>
+                            Last name:<Required />
                         </Label>
                         <Input
-                            id='registration-password-input'
-                            name='password'
-                            type='password'
+                            id='registration-last-name-input'
+                            name='last_name'
                             required
                         />
                     </div>
-                    <div>
-                        <Button type="submit">
-                            Sign up
+                <div>
+                    <Label htmlFor='registration-username-input'>
+                        Choose a username<Required />
+                    </Label>
+                    <Input
+                        id='registration-username-input'
+                        name='username'
+                        required
+                    />
+                </div>
+                <div>
+                    <Label htmlFor='registration-password-input'>
+                        Choose a password<Required />
+                    </Label>
+                    <Input
+                        id='registration-password-input'
+                        name='password'
+                        type='password'
+                        required
+                    />
+                </div>
+                <div>
+                    <Button type="submit">
+                        Sign up
                         </Button>
-                    </div>
-                    {' '}
-                    <Link className="already" to='/login'>Already have an account?</Link>
-                    <Description />
+                </div>
+                {' '}
+                <Link className="already" to='/login'>Already have an account?</Link>
+                <Description />
                 </form>
-            </section>
+            </section >
         )
     }
 }
