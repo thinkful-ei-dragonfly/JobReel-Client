@@ -1,15 +1,16 @@
-.app-description{
+.app-description {
   border: 1px black solid;
-  width: 60%;
   margin: 25px auto;
   padding: 15px;
+  grid-column-start: 1;
+  grid-column-end: 5;
 }
 
-.app-description h1{
+.app-description > h1{
   font-size: 26px;
 }
 
-.app-description h2{
+.app-description > h2{
   font-size: 20px;
   width: 80%;
   margin: auto;
