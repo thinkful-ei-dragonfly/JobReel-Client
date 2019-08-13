@@ -14,13 +14,12 @@ export default function App() {
               path={'/'}
               component={RegistrationRoute}
             />
-            {/* <PublicOnlyRoute
-              path={'/login'}
-              component={LoginRoute}
+            <PublicOnlyRoute
+             
             />
-            <Route
-              component={NotFoundRoute}
-            /> */}
+            <PrivateRoute
+              
+            />
           </Switch>
         </main>
       </div>
