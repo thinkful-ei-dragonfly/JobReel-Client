@@ -1,0 +1,21 @@
+.header {
+  max-width: 100vw;
+  background: #42836e;
+  max-height: 100px;
+  grid-column-start: 1;
+  grid-column-end: 13;
+}
+
+
+.logo {
+  width: 50%;
+  border: 1px  black solid;
+}
+
+.logo > a {
+  text-decoration: none;
+}
+
+nav > a {
+  text-decoration: none;
+}
