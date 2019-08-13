@@ -21,6 +21,7 @@ export default class RegistrationRoute extends Component {
     handleSubmit = ev => {
         ev.preventDefault()
         const { email, first_name, last_name, username, password } = ev.target
+        console.log(email)
         AuthApiService.postUser({
             email: email.value,
             first_name: first_name.value,
@@ -74,7 +75,7 @@ export default class RegistrationRoute extends Component {
                         <Input
 
                             id='registration-first-name-input'
-                            name='first-name'
+                            name='first_name'
                             required
                         />
                     </div>
@@ -84,7 +85,7 @@ export default class RegistrationRoute extends Component {
                         </Label>
                         <Input
                             id='registration-last-name-input'
-                            name='last-name'
+                            name='last_name'
                             required
                         />
                     </div>
