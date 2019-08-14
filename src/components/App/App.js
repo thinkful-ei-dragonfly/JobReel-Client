@@ -9,6 +9,10 @@ import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 
+// FOR NOW
+
+import AddJobForm from '../AddJobForm/AddJobForm';
+
 export default function App() {
   return (
       <div className='App'>
@@ -26,6 +30,10 @@ export default function App() {
             <PrivateRoute
               path={'/dashboard'}
               component={DashboardRoute}
+            />
+            <PrivateRoute
+              path={'/add-job'}
+              component={AddJobForm}
             />
           </Switch>
         </main>
