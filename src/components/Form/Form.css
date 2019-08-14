@@ -1,15 +1,7 @@
-.form {
-  border: 1px black solid;
-  min-width: 300px;
-  width: 50%;
-  margin: 0 auto;
-  padding: 3% 0;
-  line-height: 200%;
-  border-radius: 10px;
-  text-align: center;
-  max-height: 50%;
-}
+
 
 .Input {
-  border-radius: 5px;
+  border-radius: 10px;
+  width: 15em;
+  height: 1.5em;
 }

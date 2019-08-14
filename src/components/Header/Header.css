@@ -1,15 +1,21 @@
 .header {
   max-width: 100vw;
   background: #42836e;
-  max-height: 100px;
-  grid-column-start: 1;
-  grid-column-end: 13;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  height: 50px;
+  margin-left: 0%;
+
 }
 
 
 .logo {
   width: 50%;
-  border: 1px  black solid;
+  margin: auto;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  text-decoration: none;
 }
 
 .logo > a {
@@ -18,5 +24,13 @@
 }
 
 .nav {
-  width: 50%;
+  grid-column-start: 11;
+  grid-column-end: 13;
+  margin: auto;
+  width: 100%;
+  text-decoration: none;
+}
+
+nav a {
+  text-decoration: none;
 }

@@ -1,0 +1,11 @@
+.Button {
+  background: #9affe1;
+  border-radius: 10px;
+  width: 10em;
+  height: 2em;
+  box-shadow: 0.5em 0.5em 0.2em grey;;
+}
+
+.Button:hover {
+  background: #02ffff;
+}
