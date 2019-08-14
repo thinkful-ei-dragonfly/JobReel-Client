@@ -15,10 +15,6 @@ export default function App() {
         <Header/>
         <main>
           <Switch>
-            <PrivateRoute
-              exact path={'/'}
-              component={DashboardRoute}
-            />
             <PublicOnlyRoute
               exact path={'/'}
               component={RegistrationRoute}
@@ -26,6 +22,10 @@ export default function App() {
             <PublicOnlyRoute
               path={'/login'}
               component={LoginRoute}
+            />
+            <PrivateRoute
+              path={'/dashboard'}
+              component={DashboardRoute}
             />
           </Switch>
         </main>
