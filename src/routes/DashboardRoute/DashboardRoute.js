@@ -2,6 +2,7 @@ import React from 'react';
 import './DashboardRoute.css';
 import JobReelContext from '../../context/JobReelContext';
 import SideNav from '../../components/SideNav/SideNav';
+import SummaryContainer from '../../components/SummaryContainer/SummaryContainer';
 import JobsList from '../../components/JobsList/JobsList'
 
 class DashboardRoute extends React.Component {
@@ -20,8 +21,9 @@ class DashboardRoute extends React.Component {
         <div className='title'>
           <h2>Dashboard</h2>
         </div>
-        <SideNav/>
-        <JobsList/>
+        <SideNav />
+        <SummaryContainer />
+        {/* <JobsList /> */}
       </div>
     )
   }
