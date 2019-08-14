@@ -3,9 +3,12 @@
   border-radius: 10px;
   width: 10em;
   height: 2em;
-  box-shadow: 0.5em 0.5em 0.2em grey;;
+  
 }
 
 .Button:hover {
+  transition: 0.3s;
+  transform: scale(1.2);
+  box-shadow: 0.5em 0.5em 0.2em grey;
   background: #02ffff;
 }

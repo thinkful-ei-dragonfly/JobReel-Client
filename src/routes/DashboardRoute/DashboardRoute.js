@@ -1,8 +1,8 @@
 import React from 'react';
 import './DashboardRoute.css';
 import JobReelContext from '../../context/JobReelContext';
-import NavBar from '../../components/NavBar/NavBar';
-import JobsList from '../../components/JobsList/JobsList';
+import SideNav from '../../components/SideNav/SideNav';
+import SummaryContainer from '../../components/SummaryContainer/SummaryContainer';
 
 class DashboardRoute extends React.Component {
   static defaultProps = {
@@ -22,8 +22,8 @@ class DashboardRoute extends React.Component {
         <div className='title'>
           <h2>Dashboard</h2>
         </div>
-        <NavBar />
-        <JobsList/>
+        <SideNav />
+        <SummaryContainer />
       </div>
     )
   }
