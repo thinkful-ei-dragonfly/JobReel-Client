@@ -6,12 +6,12 @@ import SummaryContainer from '../../components/SummaryContainer/SummaryContainer
 import JobsList from '../../components/JobsList/JobsList'
 
 class DashboardRoute extends React.Component {
-  // static defaultProps = {
-  //   location: {},
-  //   history: {
-  //     push: () => { },
-  //   },
-  // }
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => { },
+    },
+  }
 
   static contextType = JobReelContext;
 
