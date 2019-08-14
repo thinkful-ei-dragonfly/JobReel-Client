@@ -2,9 +2,31 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
+  max-height: 100vh;
 }
 
-#form-container {
+.form-registration {
   grid-column-start: 6;
   grid-column-end: 9;
+  border: 1px black solid;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 5%;
+  line-height: 150%;
+  border-radius: 10px;
+  text-align: center;
+  height: 350px;
+}
+
+.registration-description {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  height: 25em;
+}
+
+@media screen and (max-width: 960px) {
+  .form-registration {
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
 }

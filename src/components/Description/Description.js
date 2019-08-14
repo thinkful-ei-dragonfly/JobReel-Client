@@ -3,7 +3,7 @@ import './Description.css'
 
 export default function Description(props){
   return(
-    <div className="app-description">
+    <div className='app-description'>
       <h1>JobReel</h1>
       <h2>Cast a wide net for your dream job.</h2>
       <p>There are a lot of moving pieces in a job hunt.  

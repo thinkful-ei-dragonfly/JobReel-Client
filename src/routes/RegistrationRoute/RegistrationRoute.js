@@ -52,8 +52,8 @@ export default class RegistrationRoute extends Component {
         const { error } = this.state
         return (
             <div className='registration-page'>
-                <Description />
-                <div className='form'>
+                <Description className='registration-description'/>
+                <div className='form-registration'>
                     <form id="form-container"
 
                         onSubmit={this.handleSubmit}
@@ -65,6 +65,7 @@ export default class RegistrationRoute extends Component {
                             <Label htmlFor='registration-email-input'>
                                 Email:<Required />
                             </Label>
+                            <br/>
                             <Input
                                 ref={this.firstInput}
                                 id='registration-email-input'
@@ -76,6 +77,7 @@ export default class RegistrationRoute extends Component {
                             <Label htmlFor='registration-first-name-input'>
                                 First name:<Required />
                             </Label>
+                            <br/>
                             <Input
 
                                 id='registration-first-name-input'
@@ -87,6 +89,7 @@ export default class RegistrationRoute extends Component {
                             <Label htmlFor='registration-last-name-input'>
                                 Last name:<Required />
                             </Label>
+                            <br/>
                             <Input
                                 id='registration-last-name-input'
                                 name='last_name'
@@ -97,6 +100,7 @@ export default class RegistrationRoute extends Component {
                             <Label htmlFor='registration-username-input'>
                                 Choose a username<Required />
                             </Label>
+                            <br/>
                             <Input
                                 id='registration-username-input'
                                 name='username'
@@ -107,6 +111,7 @@ export default class RegistrationRoute extends Component {
                             <Label htmlFor='registration-password-input'>
                                 Choose a password<Required />
                             </Label>
+                            <br/>
                             <Input
                                 id='registration-password-input'
                                 name='password'
@@ -114,15 +119,16 @@ export default class RegistrationRoute extends Component {
                                 required
                             />
                         </div>
+                        <br/>
                         <div>
                             <Button type="submit">
                                 Sign up
                         </Button>
                         </div>
                         {' '}
+                        <br/>
                         <Link className="already" to='/login'>Already have an account?</Link>
                     </form>
-                    <Description />
                 </div>
             </div>
         )
