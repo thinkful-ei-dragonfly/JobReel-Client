@@ -36,7 +36,7 @@ class Header extends React.Component {
         <nav role='navigation'>
           <Link to ='/login'>Login</Link>
           {' '}
-          <Link to='/register'>Sign Up</Link>
+          <Link to='/'>Sign Up</Link>
         </nav>
       </div>
     )
