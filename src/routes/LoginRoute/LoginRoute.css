@@ -1,0 +1,11 @@
+.LoginRoute {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.new-user {
+  grid-column-start: 3;
+  grid-column-end: 7;
+  text-align: center;
+}
