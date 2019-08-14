@@ -1,16 +1,35 @@
-.app-description{
+.app-description {
   border: 1px black solid;
-  width: 60%;
-  margin: 25px auto;
-  padding: 15px;
+  padding: 5%;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  width: 320px;
+  min-height: 350px;
+  border-radius: 10px;
 }
 
-.app-description h1{
+.app-description > h1{
   font-size: 26px;
+  text-align: left;
 }
 
-.app-description h2{
+.app-description > h2{
   font-size: 20px;
   width: 80%;
   margin: auto;
+  text-align: center;
+}
+
+.app-description > p {
+  margin-top: 1.5em; 
+  line-height: 150%;
+}
+
+@media screen and (max-width: 960px) {
+  .app-description {
+    grid-column-start: 2;
+    grid-column-end: 8;
+  }
+
+
 }

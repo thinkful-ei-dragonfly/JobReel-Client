@@ -1,22 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import TokenService from '../../services/token-service';
-
+import './Header.css';
+import JobReelContext from '../../context/JobReelContext';
 import './Header.css';
 
-class Header exteds React.Component {
+class Header extends React.Component {
 
-  static contextType = UserContext
+  static contextType = JobReelContext
 
   handleLogOutClick = () => {
-    console.log('this function calls for context logout')
+    this.context.processLogout()
   }
 
   renderLogoutLink() {
     return (
       <div className='nav'>
         <span>
-          !!!Placeholder for user name!!!
+          {this.context.user.name}
         </span>
         <nav role ='navigation'>
           <Link 
@@ -35,7 +36,7 @@ class Header exteds React.Component {
         <nav role='navigation'>
           <Link to ='/login'>Login</Link>
           {' '}
-          <Link to='/register'>Sign Up</Link>
+          <Link to='/'>Sign Up</Link>
         </nav>
       </div>
     )
@@ -44,16 +45,14 @@ class Header exteds React.Component {
   render() {
     return (
       <header className='header'>
-        <h1 className='logo'>
-          <Link to ='/'>
-            JobReel
-          </Link>
-        </h1>
-        <div className='login-logout'>
+        <div className='logo'>
+            <Link to ='/'>
+              JobReel
+            </Link>
+        </div>
           {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
-        </div>
 
       </header>
     )
