@@ -1,0 +1,12 @@
+.LoginForm {
+  grid-column-start: 3;
+  grid-column-end: 7;
+  border: 1px black solid;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 5%;
+  line-height: 150%;
+  border-radius: 10px;
+  text-align: center;
+  margin: auto;
+}

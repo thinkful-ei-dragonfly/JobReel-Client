@@ -3,7 +3,7 @@
   padding: 5%;
   grid-column-start: 1;
   grid-column-end: 5;
-  min-width: 320px;
+  width: 320px;
   min-height: 350px;
   border-radius: 10px;
 }
@@ -27,8 +27,8 @@
 
 @media screen and (max-width: 960px) {
   .app-description {
-    grid-column-start: 1;
-    grid-column-end: 9;
+    grid-column-start: 2;
+    grid-column-end: 8;
   }
 
 

@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-  max-height: 100vh;
 }
 
 .form-registration {
@@ -18,6 +17,7 @@
   height: 350px;
 }
 
+
 .registration-description {
   grid-column-start: 1;
   grid-column-end: 5;
@@ -26,7 +26,7 @@
 
 @media screen and (max-width: 960px) {
   .form-registration {
-    grid-column-start: 1;
-    grid-column-end: 9;
+    grid-column-start: 2;
+    grid-column-end: 8;
   }
 }

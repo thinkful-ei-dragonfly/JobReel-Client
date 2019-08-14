@@ -4,20 +4,29 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
-  min-width: 320px;
-  height: 100vh;
+  grid-template-rows: 10% 1fr 10%;
+  grid-gap: 16px;
   min-height: 100vh;
 }
 
 .header {
   grid-column-start: 1;
   grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.footer {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
 
 
 main {
   grid-column-start: 3;
   grid-column-end: 10;
+
 }
 
