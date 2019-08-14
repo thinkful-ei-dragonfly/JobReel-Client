@@ -7,6 +7,9 @@ import './App.css';
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
+import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
+
+import SideNav from '../SideNav/SideNav'
 
 export default function App() {
   return (
@@ -14,6 +17,10 @@ export default function App() {
         <Header/>
         <main>
           <Switch>
+            <PrivateRoute
+              exact path={'/'}
+              component={DashboardRoute}
+            />
             <PublicOnlyRoute
               exact path={'/'}
               component={RegistrationRoute}
@@ -21,9 +28,6 @@ export default function App() {
             <PublicOnlyRoute
               path={'/login'}
               component={LoginRoute}
-            />
-            <PrivateRoute
-              
             />
           </Switch>
         </main>
