@@ -1,0 +1,35 @@
+.NavBar {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 10px;
+  min-width: 150px;
+  height: 50vh;
+  text-align: center;
+}
+
+.link {
+  width: 80%;
+  margin: auto;
+  height: 15%;
+}
+
+.link > a {
+  font-size: 1em;
+}
+
+
+.link > a:hover {
+  font-size: 1.2em;
+  transition: all 0.2s ease-in;
+}
+
+@media screen and (max-width: 960px) {
+  .NavBar {
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
+
+
+}

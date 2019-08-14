@@ -6,7 +6,11 @@ import IdleService from '../services/idle-service'
 const JobReelContext = React.createContext({
     error: null,
     user: {}, //nested Resume object assigned to User?
-    jobs: [],
+    jobs: [{
+        title: 'Job test',
+        description: 'Job description bla bla bla',
+        status: 'Active'
+    }],
     companies: [],
     resources: [],
     contacts: [],

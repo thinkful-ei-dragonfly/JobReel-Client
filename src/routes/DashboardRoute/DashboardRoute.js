@@ -1,8 +1,8 @@
 import React from 'react';
 import './DashboardRoute.css';
 import JobReelContext from '../../context/JobReelContext';
-import SideNav from '../../components/SideNav/SideNav';
-import JobsList from '../../components/JobsList/JobsList'
+import NavBar from '../../components/NavBar/NavBar';
+import JobsList from '../../components/JobsList/JobsList';
 
 class DashboardRoute extends React.Component {
   static defaultProps = {
@@ -12,6 +12,8 @@ class DashboardRoute extends React.Component {
     },
   }
 
+  state = { error: null };
+
   static contextType = JobReelContext;
 
   render() {
@@ -20,7 +22,7 @@ class DashboardRoute extends React.Component {
         <div className='title'>
           <h2>Dashboard</h2>
         </div>
-        <SideNav/>
+        <NavBar />
         <JobsList/>
       </div>
     )
