@@ -46,7 +46,7 @@ class Header extends React.Component {
     return (
       <header className='header'>
         <div className='logo'>
-            <Link to ='/'>
+            <Link to ='/dashboard'>
               JobReel
             </Link>
         </div>

@@ -5,3 +5,9 @@
   width: 15em;
   height: 2em;
 }
+
+.Input:focus {
+  transition: 0.3s;
+  transform: scale(1.2);
+  box-shadow: 0.5em 0.5em 0.2em grey;
+}
