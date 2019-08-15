@@ -1,0 +1,8 @@
+.Summary > h4 {
+  text-align: center;
+}
+
+.options > ul > li {
+  margin: 10px;
+  list-style: none;
+}
