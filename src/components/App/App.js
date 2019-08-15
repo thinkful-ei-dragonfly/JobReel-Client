@@ -8,36 +8,38 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
-
-// FOR NOW
-
-import AddJobForm from '../AddJobForm/AddJobForm';
+import SavedJobsRoute from '../../routes/SavedJobsRoute/SavedJobsRoute';
+import JobsList from '../JobsList/JobsList';
 
 export default function App() {
   return (
-      <div className='App'>
-        <Header/>
-        <main>
-          <Switch>
-            <PublicOnlyRoute
-              exact path={'/'}
-              component={RegistrationRoute}
-            />
-            <PublicOnlyRoute
-              path={'/login'}
-              component={LoginRoute}
-            />
-            <PrivateRoute
-              path={'/dashboard'}
-              component={DashboardRoute}
-            />
-            <PrivateRoute
-              path={'/add-job'}
-              component={AddJobForm}
-            />
-          </Switch>
-        </main>
-        <Footer/>
-      </div>
+    <div className='App'>
+      <Header />
+      <main>
+        <Switch>
+          <Route
+            exact path={'/JobsList'}
+            component={JobsList}
+          />
+          <PublicOnlyRoute
+            exact path={'/'}
+            component={RegistrationRoute}
+          />
+          <PublicOnlyRoute
+            path={'/login'}
+            component={LoginRoute}
+          />
+          <PrivateRoute
+            path={'/dashboard'}
+            component={DashboardRoute}
+          />
+          <PrivateRoute
+            path={'/saved-jobs'}
+            component={SavedJobsRoute}
+          />
+        </Switch>
+      </main>
+      <Footer />
+    </div>
   );
 }

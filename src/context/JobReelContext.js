@@ -6,6 +6,7 @@ import IdleService from '../services/idle-service'
 const JobReelContext = React.createContext({
     error: null,
     user: {}, //nested Resume object assigned to User?
+    jobData: {},
     jobs: [],
     companies: [],
     resources: [],
@@ -23,6 +24,7 @@ const JobReelContext = React.createContext({
     setContacts: () => { },
     setMeetups: () => { },
     setProfessionals: () => { },
+    setJobData: () => { },
 })
 
 export default JobReelContext
@@ -35,10 +37,26 @@ export class JobReelProvider extends Component {
             user: {}, //nested Resume object assigned to User?
             jobs: [],
             companies: [],
-            resoureces: [],
+            resources: [],
             contacts: [],
             meetups: [],
             professionals: [],
+            jobData: {},
+            setError: this.setError,
+            clearError: this.clearError,
+            setUser: this.setUser,
+            setJobs: this.setJobs,
+            setCompanies: this.setCompanies,
+            setResources: this.setResources,
+            setContacts: this.setContacts,
+            setMeetups: this.setMeetups,
+            setProfessionals: this.setProfessionals,
+            setJobDetails: this.setJobDetails,
+            setJobStatus: this.setJobStatus,
+            processLogin: this.processLogin,
+            processLogout: this.processLogout,
+            handleSubmit: this.handleSubmit,
+            setJobData: this.setJobData
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -81,6 +99,13 @@ export class JobReelProvider extends Component {
         this.setState({ user })
     }
 
+    setJobData = jobData => {
+        this.setState({
+            jobData
+        })
+        this.setJobs(jobData.results)
+    }
+
     setJobs = jobs => {
         this.setState({ jobs })
     }
@@ -103,6 +128,23 @@ export class JobReelProvider extends Component {
 
     setProfessionals = professionals => {
         this.setState({ professionals })
+    }
+
+    setJobDetails = (details, jobkey) => {
+
+        const updatedJobs = [...this.state.jobs]
+        updatedJobs.find(job => job.jobkey === jobkey).details = details;
+        this.setState({
+            jobs: updatedJobs
+        })
+    }
+
+    setJobStatus = (status, jobkey) => {
+        const updatedJobs = [...this.state.jobs]
+        updatedJobs.find(job => job.jobkey === jobkey).status = status;
+        this.setState({
+            jobs: updatedJobs
+        })
     }
 
     processLogin = authToken => {
@@ -147,30 +189,8 @@ export class JobReelProvider extends Component {
     }
 
     render() {
-        const value = {
-            user: this.state.user,
-            error: this.state.error,
-            jobs: this.state.jobs,
-            companies: this.state.companies,
-            resources: this.state.resources,
-            contacts: this.contacts,
-            meetups: this.meetups,
-            professionals: this.professionals,
-            setError: this.setError,
-            clearError: this.clearError,
-            setUser: this.setUser,
-            setJobs: this.setJobs,
-            setCompanies: this.setCompanies,
-            setResources: this.setResources,
-            setContacts: this.setContacts,
-            setMeetups: this.setMeetups,
-            setProfessionals: this.setProfessionals,
-            processLogin: this.processLogin,
-            processLogout: this.processLogout,
-            handleSubmit: this.handleSubmit,
-        }
         return (
-            <JobReelContext.Provider value={value}>
+            <JobReelContext.Provider value={this.state}>
                 {this.props.children}
             </JobReelContext.Provider>
         )
