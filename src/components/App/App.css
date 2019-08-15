@@ -9,6 +9,10 @@
   min-height: 100vh;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   grid-column-start: 1;
   grid-column-end: 13;
@@ -26,7 +30,7 @@
 
 main {
   grid-column-start: 3;
-  grid-column-end: 10;
+  grid-column-end: 11;
 
 }
 

@@ -3,7 +3,6 @@ import './DashboardRoute.css';
 import JobReelContext from '../../context/JobReelContext';
 import SideNav from '../../components/SideNav/SideNav';
 import SummaryContainer from '../../components/SummaryContainer/SummaryContainer';
-import JobsList from '../../components/JobsList/JobsList'
 
 class DashboardRoute extends React.Component {
   static defaultProps = {
@@ -12,6 +11,8 @@ class DashboardRoute extends React.Component {
       push: () => { },
     },
   }
+
+  state = { error: null };
 
   static contextType = JobReelContext;
 
@@ -23,7 +24,6 @@ class DashboardRoute extends React.Component {
         </div>
         <SideNav />
         <SummaryContainer />
-        {/* <JobsList /> */}
       </div>
     )
   }
