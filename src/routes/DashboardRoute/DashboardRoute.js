@@ -3,7 +3,7 @@ import './DashboardRoute.css';
 import JobReelContext from '../../context/JobReelContext';
 import SideNav from '../../components/SideNav/SideNav';
 import SummaryContainer from '../../components/SummaryContainer/SummaryContainer';
-import summary from './summary.svg'
+import summary from './summary.svg';
 
 class DashboardRoute extends React.Component {
   static defaultProps = {

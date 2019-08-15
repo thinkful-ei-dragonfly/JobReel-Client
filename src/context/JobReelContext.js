@@ -46,6 +46,7 @@ export class JobReelProvider extends Component {
             clearError: this.clearError,
             setUser: this.setUser,
             setJobs: this.setJobs,
+            setSavedJobs: this.setSavedJobs,
             setCompanies: this.setCompanies,
             setResources: this.setResources,
             setContacts: this.setContacts,
@@ -108,6 +109,10 @@ export class JobReelProvider extends Component {
 
     setJobs = jobs => {
         this.setState({ jobs })
+    }
+
+    setSavedJobs = savedJobs => {
+        this.setState({ savedJobs })
     }
 
     setCompanies = companies => {

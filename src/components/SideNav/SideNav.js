@@ -11,7 +11,7 @@ class SideNav extends React.Component {
         </div>
           <br/>
         <div className='link'>
-          <Link to='/jobs/interested'>JOBS THAT I LIKE</Link>
+          <Link to='/saved-jobs'>JOBS THAT I LIKE</Link>
         </div>
           <br/>
         <div className='link'>

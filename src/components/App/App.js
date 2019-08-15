@@ -8,6 +8,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
+import SavedJobsRoute from '../../routes/SavedJobsRoute/SavedJobsRoute';
 import JobsList from '../JobsList/JobsList';
 
 export default function App() {
@@ -31,6 +32,10 @@ export default function App() {
           <PrivateRoute
             path={'/dashboard'}
             component={DashboardRoute}
+          />
+          <PrivateRoute
+            path={'/saved-jobs'}
+            component={SavedJobsRoute}
           />
         </Switch>
       </main>
