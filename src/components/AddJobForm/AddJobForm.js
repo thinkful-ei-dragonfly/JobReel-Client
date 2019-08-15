@@ -3,20 +3,35 @@ import { Input, Label } from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 
+import TokenService from '../../services/token-service';
+
 class AddJobForm extends React.Component {
   static contextType = JobReelContext;
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const jobTitle = e.target['job-title'].value;
+    const job_title = e.target['job-title'].value;
     const company = e.target.company.value;
     const city = e.target.city.value;
     const state = e.target.state.value;
     const url = e.target.url.value;
-    const desc = e.target.desc.value;
+    const description = e.target.desc.value;
     const status = e.target.status.value;
-    const userInput = { jobTitle, company, city, state, url, desc, status };
+    const userInput = { userID: this.context.user.id, job_title, company, city, state, url, description, status };
+    const body = JSON.stringify(userInput);
     console.log(userInput);
+    fetch('http://localhost:8000/api/jobs', {
+      method: 'POST',
+      headers: {
+        'authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
+      },
+      body: body
+    })
+      .then(res => {
+        console.log('Saving job');
+        console.log(res.json());
+      })
   }
 
   renderStateOptions = () => {
@@ -78,6 +93,24 @@ class AddJobForm extends React.Component {
     })
   }
 
+  componentDidMount = () => {
+    fetch('http://localhost:8000/api/jobs', {
+      method: 'GET',
+      headers: {
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+        // (!res.ok)
+        //   ? res.json().then(e => Promise.reject(e))
+        //   : res.json()
+        console.log(`Auth Token: ${TokenService.getAuthToken()}`)
+        console.log('Fetching jobs')
+        console.log(res.json())
+      }
+    )
+  }
+
   render() {
     console.log(this.context.user);
     return (
@@ -119,10 +152,6 @@ class AddJobForm extends React.Component {
               State
             </Label>
             <br/>
-            {/* <Input
-              id='state-input'
-              name='state'
-            /> */}
             <select name="state" id="state-input">
               {this.renderStateOptions()}
             </select>
