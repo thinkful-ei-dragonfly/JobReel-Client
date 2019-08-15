@@ -37,6 +37,10 @@
   height: 25em;
 }
 
+.error {
+  color: red;
+}
+
 @media screen and (max-width: 960px) {
   .form-registration {
     grid-column-start: 2;
