@@ -18,6 +18,7 @@ export default class RegistrationRoute extends Component {
 
     state = { error: null }
 
+
     firstInput = React.createRef()
 
     handleSubmit = ev => {
