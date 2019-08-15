@@ -10,40 +10,23 @@ export default class Job extends Component {
         expanded: false
     }
 
-    // componentDidMount() {
-    //     const jobkey = this.props.job.jobkey
-    //     JobReelApiService.getJobDetails(jobkey)
-    //         .then(data => {
-    //             this.context.setJobDetails(details, jobkey)
-    //         })
-    //         .catch(this.context.setError)
-    // }
+    componentDidMount() {
 
-
-    setJobDetails = (details, jobkey) => {
-
-        const updatedJobs = [...this.state.jobs]
-        updatedJobs.find(job => job.jobkey === jobkey).details = details;
-        this.setState({
-            jobs: updatedJobs
-        })
-    }
-
-    setJobStatus = (status, jobkey) => {
-        const updatedJobs = [...this.state.jobs]
-        updatedJobs.find(job => job.jobkey === jobkey).status = status;
-        this.setState({
-            jobs: updatedJobs
-        })
     }
 
     renderJob() {
-        const { job } = this.props
+        const { job = {}} = this.props
+        console.log(job.category)
         return (
             <li>
-                {job.jobtitle}
-                {job.company}
-                {job.status}
+                {job.title}
+                <br/>
+                {job.category.name}
+                <br/>
+                {job.type.name}
+                <br/>
+                {job.company.name}
+                {job.company.location.name}
                 <button onClick={this.handleExpand} className="expandButton">
                     <div className="expand">&#x2965;</div>
                     Get More Details
@@ -52,22 +35,23 @@ export default class Job extends Component {
         )
     }
 
-    renderJobDetails() {
-        //parse job details object to turn into JSX
-        // {job.results.formattedLocationFull}
-        //         {job.results.date}
-        //         {job.results.snippet}
-        //         {job.results.url}
+    renderJobDescription() {
+        //Transform job description HTML into JSX
     }
 
     renderJobExpanded() {
         const { job } = this.props
         return (
             <li>
-                <h2>Results:</h2>
-                {job.jobtitle}
-                {job.company}
-                {/* {job.details} */}
+                {job.title}
+                {job.category.name}
+                {job.type.name}
+                {job.company.name}
+                {job.company.location.name}
+                {job.company.url}
+                {job.company.perks}
+                {job.apply_url}
+                {/* {job.description} */}
                 <button onClick={this.handleCollapse} className="collapseButton">
                     <div className="collapse">&#x2963;</div>
                     <h3>Collapse</h3>
@@ -77,11 +61,11 @@ export default class Job extends Component {
     }
 
     handleExpand = () => {
-        this.setState({ expand: true })
+        this.setState({ expanded: true })
     }
 
     handleCollapse = () => {
-        this.setState({ expand: false })
+        this.setState({ expanded: false })
     }
 
     renderFunction = () => {
@@ -96,7 +80,8 @@ export default class Job extends Component {
     render() {
         return (
             <>
-                {this.renderFunction()}
+                {this.props.job.category 
+                && this.renderFunction()}
             </>
         )
     }
