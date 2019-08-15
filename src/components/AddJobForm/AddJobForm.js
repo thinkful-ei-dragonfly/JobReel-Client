@@ -20,7 +20,7 @@ class AddJobForm extends React.Component {
     const userInput = { userID: this.context.user.id, job_title, company, city, state, url, description, status };
     const body = JSON.stringify(userInput);
     console.log(userInput);
-    fetch('http://localhost:8000/api/jobs', {
+    fetch('http://localhost:8000/api/savedjobs', {
       method: 'POST',
       headers: {
         'authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -94,7 +94,7 @@ class AddJobForm extends React.Component {
   }
 
   componentDidMount = () => {
-    fetch('http://localhost:8000/api/jobs', {
+    fetch('http://localhost:8000/api/savedjobs', {
       method: 'GET',
       headers: {
         'authorization': `Bearer ${TokenService.getAuthToken()}`
