@@ -103,7 +103,7 @@ export class JobReelProvider extends Component {
         this.setState({
             jobData
         })
-        this.setJobs(jobData.results)
+        this.setJobs(jobData.listing)
     }
 
     setJobs = jobs => {
@@ -130,14 +130,15 @@ export class JobReelProvider extends Component {
         this.setState({ professionals })
     }
 
-    setJobDetails = (details, jobkey) => {
+    //INDEED API METHOD
+    // setJobDetails = (details, jobkey) => {
 
-        const updatedJobs = [...this.state.jobs]
-        updatedJobs.find(job => job.jobkey === jobkey).details = details;
-        this.setState({
-            jobs: updatedJobs
-        })
-    }
+    //     const updatedJobs = [...this.state.jobs]
+    //     updatedJobs.find(job => job.jobkey === jobkey).details = details;
+    //     this.setState({
+    //         jobs: updatedJobs
+    //     })
+    // }
 
     setJobStatus = (status, jobkey) => {
         const updatedJobs = [...this.state.jobs]
