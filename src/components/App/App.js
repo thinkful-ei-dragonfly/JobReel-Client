@@ -9,6 +9,8 @@ import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 
+import AddEventForm from '../AddEventForm/AddEventForm';
+
 export default function App() {
   return (
       <div className='App'>
@@ -26,6 +28,10 @@ export default function App() {
             <PrivateRoute
               path={'/dashboard'}
               component={DashboardRoute}
+            />
+            <PrivateRoute
+              path={'/add-event'}
+              component={AddEventForm}
             />
           </Switch>
         </main>
