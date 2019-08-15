@@ -1,6 +1,6 @@
 .LoginForm {
-  grid-column-start: 3;
-  grid-column-end: 7;
+  grid-column-start: 1;
+  grid-column-end: 9;
   border: 1px black solid;
   min-width: 300px;
   margin: 0 auto;
@@ -11,5 +11,10 @@
   margin: auto;
   background: #3b3a50;
   color: #eeebd9;
+}
+
+.LoginForm:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
   box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
