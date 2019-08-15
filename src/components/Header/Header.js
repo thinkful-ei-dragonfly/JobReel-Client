@@ -4,6 +4,7 @@ import TokenService from '../../services/token-service';
 import './Header.css';
 import JobReelContext from '../../context/JobReelContext';
 import './Header.css';
+import logo from '../../assests/jobreellogo200.png'
 
 class Header extends React.Component {
 
@@ -46,9 +47,9 @@ class Header extends React.Component {
     return (
       <header className='header'>
         <div className='logo'>
-            <Link to ='/dashboard'>
-              JobReel
-            </Link>
+          <Link to='/dashboard'>
+            <img src={logo} alt='jobreel-logo'/>
+          </Link>
         </div>
           {TokenService.hasAuthToken()
           ? this.renderLogoutLink()

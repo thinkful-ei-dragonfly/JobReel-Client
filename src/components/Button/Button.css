@@ -1,14 +1,14 @@
 .Button {
-  background: #9affe1;
+  background: #56403e;
   border-radius: 10px;
   width: 10em;
   height: 2em;
-  
+  color: #eeebd9;
 }
 
 .Button:hover {
   transition: 0.3s;
   transform: scale(1.2);
-  box-shadow: 0.5em 0.5em 0.2em grey;
-  background: #02ffff;
+  background: #3C824E;
+  box-shadow: 0.5em 0.5em 0.2em rgb(48, 39, 39);
 }

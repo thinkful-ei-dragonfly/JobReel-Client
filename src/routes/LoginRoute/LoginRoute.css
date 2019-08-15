@@ -3,9 +3,22 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+.login-image {
+  position: relative;
+}
+
+.login-image > img {
+  height: 320px;
+  width: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
 .new-user {
   grid-column-start: 3;
   grid-column-end: 7;
   text-align: center;
+  color: #3C3230;
 }
