@@ -16,11 +16,25 @@ class AddEventForm extends React.Component {
     const city = e.target.city.value;
     const state = e.target.state.value;
     const address = e.target.address.value;
+    const date = e.target.date.value;
     const url = e.target.url.value;
     const description = e.target.desc.value;
     const status = e.target.status.value;
-    const userInput = { userID: this.context.user.id, event_name, host, city, state, address, url, description, status }
+    const userInput = { user_id: this.context.user.id, event_name, host, city, state, address, date, url, description, status };
+    const body = JSON.stringify(userInput);
     console.log(userInput);
+    fetch('http://localhost:8000/api/events', {
+      method: 'POST',
+      headers: {
+        'authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
+      },
+      body: body
+    })
+      .then(res => {
+        console.log('Saving event');
+        console.log(res.json());
+      })
   }
 
 
@@ -36,7 +50,7 @@ class AddEventForm extends React.Component {
         //   ? res.json().then(e => Promise.reject(e))
         //   : res.json()
         console.log(`Auth Token: ${TokenService.getAuthToken()}`)
-        console.log('Fetching jobs')
+        console.log('Fetching events')
         console.log(res.json())
       }
     )
@@ -151,6 +165,17 @@ class AddEventForm extends React.Component {
             <Input
               id='address-input'
               name='address'
+            />
+          </div>
+          <div>
+            <Label htmlFor='date-input'>
+              Date
+            </Label>
+            <br/>
+            <Input
+              type="date"
+              id='date-input'
+              name='date'
             />
           </div>
           <div>
