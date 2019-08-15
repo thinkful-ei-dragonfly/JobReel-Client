@@ -6,29 +6,25 @@ export default class JobsList extends Component {
     static contextType = JobReelContext
 
     componentDidMount() {
-
         setTimeout(() => {
             const search = this.context.search
-            const jobs = JobReelApiService.getJobs(search)
-            this.context.setJobData(jobs)
-            console.log(this.context)
-                // .then(this.context.setJobs)
-                // .catch(this.context.setError)
-        }, 200)
+            JobReelApiService.getJobs(search)
+                .then(this.context.setJobData)
+                .catch(this.context.setError)
+        }, 500)
     }
 
     renderJobList() {
         const {jobData = {}} = this.context
         const {jobs = {} } = this.context
+        console.log(jobData)
         console.log(jobs)
-        const jobsList= jobs.map(job => {
-            return <Job job={job} />
+        const jobsList= jobs.map((job, i) => {
+            return <Job job={job} key={i}/>
         })
         return (
             <>
-            Total Results: {jobData.totalResults}
-            <br/>
-            Page Number: {jobData.pageNumber+1}
+            Total Results: {jobData.total}
             <br/>
             JobsList:
             {jobsList}

@@ -4,7 +4,6 @@ import JobReelContext from '../../context/JobReelContext';
 import SideNav from '../../components/SideNav/SideNav';
 import SummaryContainer from '../../components/SummaryContainer/SummaryContainer';
 import summary from './summary.svg';
-import jobReelApiService from '../../services/jobreel-api-service';
 
 class DashboardRoute extends React.Component {
   static defaultProps = {
@@ -17,13 +16,6 @@ class DashboardRoute extends React.Component {
   state = { error: null };
 
   static contextType = JobReelContext;
-
-  componentWillMount = () => {
-    jobReelApiService.getJobs()
-      .then(res => {
-        this.context.setJobs(res.jobs)
-      })
-  }
 
   render() {
     return(
