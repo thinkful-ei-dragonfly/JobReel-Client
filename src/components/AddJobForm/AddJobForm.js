@@ -4,35 +4,30 @@ import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 
-class AddEventForm extends React.Component {
-
-  static contextType = JobReelContext
+class AddJobForm extends React.Component {
+  static contextType = JobReelContext;
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const event_name = e.target.event.value;
-    const host = e.target.host.value;
+    const job_title = e.target['job-title'].value;
+    const company = e.target.company.value;
     const city = e.target.city.value;
     const state = e.target.state.value;
-    const address = e.target.address.value;
-    const date = e.target.date.value;
     const url = e.target.url.value;
     const description = e.target.desc.value;
     const status = e.target.status.value;
-    const userInput = { user_id: this.context.user.id, event_name, host, city, state, address, date, url, description, status };
-    e.target.event.value = '';
-    e.target.host.value = '';
+    e.target['job-title'].value = '';
+    e.target.company.value = '';
     e.target.city.value = '';
     e.target.state.value = '';
-    e.target.address.value = '';
-    e.target.date.value = '';
     e.target.url.value = '';
     e.target.desc.value = '';
     e.target.status.value = '';
-    jobReelApiService.submitEvent(userInput)
+    const userInput = { userID: this.context.user.id, job_title, company, city, state, url, description, status };
+    jobReelApiService.submitJob(userInput)
       .then(res => {
-        this.context.setSavedEvents([...this.context.savedEvents, res]);
-      })
+        this.context.setSavedJobs([...this.context.savedJobs, res]);
+      });
   }
 
   renderStateOptions = () => {
@@ -95,26 +90,27 @@ class AddEventForm extends React.Component {
 
   render() {
     return (
-      <div className="AddEventForm">
+      <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <Label htmlFor='event-name-input'>
-              Event
+            <Label htmlFor='job-title-input'>
+              Job Title
             </Label>
             <br/>
             <Input
-              id='event-name-input'
-              name='event'
+              ref={this.firstInput}
+              id='job-title-input'
+              name='job-title'
             />
           </div>
           <div>
-            <Label htmlFor='host-input'>
-              Host
+            <Label htmlFor='company-input'>
+              Company
             </Label>
             <br/>
             <Input
-              id='host-input'
-              name='host'
+              id='company-input'
+              name='company'
             />
           </div>
           <div>
@@ -135,27 +131,6 @@ class AddEventForm extends React.Component {
             <select name="state" id="state-input">
               {this.renderStateOptions()}
             </select>
-          </div>
-          <div>
-            <Label htmlFor='address-input'>
-              Address
-            </Label>
-            <br/>
-            <Input
-              id='address-input'
-              name='address'
-            />
-          </div>
-          <div>
-            <Label htmlFor='date-input'>
-              Date
-            </Label>
-            <br/>
-            <Input
-              type="date"
-              id='date-input'
-              name='date'
-            />
           </div>
           <div>
             <Label htmlFor='url-input'>
@@ -186,8 +161,8 @@ class AddEventForm extends React.Component {
               id='status-input'
               name='status'
             >
-              <option value="Will Attend">Will attend</option>
-              <option value="Maybe">Maybe</option>
+              <option value="interested">Interested</option>
+              <option value="applied">Applied</option>
             </select>
           </div>
           <Button type="submit">Submit</Button>
@@ -197,4 +172,4 @@ class AddEventForm extends React.Component {
   }
 }
 
-export default AddEventForm;
+export default AddJobForm;

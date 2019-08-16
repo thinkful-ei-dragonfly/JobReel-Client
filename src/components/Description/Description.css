@@ -6,6 +6,9 @@
   width: 320px;
   min-height: 350px;
   border-radius: 10px;
+  background: #3b3a50;
+  color: #eeebd9;
+  box-shadow: 0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
 
 .app-description > h1{

@@ -7,11 +7,11 @@ import App from './components/App/App'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
+    <JobReelProvider>
     <BrowserRouter>
-        <JobReelProvider>
             <App />
-        </JobReelProvider>
-    </BrowserRouter>,
+    </BrowserRouter>
+    </JobReelProvider>,
     document.getElementById('root'),
 )
 

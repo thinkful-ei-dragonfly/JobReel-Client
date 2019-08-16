@@ -1,13 +1,20 @@
 .SideNav {
   grid-column-start: 1;
   grid-column-end: 3;
-  border: 1px solid black;
   padding: 0.5em;
   border-radius: 10px;
   min-width: 150px;
   min-height: 250px;
   height: 350px;
   text-align: left;
+  background: #3C3230;
+  color: #eeebd9;
+}
+
+.SideNav:hover {
+  box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+  transition: all 0.2s ease-in;
+  transform: scale(1.05);
 }
 
 .link {
@@ -15,6 +22,7 @@
   height: 40px;
   margin: auto;
   border-radius: 8px;
+  padding: 0.2em;
 }
 
 .link > a {
@@ -25,7 +33,7 @@
 .link:active, .link:hover {
   /* transform: scale(1.05);
   transition: all 0.3s ease-in; */
-  background: #ececec;
+  background: #9E4624;
 }
 
 @media screen and (max-width: 960px) {

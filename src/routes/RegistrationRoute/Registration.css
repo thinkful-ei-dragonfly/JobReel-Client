@@ -2,6 +2,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
+  background-attachment: scroll;
+  position: relative;
+}
+
+.registration-image > img {
+  float: left;
+  height: 320px;
+  width: 320px;
+  position: absolute;
+  left: -35%;
+  z-index: -1;
 }
 
 .form-registration {
@@ -14,14 +25,20 @@
   line-height: 150%;
   border-radius: 10px;
   text-align: center;
-  height: 350px;
+  height: 370px;
+  background: #3b3a50;
+  color: #eeebd9;
+  box-shadow: 0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
-
 
 .registration-description {
   grid-column-start: 1;
   grid-column-end: 5;
   height: 25em;
+}
+
+.error {
+  color: red;
 }
 
 @media screen and (max-width: 960px) {

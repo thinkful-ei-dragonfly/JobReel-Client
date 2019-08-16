@@ -5,6 +5,8 @@
   border-radius: 10px;
   height: 350px;
   position: relative;
+  background: #3C3230;
+  color: #eeebd9;
 }
 
 .carousel__next-button {
@@ -13,7 +15,7 @@
   right: -20px;
   top: 50%;
   height: 2em;
-  background: #9affe1;
+  background: #3C824E;
 }
 
 .carousel__back-button {
@@ -22,14 +24,14 @@
   left: -20px;
   top: 50%;
   height: 2em;
-  background: #9affe1;
+  background: #3C824E;
 }
 
 .carousel__back-button:hover, .carousel__next-button:hover {
   transition: 0.5s;
   transform: scale(1.3);
-  background: #02ffff;
-  box-shadow: 0.5em 0.5em 0.2em grey;
+  background: #3C824E;
+  box-shadow: 0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
 
 .carousel__back-button:active, .carousel__next-button:active {
