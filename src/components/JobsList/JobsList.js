@@ -54,7 +54,7 @@ export default class JobsList extends Component {
             return <GithubJob job={job} key={i}/>
         })
         const jobsListTwo = authenticJobs.map((job, i) => {
-            return <Job job={job} company={job.company} type={job.type} key={i}/>
+            return <Job job={job} company={job.company} type={job.type} location={job.company.name} key={i}/>
         })
         return (
             <>

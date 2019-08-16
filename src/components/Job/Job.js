@@ -14,6 +14,7 @@ export default class Job extends Component {
         const {job = {}} = this.props
         const {type = {}} = this.props
         const {company = {}} = this.props
+        const {location = {}} = this.props
         console.log(job.category)
         return (
             <li>
@@ -23,7 +24,7 @@ export default class Job extends Component {
                 <br/>
                 COMPANY: {company.name}
                 <br/>
-                LOCATION: {company.location.name}
+                LOCATION: {this.location ? location.name : 'Remote'}
                 <br/>
                 <button onClick={this.handleExpand} className="expandButton">
                     <div className="expand">&#x2965;</div>
@@ -41,6 +42,7 @@ export default class Job extends Component {
         const { job = {}} = this.props
         const {type = {}} = this.props
         const {company = {}} = this.props
+        const {location = {}} = this.props
         return (
             <li>
                 JOB TITLE: {job.title}
@@ -49,7 +51,7 @@ export default class Job extends Component {
                 <br/>
                 COMPANY: {company.name}
                 <br/>
-                LOCATION: {company.location.name}
+                LOCATION: {this.location ? location.name : 'Remote'}
                 <br/>
                 COMPANY URL: {company.url}
                 <br/>
@@ -84,7 +86,7 @@ export default class Job extends Component {
     render() {
         return (
             <>
-                {this.props.job.category 
+                {this.props.job.company 
                 && this.renderFunction()}
             </>
         )
