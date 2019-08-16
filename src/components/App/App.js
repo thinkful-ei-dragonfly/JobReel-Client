@@ -39,7 +39,7 @@ export default function App() {
             component={SavedJobsRoute}
           />
           <PrivateRoute
-            path={'/events'}
+            path={'/saved-events'}
             component={SavedEventsRoute}
           />
         </Switch>

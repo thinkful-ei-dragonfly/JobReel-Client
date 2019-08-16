@@ -5,10 +5,17 @@ import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 
 class AddJobForm extends React.Component {
+
   static contextType = JobReelContext;
+
+  state = {
+    error: null
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
+    e.persist();
+    this.setState({ error: null });
     const job_title = e.target['job-title'].value;
     const company = e.target.company.value;
     const city = e.target.city.value;
@@ -16,17 +23,20 @@ class AddJobForm extends React.Component {
     const url = e.target.url.value;
     const description = e.target.desc.value;
     const status = e.target.status.value;
-    e.target['job-title'].value = '';
-    e.target.company.value = '';
-    e.target.city.value = '';
-    e.target.state.value = '';
-    e.target.url.value = '';
-    e.target.desc.value = '';
-    e.target.status.value = '';
     const userInput = { userID: this.context.user.id, job_title, company, city, state, url, description, status };
     jobReelApiService.submitJob(userInput)
       .then(res => {
+        e.target['job-title'].value = '';
+        e.target.company.value = '';
+        e.target.city.value = '';
+        e.target.state.value = '';
+        e.target.url.value = '';
+        e.target.desc.value = '';
+        e.target.status.value = '';
         this.context.setSavedJobs([...this.context.savedJobs, res]);
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
       });
   }
 
@@ -89,9 +99,13 @@ class AddJobForm extends React.Component {
   }
 
   render() {
+    const { error } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <div role='alert'>
+            {error && <p>{error}</p>}
+          </div>
           <div>
             <Label htmlFor='job-title-input'>
               Job Title

@@ -26,6 +26,10 @@ class SideNav extends React.Component {
           <Link to='/events'>NETWORKING EVENTS</Link>
         </div>
           <br/>
+        <div className='link'>
+          <Link to='/saved-events'>MY EVENTS</Link>
+        </div>
+          <br/>
         <div className="link">
           <Link to='/resources'>USEFUL RESOURCES</Link>
         </div>

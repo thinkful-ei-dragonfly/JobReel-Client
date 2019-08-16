@@ -8,8 +8,14 @@ class AddEventForm extends React.Component {
 
   static contextType = JobReelContext
 
+  state = {
+    error: null
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
+    e.persist();
+    this.setState({ error: null });
     const event_name = e.target.event.value;
     const host = e.target.host.value;
     const city = e.target.city.value;
@@ -20,18 +26,21 @@ class AddEventForm extends React.Component {
     const description = e.target.desc.value;
     const status = e.target.status.value;
     const userInput = { user_id: this.context.user.id, event_name, host, city, state, address, date, url, description, status };
-    e.target.event.value = '';
-    e.target.host.value = '';
-    e.target.city.value = '';
-    e.target.state.value = '';
-    e.target.address.value = '';
-    e.target.date.value = '';
-    e.target.url.value = '';
-    e.target.desc.value = '';
-    e.target.status.value = '';
     jobReelApiService.submitEvent(userInput)
       .then(res => {
+        e.target.event.value = '';
+        e.target.host.value = '';
+        e.target.city.value = '';
+        e.target.state.value = '';
+        e.target.address.value = '';
+        e.target.date.value = '';
+        e.target.url.value = '';
+        e.target.desc.value = '';
+        e.target.status.value = '';
         this.context.setSavedEvents([...this.context.savedEvents, res]);
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
       })
   }
 
@@ -94,8 +103,12 @@ class AddEventForm extends React.Component {
   }
 
   render() {
+    const { error } = this.state;
     return (
       <div className="AddEventForm">
+        <div role='alert'>
+          {error && <p>{error}</p>}
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div>
             <Label htmlFor='event-name-input'>

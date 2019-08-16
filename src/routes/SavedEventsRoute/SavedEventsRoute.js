@@ -16,8 +16,6 @@ class SavedEventsRoute extends React.Component {
   }
 
   render() {
-    console.log('Saved events:');
-    console.log(this.context.savedEvents);
     return (
       <div className="SavedEventsRoute">
         <SideNav />
