@@ -1,17 +1,26 @@
 import React from 'react';
 import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
+<<<<<<< HEAD
 import './JobSearchForm.css';
+=======
+import JobReelContext from '../../context/JobReelContext';
+>>>>>>> 477d38a092de0fa607c873235588beab1b9f18d1
 
 class JobSearchForm extends React.Component {
+  static contextType = JobReelContext
+
   handleSubmit = (e) => {
     e.preventDefault();
-    const industry = e.target.industry.value;
+    // const industry = e.target.industry.value;
     const jobTitle = e.target['job-title'].value;
     const location = e.target.location.value;
     const userInput = { industry, jobTitle, location };
     this.takeToNext();
     // Make api call
+    this.context.setSearch({ jobTitle, location })
+    this.props.history.push(`/JobsList`)
+    console.log(this.context)
   }
 
   takeToNext = () => {
@@ -34,7 +43,7 @@ class JobSearchForm extends React.Component {
               id='industry-input'
               name='industry'
             />
-          </div>
+          </div> */}
           <div>
             <Label htmlFor='job-title-input'>
               Job Title

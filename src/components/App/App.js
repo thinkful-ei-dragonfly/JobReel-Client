@@ -11,6 +11,7 @@ import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 import JobSearcForm from '../JobSearchForm/JobSearchForm';
 import SavedJobsRoute from '../../routes/SavedJobsRoute/SavedJobsRoute';
 import JobsList from '../JobsList/JobsList';
+import JobSearchForm from '../JobSearchForm/JobSearchForm';
 
 export default function App() {
   return (
@@ -18,10 +19,13 @@ export default function App() {
       <Header />
       <main>
         <Switch>
+<<<<<<< HEAD
           <PrivateRoute
             exact path={'/jobsearch'}
             component={JobSearcForm}
           />
+=======
+>>>>>>> 477d38a092de0fa607c873235588beab1b9f18d1
           <PublicOnlyRoute
             exact path={'/'}
             component={RegistrationRoute}
@@ -41,6 +45,14 @@ export default function App() {
           <PrivateRoute
             path={'/saved-jobs'}
             component={SavedJobsRoute}
+          />
+          <PrivateRoute
+            path={'/jobs'}
+            component={JobSearchForm}
+          />
+          <PrivateRoute
+            exact path={'/JobsList'}
+            component={JobsList}
           />
         </Switch>
       </main>
