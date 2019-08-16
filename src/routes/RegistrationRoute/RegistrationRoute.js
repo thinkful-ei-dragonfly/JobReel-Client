@@ -24,7 +24,6 @@ export default class RegistrationRoute extends Component {
     handleSubmit = ev => {
         ev.preventDefault()
         const { email, first_name, last_name, username, password } = ev.target
-        console.log(email)
         AuthApiService.postUser({
             email: email.value,
             first_name: first_name.value,
@@ -63,7 +62,7 @@ export default class RegistrationRoute extends Component {
 
                         onSubmit={this.handleSubmit}
                     >
-                        <div role='alert'>
+                        <div role='alert' className='error'>
                             {error && <p>{error}</p>}
                         </div>
                         <div>

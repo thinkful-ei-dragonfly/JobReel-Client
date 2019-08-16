@@ -53,6 +53,7 @@ export class JobReelProvider extends Component {
             setUser: this.setUser,
             setAuthenticJobs: this.setAuthenticJobs,
             setGithubJobs: this.setGithubJobs,
+            setSavedJobs: this.setSavedJobs,
             setCompanies: this.setCompanies,
             setResources: this.setResources,
             setContacts: this.setContacts,
@@ -120,6 +121,10 @@ export class JobReelProvider extends Component {
 
     setGithubJobs = gitHubJobs => {
         this.setState({ gitHubJobs })
+    }
+
+    setSavedJobs = savedJobs => {
+        this.setState({ savedJobs })
     }
 
     setCompanies = companies => {
