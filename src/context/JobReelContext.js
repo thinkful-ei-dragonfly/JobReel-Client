@@ -6,8 +6,10 @@ import IdleService from '../services/idle-service'
 const JobReelContext = React.createContext({
     error: null,
     user: {}, //nested Resume object assigned to User?
+    search: {},
     jobData: {},
-    jobs: [],
+    authenticJobs: [],
+    gitHubJobs: [],
     companies: [],
     resources: [],
     contacts: [],
@@ -18,13 +20,15 @@ const JobReelContext = React.createContext({
     processLogin: () => { },
     processLogout: () => { },
     setUser: () => { },
-    setJobs: () => [],
+    setAuthenticJobs: () => [],
+    setGithubJobs: () => [],
     setCompanies: () => { },
     setResources: () => { },
     setContacts: () => { },
     setMeetups: () => { },
     setProfessionals: () => { },
     setJobData: () => { },
+    setSearch: () => { },
 })
 
 export default JobReelContext
@@ -35,7 +39,9 @@ export class JobReelProvider extends Component {
         const state = {
             error: null,
             user: {}, //nested Resume object assigned to User?
-            jobs: [],
+            search: {},
+            authenticJobs: [],
+            gitHubJobs: [],
             companies: [],
             resources: [],
             contacts: [],
@@ -45,7 +51,8 @@ export class JobReelProvider extends Component {
             setError: this.setError,
             clearError: this.clearError,
             setUser: this.setUser,
-            setJobs: this.setJobs,
+            setAuthenticJobs: this.setAuthenticJobs,
+            setGithubJobs: this.setGithubJobs,
             setCompanies: this.setCompanies,
             setResources: this.setResources,
             setContacts: this.setContacts,
@@ -56,7 +63,8 @@ export class JobReelProvider extends Component {
             processLogin: this.processLogin,
             processLogout: this.processLogout,
             handleSubmit: this.handleSubmit,
-            setJobData: this.setJobData
+            setJobData: this.setJobData,
+            setSearch: this.setSearch,
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -106,8 +114,12 @@ export class JobReelProvider extends Component {
         this.setJobs(jobData.listing)
     }
 
-    setJobs = jobs => {
-        this.setState({ jobs })
+    setAuthenticJobs = authenticJobs => {
+        this.setState({ authenticJobs })
+    }
+
+    setGithubJobs = gitHubJobs => {
+        this.setState({ gitHubJobs })
     }
 
     setCompanies = companies => {
@@ -130,6 +142,12 @@ export class JobReelProvider extends Component {
         this.setState({ professionals })
     }
 
+    setSearch = search => {
+        const location = search.location
+        const jobTitle = search.jobTitle
+        this.setState({search : {location, jobTitle}})
+    }
+
     //INDEED API METHOD
     // setJobDetails = (details, jobkey) => {
 
@@ -140,8 +158,8 @@ export class JobReelProvider extends Component {
     //     })
     // }
 
-    setJobStatus = (status, jobkey) => {
-        const updatedJobs = [...this.state.jobs]
+    setJobStatus = (status, jobs, jobkey) => {
+        const updatedJobs = [...jobs]
         updatedJobs.find(job => job.jobkey === jobkey).status = status;
         this.setState({
             jobs: updatedJobs

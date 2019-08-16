@@ -9,6 +9,7 @@ import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 import JobsList from '../JobsList/JobsList';
+import JobSearchForm from '../JobSearchForm/JobSearchForm';
 
 export default function App() {
   return (
@@ -31,6 +32,10 @@ export default function App() {
           <PrivateRoute
             path={'/dashboard'}
             component={DashboardRoute}
+          />
+          <PrivateRoute
+            path={'/jobs'}
+            component={JobSearchForm}
           />
         </Switch>
       </main>
