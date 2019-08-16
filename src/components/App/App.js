@@ -9,6 +9,7 @@ import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 import SavedJobsRoute from '../../routes/SavedJobsRoute/SavedJobsRoute';
+import SavedEventsRoute from '../../routes/SavedEventsRoute/SavedEventsRoute';
 import JobsList from '../JobsList/JobsList';
 import JobSearchForm from '../JobSearchForm/JobSearchForm';
 
@@ -33,6 +34,10 @@ export default function App() {
           <PrivateRoute
             path={'/saved-jobs'}
             component={SavedJobsRoute}
+          />
+          <PrivateRoute
+            path={'/saved-events'}
+            component={SavedEventsRoute}
           />
           <PrivateRoute
             path={'/jobs'}

@@ -22,21 +22,21 @@ const JobReelApiService = {
                 return data
             })
     },
-    getSavedJobs(search) {
+    getSavedJobs() {
         return fetch(`${config.API_ENDPOINT}/savedjobs`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`
             }
         })
-        .then(res => {
-            return (!res.ok)
+        .then(res => 
+            (!res.ok)
               ? res.json().then(e => Promise.reject(e))
               : res.json()
-        })
+        )
     },
     submitJob(jobData) {
-        fetch(`${config.API_ENDPOINT}/savedjobs`, {
+        return fetch(`${config.API_ENDPOINT}/savedjobs`, {
             method: 'POST',
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -44,11 +44,39 @@ const JobReelApiService = {
             },
             body: JSON.stringify(jobData)
         })
-        .then(res => {
+        .then(res =>
             (!res.ok)
             ? res.json().then(e => Promise.reject(e))
             : res.json()
+        )
+    },
+    getSavedEvents() {
+        return fetch('http://localhost:8000/api/events', {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`
+            }
         })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+    },
+    submitEvent(eventData) {
+        return fetch('http://localhost:8000/api/events', {
+            method: 'POST',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(eventData)
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
     },
 }
 
