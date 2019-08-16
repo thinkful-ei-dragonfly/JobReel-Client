@@ -50,6 +50,20 @@ const JobReelApiService = {
             : res.json()
         )
     },
+    deleteJob(jobId) {
+        return fetch(`${config.API_ENDPOINT}/savedjobs/${jobId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+        // .then(res =>
+        //     (!res.ok)
+        //     ? res.json().then(e => Promise.reject(e))
+        //     : res.json()
+        // )
+    },
     getSavedEvents() {
         return fetch('http://localhost:8000/api/events', {
             method: 'GET',

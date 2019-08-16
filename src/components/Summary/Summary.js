@@ -3,6 +3,7 @@ import './Summary.css';
 
 class Summary extends React.Component {
   render() {
+    console.log(this.props.data)
     return (
       <>
         <div className="Summary">
@@ -10,7 +11,7 @@ class Summary extends React.Component {
         </div>
         <div className='options'>
           <ul>
-            <li>Placeholder 1</li>
+            <li>Placeholder 2</li>
             <li>Placeholder 2</li>
             <li>Placeholder 3</li>
           </ul>

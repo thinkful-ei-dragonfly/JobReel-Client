@@ -37,7 +37,8 @@ class AddJobForm extends React.Component {
       })
       .catch(res => {
         this.setState({ error: res.error })
-      });
+      })
+      this.context.setManualJobAdd(false)
   }
 
   renderStateOptions = () => {
@@ -179,6 +180,7 @@ class AddJobForm extends React.Component {
               <option value="applied">Applied</option>
             </select>
           </div>
+          <Button onClick={() => this.context.setManualJobAdd(false)} type="button">Back</Button>
           <Button type="submit">Submit</Button>
         </form>
       </div>
