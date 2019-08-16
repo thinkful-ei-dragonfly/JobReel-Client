@@ -19,7 +19,7 @@ const JobReelApiService = {
                 : res.json()
             )
             .then(data => {
-                return data.listings
+                return data
             })
     },
     getSavedJobs() {
