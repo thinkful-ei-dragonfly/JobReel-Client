@@ -1,18 +1,25 @@
-.JobsList {
-  grid-column-start: 3;
-  grid-column-end: 9;
+.jobslist {
   border: 1px solid black;
   border-radius: 10px;
 }
 
-.title-h2 {
+.information {
+  width: 100%;
+  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.total-results-count > p {
+  margin: 0;
+}
+
+.results-page-number > p {
+  margin: 0;
+}
+
+.results > h3 {
   text-align: center;
 }
 
-
-@media screen and (max-width: 960px) {
-  .JobsList {
-    grid-column-start: 1;
-    grid-column-end: 9;
-  }
-}

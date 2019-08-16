@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import JobReelApiService from '../../services/jobreel-api-service'
 import JobReelContext from '../../context/JobReelContext';
 import Job from '../Job/Job'
+import './JobsList.css';
+
+
 export default class JobsList extends Component {
     static contextType = JobReelContext
 
@@ -17,27 +20,33 @@ export default class JobsList extends Component {
         }, 200)
     }
 
-    renderJobList() {
-        const {jobData = {}} = this.context
-        const {jobs = {} } = this.context
-        console.log(jobs)
-        const jobsList= jobs.map(job => {
-            return <Job job={job} />
-        })
-        return (
-            <>
-            Total Results: {jobData.totalResults}
-            <br/>
-            Page Number: {jobData.pageNumber+1}
-            <br/>
-            JobsList:
-            {jobsList}
-            </>
-        )
-    }
+  renderJobList() {
+    const {jobData = {}} = this.context
+    const {jobs = {} } = this.context
+    console.log(jobs)
+    const jobsList= jobs.map(job => {
+        return <Job job={job} />
+    })
+    return (
+      <>
+        <div className='information'>
+          <div className='total-results-count'>
+            <p>Total Results: {jobData.totalResults}</p>
+          </div>
+          <div className='results-page-number'>
+            <p>Page Number: {jobData.pageNumber+1}</p>
+          </div>
+        </div>
+        <div className='results'>
+          <h3>Results</h3>
+          {jobsList}
+        </div>
+        </>
+      )
+  }
     render() {
         return (
-            <div>
+            <div className='jobslist'>
                 {this.renderJobList()}
             </div>
         )

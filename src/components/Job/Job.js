@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import JobReelApiService from '../../services/jobreel-api-service'
 import JobReelContext from '../../context/JobReelContext';
+import './Job.css'
 
 
 export default class Job extends Component {
@@ -64,8 +65,8 @@ export default class Job extends Component {
         const { job } = this.props
         return (
             <li>
-                <h2>Results:</h2>
                 {job.jobtitle}
+                <br/>
                 {job.company}
                 {/* {job.details} */}
                 <button onClick={this.handleCollapse} className="collapseButton">

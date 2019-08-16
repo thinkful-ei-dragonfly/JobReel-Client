@@ -7,7 +7,7 @@ class SideNav extends React.Component {
     return (
       <div className="SideNav">
         <div className='link'>
-          <Link to='/jobs'>SEARCH MY DREAM JOB</Link>
+          <Link to='/jobsearch'>SEARCH MY DREAM JOB</Link>
         </div>
           <br/>
         <div className='link'>
