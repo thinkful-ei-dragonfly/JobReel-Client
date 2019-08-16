@@ -11,12 +11,11 @@ class SavedEventsRoute extends React.Component {
   componentDidMount = () => {
     jobReelApiService.getSavedCompanies()
       .then(res => {
-        this.context.setCompanies(res);
+        this.context.setCompanies(res.companies);
       })
   }
 
   render() {
-    console.log(this.context.companies);
     return (
       <div className="SavedEventsRoute">
         <SideNav />

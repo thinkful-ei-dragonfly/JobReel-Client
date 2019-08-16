@@ -33,11 +33,7 @@ class AddCompanyForm extends React.Component {
         e.target.website.value = '';
         e.target.desc.value = '';
         e.target.contact.value = '';
-        console.log('BEFORE');
-        console.log(this.context.companies);
         this.context.setCompanies([...this.context.companies, res]);
-        console.log('AFTER');
-        console.log(this.context.companies);
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -103,7 +99,6 @@ class AddCompanyForm extends React.Component {
   }
 
   render() {
-    console.log(this.context.companies);
     const { error } = this.state;
     return (
       <div className="AddCompanyForm">
