@@ -46,7 +46,6 @@ export default class JobsList extends Component {
                 });
         }, 500)
     }
-<<<<<<< HEAD
 
   renderJobList() {
     const { jobData = {} } = this.context
@@ -72,9 +71,8 @@ export default class JobsList extends Component {
         </>
       )
   }
-=======
    
-    renderJobList() {
+    renderJobListGitHub() {
         const {gitHubJobs = {} } = this.context
         const {authenticJobs = {} } = this.context
         console.log(gitHubJobs)
@@ -94,11 +92,11 @@ export default class JobsList extends Component {
         )
     }
 
->>>>>>> 477d38a092de0fa607c873235588beab1b9f18d1
     render() {
         return (
             <div className='jobslist'>
                 {this.renderJobList()}
+                {this.renderJobListGitHub()}
             </div>
         )
     }
