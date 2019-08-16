@@ -9,6 +9,7 @@ import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 import JobSearcForm from '../JobSearchForm/JobSearchForm';
+import SavedJobsRoute from '../../routes/SavedJobsRoute/SavedJobsRoute';
 import JobsList from '../JobsList/JobsList';
 
 export default function App() {
@@ -36,6 +37,10 @@ export default function App() {
           <PrivateRoute
             path={'/jobsearch/results'}
             component={JobsList}
+          />
+          <PrivateRoute
+            path={'/saved-jobs'}
+            component={SavedJobsRoute}
           />
         </Switch>
       </main>
