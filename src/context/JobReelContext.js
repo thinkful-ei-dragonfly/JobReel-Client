@@ -8,6 +8,8 @@ const JobReelContext = React.createContext({
     user: {}, //nested Resume object assigned to User?
     search: {},
     jobData: {},
+    savedJobs: [],
+    savedEvents: [],
     authenticJobs: [],
     gitHubJobs: [],
     companies: [],
@@ -54,6 +56,7 @@ export class JobReelProvider extends Component {
             setAuthenticJobs: this.setAuthenticJobs,
             setGithubJobs: this.setGithubJobs,
             setSavedJobs: this.setSavedJobs,
+            setSavedEvents: this.setSavedEvents,
             setCompanies: this.setCompanies,
             setResources: this.setResources,
             setContacts: this.setContacts,
@@ -125,6 +128,10 @@ export class JobReelProvider extends Component {
 
     setSavedJobs = savedJobs => {
         this.setState({ savedJobs })
+    }
+
+    setSavedEvents = savedEvents => {
+        this.setState({ savedEvents })
     }
 
     setCompanies = companies => {

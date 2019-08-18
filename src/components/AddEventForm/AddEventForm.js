@@ -3,11 +3,10 @@ import { Input, Label } from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
-import './AddJobForm.css'
 
-class AddJobForm extends React.Component {
+class AddEventForm extends React.Component {
 
-  static contextType = JobReelContext;
+  static contextType = JobReelContext
 
   state = {
     error: null
@@ -17,28 +16,32 @@ class AddJobForm extends React.Component {
     e.preventDefault();
     e.persist();
     this.setState({ error: null });
-    const job_title = e.target['job-title'].value;
-    const company = e.target.company.value;
+    const event_name = e.target.event.value;
+    const host = e.target.host.value;
     const city = e.target.city.value;
     const state = e.target.state.value;
+    const address = e.target.address.value;
+    const date = e.target.date.value;
     const url = e.target.url.value;
     const description = e.target.desc.value;
     const status = e.target.status.value;
-    const userInput = { userID: this.context.user.id, job_title, company, city, state, url, description, status };
-    jobReelApiService.submitJob(userInput)
+    const userInput = { user_id: this.context.user.id, event_name, host, city, state, address, date, url, description, status };
+    jobReelApiService.submitEvent(userInput)
       .then(res => {
-        e.target['job-title'].value = '';
-        e.target.company.value = '';
+        e.target.event.value = '';
+        e.target.host.value = '';
         e.target.city.value = '';
         e.target.state.value = '';
+        e.target.address.value = '';
+        e.target.date.value = '';
         e.target.url.value = '';
         e.target.desc.value = '';
         e.target.status.value = '';
-        this.context.setSavedJobs([...this.context.savedJobs, res]);
+        this.context.setSavedEvents([...this.context.savedEvents, res]);
       })
       .catch(res => {
         this.setState({ error: res.error })
-      });
+      })
   }
 
   renderStateOptions = () => {
@@ -102,30 +105,29 @@ class AddJobForm extends React.Component {
   render() {
     const { error } = this.state;
     return (
-      <div className='form'>
-        <form className='add-job-form' onSubmit={this.handleSubmit}>
-          <div role='alert'>
-            {error && <p>{error}</p>}
-          </div>
+      <div className="AddEventForm">
+        <div role='alert'>
+          {error && <p>{error}</p>}
+        </div>
+        <form onSubmit={this.handleSubmit}>
           <div>
-            <Label htmlFor='job-title-input'>
-              Job Title
+            <Label htmlFor='event-name-input'>
+              Event
             </Label>
             <br/>
             <Input
-              ref={this.firstInput}
-              id='job-title-input'
-              name='job-title'
+              id='event-name-input'
+              name='event'
             />
           </div>
           <div>
-            <Label htmlFor='company-input'>
-              Company
+            <Label htmlFor='host-input'>
+              Host
             </Label>
             <br/>
             <Input
-              id='company-input'
-              name='company'
+              id='host-input'
+              name='host'
             />
           </div>
           <div>
@@ -146,6 +148,27 @@ class AddJobForm extends React.Component {
             <select name="state" id="state-input">
               {this.renderStateOptions()}
             </select>
+          </div>
+          <div>
+            <Label htmlFor='address-input'>
+              Address
+            </Label>
+            <br/>
+            <Input
+              id='address-input'
+              name='address'
+            />
+          </div>
+          <div>
+            <Label htmlFor='date-input'>
+              Date
+            </Label>
+            <br/>
+            <Input
+              type="date"
+              id='date-input'
+              name='date'
+            />
           </div>
           <div>
             <Label htmlFor='url-input'>
@@ -176,8 +199,8 @@ class AddJobForm extends React.Component {
               id='status-input'
               name='status'
             >
-              <option value="interested">Interested</option>
-              <option value="applied">Applied</option>
+              <option value="Will Attend">Will attend</option>
+              <option value="Maybe">Maybe</option>
             </select>
           </div>
           <Button type="submit">Submit</Button>
@@ -187,4 +210,4 @@ class AddJobForm extends React.Component {
   }
 }
 
-export default AddJobForm;
+export default AddEventForm;
