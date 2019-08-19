@@ -30,7 +30,7 @@ class JobSearchForm extends React.Component {
     return (
       <div className='job-search'>
         <form className='JobSearchForm' onSubmit={this.handleSubmit}>
-          <div>
+          {/* <div>
             <Label htmlFor='industry-input'>
               Industry
             </Label>
@@ -40,7 +40,7 @@ class JobSearchForm extends React.Component {
               id='industry-input'
               name='industry'
             />
-          </div>
+          </div> */}
           <div>
             <Label htmlFor='job-title-input'>
               Job Title

@@ -6,6 +6,8 @@ import './JobsList.css';
 import config from '../../config'
 import TokenService from '../../services/token-service'
 import GithubJob from '../Job/GithubJob';
+import SideNav from '../SideNav/SideNav';
+import { Link } from 'react-router-dom';
 
 export default class JobsList extends Component {
     state = {
@@ -46,35 +48,10 @@ export default class JobsList extends Component {
                 });
         }, 500)
     }
-
-  renderJobList() {
-    const { jobData = {} } = this.context
-    const { jobs = {} } = this.context
-    console.log(jobs)
-    const jobsList = jobs.map((job, i) => {
-        return <Job job={job} key={i} />
-    })
-    return (
-      <>
-        <div className='information'>
-          <div className='total-results-count'>
-            <p>Total Results: {jobData.totalResults}</p>
-          </div>
-          <div className='results-page-number'>
-            <p>Page Number: {jobData.pageNumber+1}</p>
-          </div>
-        </div>
-        <div className='results'>
-          <h3>Results</h3>
-          {jobsList}
-        </div>
-        </>
-      )
-  }
    
-    renderJobListGitHub() {
-        const {gitHubJobs = {} } = this.context
-        const {authenticJobs = {} } = this.context
+    renderJobList() {
+        const {gitHubJobs = [] } = this.context
+        const {authenticJobs = [] } = this.context
         console.log(gitHubJobs)
         console.log(authenticJobs)
         const jobsListOne = gitHubJobs.map((job, i) => {
@@ -94,9 +71,12 @@ export default class JobsList extends Component {
 
     render() {
         return (
-            <div className='jobslist'>
+            <div>
+                <SideNav/>
+                <br/>
+                <Link to={`/jobs`} alt="goBack"><h2>Go Back</h2></Link>
+                <br/>
                 {this.renderJobList()}
-                {this.renderJobListGitHub()}
             </div>
         )
     }
