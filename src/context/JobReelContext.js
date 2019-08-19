@@ -33,6 +33,7 @@ const JobReelContext = React.createContext({
     setJobData: () => { },
     setSearch: () => { },
     setManualJobAdd: () => { },
+    setManualEventAdd: () => { },
     setSavedJobs: () => { },
     deleteJob: () => { },
     updateJob: () => { },
@@ -55,6 +56,7 @@ export class JobReelProvider extends Component {
             meetups: [],
             professionals: [],
             savedJobs: [],
+            savedEvents: [],
             jobData: {},
             manualJobAdd: false,
             setError: this.setError,
@@ -77,6 +79,7 @@ export class JobReelProvider extends Component {
             setJobData: this.setJobData,
             setSearch: this.setSearch,
             setManualJobAdd: this.setManualJobAdd,
+            setManualEventAdd: this.setManualEventAdd,
             deleteJob: this.deleteJob,
             updateJob: this.updateJob,
         }
@@ -172,6 +175,10 @@ export class JobReelProvider extends Component {
 
     setManualJobAdd = status => {
         this.setState({ manualJobAdd: status })
+    }
+
+    setManualEventAdd = status => {
+        this.setState({ manualEventAdd: status })
     }
 
     //INDEED API METHOD
