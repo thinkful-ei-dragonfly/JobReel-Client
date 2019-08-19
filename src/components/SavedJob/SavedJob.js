@@ -217,7 +217,6 @@ class SavedJob extends React.Component {
             id='description'
             placeholder={description}
             rows='3'
-            required
             value={description}
             onChange={this.handleChangeDesc}
           />

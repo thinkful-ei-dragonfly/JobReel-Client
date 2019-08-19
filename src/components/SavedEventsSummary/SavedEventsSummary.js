@@ -48,6 +48,8 @@ class SavedEventsSummary extends React.Component {
               <option value="">N/A</option>
               <option value="Will Attend">Will Attend</option>
               <option value="Maybe">Maybe</option>
+              <option value="Attended">Attended</option>
+              <option value="Did Not Attend">Did Not Attend</option>
             </select>
         <Button onClick={() => this.context.setManualEventAdd(true)} type="button">Add Event</Button>
         {mappedEvents}
