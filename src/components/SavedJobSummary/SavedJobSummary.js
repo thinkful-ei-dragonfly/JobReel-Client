@@ -10,7 +10,7 @@ class SavedJobSummary extends React.Component {
   static contextType = JobReelContext;
 
   state = {
-    filter: null
+    filter: ''
   }
 
   handleClickDelete(jobId){
@@ -30,7 +30,7 @@ class SavedJobSummary extends React.Component {
       .filter(j => j.status === this.state.filter)
       .map(job => <SavedJob user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status} />)
     }
-    if(this.context.savedJobs !== [] && this.state.filter === null){
+    if(this.context.savedJobs !== [] && (this.state.filter === '')){
       let jobs = this.context.savedJobs
       mappedJobs = jobs
       .map(job => <SavedJob user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status}/>)
