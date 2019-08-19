@@ -1,6 +1,7 @@
 import React from 'react';
 import Summary from '../Summary/Summary';
-import './SummaryContainer.css'
+import DashJobSummary from '../DashJobSummary/DashJobSummary';
+import './SummaryContainer.css';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -16,12 +17,12 @@ class SummaryContainer extends React.Component {
           <Slider>
             <Slide index={0}>
               <div className='summary-div'>
-                <Summary section="APPLIED JOBS" />
+                <DashJobSummary section="APPLIED JOBS"/>
               </div>
             </Slide>
             <Slide index={1}>
               <div className='summary-div'>
-                <Summary section="JOBS I LIKE" />
+                <DashJobSummary section="JOBS I LIKE"/>
               </div>
             </Slide>
             <Slide index={2}>

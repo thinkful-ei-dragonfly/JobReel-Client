@@ -1,0 +1,37 @@
+.job-status{
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.job-box button{
+  margin: 15px;
+}
+
+.green{
+  background: green;
+}
+
+.yellow{
+  background: rgb(224, 193, 13)
+}
+
+.edit-job-form label, input{
+  display: inline block;
+  margin: 5px;
+}
+
+.edit-job-form button{
+  margin: 15px;
+}
+
+.edit-job-form{
+  margin: 10px;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.edit-job-form textarea{
+  font-family: sans-serif;
+}
+
+
