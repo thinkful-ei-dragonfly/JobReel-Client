@@ -14,6 +14,7 @@ import SavedEventsRoute from '../../routes/SavedEventsRoute/SavedEventsRoute';
 import SavedCompaniesRoute from '../../routes/SavedCompaniesRoute/SavedCompaniesRoute';
 import JobsList from '../JobsList/JobsList';
 import JobSearchForm from '../JobSearchForm/JobSearchForm';
+import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
 
 export default function App() {
   return (
@@ -60,6 +61,10 @@ export default function App() {
           <PrivateRoute
             path={'/companies'}
             component={SavedCompaniesRoute}
+          />
+          <PrivateRoute
+            path={'/contacts'}
+            component={SavedContactsRoute}
           />
         </Switch>
       </main>
