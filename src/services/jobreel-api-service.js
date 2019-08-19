@@ -90,7 +90,7 @@ const JobReelApiService = {
             })
     },
     getSavedEvents() {
-        return fetch('http://localhost:8000/api/events', {
+        return fetch(`${config.API_ENDPOINT}/events`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`
@@ -103,7 +103,7 @@ const JobReelApiService = {
         )
     },
     submitEvent(eventData) {
-        return fetch('http://localhost:8000/api/events', {
+        return fetch(`${config.API_ENDPOINT}/events`, {
             method: 'POST',
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -118,7 +118,7 @@ const JobReelApiService = {
         )
     },
     getSavedCompanies() {
-        return fetch('http://localhost:8000/api/companies', {
+        return fetch(`${config.API_ENDPOINT}/companies`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`
@@ -131,13 +131,41 @@ const JobReelApiService = {
         )
     },
     submitCompany(companyData) {
-        return fetch('http://localhost:8000/api/companies', {
+        return fetch(`${config.API_ENDPOINT}/companies`, {
             method: 'POST',
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(companyData)
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+    },
+    getSavedContacts() {
+        return fetch(`${config.API_ENDPOINT}/contacts`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`
+            }
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+    },
+    submitContact(contactData) {
+        return fetch(`${config.API_ENDPOINT}/contacts`, {
+            method: 'POST',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(contactData)
         })
         .then(res => 
             (!res.ok)
