@@ -33,7 +33,7 @@ export default function App() {
             component={JobSearcForm}
           />
           <PublicOnlyRoute
-            path={['/','/register']}
+            exact path={['/','/register']}
             component={RegistrationRoute}
           />
           <PublicOnlyRoute
