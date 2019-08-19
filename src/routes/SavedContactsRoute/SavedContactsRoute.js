@@ -11,13 +11,11 @@ class SavedContactsRoute extends React.Component {
   componentDidMount = () => {
     jobReelApiService.getSavedContacts()
       .then(res => {
-        console.log(res);
         this.context.setContacts(res.contacts);
       })
   }
 
   render() {
-    console.log(this.context.contacts);
     return (
       <div className="SavedContactsRoute">
         <SideNav />
