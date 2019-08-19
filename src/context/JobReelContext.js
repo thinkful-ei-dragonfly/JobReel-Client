@@ -34,6 +34,7 @@ const JobReelContext = React.createContext({
     setSearch: () => { },
     setManualJobAdd: () => { },
     setSavedJobs: () => { },
+    deleteJob: () => { },
 })
 
 export default JobReelContext
@@ -75,6 +76,7 @@ export class JobReelProvider extends Component {
             setJobData: this.setJobData,
             setSearch: this.setSearch,
             setManualJobAdd: this.setManualJobAdd,
+            deleteJob: this.deleteJob
         }
 
         const jwtPayload = TokenService.parseAuthToken()

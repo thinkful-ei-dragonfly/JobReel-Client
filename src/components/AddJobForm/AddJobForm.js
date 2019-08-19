@@ -23,6 +23,7 @@ class AddJobForm extends React.Component {
     const url = e.target.url.value;
     const description = e.target.desc.value;
     const status = e.target.status.value;
+    console.log(status)
     const userInput = { userID: this.context.user.id, job_title, company, city, state, url, description, status };
     jobReelApiService.submitJob(userInput)
       .then(res => {
@@ -176,8 +177,8 @@ class AddJobForm extends React.Component {
               id='status-input'
               name='status'
             >
-              <option value="interested">Interested</option>
-              <option value="applied">Applied</option>
+              <option value="Interested">Interested</option>
+              <option value="Applied">Applied</option>
             </select>
           </div>
           <Button onClick={() => this.context.setManualJobAdd(false)} type="button">Back</Button>

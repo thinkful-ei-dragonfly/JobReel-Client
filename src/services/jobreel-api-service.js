@@ -58,11 +58,36 @@ const JobReelApiService = {
                 'content-type': 'application/json'
             }
         })
-        // .then(res =>
-        //     (!res.ok)
-        //     ? res.json().then(e => Promise.reject(e))
-        //     : res.json()
-        // )
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }          
+            })
+            .catch(error => {
+            console.error({ error })
+            })
+    },
+    editJob(editedJob, jobId) {
+        return fetch(`${config.API_ENDPOINT}/savedjobs/${jobId}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedJob)
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }          
+            })
+            .catch(error => {
+            console.error({ error })
+            })
     },
     getSavedEvents() {
         return fetch('http://localhost:8000/api/events', {

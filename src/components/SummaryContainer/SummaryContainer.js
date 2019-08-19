@@ -16,12 +16,12 @@ class SummaryContainer extends React.Component {
           <Slider>
             <Slide index={0}>
               <div className='summary-div'>
-                <Summary section="APPLIED JOBS" jobs={this.state.jobData}/>
+                <Summary section="APPLIED JOBS"/>
               </div>
             </Slide>
             <Slide index={1}>
               <div className='summary-div'>
-                <Summary section="JOBS I LIKE" data={this.state.jobData}/>
+                <Summary section="JOBS I LIKE"/>
               </div>
             </Slide>
             <Slide index={2}>

@@ -12,7 +12,6 @@ class SavedJobsRoute extends React.Component {
   componentDidMount = () => {
     jobReelApiService.getSavedJobs()
       .then(res => {
-        console.log(res)
         this.context.setSavedJobs(res)
       })
   }
@@ -20,12 +19,10 @@ class SavedJobsRoute extends React.Component {
   render() {
     let display;
     (this.context.manualJobAdd === false) ? display = <SavedJobSummary /> : display = <AddJobForm /> 
-    console.log(this.context.manualJobAdd)
     return (
       <div className="SavedJobsRoute">
         <SideNav />
         {display}
-        {/* <AddJobForm /> */}
       </div>
     )
   }
