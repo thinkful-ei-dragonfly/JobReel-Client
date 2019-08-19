@@ -13,6 +13,7 @@ import SavedEventsRoute from '../../routes/SavedEventsRoute/SavedEventsRoute';
 import SavedCompaniesRoute from '../../routes/SavedCompaniesRoute/SavedCompaniesRoute';
 import JobsList from '../JobsList/JobsList';
 import JobSearchForm from '../JobSearchForm/JobSearchForm';
+import Meetup from '../Meetup/Meetup';
 
 export default function App() {
   return (
@@ -20,6 +21,10 @@ export default function App() {
       <Header />
       <main>
         <Switch>
+          <Route
+            exact path={'/meetups'}
+            component={Meetup}
+          />
           <PublicOnlyRoute
             exact path={'/'}
             component={RegistrationRoute}
