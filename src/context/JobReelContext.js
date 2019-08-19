@@ -17,6 +17,7 @@ const JobReelContext = React.createContext({
     contacts: [],
     meetups: [],
     professionals: [],
+    manualJobAdd: false,
     setError: () => { },
     clearError: () => { },
     processLogin: () => { },
@@ -31,6 +32,10 @@ const JobReelContext = React.createContext({
     setProfessionals: () => { },
     setJobData: () => { },
     setSearch: () => { },
+    setManualJobAdd: () => { },
+    setSavedJobs: () => { },
+    deleteJob: () => { },
+    updateJob: () => { },
 })
 
 export default JobReelContext
@@ -49,7 +54,9 @@ export class JobReelProvider extends Component {
             contacts: [],
             meetups: [],
             professionals: [],
+            savedJobs: [],
             jobData: {},
+            manualJobAdd: false,
             setError: this.setError,
             clearError: this.clearError,
             setUser: this.setUser,
@@ -69,6 +76,9 @@ export class JobReelProvider extends Component {
             handleSubmit: this.handleSubmit,
             setJobData: this.setJobData,
             setSearch: this.setSearch,
+            setManualJobAdd: this.setManualJobAdd,
+            deleteJob: this.deleteJob,
+            updateJob: this.updateJob,
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -160,6 +170,10 @@ export class JobReelProvider extends Component {
         this.setState({search : {location, jobTitle}})
     }
 
+    setManualJobAdd = status => {
+        this.setState({ manualJobAdd: status })
+    }
+
     //INDEED API METHOD
     // setJobDetails = (details, jobkey) => {
 
@@ -175,6 +189,20 @@ export class JobReelProvider extends Component {
         updatedJobs.find(job => job.jobkey === jobkey).status = status;
         this.setState({
             jobs: updatedJobs
+        })
+    }
+
+    deleteJob = jobId => {
+        this.setState({
+            savedJobs: this.state.savedJobs.filter(job => job.job_id !== jobId)
+        });
+    }
+
+    updateJob = (updatedJob, jobId) => {
+        this.setState({
+            savedJobs: this.state.savedJobs.map(job => 
+               (job.job_id !== updatedJob.job_id) ? job : updatedJob 
+            )
         })
     }
 
@@ -217,7 +245,7 @@ export class JobReelProvider extends Component {
             .catch(err => {
                 this.setError(err)
             })
-    }
+        }
 
     render() {
         return (

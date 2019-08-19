@@ -50,6 +50,45 @@ const JobReelApiService = {
             : res.json()
         )
     },
+    deleteJob(jobId) {
+        return fetch(`${config.API_ENDPOINT}/savedjobs/${jobId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }          
+            })
+            .catch(error => {
+            console.error({ error })
+            })
+    },
+    editJob(editedJob, jobId) {
+        return fetch(`${config.API_ENDPOINT}/savedjobs/${jobId}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedJob)
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }          
+            })
+            .catch(error => {
+            console.error({ error })
+            })
+    },
     getSavedEvents() {
         return fetch(`${config.API_ENDPOINT}/events`, {
             method: 'GET',
