@@ -1,6 +1,5 @@
-.LoginForm {
-  grid-column-start: 1;
-  grid-column-end: 9;
+.JobSearchForm {
+  width: 320px;
   border: 1px black solid;
   min-width: 300px;
   margin: 0 auto;

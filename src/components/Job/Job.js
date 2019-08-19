@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
+import './Job.css'
 
 
 export default class Job extends Component {

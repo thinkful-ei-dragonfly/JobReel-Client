@@ -3,6 +3,7 @@ import { Input, Label } from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
+import './AddCompany.css';
 
 class AddCompanyForm extends React.Component {
 

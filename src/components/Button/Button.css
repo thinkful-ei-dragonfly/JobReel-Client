@@ -12,3 +12,7 @@
   background: #3C824E;
   box-shadow: 0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
+
+.Button:focus {
+  outline: none;
+}
