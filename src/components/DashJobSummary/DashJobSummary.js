@@ -24,7 +24,11 @@ class DashJobSummary extends React.Component {
     });
     if (this.props.section === "APPLIED JOBS") {
       jobs = jobs.filter(job => {
-        return job.status === 'Applied'
+        return job.status === 'Applied';
+      })
+    } else {
+      jobs = jobs.filter(job => {
+        return job.status === 'Interested';
       })
     }
     jobs = jobs.slice(0, 3).map(job => {
