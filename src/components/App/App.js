@@ -14,8 +14,9 @@ import SavedEventsRoute from '../../routes/SavedEventsRoute/SavedEventsRoute';
 import SavedCompaniesRoute from '../../routes/SavedCompaniesRoute/SavedCompaniesRoute';
 import JobsList from '../JobsList/JobsList';
 import JobSearchForm from '../JobSearchForm/JobSearchForm';
+import SendToMeetup from '../Meetup/MeetupSender';
 import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
-import Meetup from '../Meetup/Meetup';
+
 
 export default function App() {
   return (
@@ -23,6 +24,10 @@ export default function App() {
       <Header />
       <main>
         <Switch>
+          <PrivateRoute
+            exact path={'/meetups'}
+            component={SendToMeetup}
+          />
           <PrivateRoute
             exact path={'/jobsearch'}
             component={JobSearcForm}
