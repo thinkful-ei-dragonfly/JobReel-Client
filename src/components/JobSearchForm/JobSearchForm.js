@@ -1,6 +1,7 @@
 import React from 'react';
 import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
+import './JobSearchForm.css';
 import JobReelContext from '../../context/JobReelContext';
 
 class JobSearchForm extends React.Component {
@@ -12,16 +13,23 @@ class JobSearchForm extends React.Component {
     const jobTitle = e.target['job-title'].value;
     const location = e.target.location.value;
     // const userInput = { industry, jobTitle, location };
+    this.takeToNext();
     // Make api call
     this.context.setSearch({ jobTitle, location })
     this.props.history.push(`/JobsList`)
     console.log(this.context)
   }
 
+  takeToNext = () => {
+    const { location, history } = this.props;
+    const destination = (location.state || {}).from || '/jobsearch/results';
+    history.push(destination);
+  }
+
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className='job-search'>
+        <form className='JobSearchForm' onSubmit={this.handleSubmit}>
           {/* <div>
             <Label htmlFor='industry-input'>
               Industry
@@ -54,6 +62,7 @@ class JobSearchForm extends React.Component {
               name='location'
             />
           </div>
+          <br/>
           <Button type="submit">Submit</Button>
         </form>
       </div>

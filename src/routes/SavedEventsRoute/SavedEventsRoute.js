@@ -3,6 +3,7 @@ import SideNav from '../../components/SideNav/SideNav';
 import AddEventForm from '../../components/AddEventForm/AddEventForm';
 import jobReelApiService from '../../services/jobreel-api-service';
 import JobReelContext from '../../context/JobReelContext';
+import './SavedEventsRoute.css';
 
 class SavedEventsRoute extends React.Component {
   

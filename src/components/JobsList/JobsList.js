@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
 import Job from '../Job/Job'
+import './JobsList.css';
+
 import config from '../../config'
 import TokenService from '../../services/token-service'
 import GithubJob from '../Job/GithubJob';
