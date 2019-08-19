@@ -35,6 +35,7 @@ const JobReelContext = React.createContext({
     setManualJobAdd: () => { },
     setSavedJobs: () => { },
     deleteJob: () => { },
+    updateJob: () => { },
 })
 
 export default JobReelContext
@@ -76,7 +77,8 @@ export class JobReelProvider extends Component {
             setJobData: this.setJobData,
             setSearch: this.setSearch,
             setManualJobAdd: this.setManualJobAdd,
-            deleteJob: this.deleteJob
+            deleteJob: this.deleteJob,
+            updateJob: this.updateJob,
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -194,6 +196,14 @@ export class JobReelProvider extends Component {
         this.setState({
             savedJobs: this.state.savedJobs.filter(job => job.job_id !== jobId)
         });
+    }
+
+    updateJob = (updatedJob, jobId) => {
+        this.setState({
+            savedJobs: this.state.savedJobs.map(job => 
+               (job.job_id !== updatedJob.job_id) ? job : updatedJob 
+            )
+        })
     }
 
     processLogin = authToken => {

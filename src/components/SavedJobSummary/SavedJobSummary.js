@@ -20,7 +20,7 @@ class SavedJobSummary extends React.Component {
     let mappedJobs;
     if(this.context.savedJobs !== []){
       let jobs = this.context.savedJobs
-      mappedJobs = jobs.map(job => <SavedJob id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status}/>)
+      mappedJobs = jobs.map(job => <SavedJob user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status}/>)
     }
 
     return(

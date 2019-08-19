@@ -27,6 +27,7 @@ class AddJobForm extends React.Component {
     const userInput = { userID: this.context.user.id, job_title, company, city, state, url, description, status };
     jobReelApiService.submitJob(userInput)
       .then(res => {
+        console.log(res)
         e.target['job-title'].value = '';
         e.target.company.value = '';
         e.target.city.value = '';
