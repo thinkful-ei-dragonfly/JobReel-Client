@@ -48,8 +48,8 @@ export default class JobsList extends Component {
     }
    
     renderJobList() {
-        const {gitHubJobs = {} } = this.context
-        const {authenticJobs = {} } = this.context
+        const {gitHubJobs = [] } = this.context
+        const {authenticJobs = [] } = this.context
         console.log(gitHubJobs)
         console.log(authenticJobs)
         const jobsListOne = gitHubJobs.map((job, i) => {
