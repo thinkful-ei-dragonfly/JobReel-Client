@@ -15,6 +15,7 @@ import SavedCompaniesRoute from '../../routes/SavedCompaniesRoute/SavedCompanies
 import JobsList from '../JobsList/JobsList';
 import JobSearchForm from '../JobSearchForm/JobSearchForm';
 import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
+import Meetup from '../Meetup/Meetup';
 
 export default function App() {
   return (
