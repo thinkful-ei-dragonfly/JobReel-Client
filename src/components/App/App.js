@@ -8,10 +8,13 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
+import JobSearcForm from '../JobSearchForm/JobSearchForm';
 import SavedJobsRoute from '../../routes/SavedJobsRoute/SavedJobsRoute';
 import SavedEventsRoute from '../../routes/SavedEventsRoute/SavedEventsRoute';
+import SavedCompaniesRoute from '../../routes/SavedCompaniesRoute/SavedCompaniesRoute';
 import JobsList from '../JobsList/JobsList';
 import JobSearchForm from '../JobSearchForm/JobSearchForm';
+import Meetup from '../Meetup/Meetup';
 
 export default function App() {
   return (
@@ -19,6 +22,10 @@ export default function App() {
       <Header />
       <main>
         <Switch>
+          <PrivateRoute
+            exact path={'/jobsearch'}
+            component={JobSearcForm}
+          />
           <PublicOnlyRoute
             exact path={'/'}
             component={RegistrationRoute}
@@ -30,6 +37,10 @@ export default function App() {
           <PrivateRoute
             path={'/dashboard'}
             component={DashboardRoute}
+          />
+          <PrivateRoute
+            path={'/jobsearch/results'}
+            component={JobsList}
           />
           <PrivateRoute
             path={'/saved-jobs'}
@@ -46,6 +57,10 @@ export default function App() {
           <PrivateRoute
             exact path={'/JobsList'}
             component={JobsList}
+          />
+          <PrivateRoute
+            path={'/companies'}
+            component={SavedCompaniesRoute}
           />
         </Switch>
       </main>

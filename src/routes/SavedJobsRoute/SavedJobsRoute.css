@@ -1,0 +1,10 @@
+.saved-jobs-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.form {
+  grid-column-start: 6;
+  grid-column-end: 9;
+}

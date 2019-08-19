@@ -3,6 +3,7 @@ import { Input, Label } from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
+import './AddJobForm.css'
 
 class AddJobForm extends React.Component {
 
@@ -104,8 +105,8 @@ class AddJobForm extends React.Component {
   render() {
     const { error } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className='form'>
+        <form className='add-job-form' onSubmit={this.handleSubmit}>
           <div role='alert'>
             {error && <p>{error}</p>}
           </div>

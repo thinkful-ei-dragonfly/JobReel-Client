@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
 import Job from '../Job/Job'
+import './JobsList.css';
+
 import config from '../../config'
 import TokenService from '../../services/token-service'
 import GithubJob from '../Job/GithubJob';
+import SideNav from '../SideNav/SideNav';
+import { Link } from 'react-router-dom';
 
 export default class JobsList extends Component {
     state = {
@@ -46,8 +50,8 @@ export default class JobsList extends Component {
     }
    
     renderJobList() {
-        const {gitHubJobs = {} } = this.context
-        const {authenticJobs = {} } = this.context
+        const {gitHubJobs = [] } = this.context
+        const {authenticJobs = [] } = this.context
         console.log(gitHubJobs)
         console.log(authenticJobs)
         const jobsListOne = gitHubJobs.map((job, i) => {
@@ -68,6 +72,10 @@ export default class JobsList extends Component {
     render() {
         return (
             <div>
+                <SideNav/>
+                <br/>
+                <Link to={`/jobs`} alt="goBack"><h2>Go Back</h2></Link>
+                <br/>
                 {this.renderJobList()}
             </div>
         )

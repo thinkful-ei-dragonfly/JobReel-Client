@@ -1,6 +1,4 @@
-.LoginForm {
-  grid-column-start: 1;
-  grid-column-end: 9;
+.add-job-form {
   border: 1px black solid;
   min-width: 300px;
   margin: 0 auto;

@@ -3,9 +3,9 @@ import { Input, Label } from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
-import './AddEventForm.css';
+import './AddCompany.css';
 
-class AddEventForm extends React.Component {
+class AddCompanyForm extends React.Component {
 
   static contextType = JobReelContext
 
@@ -17,28 +17,24 @@ class AddEventForm extends React.Component {
     e.preventDefault();
     e.persist();
     this.setState({ error: null });
-    const event_name = e.target.event.value;
-    const host = e.target.host.value;
+    const company_name = e.target.company.value;
     const city = e.target.city.value;
     const state = e.target.state.value;
-    const address = e.target.address.value;
-    const date = e.target.date.value;
-    const url = e.target.url.value;
+    const industry = e.target.industry.value;
+    const website = e.target.website.value;
     const description = e.target.desc.value;
-    const status = e.target.status.value;
-    const userInput = { user_id: this.context.user.id, event_name, host, city, state, address, date, url, description, status };
-    jobReelApiService.submitEvent(userInput)
+    const contact = e.target.contact.value;
+    const userInput = { user_id: this.context.user.id, company_name, city, state, industry, website, description, contact };
+    jobReelApiService.submitCompany(userInput)
       .then(res => {
-        e.target.event.value = '';
-        e.target.host.value = '';
+        e.target.company.value = '';
         e.target.city.value = '';
         e.target.state.value = '';
-        e.target.address.value = '';
-        e.target.date.value = '';
-        e.target.url.value = '';
+        e.target.industry.value = '';
+        e.target.website.value = '';
         e.target.desc.value = '';
-        e.target.status.value = '';
-        this.context.setSavedEvents([...this.context.savedEvents, res]);
+        e.target.contact.value = '';
+        this.context.setCompanies([...this.context.companies, res]);
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -106,29 +102,19 @@ class AddEventForm extends React.Component {
   render() {
     const { error } = this.state;
     return (
-      <div className="AddEventForm">
+      <div className="AddCompanyForm">
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <Label htmlFor='event-name-input'>
-              Event
+            <Label htmlFor='company-name-input'>
+              Company
             </Label>
             <br/>
             <Input
-              id='event-name-input'
-              name='event'
-            />
-          </div>
-          <div>
-            <Label htmlFor='host-input'>
-              Host
-            </Label>
-            <br/>
-            <Input
-              id='host-input'
-              name='host'
+              id='company-name-input'
+              name='company'
             />
           </div>
           <div>
@@ -151,34 +137,23 @@ class AddEventForm extends React.Component {
             </select>
           </div>
           <div>
-            <Label htmlFor='address-input'>
-              Address
+            <Label htmlFor='industry-input'>
+              Industry
             </Label>
             <br/>
             <Input
-              id='address-input'
-              name='address'
+              id='industry-input'
+              name='industry'
             />
           </div>
           <div>
-            <Label htmlFor='date-input'>
-              Date
+            <Label htmlFor='website-input'>
+              Website
             </Label>
             <br/>
             <Input
-              type="date"
-              id='date-input'
-              name='date'
-            />
-          </div>
-          <div>
-            <Label htmlFor='url-input'>
-              URL
-            </Label>
-            <br/>
-            <Input
-              id='url-input'
-              name='url'
+              id='website-input'
+              name='website'
             />
           </div>
           <div>
@@ -192,17 +167,14 @@ class AddEventForm extends React.Component {
             />
           </div>
           <div>
-            <Label htmlFor='status-input'>
-              Status
+            <Label htmlFor='contact-input'>
+              Contact
             </Label>
             <br/>
-            <select
-              id='status-input'
-              name='status'
-            >
-              <option value="Will Attend">Will attend</option>
-              <option value="Maybe">Maybe</option>
-            </select>
+            <Input
+              id='contact-input'
+              name='contact'
+            />
           </div>
           <Button type="submit">Submit</Button>
         </form>
@@ -211,4 +183,4 @@ class AddEventForm extends React.Component {
   }
 }
 
-export default AddEventForm;
+export default AddCompanyForm;

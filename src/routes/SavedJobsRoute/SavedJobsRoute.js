@@ -4,6 +4,7 @@ import AddJobForm from '../../components/AddJobForm/AddJobForm';
 import SavedJobSummary from '../../components/SavedJobSummary/SavedJobSummary'
 import jobReelApiService from '../../services/jobreel-api-service';
 import JobReelContext from '../../context/JobReelContext';
+import './SavedJobsRoute.css';
 
 class SavedJobsRoute extends React.Component {
   
@@ -20,7 +21,7 @@ class SavedJobsRoute extends React.Component {
     let display;
     (this.context.manualJobAdd === false) ? display = <SavedJobSummary /> : display = <AddJobForm /> 
     return (
-      <div className="SavedJobsRoute">
+      <div className="saved-jobs-page">
         <SideNav />
         {display}
       </div>

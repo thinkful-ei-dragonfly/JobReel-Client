@@ -3,9 +3,9 @@
   grid-column-end: 3;
   padding: 0.5em;
   border-radius: 10px;
-  min-width: 150px;
+  width: 200px;
   min-height: 250px;
-  height: 350px;
+  height: 100%;
   text-align: left;
   background: #3C3230;
   color: #eeebd9;
@@ -13,7 +13,7 @@
 
 .SideNav:hover {
   box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
-  transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in-out;
   transform: scale(1.05);
 }
 
