@@ -17,7 +17,7 @@ class JobSearchForm extends React.Component {
     // Make api call
     this.context.setSearch({ jobTitle, location })
     this.props.history.push(`/JobsList`)
-    console.log(this.context)
+    // console.log(this.context)
   }
 
   takeToNext = () => {

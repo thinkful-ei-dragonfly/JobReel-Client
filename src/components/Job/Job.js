@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
+import Button from '../Button/Button';
 import './Job.css'
 
 
@@ -31,6 +32,7 @@ export default class Job extends Component {
                     <div className="expand">&#x2965;</div>
                     Get More Details
                 </button>
+                <Button>Save Job</Button>
             </li>
         )
     }

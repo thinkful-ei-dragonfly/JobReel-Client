@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
+import Button from '../Button/Button';
+import jobReelApiService from '../../services/jobreel-api-service';
 
 
 export default class GithubJob extends Component {
@@ -9,6 +11,31 @@ export default class GithubJob extends Component {
         expanded: false
     }
 
+    handleClick = (e) => {
+        const job = this.props.job;
+        console.log(job);
+        if (!job.state) {
+            console.log('No State');
+            job.state = '';
+        }
+        console.log(job.state);
+        const jobData = {
+            job_title: job.title,
+            company: job.company,
+            city: job.location,
+            state: job.state,
+            url: job.url,
+            description: job.description,
+            status: 'Interested',
+            user_id: this.context.user.id
+        }
+        console.log(jobData);
+        // jobReelApiService.submitJob(jobData)
+        //     .then(res => {
+        //         console.log(res);
+        //     })
+    }
+    
     renderJob() {
         const {job = {}} = this.props
         return (
@@ -25,6 +52,7 @@ export default class GithubJob extends Component {
                     <div className="expand">&#x2965;</div>
                     Get More Details
                 </button>
+                <Button onClick={this.handleClick}>Save Job</Button>
             </li>
         )
     }
