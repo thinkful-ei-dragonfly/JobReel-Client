@@ -149,116 +149,86 @@ class Company extends React.Component {
         <Button onClick={this.handleToggle} type="button">Edit</Button>
       </div>
     let editCompany = 
-    <div>Edit</div>
-      // <form
-      // className='edit-event-form'
-      // onSubmit={this.handleSubmit}>
-      //   <div>
-      //     <label htmlFor='name'>Event Name</label>
-      //     <input
-      //       type='text'
-      //       name='name'
-      //       id='name'
-      //       placeholder={event_name}
-      //       required
-      //       value={event_name}
-      //       onChange={this.handleChangeEventName}
-      //     />
-      //   </div>
-      //   <div>
-      //     <label htmlFor='host'>Host</label>
-      //     <input
-      //       type='text'
-      //       name='host'
-      //       id='host'
-      //       placeholder={host}
-      //       required
-      //       value={host}
-      //       onChange={this.handleChangeHost}
-      //     />
-      //   </div>
-      //   <div>
-      //     <label htmlFor='city'>City</label>
-      //     <input
-      //       type='text'
-      //       name='city'
-      //       id='city'
-      //       placeholder={city}
-      //       required
-      //       value={city}
-      //       onChange={this.handleChangeCity}
-      //     />
-      //   </div>
-      //   <div>
-      //     <label htmlFor='state'>State</label>
-      //     <select onChange={this.handleChangeState} name="state" id="state-input" value={state}>
-      //         {this.renderStateOptions()}
-      //       </select>
-      //   </div>
-      //   <div>
-      //     <label htmlFor='address'>Address</label>
-      //     <input
-      //       type='text'
-      //       name='address'
-      //       id='address'
-      //       placeholder={address}
-      //       required
-      //       value={address}
-      //       onChange={this.handleChangeAddress}
-      //     />
-      //   </div>
-      //   <div>
-      //     <label htmlFor='date'>Date</label>
-      //     <input
-      //       type='date'
-      //       name='date'
-      //       id='date'
-      //       placeholder={this.convertDate(date)}
-      //       required
-      //       value={this.convertDate(date)}
-      //       onChange={this.handleChangeDate}
-      //     />
-      //   </div>
-      //   <div>
-      //     <label htmlFor='url'>URL</label>
-      //     <input
-      //       type='text'
-      //       name='url'
-      //       id='url'
-      //       placeholder={url}
-      //       required
-      //       value={url}
-      //       onChange={this.handleChangeUrl}
-      //     />
-      //   </div>
-      //   <div>
-      //     <label htmlFor='description'>Description</label>
-      //     <textarea 
-      //       name='description'
-      //       id='description'
-      //       placeholder={description}
-      //       rows='3'
-      //       value={description}
-      //       onChange={this.handleChangeDesc}
-      //     />
-      //   </div>
-      //   <div>
-      //     <label htmlFor='status'>Status</label>
-      //     <select
-      //         id='status-input'
-      //         name='status'
-      //         onChange={this.handleChangeStatus}
-      //         value={status}
-      //       >
-      //         <option value="Will Attend">Will Attend</option>
-      //         <option value="Maybe">Maybe</option>
-      //         <option value="Attended">Attended</option>
-      //         <option value="Did Not Attend">Did Not Attend</option>
-      //       </select>
-      //   </div>
-      //   <Button type="submit">Save Changes</Button>
-      //   <Button type="button" onClick={this.handleToggle}>Back</Button>
-      // </form>
+      <form
+      className='edit-company-form'
+      onSubmit={this.handleSubmit}>
+        <div>
+          <label htmlFor='name'>Company Name</label>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            placeholder={company_name}
+            required
+            value={company_name}
+            onChange={this.handleChangeCompanyName}
+          />
+        </div>
+        <div>
+          <label htmlFor='industry'>Industry</label>
+          <input
+            type='text'
+            name='industry'
+            id='industry'
+            placeholder={industry}
+            value={industry}
+            onChange={this.handleChangeIndustry}
+          />
+        </div>
+        <div>
+          <label htmlFor='city'>City</label>
+          <input
+            type='text'
+            name='city'
+            id='city'
+            placeholder={city}
+            required
+            value={city}
+            onChange={this.handleChangeCity}
+          />
+        </div>
+        <div>
+          <label htmlFor='state'>State</label>
+          <select onChange={this.handleChangeState} name="state" id="state-input" value={state}>
+              {this.renderStateOptions()}
+            </select>
+        </div>
+        <div>
+          <label htmlFor='website'>Website</label>
+          <input
+            type='text'
+            name='website'
+            id='website'
+            placeholder={website}
+            value={website}
+            onChange={this.handleChangeWebsite}
+          />
+        </div>
+        <div>
+          <label htmlFor='description'>Description</label>
+          <textarea 
+            name='description'
+            id='description'
+            placeholder={description}
+            rows='3'
+            value={description}
+            onChange={this.handleChangeDesc}
+          />
+        </div>
+        <div>
+          <label htmlFor='contact'>Contact(s)</label>
+          <input
+            type='text'
+            name='contact'
+            id='contact'
+            placeholder={contact}
+            value={contact}
+            onChange={this.handleChangeContact}
+          />
+        </div>
+        <Button type="submit">Save Changes</Button>
+        <Button type="button" onClick={this.handleToggle}>Back</Button>
+      </form>
       let display;
       (this.state.editing === false) ? display = event : display = editCompany
 

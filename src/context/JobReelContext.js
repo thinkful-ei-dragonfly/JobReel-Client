@@ -250,6 +250,12 @@ export class JobReelProvider extends Component {
         })
     }
 
+    deleteCompany = companyId => {
+        this.setState({
+            companies: this.state.companies.filter(company => company.company_id !== companyId)
+        });
+    }
+
     updateCompany = (updatedCompany) => {
         this.setState({
             companies: this.state.companies.map(company => 
