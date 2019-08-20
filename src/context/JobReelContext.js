@@ -18,6 +18,7 @@ const JobReelContext = React.createContext({
     meetups: [],
     professionals: [],
     manualJobAdd: false,
+    manualEventAdd: false,
     setError: () => { },
     clearError: () => { },
     processLogin: () => { },
@@ -33,6 +34,7 @@ const JobReelContext = React.createContext({
     setJobData: () => { },
     setSearch: () => { },
     setManualJobAdd: () => { },
+    setManualEventAdd: () => { },
     setSavedJobs: () => { },
     deleteJob: () => { },
     updateJob: () => { },
@@ -58,6 +60,7 @@ export class JobReelProvider extends Component {
             savedEvents: [],
             jobData: {},
             manualJobAdd: false,
+            manualEventAdd: false,
             setError: this.setError,
             clearError: this.clearError,
             setUser: this.setUser,
@@ -78,8 +81,11 @@ export class JobReelProvider extends Component {
             setJobData: this.setJobData,
             setSearch: this.setSearch,
             setManualJobAdd: this.setManualJobAdd,
+            setManualEventAdd: this.setManualEventAdd,
             deleteJob: this.deleteJob,
+            deleteEvent: this.deleteEvent,
             updateJob: this.updateJob,
+            updateEvent: this.updateEvent,
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -180,6 +186,10 @@ export class JobReelProvider extends Component {
         this.setState({ manualJobAdd: status })
     }
 
+    setManualEventAdd = status => {
+        this.setState({ manualEventAdd: status })
+    }
+
     //INDEED API METHOD
     // setJobDetails = (details, jobkey) => {
 
@@ -204,10 +214,24 @@ export class JobReelProvider extends Component {
         });
     }
 
-    updateJob = (updatedJob, jobId) => {
+    deleteEvent = eventId => {
+        this.setState({
+            savedEvents: this.state.savedEvents.filter(event => event.event_id !== eventId)
+        });
+    }
+
+    updateJob = (updatedJob) => {
         this.setState({
             savedJobs: this.state.savedJobs.map(job => 
                (job.job_id !== updatedJob.job_id) ? job : updatedJob 
+            )
+        })
+    }
+
+    updateEvent = (updatedEvent) => {
+        this.setState({
+            savedEvents: this.state.savedEvents.map(event => 
+               (event.event_id !== updatedEvent.event_id) ? event : updatedEvent 
             )
         })
     }
