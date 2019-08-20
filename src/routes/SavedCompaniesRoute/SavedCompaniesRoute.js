@@ -10,9 +10,10 @@ class SavedEventsRoute extends React.Component {
   static contextType = JobReelContext
 
   componentDidMount = () => {
+    if (this.context.companies.length === 0)
     jobReelApiService.getSavedCompanies()
       .then(res => {
-        this.context.setCompanies(res.companies);
+        this.context.setCompanies(res);
       })
   }
 
