@@ -1,5 +1,9 @@
 import React from 'react';
 import Summary from '../Summary/Summary';
+import DashJobSummary from '../DashJobSummary/DashJobSummary';
+import DashCompanySummary from '../DashCompanySummary/DashCompanySummary';
+import DashContactSummary from '../DashContactSummary/DashContactSummary';
+import DashEventSummary from '../DashEventSummary/DashEventSummary';
 import './SummaryContainer.css';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -16,27 +20,27 @@ class SummaryContainer extends React.Component {
           <Slider>
             <Slide index={0}>
               <div className='summary-div'>
-                <Summary section="APPLIED JOBS"/>
+                <DashJobSummary section="APPLIED JOBS"/>
               </div>
             </Slide>
             <Slide index={1}>
               <div className='summary-div'>
-                <Summary section="JOBS I LIKE"/>
+                <DashJobSummary section="JOBS I LIKE"/>
               </div>
             </Slide>
             <Slide index={2}>
               <div className='summary-div'>
-                <Summary section="COMPANIES OF INTEREST" />
+                <DashCompanySummary section="COMPANIES OF INTEREST" />
               </div>
             </Slide>
             <Slide index={3}>
               <div className='summary-div'>
-                <Summary section="PROFESSIONAL CONTACTS" />
+                <DashContactSummary section="PROFESSIONAL CONTACTS" />
               </div>
             </Slide>
             <Slide index={4}>
               <div className='summary-div'>
-                <Summary section="NETWORKING EVENTS" />
+                <DashEventSummary section="NETWORKING EVENTS" />
               </div>
             </Slide>
             <Slide index={5}>

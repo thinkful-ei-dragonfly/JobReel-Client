@@ -43,6 +43,7 @@ class AddEventForm extends React.Component {
       .catch(res => {
         this.setState({ error: res.error })
       })
+      this.context.setManualEventAdd(false)
   }
 
   renderStateOptions = () => {
@@ -202,8 +203,11 @@ class AddEventForm extends React.Component {
             >
               <option value="Will Attend">Will attend</option>
               <option value="Maybe">Maybe</option>
+              <option value="Attended">Attended</option>
+              <option value="Did Not Attend">Did Not Attend</option>
             </select>
           </div>
+          <Button onClick={() => this.context.setManualEventAdd(false)} type="button">Back</Button>
           <Button type="submit">Submit</Button>
         </form>
       </div>

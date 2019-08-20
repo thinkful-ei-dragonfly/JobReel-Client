@@ -15,6 +15,10 @@
   background: rgb(224, 193, 13)
 }
 
+.red{
+  background: rgb(255, 78, 78);
+}
+
 .edit-job-form label, input{
   display: inline block;
   margin: 5px;

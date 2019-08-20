@@ -26,6 +26,8 @@ export default class ResourcesForm extends React.Component {
         e.target.title.value = '';
         e.target.description.value = '';
         this.context.setResources([...this.context.resources, res]);
+      })
+      .then(() => {
         console.log(this.context.resources)
       })
       .catch(res => {

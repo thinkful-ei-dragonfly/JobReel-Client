@@ -18,7 +18,9 @@ import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRou
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
-import Meetup from '../Meetup/Meetup';
+import MeetupSender from '../Meetup/MeetupSender';
+import SendToMeetup from '../Meetup/MeetupSender';
+
 
 library.add(fab, faChevronLeft, faTimesCircle);
 
@@ -29,11 +31,15 @@ export default function App() {
       <main>
         <Switch>
           <PrivateRoute
+            exact path={'/meetups'}
+            component={SendToMeetup}
+          />
+          <PrivateRoute
             exact path={'/jobsearch'}
             component={JobSearchForm}
           />
           <PublicOnlyRoute
-            exact path={'/'}
+            exact path={['/','/register']}
             component={RegistrationRoute}
           />
           <PublicOnlyRoute

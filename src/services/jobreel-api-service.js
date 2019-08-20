@@ -69,6 +69,25 @@ const JobReelApiService = {
             console.error({ error })
             })
     },
+    deleteEvent(eventId) {
+        return fetch(`${config.API_ENDPOINT}/events/${eventId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }          
+            })
+            .catch(error => {
+            console.error({ error })
+            })
+    },
     editJob(editedJob, jobId) {
         return fetch(`${config.API_ENDPOINT}/savedjobs/${jobId}`, {
             method: 'PATCH',
@@ -77,6 +96,26 @@ const JobReelApiService = {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(editedJob)
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }          
+            })
+            .catch(error => {
+            console.error({ error })
+            })
+    },
+    editEvent(editedEvent, eventId) {
+        return fetch(`${config.API_ENDPOINT}/events/${eventId}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedEvent)
         })
         .then(res => {
             if (!res.ok) {
@@ -190,16 +229,18 @@ const JobReelApiService = {
         return fetch(`${config.API_ENDPOINT}/resources`, {
             method: 'POST',
             headers: {
-                'authorization': `Bearer ${TokenService.getAuthToken}`,
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(resourceData)
         })
-            .then(res => 
+
+            .then(res => {
+                console.log(res);
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            })
     },
     
 }

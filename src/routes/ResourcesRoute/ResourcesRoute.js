@@ -2,6 +2,7 @@ import React from 'react';
 import SideNav from '../../components/SideNav/SideNav';
 import ResourcesForm from '../../components/ResourcesForm/ResourcesForm';
 import './ResourcesRoute.css';
+import ResourcesList from '../../components/ResourcesList/ResourcesList';
 class ResourcesRoute extends React.Component {
   static defaultProps = {
     location: {},
@@ -19,7 +20,8 @@ class ResourcesRoute extends React.Component {
           <h2>Resources</h2>
         </div>
         <SideNav />
-        <ResourcesForm/>
+        <ResourcesList/>
+        {/* <ResourcesForm/> */}
       </div>
     )
   }
