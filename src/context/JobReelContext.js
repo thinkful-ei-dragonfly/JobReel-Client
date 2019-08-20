@@ -122,6 +122,11 @@ export class JobReelProvider extends Component {
         this.setState({ user })
     }
 
+    setUserMeetupProfile = (user, accesstoken) => {
+        console.log(user, accesstoken)
+        user.meetupProfile = accesstoken
+    }
+
     setJobData = jobData => {
         this.setState({
             jobData
