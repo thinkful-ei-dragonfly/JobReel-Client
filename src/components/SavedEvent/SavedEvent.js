@@ -125,7 +125,9 @@ class SavedEvent extends React.Component {
   }
 
   convertDate = (date) => {
-    return format(date, 'YYYY-MM-DD')
+    let offset = new Date(date)
+    offset.setMinutes(offset.getMinutes() + offset.getTimezoneOffset())
+    return format(offset, 'YYYY-MM-DD')
   }
 
   handleSubmit = async e => {
@@ -163,7 +165,7 @@ class SavedEvent extends React.Component {
       <div className="event-box">
         {eventStatus}
         <h3>{event_name}</h3>
-        <h4>Hosted By: {host} on {format(date, 'Do MMM YYYY')}</h4>
+        <h4>Hosted By: {host} on {this.convertDate(date)}</h4>
         <p>{address}</p>
         <p>{city}, {state}</p>
         <p><a href={url}>{url}</a></p>
@@ -237,7 +239,7 @@ class SavedEvent extends React.Component {
             id='date'
             placeholder={this.convertDate(date)}
             required
-            value={date}
+            value={this.convertDate(date)}
             onChange={this.handleChangeDate}
           />
         </div>
