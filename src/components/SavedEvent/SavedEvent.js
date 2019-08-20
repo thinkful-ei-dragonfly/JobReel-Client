@@ -117,7 +117,7 @@ class SavedEvent extends React.Component {
 
   handleClickDelete(eventId){
     jobReelApiService.deleteEvent(eventId)
-    this.context.deleteJob(eventId)
+    this.context.deleteEvent(eventId)
   }
 
   handleToggle = () => {
