@@ -11,3 +11,11 @@
   color: #eeebd9;
   text-align: center;
 }
+
+.hidden-form {
+  display: none;
+}
+
+.revealed-form {
+  
+}
