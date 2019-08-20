@@ -1,4 +1,4 @@
-.AddCompanyForm {
+.AddContactForm {
   border: 1px black solid;
   min-width: 300px;
   margin: 0 auto;
@@ -14,9 +14,3 @@
   box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
 
-#state-input {
-  margin: 0 auto;
-  border-radius: 10px;
-  width: 15em;
-  height: 2em;
-}

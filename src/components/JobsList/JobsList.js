@@ -6,10 +6,13 @@ import './JobsList.css';
 import config from '../../config'
 import TokenService from '../../services/token-service'
 import GithubJob from '../Job/GithubJob';
+import SideNav from '../SideNav/SideNav';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class JobsList extends Component {
     state = {
-    search: null
+        search: null,
     }
     static contextType = JobReelContext
 
@@ -42,61 +45,48 @@ export default class JobsList extends Component {
                 .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
                 .then(([data1, data2]) => {
                     this.context.setGithubJobs(data2)
-                    this.context.setAuthenticJobs(data1.listings.listing)
+                    // this.context.setAuthenticJobs(data1.listings.listing)
                 });
         }, 500)
     }
-
-  renderJobList() {
-    const { jobData = {} } = this.context
-    const { jobs = {} } = this.context
-    console.log(jobs)
-    const jobsList = jobs.map((job, i) => {
-        return <Job job={job} key={i} />
-    })
-    return (
-      <>
-        <div className='information'>
-          <div className='total-results-count'>
-            <p>Total Results: {jobData.totalResults}</p>
-          </div>
-          <div className='results-page-number'>
-            <p>Page Number: {jobData.pageNumber+1}</p>
-          </div>
-        </div>
-        <div className='results'>
-          <h3>Results</h3>
-          {jobsList}
-        </div>
-        </>
-      )
-  }
    
-    renderJobListGitHub() {
-        const {gitHubJobs = {} } = this.context
-        const {authenticJobs = {} } = this.context
+    renderJobList() {
+        const {gitHubJobs = [] } = this.context
+        const {authenticJobs = [] } = this.context
         console.log(gitHubJobs)
         console.log(authenticJobs)
         const jobsListOne = gitHubJobs.map((job, i) => {
             return <GithubJob job={job} key={i}/>
         })
         const jobsListTwo = authenticJobs.map((job, i) => {
-            return <Job job={job} company={job.company} type={job.type} location={job.company.name} key={i}/>
+            return (
+                <Job job={job} company={job.company} type={job.type} location={job.company.name} key={i} />
+            )
         })
         return (
-            <>
-            JobsList:
-            {jobsListOne}
-            {jobsListTwo}
-            </>
+            <div className='results'>
+                {jobsListOne}
+                {jobsListTwo}
+            </div>
         )
     }
 
+
     render() {
         return (
-            <div className='jobslist'>
-                {this.renderJobList()}
-                {this.renderJobListGitHub()}
+            <div className='job-search-results'>
+                <div className='title'>
+                    <h2>Jobs List</h2>
+                </div>
+                <SideNav />
+                <div className='results-container'>
+                    <Link id='go-back' to={`/jobs`} alt="goBack">
+                            <FontAwesomeIcon icon='times-circle' size='2x'/>
+                    </Link>
+                    {this.renderJobList()}
+                </div>
+                
+                
             </div>
         )
     }

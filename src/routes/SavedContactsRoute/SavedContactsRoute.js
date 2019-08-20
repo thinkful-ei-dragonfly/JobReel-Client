@@ -1,32 +1,32 @@
 import React from 'react';
 import SideNav from '../../components/SideNav/SideNav';
-import AddCompanyForm from '../../components/AddCompanyForm/AddCompanyForm';
+import AddContactForm from '../../components/AddContactForm/AddContactForm';
 import jobReelApiService from '../../services/jobreel-api-service';
 import JobReelContext from '../../context/JobReelContext';
-import './SavedCompaniesRoute.css';
+import './SavedContactsRoute.css';
 
-class SavedEventsRoute extends React.Component {
+class SavedContactsRoute extends React.Component {
   
   static contextType = JobReelContext
 
   componentDidMount = () => {
-    jobReelApiService.getSavedCompanies()
+    jobReelApiService.getSavedContacts()
       .then(res => {
-        this.context.setCompanies(res.companies);
+        this.context.setContacts(res.contacts);
       })
   }
 
   render() {
     return (
-      <div className="SavedCompaniesRoute">
+      <div className="SavedContactsRoute">
         <div className='title'>
-          <h2>Companies</h2>
+          <h2>Contacts</h2>
         </div>
         <SideNav />
-        <AddCompanyForm />
+        <AddContactForm />
       </div>
     )
   }
 }
 
-export default SavedEventsRoute;
+export default SavedContactsRoute;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
+import './Job.css';
 
 
 export default class GithubJob extends Component {
@@ -12,7 +13,7 @@ export default class GithubJob extends Component {
     renderJob() {
         const {job = {}} = this.props
         return (
-            <li>
+            <div className='job-card'>
                 JOB TITLE: {job.title}
                 <br/>
                 JOB TYPE: {job.type}
@@ -25,7 +26,7 @@ export default class GithubJob extends Component {
                     <div className="expand">&#x2965;</div>
                     Get More Details
                 </button>
-            </li>
+            </div>
         )
     }
 
@@ -36,7 +37,7 @@ export default class GithubJob extends Component {
     renderJobExpanded() {
         const {job = {}} = this.props
         return (
-            <li>
+            <div className='job-card'>
                 JOB TITLE: {job.title}
                 <br/>
                 JOB TYPE: {job.type}
@@ -54,7 +55,7 @@ export default class GithubJob extends Component {
                     <div className="collapse">&#x2963;</div>
                     <h3>Collapse</h3>
                 </button>
-            </li>
+            </div>
         )
     }
 

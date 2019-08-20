@@ -29,8 +29,11 @@ class JobSearchForm extends React.Component {
   render() {
     return (
       <div className='job-search'>
+        <div className='title'>
+          <h2>Search for Job</h2>
+        </div>
         <form className='JobSearchForm' onSubmit={this.handleSubmit}>
-          <div>
+          {/* <div>
             <Label htmlFor='industry-input'>
               Industry
             </Label>
@@ -40,7 +43,7 @@ class JobSearchForm extends React.Component {
               id='industry-input'
               name='industry'
             />
-          </div>
+          </div> */}
           <div>
             <Label htmlFor='job-title-input'>
               Job Title

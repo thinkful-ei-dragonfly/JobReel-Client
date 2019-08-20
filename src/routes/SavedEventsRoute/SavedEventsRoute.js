@@ -19,6 +19,9 @@ class SavedEventsRoute extends React.Component {
   render() {
     return (
       <div className="SavedEventsRoute">
+        <div className='title'>
+          <h2>Events</h2>
+        </div>
         <SideNav />
         <AddEventForm />
       </div>

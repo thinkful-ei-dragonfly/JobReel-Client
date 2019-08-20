@@ -176,6 +176,7 @@ class AddCompanyForm extends React.Component {
               name='contact'
             />
           </div>
+          <br/>
           <Button type="submit">Submit</Button>
         </form>
       </div>

@@ -1,25 +1,35 @@
-.jobslist {
-  border: 1px solid black;
-  border-radius: 10px;
+.job-search-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
 }
 
-.information {
-  width: 100%;
-  display: block;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.results-container {
+  position: relative;
+  grid-column-start: 3;
+  grid-column-end: 9;
+  height: 500px;
 }
 
-.total-results-count > p {
-  margin: 0;
+#go-back {
+  position: absolute;
+  right: 5%;
+  top: -5%;
+  width: 30px;
+  height: 30px;
+  color: #eeebd9;
+  border-radius: 30px;
+  display: table;
 }
 
-.results-page-number > p {
-  margin: 0;
+.go-back:hover {
+  transition: all;
+  color: #fc766a;
 }
 
-.results > h3 {
+.results > h2 {
   text-align: center;
 }
+
+
 

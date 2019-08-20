@@ -8,13 +8,19 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
-import JobSearcForm from '../JobSearchForm/JobSearchForm';
+import JobSearchForm from '../JobSearchForm/JobSearchForm';
 import SavedJobsRoute from '../../routes/SavedJobsRoute/SavedJobsRoute';
 import SavedEventsRoute from '../../routes/SavedEventsRoute/SavedEventsRoute';
 import SavedCompaniesRoute from '../../routes/SavedCompaniesRoute/SavedCompaniesRoute';
 import JobsList from '../JobsList/JobsList';
-import JobSearchForm from '../JobSearchForm/JobSearchForm';
 import ResourcesRoute from '../../routes/ResourcesRoute/ResourcesRoute';
+import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faChevronLeft, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import Meetup from '../Meetup/Meetup';
+
+library.add(fab, faChevronLeft, faTimesCircle);
 
 export default function App() {
   return (
@@ -24,7 +30,7 @@ export default function App() {
         <Switch>
           <PrivateRoute
             exact path={'/jobsearch'}
-            component={JobSearcForm}
+            component={JobSearchForm}
           />
           <PublicOnlyRoute
             exact path={'/'}
@@ -65,6 +71,10 @@ export default function App() {
           <PrivateRoute
             path={'/resources'}
             component={ResourcesRoute}
+          />
+          <PrivateRoute
+            path={'/contacts'}
+            component={SavedContactsRoute}
           />
         </Switch>
       </main>
