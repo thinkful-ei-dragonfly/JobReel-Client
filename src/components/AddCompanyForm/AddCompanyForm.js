@@ -39,6 +39,7 @@ class AddCompanyForm extends React.Component {
       .catch(res => {
         this.setState({ error: res.error })
       })
+    this.context.setManualCompanyAdd(false)
   }
 
   renderStateOptions = () => {
@@ -176,6 +177,7 @@ class AddCompanyForm extends React.Component {
               name='contact'
             />
           </div>
+          <Button onClick={() => this.context.setManualCompanyAdd(false)} type="button">Back</Button>
           <Button type="submit">Submit</Button>
         </form>
       </div>

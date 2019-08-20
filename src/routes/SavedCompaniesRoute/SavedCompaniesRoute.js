@@ -3,9 +3,10 @@ import SideNav from '../../components/SideNav/SideNav';
 import AddCompanyForm from '../../components/AddCompanyForm/AddCompanyForm';
 import jobReelApiService from '../../services/jobreel-api-service';
 import JobReelContext from '../../context/JobReelContext';
+import CompanySummary from '../../components/CompanySummary/CompanySummary';
 import './SavedCompaniesRoute.css';
 
-class SavedEventsRoute extends React.Component {
+class SavedCompaniesRoute extends React.Component {
   
   static contextType = JobReelContext
 
@@ -18,13 +19,15 @@ class SavedEventsRoute extends React.Component {
   }
 
   render() {
+    let display;
+    (this.context.manualCompanyAdd === false) ? display = <CompanySummary /> : display = <AddCompanyForm /> 
     return (
       <div className="SavedCompaniesRoute">
         <SideNav />
-        <AddCompanyForm />
+        {display}
       </div>
     )
   }
 }
 
-export default SavedEventsRoute;
+export default SavedCompaniesRoute;
