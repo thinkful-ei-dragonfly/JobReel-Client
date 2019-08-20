@@ -184,6 +184,45 @@ const JobReelApiService = {
                 : res.json()
         )
     },
+    deleteCompany(companyId) {
+        return fetch(`${config.API_ENDPOINT}/companies/${companyId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }          
+            })
+            .catch(error => {
+            console.error({ error })
+            })
+    },
+    editCompany(editedCompany, companyId) {
+        return fetch(`${config.API_ENDPOINT}/companies/${companyId}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedCompany)
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }          
+            })
+            .catch(error => {
+            console.error({ error })
+            })
+    },
     getSavedContacts() {
         return fetch(`${config.API_ENDPOINT}/contacts`, {
             method: 'GET',

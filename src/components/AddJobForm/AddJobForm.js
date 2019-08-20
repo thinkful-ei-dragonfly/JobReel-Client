@@ -41,7 +41,7 @@ class AddJobForm extends React.Component {
       .catch(res => {
         this.setState({ error: res.error })
       })
-      this.context.setManualJobAdd(false)
+    this.context.setManualJobAdd(false)
   }
 
   renderStateOptions = () => {

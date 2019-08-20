@@ -3,6 +3,7 @@ import SideNav from '../../components/SideNav/SideNav';
 import ResourcesForm from '../../components/ResourcesForm/ResourcesForm';
 import './ResourcesRoute.css';
 import ResourcesList from '../../components/ResourcesList/ResourcesList';
+import Button from '../../components/Button/Button';
 class ResourcesRoute extends React.Component {
   static defaultProps = {
     location: {},
@@ -13,6 +14,8 @@ class ResourcesRoute extends React.Component {
 
   state = { error: null };
 
+
+
   render() {
     return (
       <div className='resources-page'>
@@ -20,7 +23,7 @@ class ResourcesRoute extends React.Component {
           <h2>Resources</h2>
         </div>
         <SideNav />
-        <ResourcesList/>
+        <ResourcesList />
         {/* <ResourcesForm/> */}
       </div>
     )
