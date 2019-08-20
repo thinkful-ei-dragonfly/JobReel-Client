@@ -55,6 +55,7 @@ export class JobReelProvider extends Component {
             meetups: [],
             professionals: [],
             savedJobs: [],
+            savedEvents: [],
             jobData: {},
             manualJobAdd: false,
             setError: this.setError,
