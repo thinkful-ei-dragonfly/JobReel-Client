@@ -13,7 +13,7 @@ class SavedContactsSummary extends React.Component {
     if(this.context.contacts !== []){
       let contacts = this.context.contacts
       mappedContacts = contacts
-      .map(contact => <Contact id={contact.contact_id} name={contact.contact_name} job_title={contact.job_title} company={contact.company} email={contact.email} linkedin={contact.linkedin} comments={contact.comments} date={contact.date_added} connected={contact.connected} user={contact.user_id}/>)
+      .map(contact => <Contact key={contact.contact_id} id={contact.contact_id} name={contact.contact_name} job_title={contact.job_title} company={contact.company} email={contact.email} linkedin={contact.linkedin} comments={contact.comments} date={contact.date_added} connected={contact.connected} user={contact.user_id}/>)
     }
 
     return(

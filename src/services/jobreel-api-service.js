@@ -212,6 +212,25 @@ const JobReelApiService = {
                 : res.json()
         )
     },
+    deleteContact(contactId) {
+        return fetch(`${config.API_ENDPOINT}/contacts/${contactId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }          
+            })
+            .catch(error => {
+            console.error({ error })
+            })
+    },
 }
 
 export default JobReelApiService

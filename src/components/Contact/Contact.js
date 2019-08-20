@@ -18,9 +18,9 @@ class Contact extends React.Component {
   }
 
   
-  handleClickDelete(eventId){
-    jobReelApiService.deleteEvent(eventId)
-    this.context.deleteEvent(eventId)
+  handleClickDelete(contactId){
+    jobReelApiService.deleteContact(contactId)
+    this.context.deleteContact(contactId)
   }
 
   // handleToggle = () => {

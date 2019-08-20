@@ -39,6 +39,7 @@ const JobReelContext = React.createContext({
     setManualContactAdd: () => { },
     setSavedJobs: () => { },
     deleteJob: () => { },
+    deleteContact: () => { },
     updateJob: () => { },
 })
 
@@ -88,6 +89,7 @@ export class JobReelProvider extends Component {
             setManualContactAdd: this.setManualContactAdd,
             deleteJob: this.deleteJob,
             deleteEvent: this.deleteEvent,
+            deleteContact: this.deleteContact,
             updateJob: this.updateJob,
             updateEvent: this.updateEvent,
         }
@@ -219,6 +221,12 @@ export class JobReelProvider extends Component {
     deleteJob = jobId => {
         this.setState({
             savedJobs: this.state.savedJobs.filter(job => job.job_id !== jobId)
+        });
+    }
+
+    deleteContact = contactId => {
+        this.setState({
+            contacts: this.state.contacts.filter(contact => contact.contact_id !== contactId)
         });
     }
 
