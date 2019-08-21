@@ -11,18 +11,92 @@ export default class GithubJob extends Component {
         expanded: false
     }
 
+    convertState = (state) => {
+        console.log(`Converting; ${state}`);
+        const states = {
+            'Alabama' : 'AL',
+            'Alaska' : 'AK',
+            'American Samoa' : 'AS',
+            'Arizona' : 'AZ',
+            'Arkansas' : 'AR',
+            'California' : 'CA',
+            'Colorado' : 'CO',
+            'Connecticut' : 'CT',
+            'Delaware' : 'DE',
+            'District Of Columbia' : 'DC',
+            'Federated States Of Micronesia' : 'FM',
+            'Florida' : 'FL',
+            'Georgia' : 'GA',
+            'Guam' : 'GU',
+            'Hawaii' : 'HI',
+            'Idaho' : 'ID',
+            'Illinois' : 'IL',
+            'Indiana' : 'IN',
+            'Iowa' : 'IA',
+            'Kansas' : 'KS',
+            'Kentucky' : 'KY',
+            'Louisiana' : 'LA',
+            'Maine' : 'ME',
+            'Marshall Islands' : 'MH',
+            'Maryland' : 'MD',
+            'Massachusetts' : 'MA',
+            'Michigan' : 'MI',
+            'Minnesota' : 'MN',
+            'Mississippi' : 'MS',
+            'Missouri' : 'MO',
+            'Montana' : 'MT',
+            'Nebraska' : 'NE',
+            'Nevada' : 'NV',
+            'New Hampshire' : 'NH',
+            'New Jersey' : 'NJ',
+            'New Mexico' : 'NM',
+            'New York' : 'NY',
+            'North Carolina' : 'NC',
+            'North Dakota' : 'ND',
+            'Northern Mariana Islands' : 'MP',
+            'Ohio' : 'OH',
+            'Oklahoma' : 'OK',
+            'Oregon' : 'OR',
+            'Palau' : 'PW',
+            'Pennsylvania' : 'PA',
+            'Puerto Rico' : 'PR',
+            'Rhode Island' : 'RI',
+            'South Carolina' : 'SC',
+            'South Dakota' : 'SD',
+            'Tennessee' : 'TN',
+            'Texas' : 'TX',
+            'Utah' : 'UT',
+            'Vermont' : 'VT',
+            'Virgin Islands' : 'VI',
+            'Virginia' : 'VA',
+            'Washington' : 'WA',
+            'West Virginia' : 'WV',
+            'Wisconsin' : 'WI',
+            'Wyomin' : 'WY'
+        }
+        if (state in states) {
+            return states[state];
+        }
+        return state;
+    }
+
     handleClick = (e) => {
+        this.convertState('California');
         const job = this.props.job;
-        console.log(job);
+        console.log(job)
+        const location = job.location.split(', ');
+        console.log(location);
         if (!job.state) {
             console.log('No State');
-            job.state = '';
+            console.log(location[1]);
+            // job.state = '';
+            location[1] ? job.state = location[1] : job.state = '';;
         }
         console.log(job.state);
         const jobData = {
             job_title: job.title,
             company: job.company,
-            city: job.location,
+            city: location[0],
             state: job.state,
             url: job.url,
             description: job.description,
