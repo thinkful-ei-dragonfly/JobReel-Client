@@ -10,6 +10,7 @@ class SavedJob extends React.Component {
   static contextType = JobReelContext;
 
   state = {
+    error: null,
     editing: false,
     company: this.props.company || '',
     title: this.props.title || '',
@@ -115,28 +116,41 @@ class SavedJob extends React.Component {
     this.context.deleteJob(jobId)
   }
 
+  validateUrl(url) {
+    return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(url)
+  }
+
+  handleError = (error) => {
+    this.setState({ error })
+  }
+
   handleSubmit = async e => {
     e.preventDefault()
     const { title, company, city, state, url, status, description } = this.state
-    const editedJob = { 
-      job_title: title, 
-      company, 
-      city, 
-      state, 
-      url, 
-      status, 
-      description,
-      job_id: this.props.id,
-      date_added: this.props.date,
-      user_id: this.props.user
-     }
-    await jobReelApiService.editJob(editedJob, this.props.id)
-    await this.context.updateJob(editedJob)
-    await this.handleToggle()
+    if (!this.validateUrl(url)) {
+      this.handleError('Please provide a valid website address starting with http:// or https://')
+    } else {
+      const editedJob = { 
+        job_title: title, 
+        company, 
+        city, 
+        state, 
+        url, 
+        status, 
+        description,
+        job_id: this.props.id,
+        date_added: this.props.date,
+        user_id: this.props.user
+       }
+      await jobReelApiService.editJob(editedJob, this.props.id)
+      await this.context.updateJob(editedJob)
+      await this.handleToggle()
+      await this.handleError(null)
+    }
   }
 
   render(){
-    const { title, company, city, state, url, status, description } = this.state
+    const { title, company, city, state, url, status, description, error, editing } = this.state
     let jobStatus;
     (status === 'Interested')
       ? jobStatus = <div className="job-status yellow">{status}</div>
@@ -157,6 +171,7 @@ class SavedJob extends React.Component {
       className='edit-job-form'
       onSubmit={this.handleSubmit}>
         <div>
+          <div className="error-message">{error}</div>
           <label htmlFor='title'>Title</label>
           <input
             type='text'
@@ -238,7 +253,7 @@ class SavedJob extends React.Component {
       </form>
 
     let display;
-    (this.state.editing === false) ? display = job : display = editJob
+    (editing === false) ? display = job : display = editJob
     
     return(
       <div className="saved-job">

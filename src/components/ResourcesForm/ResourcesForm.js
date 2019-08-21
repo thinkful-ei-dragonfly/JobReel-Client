@@ -34,6 +34,21 @@ export default class ResourcesForm extends React.Component {
       .catch(res => {
         this.setState({ error: res.error });
     })
+    this.context.setManualResourceAdd(false);
+  }
+
+  renderTypeOptions = () => {
+    const types = [
+      'website',
+      'book',
+      'github repository',
+      'magazine',
+      'online publication',
+      'podcast'
+    ]
+    return types.map((type,i) => {
+      return <option key={i} value={type}>{type}</option>
+    })
   }
 
 
@@ -52,10 +67,9 @@ export default class ResourcesForm extends React.Component {
               Type
             </Label>
             <br />
-            <Input
-              id='resource-type-input'
-              name='type'
-            />
+            <select name='type' id='resource-type-input'>
+              {this.renderTypeOptions()}
+            </select>
           </div>
           <div>
             <Label htmlFor='resource-title-input'>

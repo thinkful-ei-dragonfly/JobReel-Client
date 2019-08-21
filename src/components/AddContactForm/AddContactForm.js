@@ -37,6 +37,7 @@ class AddContactForm extends React.Component {
       .catch(res => {
         this.setState({ error: res.error })
       })
+    this.context.setManualContactAdd(false)
   }
 
   render() {
@@ -107,6 +108,7 @@ class AddContactForm extends React.Component {
               name='comments'
             />
           </div>
+          <Button onClick={() => this.context.setManualContactAdd(false)} type="button">Back</Button>
           <Button type="submit">Submit</Button>
         </form>
       </div>

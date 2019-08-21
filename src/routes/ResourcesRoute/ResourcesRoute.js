@@ -9,8 +9,6 @@ class ResourcesRoute extends React.Component {
 
   static contextType = JobReelContext;
 
-  state = { error: null };
-
   componentDidMount = () => {
     JobReelApiService.getSavedResources()
       .then(res => {
