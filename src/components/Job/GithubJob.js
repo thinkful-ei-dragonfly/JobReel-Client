@@ -12,7 +12,8 @@ export default class GithubJob extends Component {
     }
 
     convertState = (state) => {
-        console.log(`Converting; ${state}`);
+        state = state.toLowerCase();
+        state = state[0].toUpperCase() + state.slice(1);
         const states = {
             'Alabama' : 'AL',
             'Alaska' : 'AK',
@@ -80,19 +81,15 @@ export default class GithubJob extends Component {
         return state;
     }
 
-    handleClick = (e) => {
-        this.convertState('California');
+    handleClick = () => {
         const job = this.props.job;
-        console.log(job)
         const location = job.location.split(', ');
-        console.log(location);
         if (!job.state) {
-            console.log('No State');
-            console.log(location[1]);
-            // job.state = '';
-            location[1] ? job.state = location[1] : job.state = '';;
+            location[1] ? job.state = location[1] : job.state = '';
         }
-        console.log(job.state);
+        if (job.state.length > 2) {
+            job.state = this.convertState(job.state);
+        }
         const jobData = {
             job_title: job.title,
             company: job.company,
@@ -103,11 +100,10 @@ export default class GithubJob extends Component {
             status: 'Interested',
             user_id: this.context.user.id
         }
-        console.log(jobData);
-        // jobReelApiService.submitJob(jobData)
-        //     .then(res => {
-        //         console.log(res);
-        //     })
+        jobReelApiService.submitJob(jobData)
+            .then(res => {
+                this.context.setSavedJobs([...this.context.savedJobs, res]);
+            })
     }
     
     renderJob() {

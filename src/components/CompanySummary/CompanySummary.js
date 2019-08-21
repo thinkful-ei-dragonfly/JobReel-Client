@@ -18,7 +18,7 @@ class CompanySummary extends React.Component {
     if(this.context.savedCompanies !== []){
       let companies = this.context.companies
       mappedCompanies = companies
-      .map(company => <Company id={company.company_id} name={company.company_name} city={company.city} state={company.state} date={company.date_added} industry={company.industry} desc={company.description} website={company.website} contact={company.contact} user={company.user_id}/>)
+      .map(company => <Company key={company.company_id} id={company.company_id} name={company.company_name} city={company.city} state={company.state} date={company.date_added} industry={company.industry} desc={company.description} website={company.website} contact={company.contact} user={company.user_id}/>)
     }
 
     return(

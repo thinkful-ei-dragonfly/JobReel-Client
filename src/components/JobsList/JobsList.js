@@ -16,7 +16,6 @@ export default class JobsList extends Component {
     static contextType = JobReelContext
 
     componentDidMount() {
-        console.log(this.context)
         const search = this.context.search
         setTimeout(() => {
             Promise.all([
