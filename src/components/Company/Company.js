@@ -2,23 +2,50 @@ import React from 'react';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
-import './SavedJob.css'
 import { format } from 'date-fns'
 
-class SavedJob extends React.Component {
+class Company extends React.Component {
 
   static contextType = JobReelContext;
 
   state = {
     error: null,
     editing: false,
-    company: this.props.company || '',
-    title: this.props.title || '',
+    company_name: this.props.name || '',
     city: this.props.city || '',
     state: this.props.state || '',
-    url: this.props.url || '',
-    status: this.props.status || '',
-    description: this.props.desc || ''
+    industry: this.props.industry || '',
+    website: this.props.website || '',
+    description: this.props.desc || '',
+    contact: this.props.contact || '',
+  }
+
+  handleChangeDesc = e => {
+    this.setState({ description: e.target.value })
+  };
+
+  handleChangeCompanyName = e => {
+    this.setState({ company_name: e.target.value })
+  };
+
+  handleChangeCity = e => {
+    this.setState({ city: e.target.value })
+  };
+
+  handleChangeState = e => {
+    this.setState({ state: e.target.value })
+  };
+
+  handleChangeWebsite = e => {
+    this.setState({ website: e.target.value })
+  };
+
+  handleChangeContact = e => {
+    this.setState({ contact: e.target.value })
+  };
+
+  handleChangeIndustry = e => {
+    this.setState({ industry: e.target.value })
   };
 
   renderStateOptions = () => {
@@ -79,41 +106,13 @@ class SavedJob extends React.Component {
     })
   }
 
-  handleToggle = () => {
-    this.setState({ editing: !this.state.editing })
+  handleClickDelete(companyId){
+    jobReelApiService.deleteCompany(companyId)
+    this.context.deleteCompany(companyId)
   }
 
-  handleChangeCompany = e => {
-    this.setState({ company: e.target.value })
-  };
-
-  handleChangeTitle = e => {
-    this.setState({ title: e.target.value })
-  };
-
-  handleChangeCity = e => {
-    this.setState({ city: e.target.value })
-  };
-
-  handleChangeState = e => {
-    this.setState({ state: e.target.value })
-  };
-
-  handleChangeUrl = e => {
-    this.setState({ url: e.target.value })
-  };
-
-  handleChangeStatus = e => {
-    this.setState({ status: e.target.value })
-  };
-
-  handleChangeDesc = e => {
-    this.setState({ description: e.target.value })
-  };
-
-  handleClickDelete(jobId){
-    jobReelApiService.deleteJob(jobId)
-    this.context.deleteJob(jobId)
+  handleToggle = () => {
+    this.setState({ editing: !this.state.editing })
   }
 
   validateUrl(url) {
@@ -126,73 +125,69 @@ class SavedJob extends React.Component {
 
   handleSubmit = async e => {
     e.preventDefault()
-    const { title, company, city, state, url, status, description } = this.state
-    if (!this.validateUrl(url)) {
+    const { company_name, city, state, website, description, industry, contact } = this.state
+    if (!this.validateUrl(website)) {
       this.handleError('Please provide a valid website address starting with http:// or https://')
     } else {
-      const editedJob = { 
-        job_title: title, 
-        company, 
-        city, 
-        state, 
-        url, 
-        status, 
-        description,
-        job_id: this.props.id,
-        date_added: this.props.date,
-        user_id: this.props.user
-       }
-      await jobReelApiService.editJob(editedJob, this.props.id)
-      await this.context.updateJob(editedJob)
-      await this.handleToggle()
-      await this.handleError(null)
-    }
-  }
+    const editedCompany = { 
+      company_name,
+      city, 
+      state, 
+      website, 
+      industry,
+      contact,
+      description,
+      company_id: this.props.id,
+      date_added: this.props.date,
+      user_id: this.props.user
+     }
+    await jobReelApiService.editCompany(editedCompany, this.props.id)
+    await this.context.updateCompany(editedCompany)
+    await this.handleToggle()
+    await this.handleError(null)
+  } 
+}
 
   render(){
-    const { title, company, city, state, url, status, description, error, editing } = this.state
-    let jobStatus;
-    (status === 'Interested')
-      ? jobStatus = <div className="job-status yellow">{status}</div>
-      : jobStatus = <div className="job-status green">{status}</div> 
-    let job = 
-      <div className="job-box">
-        {jobStatus}
-        <h3>{company}: {title}</h3>
-        <p>Posted {format(this.props.date, 'Do MMM YYYY')}</p>
+    const { company_name, city, state, website, description, industry, contact, error, editing } = this.state
+    let event = 
+      <div className="company-box">
+        <h3>{company_name}</h3>
+        <h4>Added on {format(this.props.date, 'YYYY-MM-DD')}</h4>
+        <p>Industry: {industry}</p>
         <p>{city}, {state}</p>
-        <p><a href={url}>{url}</a></p>
+        <p><a href={website}>{website}</a></p>
         <p>{description}</p>
+        <p>Contact(s): {contact}</p>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
         <Button onClick={this.handleToggle} type="button">Edit</Button>
       </div>
-    let editJob = 
+    let editCompany = 
       <form
-      className='edit-job-form'
+      className='edit-company-form'
       onSubmit={this.handleSubmit}>
         <div>
           <div className="error-message">{error}</div>
-          <label htmlFor='title'>Title</label>
+          <label htmlFor='name'>Company Name</label>
           <input
             type='text'
-            name='title'
-            id='title'
-            placeholder={title}
+            name='name'
+            id='name'
+            placeholder={company_name}
             required
-            value={title}
-            onChange={this.handleChangeTitle}
+            value={company_name}
+            onChange={this.handleChangeCompanyName}
           />
         </div>
         <div>
-          <label htmlFor='company'>Company</label>
+          <label htmlFor='industry'>Industry</label>
           <input
             type='text'
-            name='company'
-            id='company'
-            placeholder={company}
-            required
-            value={company}
-            onChange={this.handleChangeCompany}
+            name='industry'
+            id='industry'
+            placeholder={industry}
+            value={industry}
+            onChange={this.handleChangeIndustry}
           />
         </div>
         <div>
@@ -214,15 +209,14 @@ class SavedJob extends React.Component {
             </select>
         </div>
         <div>
-          <label htmlFor='url'>URL</label>
+          <label htmlFor='website'>Website</label>
           <input
             type='text'
-            name='url'
-            id='url'
-            placeholder={url}
-            required
-            value={url}
-            onChange={this.handleChangeUrl}
+            name='website'
+            id='website'
+            placeholder={website}
+            value={website}
+            onChange={this.handleChangeWebsite}
           />
         </div>
         <div>
@@ -237,30 +231,28 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='status'>Status</label>
-          <select
-              id='status-input'
-              name='status'
-              onChange={this.handleChangeStatus}
-              value={status}
-            >
-              <option value="Interested">Interested</option>
-              <option value="Applied">Applied</option>
-            </select>
+          <label htmlFor='contact'>Contact(s)</label>
+          <input
+            type='text'
+            name='contact'
+            id='contact'
+            placeholder={contact}
+            value={contact}
+            onChange={this.handleChangeContact}
+          />
         </div>
         <Button type="submit">Save Changes</Button>
         <Button type="button" onClick={this.handleToggle}>Back</Button>
       </form>
+      let display;
+      (editing === false) ? display = event : display = editCompany
 
-    let display;
-    (editing === false) ? display = job : display = editJob
-    
     return(
-      <div className="saved-job">
+      <div className="saved-event">
         {display}
       </div>
     )
   }
 }
 
-export default SavedJob
+export default Company

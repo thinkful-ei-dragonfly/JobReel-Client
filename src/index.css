@@ -33,3 +33,8 @@ code {
 :root {
   --font-size: calc(10px + 1vmin);
 }
+
+.error-message{
+  color: red;
+  background: white;
+}

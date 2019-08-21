@@ -9,6 +9,7 @@ class SavedEvent extends React.Component {
   static contextType = JobReelContext;
 
   state = {
+    error: null,
     editing: false,
     event_name: this.props.name || '',
     host: this.props.host || '',
@@ -130,29 +131,42 @@ class SavedEvent extends React.Component {
     return format(offset, 'YYYY-MM-DD')
   }
 
+  validateUrl(url) {
+    return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(url)
+  }
+
+  handleError = (error) => {
+    this.setState({ error })
+  }
+
   handleSubmit = async e => {
     e.preventDefault()
     const { event_name, host, city, state, address, date, url, description, status } = this.state
-    const editedEvent = { 
-      event_name, 
-      host, 
-      city, 
-      state, 
-      address,
-      url, 
-      status, 
-      description,
-      event_id: this.props.id,
-      date,
-      user_id: this.props.user
-     }
-    await jobReelApiService.editEvent(editedEvent, this.props.id)
-    await this.context.updateEvent(editedEvent)
-    await this.handleToggle()
+    if (!this.validateUrl(url)) {
+      this.handleError('Please provide a valid URL starting with http:// or https://')
+    } else {
+      const editedEvent = { 
+        event_name, 
+        host, 
+        city, 
+        state, 
+        address,
+        url, 
+        status, 
+        description,
+        event_id: this.props.id,
+        date,
+        user_id: this.props.user
+       }
+      await jobReelApiService.editEvent(editedEvent, this.props.id)
+      await this.context.updateEvent(editedEvent)
+      await this.handleToggle()
+      await this.handleError(null)
+    }
   }
 
   render(){
-    const { event_name, host, city, state, address, date, url, description, status } = this.state
+    const { event_name, host, city, state, address, date, url, description, status, error, editing } = this.state
     let eventStatus;
     if(status === 'Maybe' || status === 'Will Attend'){
       eventStatus = <div className="job-status yellow">{status}</div>
@@ -178,6 +192,7 @@ class SavedEvent extends React.Component {
       className='edit-event-form'
       onSubmit={this.handleSubmit}>
         <div>
+          <div className="error-message">{error}</div>
           <label htmlFor='name'>Event Name</label>
           <input
             type='text'
@@ -284,7 +299,7 @@ class SavedEvent extends React.Component {
         <Button type="button" onClick={this.handleToggle}>Back</Button>
       </form>
       let display;
-      (this.state.editing === false) ? display = event : display = editEvent
+      (editing === false) ? display = event : display = editEvent
 
     return(
       <div className="saved-event">
