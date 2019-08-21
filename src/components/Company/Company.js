@@ -9,6 +9,7 @@ class Company extends React.Component {
   static contextType = JobReelContext;
 
   state = {
+    error: null,
     editing: false,
     company_name: this.props.name || '',
     city: this.props.city || '',
@@ -114,9 +115,20 @@ class Company extends React.Component {
     this.setState({ editing: !this.state.editing })
   }
 
+  validateUrl(url) {
+    return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(url)
+  }
+
+  handleError = (error) => {
+    this.setState({ error })
+  }
+
   handleSubmit = async e => {
     e.preventDefault()
     const { company_name, city, state, website, description, industry, contact } = this.state
+    if (!this.validateUrl(website)) {
+      this.handleError('Please provide a valid website address starting with http:// or https://')
+    } else {
     const editedCompany = { 
       company_name,
       city, 
@@ -132,10 +144,12 @@ class Company extends React.Component {
     await jobReelApiService.editCompany(editedCompany, this.props.id)
     await this.context.updateCompany(editedCompany)
     await this.handleToggle()
-  }
+    await this.handleError(null)
+  } 
+}
 
   render(){
-    const { company_name, city, state, website, description, industry, contact } = this.state
+    const { company_name, city, state, website, description, industry, contact, error, editing } = this.state
     let event = 
       <div className="company-box">
         <h3>{company_name}</h3>
@@ -153,6 +167,7 @@ class Company extends React.Component {
       className='edit-company-form'
       onSubmit={this.handleSubmit}>
         <div>
+          <div className="error-message">{error}</div>
           <label htmlFor='name'>Company Name</label>
           <input
             type='text'
@@ -230,7 +245,7 @@ class Company extends React.Component {
         <Button type="button" onClick={this.handleToggle}>Back</Button>
       </form>
       let display;
-      (this.state.editing === false) ? display = event : display = editCompany
+      (editing === false) ? display = event : display = editCompany
 
     return(
       <div className="saved-event">
