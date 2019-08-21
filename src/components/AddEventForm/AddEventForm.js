@@ -39,11 +39,12 @@ class AddEventForm extends React.Component {
         e.target.desc.value = '';
         e.target.status.value = '';
         this.context.setSavedEvents([...this.context.savedEvents, res]);
+        this.context.setManualEventAdd(false)
       })
       .catch(res => {
         this.setState({ error: res.error })
       })
-      this.context.setManualEventAdd(false)
+      
   }
 
   renderStateOptions = () => {
