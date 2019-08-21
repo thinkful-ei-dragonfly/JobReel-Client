@@ -18,7 +18,7 @@ class SavedEventsSummary extends React.Component {
     if(this.context.savedEvents !== []){
       let events = this.context.savedEvents
       mappedEvents = events
-      .map(event => <SavedEvent id={event.event_id} name={event.event_name} host={event.host} city={event.city} state={event.state} address={event.address} date={event.date} url={event.url} desc={event.description} status={event.status} user={event.user_id}/>)
+      .map(event => <SavedEvent key={event.event_id} id={event.event_id} name={event.event_name} host={event.host} city={event.city} state={event.state} address={event.address} date={event.date} url={event.url} desc={event.description} status={event.status} user={event.user_id}/>)
     }
 
     return(

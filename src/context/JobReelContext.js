@@ -41,6 +41,7 @@ const JobReelContext = React.createContext({
     deleteJob: () => { },
     deleteContact: () => { },
     updateJob: () => { },
+    updateContact: () => { },
 })
 
 export default JobReelContext
@@ -92,6 +93,7 @@ export class JobReelProvider extends Component {
             deleteContact: this.deleteContact,
             updateJob: this.updateJob,
             updateEvent: this.updateEvent,
+            updateContact: this.updateContact
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -248,6 +250,14 @@ export class JobReelProvider extends Component {
         this.setState({
             savedEvents: this.state.savedEvents.map(event => 
                (event.event_id !== updatedEvent.event_id) ? event : updatedEvent 
+            )
+        })
+    }
+
+    updateContact = (updatedContact) => {
+        this.setState({
+            contacts: this.state.contacts.map(contact => 
+               (contact.contact_id !== updatedContact.contact_id) ? contact : updatedContact 
             )
         })
     }

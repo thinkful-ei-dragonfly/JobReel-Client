@@ -9,6 +9,8 @@ class Contact extends React.Component {
   static contextType = JobReelContext;
 
   state = {
+    error: null,
+    editing: false,
     contact_name: this.props.name,
     job_title: this.props.job_title,
     company: this.props.company,
@@ -23,33 +25,68 @@ class Contact extends React.Component {
     this.context.deleteContact(contactId)
   }
 
-  // handleToggle = () => {
-  //   this.setState({ editing: !this.state.editing })
-  // }
+  handleChangeContactName = e => {
+    this.setState({ contact_name: e.target.value })
+  };
 
-  // handleSubmit = async e => {
-  //   e.preventDefault()
-  //   const { event_name, host, city, state, address, date, url, description, status } = this.state
-  //   const editedEvent = { 
-  //     event_name, 
-  //     host, 
-  //     city, 
-  //     state, 
-  //     address,
-  //     url, 
-  //     status, 
-  //     description,
-  //     event_id: this.props.id,
-  //     date,
-  //     user_id: this.props.user
-  //    }
-  //   await jobReelApiService.editEvent(editedEvent, this.props.id)
-  //   await this.context.updateEvent(editedEvent)
-  //   await this.handleToggle()
-  // }
+  handleChangeJobTitle = e => {
+    this.setState({ job_title: e.target.value })
+  };
+
+  handleChangeCompany = e => {
+    this.setState({ company: e.target.value })
+  };
+
+  handleChangeEmail = e => {
+    this.setState({ email: e.target.value })
+  };
+
+  handleChangeLinkedin = e => {
+    this.setState({ linkedin: e.target.value })
+  };
+
+  handleChangeComments = e => {
+    this.setState({ comments: e.target.value })
+  };
+
+  handleToggle = () => {
+    this.setState({ editing: !this.state.editing })
+  }
+
+  validateUrl(url) {
+    return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(url)
+  }
+
+  handleError = (error) => {
+    this.setState({ error })
+  }
+
+  handleSubmit = async e => {
+    e.preventDefault()
+    const { contact_name, job_title, company, email, linkedin, comments } = this.state
+    if (!this.validateUrl(linkedin)) {
+      this.handleError('Please provide a valid Linkedin address starting with http:// or https://')
+    } else {
+      const editedContact = { 
+        contact_name, 
+        job_title, 
+        company, 
+        email, 
+        linkedin,
+        comments, 
+        contact_id: this.props.id,
+        date_added: this.props.date,
+        user_id: this.props.user
+       }
+      await jobReelApiService.editContact(editedContact, this.props.id)
+      await this.context.updateContact(editedContact)
+      await this.handleToggle()
+      await this.handleError(null)
+    }
+  }
 
   render(){
-    const { contact_name, job_title, company, email, linkedin, comments } = this.state
+    const { contact_name, job_title, company, email, linkedin, comments, error, editing } = this.state
     let mail=`mailto:${email}`
     let contact = 
       <div className="contact-box">
@@ -59,33 +96,91 @@ class Contact extends React.Component {
         <p>Linkedin: <a href={linkedin}>{linkedin}</a></p>
         <p>{comments}</p>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
-        {/* <Button onClick={this.handleToggle} type="button">Edit</Button> */}
+        <Button onClick={this.handleToggle} type="button">Edit</Button>
       </div>
-    // let editCompany = 
-    //   <form
-    //   className='edit-contact-form'
-    //   onSubmit={this.handleSubmit}>
-    //     <div>
-    //       <label htmlFor='name'>Contact Name</label>
-    //       <input
-    //         type='text'
-    //         name='name'
-    //         id='name'
-    //         placeholder={contact_name}
-    //         required
-    //         value={contact_name}
-    //         onChange={this.handleChangeEventName}
-    //       />
-    //     </div>
-    //     <Button type="submit">Save Changes</Button>
-    //     <Button type="button" onClick={this.handleToggle}>Back</Button>
-    //   </form>
-      // let display;
-      // (this.state.editing === false) ? display = company : display = editCompany
+    let editContact = 
+      <form
+      className='edit-contact-form'
+      onSubmit={this.handleSubmit}>
+        <div>
+          <div className="error-message">{error}</div>
+          <label htmlFor='name'>Contact Name</label>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            placeholder={contact_name}
+            required
+            value={contact_name}
+            onChange={this.handleChangeContactName}
+          />
+        </div>
+        <div>
+          <label htmlFor='title'>Job Title</label>
+          <input
+            type='text'
+            name='title'
+            id='title'
+            placeholder={job_title}
+            required
+            value={job_title}
+            onChange={this.handleChangeJobTitle}
+          />
+        </div>
+        <div>
+          <label htmlFor='company'>Company</label>
+          <input
+            type='text'
+            name='company'
+            id='company'
+            placeholder={company}
+            required
+            value={company}
+            onChange={this.handleChangeCompany}
+          />
+        </div>
+        <div>
+          <label htmlFor='email'>Email</label>
+          <input
+            type='text'
+            name='email'
+            id='email'
+            placeholder={email}
+            value={email}
+            onChange={this.handleChangeEmail}
+          />
+        </div>
+        <div>
+          <label htmlFor='linkedin'>Linkedin</label>
+          <input
+            type='text'
+            name='linkedin'
+            id='linkedin'
+            placeholder={linkedin}
+            value={linkedin}
+            onChange={this.handleChangeLinkedin}
+          />
+        </div>
+        <div>
+          <label htmlFor='comments'>Comments</label>
+          <textarea 
+            name='comments'
+            id='comments'
+            placeholder={comments}
+            rows='3'
+            value={comments}
+            onChange={this.handleChangeComments}
+          />
+        </div>
+        <Button type="submit">Save Changes</Button>
+        <Button type="button" onClick={this.handleToggle}>Back</Button>
+      </form>
+      let display;
+      (editing === false) ? display = contact : display = editContact
 
     return(
       <div className="saved-contact">
-        {contact}
+        {display}
       </div>
     )
   }
