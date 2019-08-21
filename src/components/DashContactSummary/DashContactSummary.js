@@ -12,7 +12,7 @@ class DashContactSummary extends React.Component {
     if (this.context.contacts.length === 0) {
       jobReelApiService.getSavedContacts()
         .then(res => {
-          this.context.setContacts(res.contacts);
+          this.context.setContacts(res);
         })
     }
   }
