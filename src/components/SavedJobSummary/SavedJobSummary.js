@@ -39,7 +39,6 @@ class SavedJobSummary extends React.Component {
 
     return(
       <div className="saved-job-list">
-        <h3>Filters</h3>
         <Label>Filter by Job Status:</Label>
         <select
               id='status-input'

@@ -19,7 +19,8 @@ export default class ResourcesForm extends React.Component {
     const type = e.target.type.value;
     const title = e.target.title.value;
     const description = e.target.description.value;
-    const userInput = { user_id: this.context.user.id, type, title, description };
+    const date_added = new Date();
+    const userInput = { user_id: this.context.user.id, type, title, description, date_added };
     JobReelApiService.submitResource(userInput)
       .then(res => {
         e.target.type.value = '';
@@ -76,6 +77,7 @@ export default class ResourcesForm extends React.Component {
               name='description'
             />
           </div>
+          <Button onClick={() => this.context.setManualResourceAdd(false)} type='button'>Go Back</Button>
           <Button type='submit'>Submit</Button>
         </form>
       </div>

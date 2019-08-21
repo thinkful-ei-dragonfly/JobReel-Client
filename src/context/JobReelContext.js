@@ -95,7 +95,7 @@ export class JobReelProvider extends Component {
             setManualJobAdd: this.setManualJobAdd,
             setManualEventAdd: this.setManualEventAdd,
             setManualCompanyAdd: this.setManualCompanyAdd,
-            setManualResourceAdd: this.manualResourceAdd,
+            setManualResourceAdd: this.setManualResourceAdd,
             deleteJob: this.deleteJob,
             deleteEvent: this.deleteEvent,
             updateJob: this.updateJob,
@@ -286,7 +286,9 @@ export class JobReelProvider extends Component {
 
     udpateResource = (updatedResource) => {
         this.setState({
-            savedResources: 
+            savedResources: this.state.savedResources.map(resource => 
+                (resource.resorse_id !== this.udpateResource.event_id) ? resource : updatedResource    
+            )
         })
     }
 

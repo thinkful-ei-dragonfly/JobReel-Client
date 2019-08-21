@@ -2,10 +2,14 @@ import React from 'react';
 import './ResourcesList.css';
 import ResourceCard from '../ResourceCard/ResourceCard';
 import Button from '../Button/Button';
-import ResourcesForm from '../ResourcesForm/ResourcesForm';
+import JobReelContext from '../../context/JobReelContext';
+
 
 
 export default class ResourcesList extends React.Component {
+
+  static contextType = JobReelContext;
+
   state = {
     error: null,
   }
@@ -15,9 +19,8 @@ export default class ResourcesList extends React.Component {
   render() {
     return (
       <div className='resources-list'>
-        <h3>Resources</h3>
         <div className='button-for-add-form'>
-          <Button type='button' onClick={this.unfoldForm}>Add Resource</Button>
+          <Button onClick={() => this.context.setManualResourceAdd(true)} type='button' >Add Resource</Button>
         </div>
         <div className='saved-resources'>
           <ResourceCard/>
