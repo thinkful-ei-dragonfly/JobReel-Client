@@ -173,6 +173,21 @@ const JobReelApiService = {
                 : res.json()
         )
     },
+    getProfessionalEmails(search) {
+        return fetch(`${config.API_ENDPOINT}/findcontacts`, {
+            method: 'POST',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({search})
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+    },
 }
 
 export default JobReelApiService

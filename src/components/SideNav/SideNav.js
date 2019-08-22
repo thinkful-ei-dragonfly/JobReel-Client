@@ -9,27 +9,31 @@ class SideNav extends React.Component {
         <div className='link'>
           <Link to='/jobsearch'>SEARCH MY DREAM JOB</Link>
         </div>
-          <br/>
+        <br />
+        <div className='link'>
+          <Link to='/professionalsearch'>SEARCH FOR PROFESSIONALS</Link>
+        </div>
+        <br />
         <div className='link'>
           <Link to='/saved-jobs'>JOBS THAT I LIKE</Link>
         </div>
-          <br/>
+        <br />
         <div className='link'>
           <Link to='/companies'>COMPANIES OF INTEREST</Link>
         </div>
-          <br/>
+        <br />
         <div className='link'>
           <Link to='/contacts'>PROFESSIONAL CONTACTS</Link>
         </div>
-          <br/>
+        <br />
         <div className='link'>
           <Link to='/events'>NETWORKING EVENTS</Link>
         </div>
-          <br/>
+        <br />
         <div className='link'>
           <Link to='/saved-events'>MY EVENTS</Link>
         </div>
-          <br/>
+        <br />
         <div className="link">
           <Link to='/resources'>USEFUL RESOURCES</Link>
         </div>
