@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
-import Job from '../Job/Job'
-import './JobsList.css';
-
+import Job from '../../components/Job/Job'
+import './JobsRoute.css';
 import config from '../../config'
 import TokenService from '../../services/token-service'
-import GithubJob from '../Job/GithubJob';
-import SideNav from '../SideNav/SideNav';
+import GithubJob from '../../components/Job/GithubJob';
+import SideNav from '../../components/SideNav/SideNav';
 import { Link } from 'react-router-dom';
 
-export default class JobsList extends Component {
+export default class JobsRoute extends Component {
     state = {
     search: null
     }
