@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
-import Job from '../Job/Job'
-import './JobsList.css';
+import Job from '../../components/Job/Job'
+import './JobsRoute.css';
 import config from '../../config'
 import TokenService from '../../services/token-service'
-import GithubJob from '../Job/GithubJob';
-import SideNav from '../SideNav/SideNav';
+import GithubJob from '../../components/Job/GithubJob';
+import SideNav from '../../components/SideNav/SideNav';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default class JobsList extends Component {
+export default class JobsRoute extends Component {
     state = {
-        search: null,
+    search: null,
+    savedJobUrls: {}
     }
     static contextType = JobReelContext
 
     componentDidMount() {
-        console.log(this.context)
+        const savedJobUrls = this.context.savedJobs.map(job => job.url);
+        let savedJobUrlsObj = {};
+        savedJobUrls.forEach(url => {
+            savedJobUrlsObj[url] = url;
+        });
+        this.setState({ savedJobUrls: savedJobUrlsObj });
         const search = this.context.search
         setTimeout(() => {
             Promise.all([
@@ -55,11 +61,11 @@ export default class JobsList extends Component {
         console.log(gitHubJobs)
         console.log(authenticJobs)
         const jobsListOne = gitHubJobs.map((job) => {
-            return <GithubJob job={job} key={job.id}/>
+            return <GithubJob job={job} key={job.id} savedJobUrls={this.state.savedJobUrls}/>
         })
         const jobsListTwo = authenticJobs.map((job) => {
             return (
-                <Job job={job} company={job.company} type={job.type} location={job.company.name} key={job.id} />
+                <Job job={job} company={job.company} type={job.type} location={job.company.name} key={job.id} savedJobUrls={this.state.savedJobUrls}/>
             )
         })
 

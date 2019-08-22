@@ -13,7 +13,7 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: "title title location"
                         "company apply apply"
-                        "type url url";
+                        "type save url";
   position: relative;
 }
 
@@ -77,6 +77,18 @@
   position: absolute;
   right: 0.5em;
   bottom: 0.5em;
+}
+
+.save-button {
+  grid-area: save;
+  position: relative;
+}
+
+#save-button {
+  position: absolute;
+  bottom: 0.5em;
+  left:15%;
+  right:15%
 }
 
 .collapseButton:hover {

@@ -17,6 +17,8 @@ const JobReelContext = React.createContext({
     contacts: [],
     meetups: [],
     professionals: [],
+    findContactsMetaData: {},
+    professionalsSearch: {},
     manualJobAdd: false,
     manualEventAdd: false,
     manualContactAdd: false,
@@ -45,6 +47,8 @@ const JobReelContext = React.createContext({
     deleteJob: () => { },
     deleteContact: () => { },
     updateJob: () => { },
+    setFindContactsMetaData: () => { },
+    setProfessionalsSearch: () => { },
     updateContact: () => { },
     updateEvent: () => { },
     deleteEvent: () => { },
@@ -70,6 +74,8 @@ export class JobReelProvider extends Component {
             contacts: [],
             meetups: [],
             professionals: [],
+            findContactsMetaData: {},
+            professionalsSearch: {},
             savedJobs: [],
             savedEvents: [],
             jobData: {},
@@ -106,6 +112,8 @@ export class JobReelProvider extends Component {
             deleteEvent: this.deleteEvent,
             deleteContact: this.deleteContact,
             updateJob: this.updateJob,
+            setFindContactsMetaData: this.setFindContactsMetaData,
+            setProfessionalsSearch: this.setProfessionalsSearch,
             updateEvent: this.updateEvent,
             updateContact: this.updateContact,
             updateCompany: this.updateCompany,
@@ -200,6 +208,14 @@ export class JobReelProvider extends Component {
 
     setProfessionals = professionals => {
         this.setState({ professionals })
+    }
+
+    setFindContactsMetaData = findContactsMetaData => {
+        this.setState({findContactsMetaData})
+    }
+
+    setProfessionalsSearch = professionalsSearch => {
+        this.setState({professionalsSearch})
     }
 
     setSearch = search => {
