@@ -32,10 +32,12 @@ class AddContactForm extends React.Component {
         e.target.linkedin.value = '';
         e.target.comments.value = '';
         this.context.setContacts([...this.context.contacts, res]);
+        this.context.setManualContactAdd(false)
       })
       .catch(res => {
         this.setState({ error: res.error })
       })
+    
   }
 
   render() {
@@ -106,6 +108,7 @@ class AddContactForm extends React.Component {
               name='comments'
             />
           </div>
+          <Button onClick={() => this.context.setManualContactAdd(false)} type="button">Back</Button>
           <Button type="submit">Submit</Button>
         </form>
       </div>

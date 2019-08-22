@@ -3,7 +3,6 @@ import './Summary.css';
 
 class Summary extends React.Component {
   render() {
-    console.log(this.props.data)
     return (
       <>
         <div className="Summary">

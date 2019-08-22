@@ -20,6 +20,7 @@ export default class FindContactsRoute extends Component {
                     this.context.setProfessionals(data.data.emails)
                     this.context.setFindContactsMetaData(data.meta)
                 })
+                console.log(this.context)
         }, 500)
     }
 

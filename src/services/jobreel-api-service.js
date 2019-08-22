@@ -8,15 +8,15 @@ const JobReelApiService = {
             headers: {
                 'content-type': 'application/json',
                 'Authorization': `bearer ${TokenService.getAuthToken()}`,
-              },
+            },
             body: JSON.stringify({
                 search,
             }),
         })
             .then(res =>
                 (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
             )
             .then(data => {
                 return data
@@ -29,11 +29,11 @@ const JobReelApiService = {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`
             }
         })
-        .then(res => 
-            (!res.ok)
-              ? res.json().then(e => Promise.reject(e))
-              : res.json()
-        )
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     },
     submitJob(jobData) {
         return fetch(`${config.API_ENDPOINT}/savedjobs`, {
@@ -44,11 +44,11 @@ const JobReelApiService = {
             },
             body: JSON.stringify(jobData)
         })
-        .then(res =>
-            (!res.ok)
-            ? res.json().then(e => Promise.reject(e))
-            : res.json()
-        )
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     },
     deleteJob(jobId) {
         return fetch(`${config.API_ENDPOINT}/savedjobs/${jobId}`, {
@@ -58,15 +58,34 @@ const JobReelApiService = {
                 'content-type': 'application/json'
             }
         })
-        .then(res => {
-            if (!res.ok) {
-                return res.json().then(e => Promise.reject(e))
-            } else {
-                return res
-            }          
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
             })
             .catch(error => {
-            console.error({ error })
+                console.error({ error })
+            })
+    },
+    deleteEvent(eventId) {
+        return fetch(`${config.API_ENDPOINT}/events/${eventId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
+            })
+            .catch(error => {
+                console.error({ error })
             })
     },
     editJob(editedJob, jobId) {
@@ -78,15 +97,35 @@ const JobReelApiService = {
             },
             body: JSON.stringify(editedJob)
         })
-        .then(res => {
-            if (!res.ok) {
-                return res.json().then(e => Promise.reject(e))
-            } else {
-                return res
-            }          
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
             })
             .catch(error => {
-            console.error({ error })
+                console.error({ error })
+            })
+    },
+    editEvent(editedEvent, eventId) {
+        return fetch(`${config.API_ENDPOINT}/events/${eventId}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedEvent)
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
+            })
+            .catch(error => {
+                console.error({ error })
             })
     },
     getSavedEvents() {
@@ -96,11 +135,11 @@ const JobReelApiService = {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`
             }
         })
-        .then(res => 
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     },
     submitEvent(eventData) {
         return fetch(`${config.API_ENDPOINT}/events`, {
@@ -111,11 +150,11 @@ const JobReelApiService = {
             },
             body: JSON.stringify(eventData)
         })
-        .then(res => 
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     },
     getSavedCompanies() {
         return fetch(`${config.API_ENDPOINT}/companies`, {
@@ -124,11 +163,11 @@ const JobReelApiService = {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`
             }
         })
-        .then(res => 
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     },
     submitCompany(companyData) {
         return fetch(`${config.API_ENDPOINT}/companies`, {
@@ -139,11 +178,50 @@ const JobReelApiService = {
             },
             body: JSON.stringify(companyData)
         })
-        .then(res => 
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+    deleteCompany(companyId) {
+        return fetch(`${config.API_ENDPOINT}/companies/${companyId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
+            })
+            .catch(error => {
+                console.error({ error })
+            })
+    },
+    editCompany(editedCompany, companyId) {
+        return fetch(`${config.API_ENDPOINT}/companies/${companyId}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedCompany)
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
+            })
+            .catch(error => {
+                console.error({ error })
+            })
     },
     getSavedContacts() {
         return fetch(`${config.API_ENDPOINT}/contacts`, {
@@ -152,11 +230,11 @@ const JobReelApiService = {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`
             }
         })
-        .then(res => 
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     },
     submitContact(contactData) {
         return fetch(`${config.API_ENDPOINT}/contacts`, {
@@ -167,26 +245,66 @@ const JobReelApiService = {
             },
             body: JSON.stringify(contactData)
         })
-        .then(res => 
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+    deleteContact(contactId) {
+        return fetch(`${config.API_ENDPOINT}/contacts/${contactId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
+            })
+            .catch(error => {
+                console.error({ error })
+            })
+    },
+    editContact(editedContact, contactId) {
+        return fetch(`${config.API_ENDPOINT}/contacts/${contactId}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedContact)
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
+            })
+            .catch(error => {
+                console.error({ error })
+            })
     },
     getProfessionalEmails(search) {
+        console.log(search)
         return fetch(`${config.API_ENDPOINT}/findcontacts`, {
             method: 'POST',
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({search})
+            body: JSON.stringify({ search })
         })
-        .then(res => 
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     },
 }
 

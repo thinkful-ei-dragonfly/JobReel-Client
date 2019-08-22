@@ -20,6 +20,9 @@ const JobReelContext = React.createContext({
     findContactsMetaData: {},
     professionalsSearch: {},
     manualJobAdd: false,
+    manualEventAdd: false,
+    manualContactAdd: false,
+    manualCompanyAdd: false,
     setError: () => { },
     clearError: () => { },
     processLogin: () => { },
@@ -35,11 +38,20 @@ const JobReelContext = React.createContext({
     setJobData: () => { },
     setSearch: () => { },
     setManualJobAdd: () => { },
+    setManualEventAdd: () => { },
+    setManualContactAdd: () => { },
+    setManualCompanyAdd: () => { },
     setSavedJobs: () => { },
     deleteJob: () => { },
+    deleteContact: () => { },
     updateJob: () => { },
     setFindContactsMetaData: () => { },
     setProfessionalsSearch: () => { },
+    updateContact: () => { },
+    updateEvent: () => { },
+    deleteEvent: () => { },
+    updateCompany: () => { },
+    deleteCompany: () => { },
 })
 
 export default JobReelContext
@@ -61,8 +73,12 @@ export class JobReelProvider extends Component {
             findContactsMetaData: {},
             professionalsSearch: {},
             savedJobs: [],
+            savedEvents: [],
             jobData: {},
             manualJobAdd: false,
+            manualEventAdd: false,
+            manualContactAdd: false,
+            manualCompanyAdd: false,
             setError: this.setError,
             clearError: this.clearError,
             setUser: this.setUser,
@@ -83,10 +99,19 @@ export class JobReelProvider extends Component {
             setJobData: this.setJobData,
             setSearch: this.setSearch,
             setManualJobAdd: this.setManualJobAdd,
+            setManualEventAdd: this.setManualEventAdd,
+            setManualContactAdd: this.setManualContactAdd,
+            setManualCompanyAdd: this.setManualCompanyAdd,
             deleteJob: this.deleteJob,
+            deleteEvent: this.deleteEvent,
+            deleteContact: this.deleteContact,
             updateJob: this.updateJob,
             setFindContactsMetaData: this.setFindContactsMetaData,
             setProfessionalsSearch: this.setProfessionalsSearch,
+            updateEvent: this.updateEvent,
+            updateContact: this.updateContact,
+            updateCompany: this.updateCompany,
+            deleteCompany: this.deleteCompany,
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -195,6 +220,18 @@ export class JobReelProvider extends Component {
         this.setState({ manualJobAdd: status })
     }
 
+    setManualEventAdd = status => {
+        this.setState({ manualEventAdd: status })
+    }
+
+    setManualContactAdd = status => {
+        this.setState({ manualContactAdd: status })
+    }
+    
+    setManualCompanyAdd = status => {
+        this.setState({ manualCompanyAdd: status })
+    }
+
     //INDEED API METHOD
     // setJobDetails = (details, jobkey) => {
 
@@ -219,11 +256,56 @@ export class JobReelProvider extends Component {
         });
     }
 
-    updateJob = (updatedJob, jobId) => {
+    deleteContact = contactId => {
+        this.setState({
+            contacts: this.state.contacts.filter(contact => contact.contact_id !== contactId)
+        });
+    }
+
+    deleteEvent = eventId => {
+        this.setState({
+            savedEvents: this.state.savedEvents.filter(event => event.event_id !== eventId)
+        });
+    }
+
+    updateJob = (updatedJob) => {
         this.setState({
             savedJobs: this.state.savedJobs.map(job => 
-               (job.job_id !== updatedJob.job_id) ? job : updatedJob 
-            )
+               (job.job_id !== updatedJob.job_id) ? job : updatedJob)
+        })
+    }
+
+    updateEvent = (updatedEvent) => {
+        this.setState({
+            savedEvents: this.state.savedEvents.map(event => 
+               (event.event_id !== updatedEvent.event_id) ? event : updatedEvent)
+        })
+    }
+
+    updateContact = (updatedContact) => {
+        this.setState({
+            contacts: this.state.contacts.map(contact => 
+               (contact.contact_id !== updatedContact.contact_id) ? contact : updatedContact)
+        })
+    }
+
+    deleteCompany = companyId => {
+        this.setState({
+            companies: this.state.companies.filter(company => company.company_id !== companyId)
+        })
+    }
+
+    updateCompany = (updatedCompany) => {
+        this.setState({
+            companies: this.state.companies.map(company => 
+               (company.company_id !== updatedCompany.company_id) ? company : updatedCompany)
+        })
+    }
+
+    updateEvent = (updatedEvent) => {
+        this.setState({
+            savedEvents: this.state.savedEvents.map(event => 
+               (event.event_id !== updatedEvent.event_id) ? event : updatedEvent)
         })
     }
 

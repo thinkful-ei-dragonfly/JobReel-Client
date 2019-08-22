@@ -35,6 +35,7 @@ class AddCompanyForm extends React.Component {
         e.target.desc.value = '';
         e.target.contact.value = '';
         this.context.setCompanies([...this.context.companies, res]);
+        this.context.setManualCompanyAdd(false)
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -176,6 +177,7 @@ class AddCompanyForm extends React.Component {
               name='contact'
             />
           </div>
+          <Button onClick={() => this.context.setManualCompanyAdd(false)} type="button">Back</Button>
           <Button type="submit">Submit</Button>
         </form>
       </div>
