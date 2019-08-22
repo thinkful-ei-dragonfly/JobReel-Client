@@ -20,6 +20,8 @@
     "prebuild": "CI=true react-scripts test --colors",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "now ./build",
@@ -39,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^3.4.1"
   }
 }
