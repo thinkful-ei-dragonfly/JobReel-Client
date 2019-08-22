@@ -12,9 +12,9 @@ export default class SendToMeetup extends Component {
 
     render() {
         return (
-            <>
+            <div>
                 <button onClick={this.handleMeetupClick} alt="meetupButton">Go to meetup</button>
-            </>
+            </div>
         );
     }
 }
