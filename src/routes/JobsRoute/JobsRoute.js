@@ -10,12 +10,18 @@ import { Link } from 'react-router-dom';
 
 export default class JobsRoute extends Component {
     state = {
-    search: null
+    search: null,
+    savedJobUrls: {}
     }
     static contextType = JobReelContext
 
     componentDidMount() {
-        console.log(this.context)
+        const savedJobUrls = this.context.savedJobs.map(job => job.url);
+        let savedJobUrlsObj = {};
+        savedJobUrls.forEach(url => {
+            savedJobUrlsObj[url] = url;
+        })
+        this.setState({ savedJobUrls: savedJobUrlsObj });
         const search = this.context.search
         setTimeout(() => {
             Promise.all([
@@ -54,10 +60,10 @@ export default class JobsRoute extends Component {
         console.log(gitHubJobs)
         console.log(authenticJobs)
         const jobsListOne = gitHubJobs.map((job, i) => {
-            return <GithubJob job={job} key={i}/>
+            return <GithubJob job={job} key={i} savedJobUrls={this.state.savedJobUrls}/>
         })
         const jobsListTwo = authenticJobs.map((job, i) => {
-            return <Job job={job} company={job.company} type={job.type} location={job.company.name} key={i}/>
+            return <Job job={job} company={job.company} type={job.type} location={job.company.name} key={i} savedJobUrls={this.state.savedJobUrls}/>
         })
         return (
             <>
