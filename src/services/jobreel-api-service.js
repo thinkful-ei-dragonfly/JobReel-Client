@@ -265,7 +265,6 @@ const JobReelApiService = {
                 : res.json()
         )
     },
-
     submitResource(resourceData) {
         return fetch(`${config.API_ENDPOINT}/resources`, {
             method: 'POST',
@@ -281,9 +280,47 @@ const JobReelApiService = {
                     : res.json()
             )
     },
-
-    deleteContact(contactId) {
-        return fetch(`${config.API_ENDPOINT}/contacts/${contactId}`, {
+    deleteCompany(companyId) {
+        return fetch(`${config.API_ENDPOINT}/companies/${companyId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
+            })
+            .catch(error => {
+                console.error({ error })
+            })
+    },
+    editResource(editedResource, resourceId) {
+        return fetch(`${config.API_ENDPOINT}/resources/${resourceId}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedResource)
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
+            })
+            .catch(error => {
+                console.error({ error })
+            })
+    },
+    deleteResource(resourceId) {
+        return fetch(`${config.API_ENDPOINT}/resources/${resourceId}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,

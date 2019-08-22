@@ -3,8 +3,7 @@ import './ResourcesList.css';
 import ResourceCard from '../ResourceCard/ResourceCard';
 import Button from '../Button/Button';
 import JobReelContext from '../../context/JobReelContext';
-
-
+import jobReelApiService from '../../services/jobreel-api-service';
 
 export default class ResourcesList extends React.Component {
 
@@ -14,7 +13,10 @@ export default class ResourcesList extends React.Component {
     error: null,
   }
 
-
+  handleClickDelete(resourceId){
+    jobReelApiService.deleteResource(resourceId)
+    this.context.deleteResource(resourceId)
+  }
   
   render() {
     let mappedResources;
