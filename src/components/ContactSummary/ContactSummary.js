@@ -3,6 +3,7 @@ import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import Contact from '../Contact/Contact';
+import './ContactSummary.css';
 
 class SavedContactsSummary extends React.Component {
 
@@ -18,8 +19,9 @@ class SavedContactsSummary extends React.Component {
 
     return(
       <div className="saved-contact-list">
-        <h2>Saved Contacts</h2>
+        <div className='saved-contact-controls'>
         <Button onClick={() => this.context.setManualContactAdd(true)} type="button">Add Contact</Button>
+        </div>
         {mappedContacts}
       </div>
     )

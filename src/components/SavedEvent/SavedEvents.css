@@ -1,0 +1,36 @@
+.event-box {
+    width: 80%;
+    border: 1px black solid;
+    min-width: 300px;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 0.75em auto;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39); 
+}
+
+.edit-event-form {
+    width: 80%;
+    border: 1px black solid;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 5%;
+    line-height: 150%;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39); 
+}
+
+#description {
+    width: 15em;
+}
+
+#status-input {
+    width: 15em;
+    margin: 0 auto;
+    margin-bottom: 1em;
+}

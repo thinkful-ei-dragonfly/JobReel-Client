@@ -1,7 +1,9 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
+import { Label, Input } from '../Form/Form';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
+import './Contact.css'
 
 class Contact extends React.Component {
 
@@ -103,8 +105,9 @@ class Contact extends React.Component {
       onSubmit={this.handleSubmit}>
         <div>
           <div className="error-message">{error}</div>
-          <label htmlFor='name'>Contact Name</label>
-          <input
+          <Label htmlFor='name'>Contact Name</Label>
+          <br/>
+          <Input
             type='text'
             name='name'
             id='name'
@@ -115,8 +118,9 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='title'>Job Title</label>
-          <input
+          <Label htmlFor='title'>Job Title</Label>
+          <br/>
+          <Input
             type='text'
             name='title'
             id='title'
@@ -127,8 +131,9 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='company'>Company</label>
-          <input
+          <Label htmlFor='company'>Company</Label>
+          <br/>
+          <Input
             type='text'
             name='company'
             id='company'
@@ -139,8 +144,9 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='email'>Email</label>
-          <input
+          <Label htmlFor='email'>Email</Label>
+          <br/>
+          <Input
             type='text'
             name='email'
             id='email'
@@ -150,8 +156,9 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='linkedin'>Linkedin</label>
-          <input
+          <Label htmlFor='linkedin'>Linkedin</Label>
+          <br/>
+          <Input
             type='text'
             name='linkedin'
             id='linkedin'
@@ -161,7 +168,8 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='comments'>Comments</label>
+          <Label htmlFor='comments'>Comments</Label>
+          <br/>
           <textarea 
             name='comments'
             id='comments'

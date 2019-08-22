@@ -3,6 +3,7 @@ import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import SavedEvent from '../SavedEvent/SavedEvent';
+import './SavedEventsSummary.css';
 
 class SavedEventsSummary extends React.Component {
 
@@ -23,9 +24,10 @@ class SavedEventsSummary extends React.Component {
 
     return(
       <div className="saved-event-list">
-        <h2>Saved Events</h2>
-        <h3>Events</h3>
+        <div className='saved-event-controls'>
         <Button onClick={() => this.context.setManualEventAdd(true)} type="button">Add Event</Button>
+        </div>
+        
         {mappedEvents}
       </div>
     )

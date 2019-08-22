@@ -1,0 +1,20 @@
+.saved-contact-list {
+    position: relative;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    height: 100%;
+    max-height: 450px;
+    border: 1px solid black;
+    border-radius: 10px;
+    position: relative;
+    background: #3C3230;
+    color: #eeebd9;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.saved-contact-controls {
+    width: 50%;
+    margin-left: 50%;
+    margin-top: 0.5em; 
+}

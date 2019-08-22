@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
+import { Label, Input } from '../Form/Form';
+import './SavedEvents.css';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import { format } from 'date-fns'
@@ -193,8 +195,9 @@ class SavedEvent extends React.Component {
       onSubmit={this.handleSubmit}>
         <div>
           <div className="error-message">{error}</div>
-          <label htmlFor='name'>Event Name</label>
-          <input
+          <Label htmlFor='name'>Event Name</Label>
+          <br/>
+          <Input
             type='text'
             name='name'
             id='name'
@@ -205,8 +208,9 @@ class SavedEvent extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='host'>Host</label>
-          <input
+          <Label htmlFor='host'>Host</Label>
+          <br/>
+          <Input
             type='text'
             name='host'
             id='host'
@@ -217,8 +221,9 @@ class SavedEvent extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='city'>City</label>
-          <input
+          <Label htmlFor='city'>City</Label>
+          <br/>
+          <Input
             type='text'
             name='city'
             id='city'
@@ -229,14 +234,16 @@ class SavedEvent extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='state'>State</label>
+          <Label htmlFor='state'>State</Label>
+          <br/>
           <select onChange={this.handleChangeState} name="state" id="state-input" value={state}>
               {this.renderStateOptions()}
             </select>
         </div>
         <div>
-          <label htmlFor='address'>Address</label>
-          <input
+          <Label htmlFor='address'>Address</Label>
+          <br/>
+          <Input
             type='text'
             name='address'
             id='address'
@@ -247,8 +254,9 @@ class SavedEvent extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='date'>Date</label>
-          <input
+          <Label htmlFor='date'>Date</Label>
+          <br/>
+          <Input
             type='date'
             name='date'
             id='date'
@@ -259,8 +267,9 @@ class SavedEvent extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='url'>URL</label>
-          <input
+          <Label htmlFor='url'>URL</Label>
+          <br/>
+          <Input
             type='text'
             name='url'
             id='url'
@@ -271,7 +280,8 @@ class SavedEvent extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='description'>Description</label>
+          <Label htmlFor='description'>Description</Label>
+          <br/>
           <textarea 
             name='description'
             id='description'
@@ -282,7 +292,8 @@ class SavedEvent extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='status'>Status</label>
+          <Label htmlFor='status'>Status</Label>
+          <br/>
           <select
               id='status-input'
               name='status'
