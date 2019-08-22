@@ -38,7 +38,7 @@ export default function App() {
             component={SendToMeetup}
           />
           <PrivateRoute
-            path={'/jobsearch'}
+            exact path={'/jobsearch'}
             component={JobSearcForm}
           />
           <PublicOnlyRoute
