@@ -29,9 +29,7 @@ export default class GithubJob extends Component {
                 </div>
                 <div className='expandButton'>
                     <FontAwesomeIcon icon='expand-arrows-alt' onClick={this.handleExpand}/>
-                </div>
-                
-                
+                </div>   
             </div>
         )
     }
@@ -57,7 +55,7 @@ export default class GithubJob extends Component {
                     <p>{job.location}</p>
                 </div>
                 <div className='job-card-url'>
-                    <a href={job.url}>{job.company} Job Post on GitHub</a>
+                    <a href={job.url} target='blank'>{job.company} Job Post on GitHub</a>
                 </div>
                 <div className='job-card-apply'>
                     <p>To apply, please visit website</p>

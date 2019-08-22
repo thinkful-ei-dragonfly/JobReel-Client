@@ -81,8 +81,8 @@ export default class JobsList extends Component {
                 </div>
                 <SideNav />
                 <div className='results-container'>
-                    <Link id='go-back' to={`/jobs`} alt="goBack">
-                            <FontAwesomeIcon icon='times-circle' size='2x'/>
+                    <Link  to={`/jobs`} alt="goBack">
+                            <FontAwesomeIcon id='go-back' icon='times-circle' size='2x'/>
                     </Link>
                     {this.renderJobList()}
                 </div>

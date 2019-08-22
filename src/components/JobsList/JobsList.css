@@ -9,7 +9,7 @@
   grid-column-start: 3;
   grid-column-end: 9;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 18px;
   height: 400px;
   position: relative;
   background: #3C3230;
@@ -19,17 +19,12 @@
 
 #go-back {
   position: absolute;
-  right: 5%;
-  top: -5%;
-  width: 30px;
-  height: 30px;
+  left: 0;
+  top: 0;
   color: #eeebd9;
-  border-radius: 30px;
-  display: table;
 }
 
-.go-back:hover {
-  transition: all;
+#go-back:hover {
   color: #fc766a;
 }
 

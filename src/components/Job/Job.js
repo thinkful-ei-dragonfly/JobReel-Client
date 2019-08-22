@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Job.css'
 
 
@@ -19,18 +20,21 @@ export default class Job extends Component {
         console.log(job.category)
         return (
             <div className='job-card'>
-                    <h2>{job.title}</h2>
-                    <br/>
-                    JOB TYPE: {type.name}
-                    <br/>
-                    COMPANY: {company.name}
-                    <br/>
-                    LOCATION: {this.location ? location.name : 'Remote'}
-                    <br/>
-                    <button onClick={this.handleExpand} className="expandButton">
-                        <div className="expand">&#x2965;</div>
-                        Get More Details
-                    </button>
+                <div className='job-card-title'>
+                    <h3>{job.title}</h3>
+                </div>
+                <div className='job-card-type'>
+                    <p>{type.name}</p>    
+                </div>
+                <div className='job-card-company'>
+                    <p>{company.name}</p>
+                </div>
+                <div className='job-card-location'>
+                    <p>{this.location ? location.name : 'Remote'}</p>
+                </div>
+                <div className='expandButton'>
+                    <FontAwesomeIcon icon='expand-arrows-alt' onClick={this.handleExpand}/>
+                </div>
             </div>
         )
     }
@@ -46,23 +50,27 @@ export default class Job extends Component {
         const {location = {}} = this.props
         return (
             <div className='job-card'>
-                JOB TITLE: {job.title}
-                <br/>
-                JOB TYPE: {type.name}
-                <br/>
-                COMPANY: {company.name}
-                <br/>
-                LOCATION: {this.location ? location.name : 'Remote'}
-                <br/>
-                COMPANY URL: {company.url}
-                <br/>
-                APPLY: {job.apply_url}
-                {/* {job.description} */}
-                <br/>
-                <button onClick={this.handleCollapse} className="collapseButton">
-                    <div className="collapse">&#x2963;</div>
-                    <h3>Collapse</h3>
-                </button>
+                <div className='job-card-title'>
+                    <h3>{job.title}</h3>
+                </div>
+                <div className='job-card-type'>
+                    <p>{type.name}</p>    
+                </div>
+                <div className='job-card-company'>
+                    <p>{company.name}</p>
+                </div>
+                <div className='job-card-location'>
+                    <p>{this.location ? location.name : 'Remote'}</p>
+                </div>
+                <div className='job-card-url'>
+                    <a href={company.url} target='blank'>{company.name}'s Website</a>
+                </div>
+                <div className='job-card-apply'>
+                    <a href={job.apply_url} target='blank'>Apply for {company.name}</a>
+                </div>
+                <div className='collapseButton'>
+                    <FontAwesomeIcon icon='compress-arrows-alt' onClick={this.handleCollapse}/>
+                </div>
             </div>
         )
     }
