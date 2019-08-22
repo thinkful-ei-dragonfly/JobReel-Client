@@ -13,11 +13,12 @@ export default class Job extends Component {
         saved: false
     }
 
-    componentDidMount() {
-        const {job = {}, savedJobUrls} = this.props;
+    static getDerivedStateFromProps(props) {
+        const {job = {}, savedJobUrls} = props;
         if (job.url in savedJobUrls) {
-            this.setState({saved: true});
+            return {saved: true};
         }
+        return null;
     }
 
     convertState = (state) => {
