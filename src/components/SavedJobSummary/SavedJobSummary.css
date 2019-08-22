@@ -3,15 +3,31 @@
   grid-column-end: 9;
   border: 1px solid black;
   border-radius: 10px;
-  height: 350px;
+  height: 400px;
   position: relative;
   background: #3C3230;
   color: #eeebd9;
   text-align: center;
+  overflow-y: auto;
+}
+
+.savedJobFilterControls {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto 50%;
+}
+
+#savedJobFilterTitle {
+  vertical-align: middle;
 }
 
 #status-input {
-  margin: 5% auto;
+  vertical-align: middle;
+  margin-left: 0%;
+}
+
+#addButton {
+  margin: auto;
 }
 
 .job-box{

@@ -3,6 +3,7 @@ import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import Company from '../Company/Company';
+import './CompanySummary.css';
 
 class CompanySummary extends React.Component {
 
@@ -23,7 +24,6 @@ class CompanySummary extends React.Component {
 
     return(
       <div className="saved-company-list">
-        <h2>Saved Companies</h2>
         <Button onClick={() => this.context.setManualCompanyAdd(true)} type="button">Add Company</Button>
         {mappedCompanies}
       </div>

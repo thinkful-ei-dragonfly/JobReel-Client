@@ -39,17 +39,19 @@ class SavedJobSummary extends React.Component {
 
     return(
       <div className="saved-job-list">
-        <Label>Filter by Job Status:</Label>
-        <select
-              id='status-input'
-              name='status'
-              onChange={this.handleStatusFilter}
-            >
-              <option value="">N/A</option>
-              <option value="Interested">Interested</option>
-              <option value="Applied">Applied</option>
-            </select>
-        <Button onClick={() => this.context.setManualJobAdd(true)} type="button">Add Job</Button>
+        <div className='savedJobFilterControls'>
+          <Label id='savedJobFilterTitle'>Filter by Job Status:</Label>
+          <select
+            id='status-input'
+            name='status'
+            onChange={this.handleStatusFilter}
+          >
+            <option value="">N/A</option>
+            <option value="Interested">Interested</option>
+            <option value="Applied">Applied</option>
+          </select>
+          <Button id='addButton' onClick={() => this.context.setManualJobAdd(true)} type="button">Add Job</Button>
+        </div>
         {mappedJobs}
       </div>
     )
