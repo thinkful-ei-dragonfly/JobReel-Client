@@ -23,6 +23,9 @@ class SavedCompaniesRoute extends React.Component {
     (this.context.manualCompanyAdd === false) ? display = <CompanySummary /> : display = <AddCompanyForm /> 
     return (
       <div className="SavedCompaniesRoute">
+        <div className='title'>
+          <h2>Companies</h2>
+        </div>
         <SideNav />
         {display}
       </div>

@@ -22,6 +22,9 @@ class SavedJobsRoute extends React.Component {
     (this.context.manualJobAdd === false) ? display = <SavedJobSummary /> : display = <AddJobForm /> 
     return (
       <div className="saved-jobs-page">
+        <div className='title'>
+          <h2>Saved Jobs</h2>
+        </div>
         <SideNav />
         {display}
       </div>

@@ -40,7 +40,9 @@ class JobSearchForm extends React.Component {
   render() {
     return (
       <div className='job-search'>
-        <SideNav />
+        <div className='title'>
+          <h2>Search for Job</h2>
+        </div>
         <form className='JobSearchForm' onSubmit={this.handleSubmit}>
           {/* <div>
             <Label htmlFor='industry-input'>

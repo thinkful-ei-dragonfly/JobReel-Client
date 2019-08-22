@@ -251,6 +251,37 @@ const JobReelApiService = {
                     : res.json()
             )
     },
+
+    getSavedResources() {
+        return fetch(`${config.API_ENDPOINT}/resources`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`
+            }
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+    },
+
+    submitResource(resourceData) {
+        return fetch(`${config.API_ENDPOINT}/resources`, {
+            method: 'POST',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(resourceData)
+        })
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+
     deleteContact(contactId) {
         return fetch(`${config.API_ENDPOINT}/contacts/${contactId}`, {
             method: 'DELETE',

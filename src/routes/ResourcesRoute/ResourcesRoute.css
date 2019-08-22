@@ -1,0 +1,12 @@
+.resources-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
+  position: relative;
+}
+
+.button-for-add-form {
+  position: absolute;
+  left: 10px;
+  top: 30px;
+}

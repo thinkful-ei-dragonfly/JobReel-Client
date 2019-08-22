@@ -7,7 +7,6 @@ import DashEventSummary from '../DashEventSummary/DashEventSummary';
 import './SummaryContainer.css';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-
 class SummaryContainer extends React.Component {
   render() {
     return (
