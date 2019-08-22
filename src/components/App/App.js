@@ -17,12 +17,12 @@ import ResourcesRoute from '../../routes/ResourcesRoute/ResourcesRoute';
 import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faChevronLeft, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase} from '@fortawesome/free-solid-svg-icons';
 import MeetupSender from '../Meetup/MeetupSender';
 import SendToMeetup from '../Meetup/MeetupSender';
 
 
-library.add(fab, faChevronLeft, faTimesCircle);
+library.add(fab, faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase);
 
 export default function App() {
   return (

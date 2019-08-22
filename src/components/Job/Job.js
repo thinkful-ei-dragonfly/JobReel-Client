@@ -19,7 +19,7 @@ export default class Job extends Component {
         console.log(job.category)
         return (
             <div className='job-card'>
-                    JOB TITLE: {job.title}
+                    <h2>{job.title}</h2>
                     <br/>
                     JOB TYPE: {type.name}
                     <br/>

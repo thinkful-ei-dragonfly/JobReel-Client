@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
 import Job from '../Job/Job'
 import './JobsList.css';
-
 import config from '../../config'
 import TokenService from '../../services/token-service'
 import GithubJob from '../Job/GithubJob';
@@ -55,18 +54,20 @@ export default class JobsList extends Component {
         const {authenticJobs = [] } = this.context
         console.log(gitHubJobs)
         console.log(authenticJobs)
-        const jobsListOne = gitHubJobs.map((job, i) => {
-            return <GithubJob job={job} key={i}/>
+        const jobsListOne = gitHubJobs.map((job) => {
+            return <GithubJob job={job} key={job.id}/>
         })
-        const jobsListTwo = authenticJobs.map((job, i) => {
+        const jobsListTwo = authenticJobs.map((job) => {
             return (
-                <Job job={job} company={job.company} type={job.type} location={job.company.name} key={i} />
+                <Job job={job} company={job.company} type={job.type} location={job.company.name} key={job.id} />
             )
         })
+
+        let joinedList = jobsListOne.concat(jobsListTwo);
+
         return (
             <div className='results'>
-                {jobsListOne}
-                {jobsListTwo}
+                {joinedList}
             </div>
         )
     }

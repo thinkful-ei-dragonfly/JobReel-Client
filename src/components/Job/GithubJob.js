@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
 import './Job.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export default class GithubJob extends Component {
@@ -14,18 +15,23 @@ export default class GithubJob extends Component {
         const {job = {}} = this.props
         return (
             <div className='job-card'>
-                JOB TITLE: {job.title}
-                <br/>
-                JOB TYPE: {job.type}
-                <br/>
-                COMPANY: {job.company}
-                <br/>
-                LOCATION: {job.location}
-                <br/>
-                <button onClick={this.handleExpand} className="expandButton">
-                    <div className="expand">&#x2965;</div>
-                    Get More Details
-                </button>
+                <div className='job-card-title'>
+                    <h3>{job.title}</h3>
+                </div>
+                <div className='job-card-type'>
+                    <p>{job.type}</p>    
+                </div>
+                <div className='job-card-company'>
+                    <p>{job.company}</p>
+                </div>
+                <div className='job-card-location'>
+                    <p>{job.location}</p>
+                </div>
+                <div className='expandButton'>
+                    <FontAwesomeIcon icon='expand-arrows-alt' onClick={this.handleExpand}/>
+                </div>
+                
+                
             </div>
         )
     }
@@ -37,24 +43,28 @@ export default class GithubJob extends Component {
     renderJobExpanded() {
         const {job = {}} = this.props
         return (
-            <div className='job-card'>
-                JOB TITLE: {job.title}
-                <br/>
-                JOB TYPE: {job.type}
-                <br/>
-                COMPANY: {job.company}
-                <br/>
-                LOCATION: {job.location}
-                <br/>
-                COMPANY URL: {job.url}
-                <br/>
-                APPLY: {job.how_to_apply}
-                {/* {job.description} */}
-                <br/>
-                <button onClick={this.handleCollapse} className="collapseButton">
-                    <div className="collapse">&#x2963;</div>
-                    <h3>Collapse</h3>
-                </button>
+            <div className='job-card-expanded'>
+                 <div className='job-card-title'>
+                    <h3>{job.title}</h3>
+                </div>
+                <div className='job-card-type'>
+                    <p>{job.type}</p>    
+                </div>
+                <div className='job-card-company'>
+                    <p>{job.company}</p>
+                </div>
+                <div className='job-card-location'>
+                    <p>{job.location}</p>
+                </div>
+                <div className='job-card-url'>
+                    <a href={job.url}>{job.company} Job Post on GitHub</a>
+                </div>
+                <div className='job-card-apply'>
+                    <p>To apply, please visit website</p>
+                </div>
+                <div className='collapseButton'>
+                    <FontAwesomeIcon icon='compress-arrows-alt' onClick={this.handleCollapse}/>
+                </div>
             </div>
         )
     }

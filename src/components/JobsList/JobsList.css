@@ -8,7 +8,13 @@
   position: relative;
   grid-column-start: 3;
   grid-column-end: 9;
-  height: 500px;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 400px;
+  position: relative;
+  background: #3C3230;
+  color: #eeebd9;
+  text-align: center;
 }
 
 #go-back {
@@ -29,6 +35,12 @@
 
 .results > h2 {
   text-align: center;
+}
+
+.results {
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-block: inherit;
 }
 
 
