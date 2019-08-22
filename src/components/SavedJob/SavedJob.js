@@ -151,6 +151,10 @@ class SavedJob extends React.Component {
 
   render(){
     const { title, company, city, state, url, status, description, error, editing } = this.state
+    let location = city;
+    if (state) {
+      location = `${city}, ${state}`;
+    }
     let jobStatus;
     (status === 'Interested')
       ? jobStatus = <div className="job-status yellow">{status}</div>
@@ -160,7 +164,7 @@ class SavedJob extends React.Component {
         {jobStatus}
         <h3>{company}: {title}</h3>
         <p>Posted {format(this.props.date, 'Do MMM YYYY')}</p>
-        <p>{city}, {state}</p>
+        <p>{location}</p>
         <p><a href={url}>{url}</a></p>
         <p>{description}</p>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
