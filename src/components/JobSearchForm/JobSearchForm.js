@@ -4,6 +4,7 @@ import Button from '../../components/Button/Button'
 import './JobSearchForm.css';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
+import SideNav from '../../components/SideNav/SideNav'
 
 class JobSearchForm extends React.Component {
   static contextType = JobReelContext
@@ -26,8 +27,8 @@ class JobSearchForm extends React.Component {
     this.takeToNext();
     // Make api call
     this.context.setSearch({ jobTitle, location })
-    this.props.history.push(`/JobsList`)
-    // console.log(this.context)
+    this.props.history.push(`/jobsearch/results`)
+    console.log(this.context)
   }
 
   takeToNext = () => {
@@ -39,6 +40,7 @@ class JobSearchForm extends React.Component {
   render() {
     return (
       <div className='job-search'>
+        <SideNav />
         <form className='JobSearchForm' onSubmit={this.handleSubmit}>
           {/* <div>
             <Label htmlFor='industry-input'>
@@ -55,7 +57,7 @@ class JobSearchForm extends React.Component {
             <Label htmlFor='job-title-input'>
               Job Title
             </Label>
-            <br/>
+            <br />
             <Input
               id='job-title-input'
               name='job-title'
@@ -65,14 +67,14 @@ class JobSearchForm extends React.Component {
             <Label htmlFor='location-input'>
               Location
             </Label>
-            <br/>
+            <br />
             <Input
               ref={this.firstInput}
               id='location-input'
               name='location'
             />
           </div>
-          <br/>
+          <br />
           <Button type="submit">Submit</Button>
         </form>
       </div>

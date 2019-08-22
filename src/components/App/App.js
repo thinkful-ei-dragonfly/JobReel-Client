@@ -12,11 +12,12 @@ import JobSearcForm from '../JobSearchForm/JobSearchForm';
 import SavedJobsRoute from '../../routes/SavedJobsRoute/SavedJobsRoute';
 import SavedEventsRoute from '../../routes/SavedEventsRoute/SavedEventsRoute';
 import SavedCompaniesRoute from '../../routes/SavedCompaniesRoute/SavedCompaniesRoute';
-import JobsList from '../JobsList/JobsList';
+import JobsRoute from '../../routes/JobsRoute/JobsRoute'
 import JobSearchForm from '../JobSearchForm/JobSearchForm';
 import SendToMeetup from '../Meetup/MeetupSender';
 import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
-
+import FindProfessionalsForm from '../FindProfessionalsForm/FindProfessionalsForm'
+import FindContactsRoute from '../../routes/FindContactsRoute/FindContacts';
 
 export default function App() {
   return (
@@ -24,12 +25,20 @@ export default function App() {
       <Header />
       <main>
         <Switch>
+        <PrivateRoute
+            path={'/professionalsearch'}
+            component={FindProfessionalsForm}
+          />
+        <PrivateRoute
+            path={'/findcontacts'}
+            component={FindContactsRoute}
+          />
           <PrivateRoute
-            exact path={'/meetups'}
+            path={'/meetups'}
             component={SendToMeetup}
           />
           <PrivateRoute
-            exact path={'/jobsearch'}
+            path={'/jobsearch'}
             component={JobSearcForm}
           />
           <PublicOnlyRoute
@@ -46,7 +55,7 @@ export default function App() {
           />
           <PrivateRoute
             path={'/jobsearch/results'}
-            component={JobsList}
+            component={JobsRoute}
           />
           <PrivateRoute
             path={'/saved-jobs'}
@@ -59,10 +68,6 @@ export default function App() {
           <PrivateRoute
             path={'/jobs'}
             component={JobSearchForm}
-          />
-          <PrivateRoute
-            exact path={'/JobsList'}
-            component={JobsList}
           />
           <PrivateRoute
             path={'/companies'}
