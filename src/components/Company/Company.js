@@ -2,7 +2,9 @@ import React from 'react';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
-import { format } from 'date-fns'
+import { format } from 'date-fns';
+import {Label, Input} from '../Form/Form';
+import './Company.css';
 
 class Company extends React.Component {
 
@@ -168,8 +170,9 @@ class Company extends React.Component {
       onSubmit={this.handleSubmit}>
         <div>
           <div className="error-message">{error}</div>
-          <label htmlFor='name'>Company Name</label>
-          <input
+          <Label htmlFor='name'>Company Name</Label>
+          <br />
+          <Input
             type='text'
             name='name'
             id='name'
@@ -180,8 +183,9 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='industry'>Industry</label>
-          <input
+          <Label htmlFor='industry'>Industry</Label>
+          <br/>
+          <Input
             type='text'
             name='industry'
             id='industry'
@@ -191,8 +195,9 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='city'>City</label>
-          <input
+          <Label htmlFor='city'>City</Label>
+          <br/>
+          <Input
             type='text'
             name='city'
             id='city'
@@ -203,14 +208,16 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='state'>State</label>
+          <Label htmlFor='state'>State</Label>
+          <br/>
           <select onChange={this.handleChangeState} name="state" id="state-input" value={state}>
               {this.renderStateOptions()}
             </select>
         </div>
         <div>
-          <label htmlFor='website'>Website</label>
-          <input
+          <Label htmlFor='website'>Website</Label>
+          <br/>
+          <Input
             type='text'
             name='website'
             id='website'
@@ -220,7 +227,8 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='description'>Description</label>
+          <Label htmlFor='description'>Description</Label>
+          <br/>
           <textarea 
             name='description'
             id='description'
@@ -231,8 +239,9 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='contact'>Contact(s)</label>
-          <input
+          <Label htmlFor='contact'>Contact(s)</Label>
+          <br/>
+          <Input
             type='text'
             name='contact'
             id='contact'
@@ -241,8 +250,13 @@ class Company extends React.Component {
             onChange={this.handleChangeContact}
           />
         </div>
-        <Button type="submit">Save Changes</Button>
-        <Button type="button" onClick={this.handleToggle}>Back</Button>
+        <div className='company-card-controls'>
+          <Button type="submit">Save Changes</Button>
+          {' '}
+          <Button type="button" onClick={this.handleToggle}>Back</Button>
+        </div>
+
+
       </form>
       let display;
       (editing === false) ? display = event : display = editCompany

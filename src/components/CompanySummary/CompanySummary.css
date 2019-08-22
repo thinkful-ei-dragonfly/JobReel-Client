@@ -10,4 +10,11 @@
     background: #3C3230;
     color: #eeebd9;
     text-align: center;
+    overflow-y: auto;
+}
+
+.saved-company-controls {
+    width: 50%;
+    margin-left: 50%;
+    margin-top: 0.5em;
 }

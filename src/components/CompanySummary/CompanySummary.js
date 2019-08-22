@@ -24,7 +24,10 @@ class CompanySummary extends React.Component {
 
     return(
       <div className="saved-company-list">
-        <Button onClick={() => this.context.setManualCompanyAdd(true)} type="button">Add Company</Button>
+        <div className='saved-company-controls'>
+          <Button onClick={() => this.context.setManualCompanyAdd(true)} type="button">Add Company</Button>
+        </div>
+        
         {mappedCompanies}
       </div>
     )
