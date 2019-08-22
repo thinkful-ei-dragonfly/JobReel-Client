@@ -8,7 +8,15 @@ export default class GithubJob extends Component {
     static contextType = JobReelContext
 
     state = {
-        expanded: false
+        expanded: false,
+        saved: false
+    }
+
+    componentDidMount() {
+        const {job = {}, savedJobUrls} = this.props;
+        if (job.url in savedJobUrls) {
+            this.setState({saved: true});
+        }
     }
 
     convertState = (state) => {
@@ -102,6 +110,7 @@ export default class GithubJob extends Component {
         }
         jobReelApiService.submitJob(jobData)
             .then(res => {
+                this.setState({saved: true});
                 this.context.setSavedJobs([...this.context.savedJobs, res]);
             })
     }
@@ -122,9 +131,16 @@ export default class GithubJob extends Component {
                     <div className="expand">&#x2965;</div>
                     Get More Details
                 </button>
-                <Button onClick={this.handleClick}>Save Job</Button>
+                {this.renderSaveButton()}
             </li>
         )
+    }
+
+    renderSaveButton() {
+        if (this.state.saved) {
+            return <p>Saved &#10004;</p>
+        }
+        return <Button onClick={this.handleClick}>Save Job</Button>
     }
 
     renderJobDescription() {
@@ -174,6 +190,7 @@ export default class GithubJob extends Component {
     }
 
     render() {
+        console.log(this.context.savedJobs);
         return (
             <>
                 {this.renderFunction()}
