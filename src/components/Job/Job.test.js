@@ -2,11 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Job from './Job'
 
-describe.skip('Job smoke test', () => {
+describe('Job smoke test', () => {
   const props = {
-    job:{
-      company: 'Company'
-    }
+    job:{},
+    company: {},
+    type: {},
+    location: '',
+    key: null,
+    savedJobUrls: {}
   }
   it('renders without crashing', () => {
     const div = document.createElement('div')
