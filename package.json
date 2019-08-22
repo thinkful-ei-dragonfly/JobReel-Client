@@ -43,6 +43,6 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^3.4.1"
+    "jsonwebtoken": "^8.5.1"
   }
 }

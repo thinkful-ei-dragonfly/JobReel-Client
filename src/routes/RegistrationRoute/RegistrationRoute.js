@@ -62,7 +62,7 @@ export default class RegistrationRoute extends Component {
 
                         onSubmit={this.handleSubmit}
                     >
-                        <div role='alert' className='error'>
+                        <div role='alert' className='error-message'>
                             {error && <p>{error}</p>}
                         </div>
                         <div>
