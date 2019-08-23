@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddContactForm snapshot test renders the UI as expected 1`] = `
+<div
+  className="AddContactForm"
+>
+  <div
+    role="alert"
+  />
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <Label
+        htmlFor="contact-name-input"
+      >
+        Contact
+      </Label>
+      <br />
+      <ForwardRef
+        id="contact-name-input"
+        name="contact_name"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="job-title-input"
+      >
+        Job Title
+      </Label>
+      <br />
+      <ForwardRef
+        id="job-title-input"
+        name="job_title"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="company-input"
+      >
+        Company
+      </Label>
+      <br />
+      <ForwardRef
+        id="company-input"
+        name="company"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="email-input"
+      >
+        Email
+      </Label>
+      <br />
+      <ForwardRef
+        id="email-input"
+        name="email"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="linkedin-input"
+      >
+        LinkedIn
+      </Label>
+      <br />
+      <ForwardRef
+        id="linkedin-input"
+        name="linkedin"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="comments-input"
+      >
+        Comments
+      </Label>
+      <br />
+      <ForwardRef
+        id="comments-input"
+        name="comments"
+      />
+    </div>
+    <ForwardRef
+      onClick={[Function]}
+      type="button"
+    >
+      Back
+    </ForwardRef>
+    <ForwardRef
+      type="submit"
+    >
+      Submit
+    </ForwardRef>
+  </form>
+</div>
+`;
