@@ -8,12 +8,12 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
-import JobSearchForm from '../JobSearchForm/JobSearchForm';
 import SavedJobsRoute from '../../routes/SavedJobsRoute/SavedJobsRoute';
 import SavedEventsRoute from '../../routes/SavedEventsRoute/SavedEventsRoute';
 import SavedCompaniesRoute from '../../routes/SavedCompaniesRoute/SavedCompaniesRoute';
 import JobsRoute from '../../routes/JobsRoute/JobsRoute'
-import SendToMeetup from '../Meetup/MeetupSender';
+import JobSearchForm from '../JobSearchForm/JobSearchForm';
+import EventBrite from '../EventBrite/EventBrite';
 import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
 import FindProfessionalsForm from '../FindProfessionalsForm/FindProfessionalsForm'
 import FindContactsRoute from '../../routes/FindContactsRoute/FindContacts';
@@ -41,8 +41,8 @@ export default function App() {
             component={FindContactsRoute}
           />
           <PrivateRoute
-            path={'/meetups'}
-            component={SendToMeetup}
+            path={'/eventbrite'}
+            component={EventBrite}
           />
           <PrivateRoute
             exact path={'/jobsearch'}
@@ -61,7 +61,7 @@ export default function App() {
             component={DashboardRoute}
           />
           <PrivateRoute
-            path={'/jobsearch/results'}
+            path={'/jobslist'}
             component={JobsRoute}
           />
           <PrivateRoute
