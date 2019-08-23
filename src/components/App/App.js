@@ -13,7 +13,6 @@ import SavedEventsRoute from '../../routes/SavedEventsRoute/SavedEventsRoute';
 import SavedCompaniesRoute from '../../routes/SavedCompaniesRoute/SavedCompaniesRoute';
 import JobsRoute from '../../routes/JobsRoute/JobsRoute'
 import JobSearchForm from '../JobSearchForm/JobSearchForm';
-import EventBrite from '../EventBrite/EventBrite';
 import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
 import FindProfessionalsForm from '../FindProfessionalsForm/FindProfessionalsForm'
 import FindContactsRoute from '../../routes/FindContactsRoute/FindContacts';
@@ -21,8 +20,9 @@ import ResourcesRoute from '../../routes/ResourcesRoute/ResourcesRoute';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
-import { faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase} from '@fortawesome/free-solid-svg-icons';
-// import MeetupSender from '../Meetup/MeetupSender';
+import { faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase } from '@fortawesome/free-solid-svg-icons';
+import EventBrite from '../../routes/EventRoute/EventBrite';
+
 
 library.add(fab, faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase);
 
@@ -33,23 +33,23 @@ export default function App() {
       <main>
         <Switch>
         <PrivateRoute
+            path={'/eventbrite'}
+            component={EventBrite}
+          />
+          <PrivateRoute
             path={'/professionalsearch'}
             component={FindProfessionalsForm}
           />
-        <PrivateRoute
+          <PrivateRoute
             path={'/findcontacts'}
             component={FindContactsRoute}
-          />
-          <PrivateRoute
-            path={'/eventbrite'}
-            component={EventBrite}
           />
           <PrivateRoute
             exact path={'/jobsearch'}
             component={JobSearchForm}
           />
           <PublicOnlyRoute
-            exact path={['/','/register']}
+            exact path={['/', '/register']}
             component={RegistrationRoute}
           />
           <PublicOnlyRoute
@@ -89,7 +89,7 @@ export default function App() {
             component={SavedContactsRoute}
           />
           <Route
-          component={NotFoundRoute}
+            component={NotFoundRoute}
           />
         </Switch>
       </main>
