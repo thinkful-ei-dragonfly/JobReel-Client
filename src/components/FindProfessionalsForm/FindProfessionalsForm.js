@@ -4,213 +4,216 @@ import Button from '../../components/Button/Button'
 import JobReelContext from '../../context/JobReelContext';
 import Select from 'react-select';
 import SideNav from '../../components/SideNav/SideNav'
+import './FindProfessionalForm.css'
 
 const seniorityOptions = [
-    { value: 'junior', label: 'Junior', },
-    { value: 'senior', label: 'Senior' },
-    { value: 'executive', label: 'Executive' }
+  { value: 'junior', label: 'Junior', },
+  { value: 'senior', label: 'Senior' },
+  { value: 'executive', label: 'Executive' }
 ];
 
 const departmentOptions = [
-    { value: 'it', label: 'IT' },
-    { value: 'finance', label: 'Finance' },
-    { value: 'management', label: 'Management' },
-    { value: 'sales', label: 'Sales' },
-    { value: 'legal', label: 'Legal' },
-    { value: 'support', label: 'Support' },
-    { value: 'hr', label: 'HR' },
-    { value: 'marketing', label: 'Marketing' },
-    { value: 'communication', label: 'Communication' },
-    { value: 'executive', label: 'Executive' }
+  { value: 'it', label: 'IT' },
+  { value: 'finance', label: 'Finance' },
+  { value: 'management', label: 'Management' },
+  { value: 'sales', label: 'Sales' },
+  { value: 'legal', label: 'Legal' },
+  { value: 'support', label: 'Support' },
+  { value: 'hr', label: 'HR' },
+  { value: 'marketing', label: 'Marketing' },
+  { value: 'communication', label: 'Communication' },
+  { value: 'executive', label: 'Executive' }
 ];
 
 
 const customStyles = {
-    option: (provided, state) => ({
-        ...provided,
-        borderBottom: '1px dotted black',
-        color: state.isSelected ? 'red' : 'blue',
-        height: 100,
-        padding: 20,
-    }),
-    singleValue: (provided, state) => {
-        const opacity = state.isDisabled ? 0.5 : 1;
-        const transition = 'opacity 300ms';
+  option: (provided, state) => ({
+    ...provided,
+    borderBottom: '1px dotted black',
+    color: state.isSelected ? 'red' : 'blue',
+    height: 100,
+    padding: 20,
+  }),
+  singleValue: (provided, state) => {
+    const opacity = state.isDisabled ? 0.5 : 1;
+    const transition = 'opacity 300ms';
 
-        return { ...provided, opacity, transition };
-    }
+    return { ...provided, opacity, transition };
+  }
 }
 
 
 export default class JobSearchForm extends React.Component {
-    state = {
-        domain: null,
-        company: null,
-        formValid: false,
-        validationMessages: {
-            domain: '',
-            company: '',
-        }
+  state = {
+    domain: null,
+    company: null,
+    formValid: false,
+    validationMessages: {
+      domain: '',
+      company: '',
     }
-    static contextType = JobReelContext
+  }
+  static contextType = JobReelContext
 
-    updateDomain(domain) {
-        this.setState({ domain }, () => { this.validateDomain(domain) });
-    }
+  updateDomain(domain) {
+    this.setState({ domain }, () => { this.validateDomain(domain) });
+  }
 
-    updateCompany(company) {
-        this.setState({ company }, () => { this.validateDomain(company) });
-    }
+  updateCompany(company) {
+    this.setState({ company }, () => { this.validateDomain(company) });
+  }
 
-    validateDomain(fieldValue) {
-        const fieldErrors = { ...this.state.validationMessages };
-        let hasError = false;
+  validateDomain(fieldValue) {
+    const fieldErrors = { ...this.state.validationMessages };
+    let hasError = false;
 
-        fieldValue = fieldValue.trim();
-        if (fieldValue.length === 0) {
-            fieldErrors.domain = 'Domain is required';
-            hasError = true;
-        } else {
-            if (fieldValue.length <= 2) {
-                fieldErrors.domain = 'Domain must be at least 3 characters long';
-                hasError = true;
-            } else {
-                fieldErrors.domain = '';
-                hasError = false;
-            }
-        }
-
-        this.setState({
-            validationMessages: fieldErrors,
-            domainValid: !hasError
-        }, this.formValid);
-
+    fieldValue = fieldValue.trim();
+    if (fieldValue.length === 0) {
+      fieldErrors.domain = 'Domain is required';
+      hasError = true;
+    } else {
+      if (fieldValue.length <= 2) {
+        fieldErrors.domain = 'Domain must be at least 3 characters long';
+        hasError = true;
+      } else {
+        fieldErrors.domain = '';
+        hasError = false;
+      }
     }
 
-    validateCompany(fieldValue) {
-        const fieldErrors = { ...this.state.validationMessages };
-        let hasError = false;
+    this.setState({
+      validationMessages: fieldErrors,
+      domainValid: !hasError
+    }, this.formValid);
 
-        fieldValue = fieldValue.trim();
-        if (fieldValue.length === 0) {
-            fieldErrors.domain = 'Company is required';
-            hasError = true;
-        } else {
-            if (fieldValue.length <= 2) {
-                fieldErrors.company = 'Company must be at least 3 characters long';
-                hasError = true;
-            } else {
-                fieldErrors.company = '';
-                hasError = false;
-            }
-        }
+  }
 
-        this.setState({
-            validationMessages: fieldErrors,
-            companyValid: !hasError
-        }, this.formValid);
+  validateCompany(fieldValue) {
+    const fieldErrors = { ...this.state.validationMessages };
+    let hasError = false;
 
+    fieldValue = fieldValue.trim();
+    if (fieldValue.length === 0) {
+      fieldErrors.domain = 'Company is required';
+      hasError = true;
+    } else {
+      if (fieldValue.length <= 2) {
+        fieldErrors.company = 'Company must be at least 3 characters long';
+        hasError = true;
+      } else {
+        fieldErrors.company = '';
+        hasError = false;
+      }
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        let domain = '';
-        if (this.state.domain) {
-            domain = e.target['domain'].value;
-        }
-        let company = '';
-        if (this.state.company) {
-            company = e.target['company'].value;
-        }
-        const seniority = e.target['seniority'].value;
-        const department = e.target['department'].value;
-        // const limit = e.target['limit'].value;
-        this.context.setProfessionalsSearch({ domain, company, seniority, department })
-        this.props.history.push(`/findcontacts`)
-    }
+    this.setState({
+      validationMessages: fieldErrors,
+      companyValid: !hasError
+    }, this.formValid);
 
-    render() {
-        return (
-            <div className='job-search'>
-                <SideNav />
-                <form className='JobSearchForm' onSubmit={this.handleSubmit}>
-                    <h4>Enter a domain or company name</h4>
-                    <div>
-                        {!this.state.company && <div>
-                            <Label htmlFor='domain-input'>
-                                Domain
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let domain = '';
+    if (this.state.domain) {
+      domain = e.target['domain'].value;
+    }
+    let company = '';
+    if (this.state.company) {
+      company = e.target['company'].value;
+    }
+    const seniority = e.target['seniority'].value;
+    const department = e.target['department'].value;
+    // const limit = e.target['limit'].value;
+    this.context.setProfessionalsSearch({ domain, company, seniority, department })
+    this.props.history.push(`/findcontacts`)
+  }
+
+  render() {
+    return (
+      <div className='professional-search'>
+        <div className='title'>
+          <h2>Find Professionals</h2>
+        </div>
+        <form className='ProfessionalSearchForm' onSubmit={this.handleSubmit}>
+          <h4>Enter a domain or company name</h4>
+          <div>
+            {!this.state.company && <div>
+              <Label htmlFor='domain-input'>
+                Domain
+              </Label>
+              <br />
+              <Input
+                ref={this.firstInput}
+                id='domain-input'
+                name='domain'
+                onChange={e => this.updateDomain(e.target.value)}
+                required
+                disabled={this.state.company}
+              />
+            </div>}
+            {!this.state.domain && <div>
+              <Label htmlFor='company-input'>
+                Company
+              </Label>
+              <br />
+              <Input
+                id='company-input'
+                name="company"
+                onChange={e => this.updateCompany(e.target.value)}
+                required
+                disabled={this.state.domain}
+              />
+            </div>}
+          </div>
+          <div>
+            <Label htmlFor='seniority-input'>
+              Seniority
             </Label>
-                            <br />
-                            <Input
-                                ref={this.firstInput}
-                                id='domain-input'
-                                name='domain'
-                                onChange={e => this.updateDomain(e.target.value)}
-                                required
-                                disabled={this.state.company}
-                            />
-                        </div>}
-                        {!this.state.domain && <div>
-                            <Label htmlFor='company-input'>
-                                Company
+            <br />
+            <Select
+              styles={customStyles}
+              makeAnimated
+              isMulti
+              name="seniority"
+              id="seniority-input"
+              options={seniorityOptions}
+              className="basic-multi-select"
+              classNamePrefix="select"
+            />
+          </div>
+          <div>
+            <Label htmlFor='department-input'>
+              Department
             </Label>
-                            <br />
-                            <Input
-                                id='company-input'
-                                name="company"
-                                onChange={e => this.updateCompany(e.target.value)}
-                                required
-                                disabled={this.state.domain}
-                            />
-                        </div>}
-                    </div>
-                    <div>
-                        <Label htmlFor='seniority-input'>
-                            Seniority
+            <br />
+            <Select
+              styles={customStyles}
+              makeAnimated
+              isMulti
+              name="department"
+              id="department-input"
+              options={departmentOptions}
+              className="basic-multi-select"
+              classNamePrefix="select"
+            />
+          </div>
+          {/* <div>
+            <Label htmlFor='limit-input'>
+              Results Limit
             </Label>
-                        <br />
-                        <Select
-                            styles={customStyles}
-                            makeAnimated
-                            isMulti
-                            name="seniority"
-                            id="seniority-input"
-                            options={seniorityOptions}
-                            className="basic-multi-select"
-                            classNamePrefix="select"
-                        />
-                    </div>
-                    <div>
-                        <Label htmlFor='department-input'>
-                            Department
-            </Label>
-                        <br />
-                        <Select
-                            styles={customStyles}
-                            makeAnimated
-                            isMulti
-                            name="department"
-                            id="department-input"
-                            options={departmentOptions}
-                            className="basic-multi-select"
-                            classNamePrefix="select"
-                        />
-                    </div>
-                    {/* <div>
-                        <Label htmlFor='limit-input'>
-                            Results Limit
-            </Label>
-                        <br />
-                        <Input
-                            ref={this.firstInput}
-                            id='limit-input'
-                            name='limit'
-                        />
-                    </div> */}
-                    <br />
-                    <Button type="submit">Submit</Button>
-                </form>
-            </div>
-        )
-    }
+            <br />
+            <Input
+              ref={this.firstInput}
+              id='limit-input'
+              name='limit'
+            />
+          </div> */}
+          <br />
+          <Button type="submit">Submit</Button>
+        </form>
+      </div>
+    )
+  }
 }

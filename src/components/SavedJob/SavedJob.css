@@ -1,3 +1,30 @@
+.job-box {
+  width: 80%;
+  border: 1px black solid;
+  min-width: 300px;
+  padding: 0.5em;
+  border-radius: 10px;
+  margin: 0.75em auto;
+  background: #3b3a50;
+  color: #eeebd9;
+  box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39); 
+}
+
+.edit-job-form {
+  width: 80%;
+  border: 1px black solid;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 5%;
+  line-height: 150%;
+  border-radius: 10px;
+  text-align: center;
+  margin: auto;
+  background: #3b3a50;
+  color: #eeebd9;
+  box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+}
+
 .job-status{
   border: 1px solid black;
   padding: 5px;
@@ -5,6 +32,28 @@
 
 .job-box button{
   margin: 15px;
+}
+
+.job-description {
+  width: 80%;
+  margin: 0.5em auto;
+  line-height: 168%;
+  height: 200px;
+  overflow-y: auto;
+}
+
+.job-url {
+  width: 80%;
+  margin: 0.5em auto;
+}
+
+.job-description > p {
+  text-align: left;
+}
+
+.job-description > ul {
+  text-align: left;
+  margin-bottom: 1em;
 }
 
 .green{

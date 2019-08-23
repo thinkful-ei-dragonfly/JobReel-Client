@@ -23,21 +23,8 @@
 
 #status-input {
   vertical-align: middle;
-  margin-left: 0%;
 }
 
 #addButton {
   margin: auto;
-}
-
-.job-box{
-  border: 1px solid black;
-  padding: 15px;
-  margin: 10px;
-  text-align: center;
-}
-
-.saved-job-list label, select{
-  display: block;
-  margin: 15px;
 }

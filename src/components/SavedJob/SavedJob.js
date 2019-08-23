@@ -1,9 +1,11 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
+import { Label, Input } from '../Form/Form';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import './SavedJob.css'
 import { format } from 'date-fns'
+import ReactHtmlParser from 'react-html-parser';
 
 class SavedJob extends React.Component {
 
@@ -165,8 +167,12 @@ class SavedJob extends React.Component {
         <h3>{company}: {title}</h3>
         <p>Posted {format(this.props.date, 'Do MMM YYYY')}</p>
         <p>{location}</p>
-        <p><a href={url}>{url}</a></p>
-        <p>{description}</p>
+        <div className='job-url'>
+          <p><a href={url}>{url}</a></p>
+        </div>
+        <div className='job-description'>
+          {ReactHtmlParser(description)}
+        </div>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
         <Button onClick={this.handleToggle} type="button">Edit</Button>
       </div>
@@ -176,8 +182,9 @@ class SavedJob extends React.Component {
       onSubmit={this.handleSubmit}>
         <div>
           <div className="error-message">{error}</div>
-          <label htmlFor='title'>Title</label>
-          <input
+          <Label htmlFor='title'>Title</Label>
+          <br/>
+          <Input
             type='text'
             name='title'
             id='title'
@@ -188,8 +195,9 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='company'>Company</label>
-          <input
+          <Label htmlFor='company'>Company</Label>
+          <br/>
+          <Input
             type='text'
             name='company'
             id='company'
@@ -200,8 +208,9 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='city'>City</label>
-          <input
+          <Label htmlFor='city'>City</Label>
+          <br/>
+          <Input
             type='text'
             name='city'
             id='city'
@@ -212,14 +221,16 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='state'>State</label>
+          <Label htmlFor='state'>State</Label>
+          <br/>
           <select onChange={this.handleChangeState} name="state" id="state-input" value={state}>
               {this.renderStateOptions()}
             </select>
         </div>
         <div>
-          <label htmlFor='url'>URL</label>
-          <input
+          <Label htmlFor='url'>URL</Label>
+          <br/>
+          <Input
             type='text'
             name='url'
             id='url'
@@ -230,7 +241,8 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='description'>Description</label>
+          <Label htmlFor='description'>Description</Label>
+          <br/>
           <textarea 
             name='description'
             id='description'
@@ -241,7 +253,8 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='status'>Status</label>
+          <Label htmlFor='status'>Status</Label>
+          <br/>
           <select
               id='status-input'
               name='status'

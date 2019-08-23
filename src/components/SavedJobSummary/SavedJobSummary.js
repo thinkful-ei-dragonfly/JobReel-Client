@@ -3,6 +3,7 @@ import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import SavedJob from '../SavedJob/SavedJob';
+import Select from 'react-select'
 import './SavedJobSummary.css'
 import { Label } from '../Form/Form';
 
@@ -41,7 +42,7 @@ class SavedJobSummary extends React.Component {
       <div className="saved-job-list">
         <div className='savedJobFilterControls'>
           <Label id='savedJobFilterTitle'>Filter by Job Status:</Label>
-          <select
+          <Select
             id='status-input'
             name='status'
             onChange={this.handleStatusFilter}
@@ -49,7 +50,7 @@ class SavedJobSummary extends React.Component {
             <option value="">N/A</option>
             <option value="Interested">Interested</option>
             <option value="Applied">Applied</option>
-          </select>
+          </Select>
           <Button id='addButton' onClick={() => this.context.setManualJobAdd(true)} type="button">Add Job</Button>
         </div>
         {mappedJobs}
