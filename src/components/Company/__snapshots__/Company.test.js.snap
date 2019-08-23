@@ -11,13 +11,14 @@ exports[`Company snapshot test opens the edit company form 1`] = `
     <div>
       <div
         className="error-message"
+        role="alert"
       />
-      <label
+      <Label
         htmlFor="name"
       >
         Company Name
-      </label>
-      <input
+      </Label>
+      <ForwardRef
         id="name"
         name="name"
         onChange={[Function]}
@@ -28,12 +29,12 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       />
     </div>
     <div>
-      <label
+      <Label
         htmlFor="industry"
       >
         Industry
-      </label>
-      <input
+      </Label>
+      <ForwardRef
         id="industry"
         name="industry"
         onChange={[Function]}
@@ -43,12 +44,12 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       />
     </div>
     <div>
-      <label
+      <Label
         htmlFor="city"
       >
         City
-      </label>
-      <input
+      </Label>
+      <ForwardRef
         id="city"
         name="city"
         onChange={[Function]}
@@ -59,13 +60,13 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       />
     </div>
     <div>
-      <label
+      <Label
         htmlFor="state"
       >
         State
-      </label>
+      </Label>
       <select
-        id="state-input"
+        id="state-Input"
         name="state"
         onChange={[Function]}
         value=""
@@ -373,12 +374,12 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       </select>
     </div>
     <div>
-      <label
+      <Label
         htmlFor="website"
       >
         Website
-      </label>
-      <input
+      </Label>
+      <ForwardRef
         id="website"
         name="website"
         onChange={[Function]}
@@ -388,11 +389,11 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       />
     </div>
     <div>
-      <label
+      <Label
         htmlFor="description"
       >
         Description
-      </label>
+      </Label>
       <textarea
         id="description"
         name="description"
@@ -403,12 +404,12 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       />
     </div>
     <div>
-      <label
+      <Label
         htmlFor="contact"
       >
         Contact(s)
-      </label>
-      <input
+      </Label>
+      <ForwardRef
         id="contact"
         name="contact"
         onChange={[Function]}

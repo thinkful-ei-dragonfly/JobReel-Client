@@ -12,6 +12,7 @@ exports[`App snapshot test renders the UI as expected 1`] = `
       "deleteContact": [Function],
       "deleteEvent": [Function],
       "deleteJob": [Function],
+      "deleteResource": [Function],
       "error": null,
       "findContactsMetaData": Object {},
       "gitHubJobs": Array [],
@@ -21,6 +22,7 @@ exports[`App snapshot test renders the UI as expected 1`] = `
       "manualContactAdd": false,
       "manualEventAdd": false,
       "manualJobAdd": false,
+      "manualResourceAdd": false,
       "meetups": Array [],
       "processLogin": [Function],
       "processLogout": [Function],
@@ -43,6 +45,7 @@ exports[`App snapshot test renders the UI as expected 1`] = `
       "setManualContactAdd": [Function],
       "setManualEventAdd": [Function],
       "setManualJobAdd": [Function],
+      "setManualResourceAdd": [Function],
       "setMeetups": [Function],
       "setProfessionals": [Function],
       "setProfessionalsSearch": [Function],
@@ -55,6 +58,7 @@ exports[`App snapshot test renders the UI as expected 1`] = `
       "updateContact": [Function],
       "updateEvent": [Function],
       "updateJob": [Function],
+      "updateResource": [Function],
       "user": Object {},
     }
   }
