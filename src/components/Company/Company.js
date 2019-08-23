@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
+import { Input, Label } from '../../components/Form/Form';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import { format } from 'date-fns'
@@ -123,7 +124,7 @@ class Company extends React.Component {
     this.setState({ error })
   }
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault()
     const { company_name, city, state, website, description, industry, contact } = this.state
     if (!this.validateUrl(website)) {
@@ -141,10 +142,10 @@ class Company extends React.Component {
       date_added: this.props.date,
       user_id: this.props.user
      }
-    await jobReelApiService.editCompany(editedCompany, this.props.id)
-    await this.context.updateCompany(editedCompany)
-    await this.handleToggle()
-    await this.handleError(null)
+    jobReelApiService.editCompany(editedCompany, this.props.id)
+    this.context.updateCompany(editedCompany)
+    this.handleToggle()
+    this.handleError(null)
   } 
 }
 
@@ -167,9 +168,11 @@ class Company extends React.Component {
       className='edit-company-form'
       onSubmit={this.handleSubmit}>
         <div>
-          <div className="error-message">{error}</div>
-          <label htmlFor='name'>Company Name</label>
-          <input
+          <div role='alert' className="error-message">
+            {error && <p>{error}</p>}
+          </div>
+          <Label htmlFor='name'>Company Name</Label>
+          <Input
             type='text'
             name='name'
             id='name'
@@ -180,8 +183,8 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='industry'>Industry</label>
-          <input
+          <Label htmlFor='industry'>Industry</Label>
+          <Input
             type='text'
             name='industry'
             id='industry'
@@ -191,8 +194,8 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='city'>City</label>
-          <input
+          <Label htmlFor='city'>City</Label>
+          <Input
             type='text'
             name='city'
             id='city'
@@ -203,14 +206,14 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='state'>State</label>
-          <select onChange={this.handleChangeState} name="state" id="state-input" value={state}>
+          <Label htmlFor='state'>State</Label>
+          <select onChange={this.handleChangeState} name="state" id="state-Input" value={state}>
               {this.renderStateOptions()}
             </select>
         </div>
         <div>
-          <label htmlFor='website'>Website</label>
-          <input
+          <Label htmlFor='website'>Website</Label>
+          <Input
             type='text'
             name='website'
             id='website'
@@ -220,7 +223,7 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='description'>Description</label>
+          <Label htmlFor='description'>Description</Label>
           <textarea 
             name='description'
             id='description'
@@ -231,8 +234,8 @@ class Company extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='contact'>Contact(s)</label>
-          <input
+          <Label htmlFor='contact'>Contact(s)</Label>
+          <Input
             type='text'
             name='contact'
             id='contact'

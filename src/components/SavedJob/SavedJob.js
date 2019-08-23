@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
+import { Input, Label } from '../../components/Form/Form';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import './SavedJob.css'
@@ -124,7 +125,7 @@ class SavedJob extends React.Component {
     this.setState({ error })
   }
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault()
     const { title, company, city, state, url, status, description } = this.state
     if (!this.validateUrl(url)) {
@@ -142,10 +143,10 @@ class SavedJob extends React.Component {
         date_added: this.props.date,
         user_id: this.props.user
        }
-      await jobReelApiService.editJob(editedJob, this.props.id)
-      await this.context.updateJob(editedJob)
-      await this.handleToggle()
-      await this.handleError(null)
+      jobReelApiService.editJob(editedJob, this.props.id)
+      this.context.updateJob(editedJob)
+      this.handleToggle()
+      this.handleError(null)
     }
   }
 
@@ -176,8 +177,8 @@ class SavedJob extends React.Component {
       onSubmit={this.handleSubmit}>
         <div>
           <div className="error-message">{error}</div>
-          <label htmlFor='title'>Title</label>
-          <input
+          <Label htmlFor='title'>Title</Label>
+          <Input
             type='text'
             name='title'
             id='title'
@@ -188,8 +189,8 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='company'>Company</label>
-          <input
+          <Label htmlFor='company'>Company</Label>
+          <Input
             type='text'
             name='company'
             id='company'
@@ -200,8 +201,8 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='city'>City</label>
-          <input
+          <Label htmlFor='city'>City</Label>
+          <Input
             type='text'
             name='city'
             id='city'
@@ -212,14 +213,14 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='state'>State</label>
-          <select onChange={this.handleChangeState} name="state" id="state-input" value={state}>
+          <Label htmlFor='state'>State</Label>
+          <select onChange={this.handleChangeState} name="state" id="state-Input" value={state}>
               {this.renderStateOptions()}
             </select>
         </div>
         <div>
-          <label htmlFor='url'>URL</label>
-          <input
+          <Label htmlFor='url'>URL</Label>
+          <Input
             type='text'
             name='url'
             id='url'
@@ -230,7 +231,7 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='description'>Description</label>
+          <Label htmlFor='description'>Description</Label>
           <textarea 
             name='description'
             id='description'
@@ -241,9 +242,9 @@ class SavedJob extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='status'>Status</label>
+          <Label htmlFor='status'>Status</Label>
           <select
-              id='status-input'
+              id='status-Input'
               name='status'
               onChange={this.handleChangeStatus}
               value={status}

@@ -7,11 +7,12 @@ import TokenService from '../../services/token-service'
 import GithubJob from '../../components/Job/GithubJob';
 import SideNav from '../../components/SideNav/SideNav';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class JobsRoute extends Component {
     state = {
-    search: null,
-    savedJobUrls: {}
+        search: null,
+        savedJobUrls: {}
     }
     static contextType = JobReelContext
 
@@ -65,23 +66,32 @@ export default class JobsRoute extends Component {
         const jobsListTwo = authenticJobs.map((job, i) => {
             return <Job job={job} company={job.company} type={job.type} location={job.company.name} key={i} savedJobUrls={this.state.savedJobUrls}/>
         })
+
+        let joinedList = jobsListOne.concat(jobsListTwo);
+
         return (
-            <>
-            JobsList:
-            {jobsListOne}
-            {jobsListTwo}
-            </>
+            <div className='results'>
+                {joinedList}
+            </div>
         )
     }
 
+
     render() {
         return (
-            <div>
-                <SideNav/>
-                <br/>
-                <Link to={`/jobs`} alt="goBack"><h2>Go Back</h2></Link>
-                <br/>
-                {this.renderJobList()}
+            <div className='job-search-results'>
+                <div className='title'>
+                    <h2>Jobs List</h2>
+                </div>
+                <SideNav />
+                <div className='results-container'>
+                    <Link  to={`/jobs`} alt="goBack">
+                            <FontAwesomeIcon id='go-back' icon='times-circle' size='2x'/>
+                    </Link>
+                    {this.renderJobList()}
+                </div>
+                
+                
             </div>
         )
     }
