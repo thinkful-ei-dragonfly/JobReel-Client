@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom'
 import CompanySummary from './CompanySummary'
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import PropTypes from 'prop-types';
 
 class ContextProvider extends React.Component {
-  // static childContextTypes = {
-  //   myContext: PropTypes.object,
-  // }
+  static childContextTypes = {
+    myContext: PropTypes.object,
+  }
 
   getChildContext = () => ({
     myContext: {
-      test: 2,
       companies: [1, 2, 3]
     }
   })
@@ -31,13 +31,10 @@ describe('CompanySummary smoke test', () => {
 
 describe('CompanySummary snapshot test', () => {
   it('renders the UI as expected', () => {
-    const context = { companies: ['foo'] };
     const wrapper = shallow(
       <ContextProvider>
         <CompanySummary />
-      </ContextProvider>
-      
-      , { context })
+      </ContextProvider>)
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 })

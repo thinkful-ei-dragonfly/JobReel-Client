@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FindContactsRoute snapshot test renders the UI as expected 1`] = `
+<Fragment>
+  <SideNav />
+  <br />
+  <Link
+    alt="goBack"
+    to="/professionalsearch"
+  >
+    <h2>
+      Go Back
+    </h2>
+  </Link>
+</Fragment>
+`;
