@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginRoute snapshot test renders the UI as expected 1`] = `
+<section
+  className="LoginRoute"
+>
+  <div
+    className="login-image"
+  >
+    <img
+      alt="login-background"
+      src="login.svg"
+    />
+  </div>
+  <LoginForm
+    onLoginSuccess={[Function]}
+  />
+  <Link
+    className="new-user"
+    to="/"
+  >
+    New User? Register Here
+  </Link>
+</section>
+`;

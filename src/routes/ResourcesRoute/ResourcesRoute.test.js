@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import ResourcesRoute from './ResourcesRoute'
 import {BrowserRouter} from 'react-router-dom'
-import JobsRoute from './JobsRoute'
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import PropTypes from 'prop-types';
@@ -13,7 +13,7 @@ class ContextProvider extends React.Component {
 
   getChildContext = () => ({
     myContext: {
-      savedJobs: [1, 2, 3]
+      manualResourceAdd: true
     }
   })
 
@@ -22,19 +22,26 @@ class ContextProvider extends React.Component {
   }
 }
 
-describe('JobsRoute smoke test', () => {
+describe('ResourcesRoute smoke test', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<BrowserRouter><JobsRoute /></BrowserRouter>, div)
+    ReactDOM.render(<BrowserRouter><ResourcesRoute /></BrowserRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
   })
 })
 
-describe('JobsRoute snapshot test', () => {
+describe('ResourcesRoute snapshot test', () => {
   it('renders the UI as expected', () => {
     const wrapper = shallow(
+      <ResourcesRoute />
+    )
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+  
+  it('renders the resources form when manually adding resources', () => {
+    const wrapper = shallow(
       <ContextProvider>
-        <JobsRoute />
+        <ResourcesRoute />
       </ContextProvider>
     )
     expect(toJson(wrapper)).toMatchSnapshot();

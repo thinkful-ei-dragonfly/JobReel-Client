@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourcesRoute snapshot test renders the UI as expected 1`] = `
+<div
+  className="resources-page"
+>
+  <div
+    className="title"
+  >
+    <h2>
+      Resources
+    </h2>
+  </div>
+  <SideNav />
+  <ResourcesForm />
+</div>
+`;
+
+exports[`ResourcesRoute snapshot test renders the resources form when manually adding resources 1`] = `<ResourcesRoute />`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardRoute snapshot test renders the UI as expected 1`] = `
+<div
+  className="dashboard-page"
+>
+  <div
+    className="title"
+  >
+    <h2>
+      Dashboard
+    </h2>
+  </div>
+  <div
+    className="dashboard-image"
+  >
+    <img
+      alt="summary-background"
+      src="summary.svg"
+    />
+  </div>
+  <SideNav />
+  <SummaryContainer />
+</div>
+`;
