@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom'
 import Company from './Company'
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 
 describe('Company smoke test', () => {
   const props = {
