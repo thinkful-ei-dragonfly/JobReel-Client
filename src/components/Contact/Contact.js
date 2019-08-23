@@ -110,7 +110,7 @@ class Contact extends React.Component {
         <p>Linkedin: <a href={linkedin}>{linkedin}</a></p>
         <p>{comments}</p>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
-        <Button onClick={this.handleToggle} type="button">Edit</Button>
+        <Button className="edit-button" onClick={this.handleToggle} type="button">Edit</Button>
       </div>
     let editContact = 
       <form
