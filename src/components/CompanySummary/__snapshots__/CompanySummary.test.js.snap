@@ -1,18 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CompanySummary snapshot test renders the UI as expected 1`] = `
-<div
-  className="saved-company-list"
->
-  <h2>
-    Saved Companies
-  </h2>
-  <button
-    className="Button"
-    onClick={[Function]}
-    type="button"
-  >
-    Add Company
-  </button>
-</div>
-`;
+exports[`CompanySummary snapshot test renders the UI as expected 1`] = `<CompanySummary />`;

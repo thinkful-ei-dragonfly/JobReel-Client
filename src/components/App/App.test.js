@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { JobReelProvider } from '../../context/JobReelContext'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
 
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 describe('App smoke test', () => {
   it('renders without crashing', () => {
@@ -16,17 +18,8 @@ describe('App smoke test', () => {
 })
 
 describe('App snapshot test', () => {
-  var focusOnTargetSpy = jest.fn()
-
-  jest
-    .spyOn(RegistrationRoute.prototype, 'componentDidMount')
-    .mockImplementation(focusOnTargetSpy)
-
   it('renders the UI as expected', () => {
-    const tree = renderer
-      .create(<JobReelProvider><BrowserRouter><App /></BrowserRouter></JobReelProvider>)
-      .toJSON()
-    expect(tree).toMatchSnapshot()
-    expect(focusOnTargetSpy).toHaveBeenCalled()
-  })
+    const wrapper = shallow(<JobReelProvider><BrowserRouter><App /></BrowserRouter></JobReelProvider>)
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 })

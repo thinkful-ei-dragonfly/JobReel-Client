@@ -11,108 +11,88 @@ exports[`AddContactForm snapshot test renders the UI as expected 1`] = `
     onSubmit={[Function]}
   >
     <div>
-      <label
-        className="Label"
+      <Label
         htmlFor="contact-name-input"
       >
         Contact
-      </label>
+      </Label>
       <br />
-      <input
-        className="Input"
+      <ForwardRef
         id="contact-name-input"
         name="contact_name"
-        type="text"
       />
     </div>
     <div>
-      <label
-        className="Label"
+      <Label
         htmlFor="job-title-input"
       >
         Job Title
-      </label>
+      </Label>
       <br />
-      <input
-        className="Input"
+      <ForwardRef
         id="job-title-input"
         name="job_title"
-        type="text"
       />
     </div>
     <div>
-      <label
-        className="Label"
+      <Label
         htmlFor="company-input"
       >
         Company
-      </label>
+      </Label>
       <br />
-      <input
-        className="Input"
+      <ForwardRef
         id="company-input"
         name="company"
-        type="text"
       />
     </div>
     <div>
-      <label
-        className="Label"
+      <Label
         htmlFor="email-input"
       >
         Email
-      </label>
+      </Label>
       <br />
-      <input
-        className="Input"
+      <ForwardRef
         id="email-input"
         name="email"
-        type="text"
       />
     </div>
     <div>
-      <label
-        className="Label"
+      <Label
         htmlFor="linkedin-input"
       >
         LinkedIn
-      </label>
+      </Label>
       <br />
-      <input
-        className="Input"
+      <ForwardRef
         id="linkedin-input"
         name="linkedin"
-        type="text"
       />
     </div>
     <div>
-      <label
-        className="Label"
+      <Label
         htmlFor="comments-input"
       >
         Comments
-      </label>
+      </Label>
       <br />
-      <input
-        className="Input"
+      <ForwardRef
         id="comments-input"
         name="comments"
-        type="text"
       />
     </div>
-    <button
-      className="Button"
+    <ForwardRef
       onClick={[Function]}
       type="button"
     >
       Back
-    </button>
-    <button
-      className="Button"
+    </ForwardRef>
+    <ForwardRef
       type="submit"
     >
       Submit
-    </button>
+    </ForwardRef>
   </form>
 </div>
 `;

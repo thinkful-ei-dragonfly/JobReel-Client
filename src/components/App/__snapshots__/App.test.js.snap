@@ -1,235 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App snapshot test renders the UI as expected 1`] = `
-<div
-  className="App"
+<ContextProvider
+  value={
+    Object {
+      "authenticJobs": Array [],
+      "clearError": [Function],
+      "companies": Array [],
+      "contacts": Array [],
+      "deleteCompany": [Function],
+      "deleteContact": [Function],
+      "deleteEvent": [Function],
+      "deleteJob": [Function],
+      "deleteResource": [Function],
+      "error": null,
+      "findContactsMetaData": Object {},
+      "gitHubJobs": Array [],
+      "handleSubmit": undefined,
+      "jobData": Object {},
+      "manualCompanyAdd": false,
+      "manualContactAdd": false,
+      "manualEventAdd": false,
+      "manualJobAdd": false,
+      "manualResourceAdd": false,
+      "meetups": Array [],
+      "processLogin": [Function],
+      "processLogout": [Function],
+      "professionals": Array [],
+      "professionalsSearch": Object {},
+      "resources": Array [],
+      "savedEvents": Array [],
+      "savedJobs": Array [],
+      "search": Object {},
+      "setAuthenticJobs": [Function],
+      "setCompanies": [Function],
+      "setContacts": [Function],
+      "setError": [Function],
+      "setFindContactsMetaData": [Function],
+      "setGithubJobs": [Function],
+      "setJobData": [Function],
+      "setJobDetails": undefined,
+      "setJobStatus": [Function],
+      "setManualCompanyAdd": [Function],
+      "setManualContactAdd": [Function],
+      "setManualEventAdd": [Function],
+      "setManualJobAdd": [Function],
+      "setManualResourceAdd": [Function],
+      "setMeetups": [Function],
+      "setProfessionals": [Function],
+      "setProfessionalsSearch": [Function],
+      "setResources": [Function],
+      "setSavedEvents": [Function],
+      "setSavedJobs": [Function],
+      "setSearch": [Function],
+      "setUser": [Function],
+      "updateCompany": [Function],
+      "updateContact": [Function],
+      "updateEvent": [Function],
+      "updateJob": [Function],
+      "updateResource": [Function],
+      "user": Object {},
+    }
+  }
 >
-  <header
-    className="header"
-  >
-    <div
-      className="logo"
-    >
-      <a
-        href="/dashboard"
-        onClick={[Function]}
-      >
-        <img
-          alt="jobreel-logo"
-          src="jobreellogo200.png"
-        />
-      </a>
-    </div>
-    <div
-      className="nav"
-    >
-      <nav
-        role="navigation"
-      >
-        <a
-          href="/login"
-          onClick={[Function]}
-        >
-          Login
-        </a>
-         
-        <a
-          href="/"
-          onClick={[Function]}
-        >
-          Sign Up
-        </a>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <div
-      className="registration-page"
-    >
-      <div
-        className="registration-image"
-      >
-        <img
-          alt="registration-background"
-          src="registration.svg"
-        />
-      </div>
-      <section
-        className="app-description"
-      >
-        <h1>
-          JobReel
-        </h1>
-        <h2>
-          Cast a wide net for your dream job.
-        </h2>
-        <p>
-          There are a lot of moving pieces in a job hunt. Keep yourself organized and on task with JobReel's all-encompassing interface.  Search new postings and expand your network with our integrated job and industry event search, and track your application process from start to finish through the dashboard.
-        </p>
-      </section>
-      <div
-        className="form-registration"
-      >
-        <form
-          id="form-container"
-          onSubmit={[Function]}
-        >
-          <div
-            className="error-message"
-            role="alert"
-          />
-          <div>
-            <label
-              className="Label"
-              htmlFor="registration-email-input"
-            >
-              Email:
-              <span
-                className="Required"
-              >
-                *
-              </span>
-            </label>
-            <br />
-            <input
-              className="Input"
-              id="registration-email-input"
-              name="email"
-              required={true}
-              type="text"
-            />
-          </div>
-          <div>
-            <label
-              className="Label"
-              htmlFor="registration-first-name-input"
-            >
-              First name:
-              <span
-                className="Required"
-              >
-                *
-              </span>
-            </label>
-            <br />
-            <input
-              className="Input"
-              id="registration-first-name-input"
-              name="first_name"
-              required={true}
-              type="text"
-            />
-          </div>
-          <div>
-            <label
-              className="Label"
-              htmlFor="registration-last-name-input"
-            >
-              Last name:
-              <span
-                className="Required"
-              >
-                *
-              </span>
-            </label>
-            <br />
-            <input
-              className="Input"
-              id="registration-last-name-input"
-              name="last_name"
-              required={true}
-              type="text"
-            />
-          </div>
-          <div>
-            <label
-              className="Label"
-              htmlFor="registration-username-input"
-            >
-              Choose a username
-              <span
-                className="Required"
-              >
-                *
-              </span>
-            </label>
-            <br />
-            <input
-              className="Input"
-              id="registration-username-input"
-              name="username"
-              required={true}
-              type="text"
-            />
-          </div>
-          <div>
-            <label
-              className="Label"
-              htmlFor="registration-password-input"
-            >
-              Choose a password
-              <span
-                className="Required"
-              >
-                *
-              </span>
-            </label>
-            <br />
-            <input
-              className="Input"
-              id="registration-password-input"
-              name="password"
-              required={true}
-              type="password"
-            />
-          </div>
-          <br />
-          <div>
-            <button
-              className="Button"
-              type="submit"
-            >
-              Sign up
-            </button>
-          </div>
-           
-          <br />
-          <a
-            className="already"
-            href="/login"
-            onClick={[Function]}
-          >
-            Already have an account?
-          </a>
-        </form>
-      </div>
-    </div>
-  </main>
-  <footer
-    className="footer"
-  >
-    <div
-      className="team-info"
-    >
-      'Some Team Information goes here'
-    </div>
-    <div
-      className="links-to-tech"
-    >
-      <a
-        href="/"
-        onClick={[Function]}
-      >
-        GitHub Client
-      </a>
-      <br />
-      <a
-        href="/"
-        onClick={[Function]}
-      >
-        GitHub Server
-      </a>
-    </div>
-  </footer>
-</div>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+</ContextProvider>
 `;

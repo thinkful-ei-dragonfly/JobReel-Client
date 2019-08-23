@@ -1,7 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import ContactSummary from './ContactSummary'
+
+class ContextProvider extends React.Component {
+  getChildContext = () => ({
+    myContext: {
+      test: 2,
+      contacts: [1, 2, 3]
+    }
+  })
+
+  render(){
+    return this.props.children
+  }
+}
 
 describe('ContactSummary smoke test', () => {
   it('renders without crashing', () => {
@@ -13,9 +27,8 @@ describe('ContactSummary smoke test', () => {
 
 describe('ContactSummary snapshot test', () => {
   it('renders the UI as expected', () => {
-    const tree = renderer
-    .create(<ContactSummary />)
-    .toJSON()
-    expect(tree).toMatchSnapshot()
+    const context = { contacts: ['foo']}
+    const wrapper = shallow(<ContextProvider><ContactSummary /></ContextProvider>, { context })
+    expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

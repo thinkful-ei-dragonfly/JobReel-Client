@@ -1,0 +1,21 @@
+.resources-form {
+  grid-column-start: 6;
+  grid-column-end: 9;
+  border: 1px black solid;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 5%;
+  line-height: 150%;
+  border-radius: 10px;
+  text-align: center;
+  background: #3b3a50;
+  color: #eeebd9;
+  box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+  height: 100%;
+}
+
+#resources-description-input {
+  height: 150px;
+  width: 15em;
+  border-radius: 10px;
+}

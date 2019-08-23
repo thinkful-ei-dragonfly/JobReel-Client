@@ -22,6 +22,9 @@ class SavedEventsRoute extends React.Component {
     (this.context.manualEventAdd === false) ? display = <SavedEventsSummary /> : display = <AddEventForm /> 
     return (
       <div className="SavedEventsRoute">
+        <div className='title'>
+          <h2>Events</h2>
+        </div>
         <SideNav />
         {display}
       </div>

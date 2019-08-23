@@ -1,18 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContactSummary snapshot test renders the UI as expected 1`] = `
-<div
-  className="saved-contact-list"
->
-  <h2>
-    Saved Contacts
-  </h2>
-  <button
-    className="Button"
-    onClick={[Function]}
-    type="button"
-  >
-    Add Contact
-  </button>
-</div>
-`;
+exports[`ContactSummary snapshot test renders the UI as expected 1`] = `<SavedContactsSummary />`;

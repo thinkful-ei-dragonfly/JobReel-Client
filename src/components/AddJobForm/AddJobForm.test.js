@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import renderer from 'react-test-renderer'
 import AddJobForm from './AddJobForm'
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 describe('AddJobForm smoke test', () => {
   it('renders without crashing', () => {
@@ -13,9 +14,7 @@ describe('AddJobForm smoke test', () => {
 
 describe('AddJobForm snapshot test', () => {
   it('renders the UI as expected', () => {
-    const tree = renderer
-      .create(<AddJobForm />)
-      .toJSON()
-    expect(tree).toMatchSnapshot()
-  })
+    const wrapper = shallow(<AddJobForm />)
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 })
