@@ -22,10 +22,10 @@ exports[`Company snapshot test opens the edit company form 1`] = `
         id="name"
         name="name"
         onChange={[Function]}
-        placeholder=""
+        placeholder="name"
         required={true}
         type="text"
-        value=""
+        value="name"
       />
     </div>
     <div>
@@ -38,9 +38,9 @@ exports[`Company snapshot test opens the edit company form 1`] = `
         id="industry"
         name="industry"
         onChange={[Function]}
-        placeholder=""
+        placeholder="industry"
         type="text"
-        value=""
+        value="industry"
       />
     </div>
     <div>
@@ -53,10 +53,10 @@ exports[`Company snapshot test opens the edit company form 1`] = `
         id="city"
         name="city"
         onChange={[Function]}
-        placeholder=""
+        placeholder="city"
         required={true}
         type="text"
-        value=""
+        value="city"
       />
     </div>
     <div>
@@ -69,7 +69,7 @@ exports[`Company snapshot test opens the edit company form 1`] = `
         id="state-Input"
         name="state"
         onChange={[Function]}
-        value=""
+        value="IL"
       >
         <option
           key="AZ"
@@ -383,9 +383,9 @@ exports[`Company snapshot test opens the edit company form 1`] = `
         id="website"
         name="website"
         onChange={[Function]}
-        placeholder=""
+        placeholder="http://www.site.com"
         type="text"
-        value=""
+        value="http://www.site.com"
       />
     </div>
     <div>
@@ -398,9 +398,9 @@ exports[`Company snapshot test opens the edit company form 1`] = `
         id="description"
         name="description"
         onChange={[Function]}
-        placeholder=""
+        placeholder="desc"
         rows="3"
-        value=""
+        value="desc"
       />
     </div>
     <div>
@@ -413,9 +413,9 @@ exports[`Company snapshot test opens the edit company form 1`] = `
         id="contact"
         name="contact"
         onChange={[Function]}
-        placeholder=""
+        placeholder="contact"
         type="text"
-        value=""
+        value="contact"
       />
     </div>
     <ForwardRef
@@ -440,25 +440,35 @@ exports[`Company snapshot test renders the UI as expected 1`] = `
   <div
     className="company-box"
   >
-    <h3 />
+    <h3>
+      name
+    </h3>
     <h4>
       Added on 
-      Invalid Date
+      2019-08-23
     </h4>
     <p>
       Industry: 
+      industry
     </p>
     <p>
+      city
       , 
+      IL
     </p>
     <p>
       <a
-        href=""
-      />
+        href="http://www.site.com"
+      >
+        http://www.site.com
+      </a>
     </p>
-    <p />
+    <p>
+      desc
+    </p>
     <p>
       Contact(s): 
+      contact
     </p>
     <ForwardRef
       onClick={[Function]}
