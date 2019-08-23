@@ -39,6 +39,9 @@ const TokenService = {
     clearCallbackBeforeExpiry() {
         clearTimeout(_timeoutId)
     },
+    saveMeetupToken(token) {
+        window.localStorage.setItem('MeetupToken', token)
+    },
 }
 
 export default TokenService
