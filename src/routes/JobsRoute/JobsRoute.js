@@ -21,7 +21,7 @@ export default class JobsRoute extends Component {
         let savedJobUrlsObj = {};
         savedJobUrls.forEach(url => {
             savedJobUrlsObj[url] = url;
-        })
+        });
         this.setState({ savedJobUrls: savedJobUrlsObj });
         const search = this.context.search
         setTimeout(() => {
@@ -58,8 +58,8 @@ export default class JobsRoute extends Component {
     renderJobList() {
         const {gitHubJobs = [] } = this.context
         const {authenticJobs = [] } = this.context
-        console.log(gitHubJobs)
-        console.log(authenticJobs)
+        // console.log(gitHubJobs)
+        // console.log(authenticJobs)
         const jobsListOne = gitHubJobs.map((job, i) => {
             return <GithubJob job={job} key={i} savedJobUrls={this.state.savedJobUrls}/>
         })
