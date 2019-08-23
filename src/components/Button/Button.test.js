@@ -6,9 +6,9 @@ import toJson from 'enzyme-to-json';
 
 describe('Button smoke test', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
-    ReactDOM.unmountComponentAtNode(div);
+      const div = document.createElement('div');
+      ReactDOM.render(<Button />, div);
+      ReactDOM.unmountComponentAtNode(div);
   })
 })
 

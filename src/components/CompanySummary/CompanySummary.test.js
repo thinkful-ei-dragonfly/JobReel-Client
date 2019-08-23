@@ -23,9 +23,9 @@ class ContextProvider extends React.Component {
 
 describe('CompanySummary smoke test', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<CompanySummary />, div);
-    ReactDOM.unmountComponentAtNode(div);
+      const div = document.createElement('div');
+      ReactDOM.render(<CompanySummary />, div);
+      ReactDOM.unmountComponentAtNode(div);
   })
 })
 
