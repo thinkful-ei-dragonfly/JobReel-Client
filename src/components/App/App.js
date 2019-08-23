@@ -17,13 +17,12 @@ import SendToMeetup from '../Meetup/MeetupSender';
 import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
 import FindProfessionalsForm from '../FindProfessionalsForm/FindProfessionalsForm'
 import FindContactsRoute from '../../routes/FindContactsRoute/FindContacts';
-// import JobsList from '../JobsList/JobsList';
 import ResourcesRoute from '../../routes/ResourcesRoute/ResourcesRoute';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import { faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase} from '@fortawesome/free-solid-svg-icons';
-import MeetupSender from '../Meetup/MeetupSender';
-
+// import MeetupSender from '../Meetup/MeetupSender';
 
 library.add(fab, faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase);
 
@@ -88,6 +87,9 @@ export default function App() {
           <PrivateRoute
             path={'/contacts'}
             component={SavedContactsRoute}
+          />
+          <Route
+          component={NotFoundRoute}
           />
         </Switch>
       </main>
