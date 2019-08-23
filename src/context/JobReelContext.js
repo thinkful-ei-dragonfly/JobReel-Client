@@ -23,6 +23,7 @@ const JobReelContext = React.createContext({
     manualEventAdd: false,
     manualContactAdd: false,
     manualCompanyAdd: false,
+    manualResourceAdd: false,
     setError: () => { },
     clearError: () => { },
     processLogin: () => { },
@@ -41,6 +42,7 @@ const JobReelContext = React.createContext({
     setManualEventAdd: () => { },
     setManualContactAdd: () => { },
     setManualCompanyAdd: () => { },
+    setManualResourceAdd: () => { },
     setSavedJobs: () => { },
     deleteJob: () => { },
     deleteContact: () => { },
@@ -52,6 +54,8 @@ const JobReelContext = React.createContext({
     deleteEvent: () => { },
     updateCompany: () => { },
     deleteCompany: () => { },
+    updateResource: () => { },
+    deleteResource: () => { }
 })
 
 export default JobReelContext
@@ -79,6 +83,7 @@ export class JobReelProvider extends Component {
             manualEventAdd: false,
             manualContactAdd: false,
             manualCompanyAdd: false,
+            manualResourceAdd: false,
             setError: this.setError,
             clearError: this.clearError,
             setUser: this.setUser,
@@ -102,6 +107,7 @@ export class JobReelProvider extends Component {
             setManualEventAdd: this.setManualEventAdd,
             setManualContactAdd: this.setManualContactAdd,
             setManualCompanyAdd: this.setManualCompanyAdd,
+            setManualResourceAdd: this.setManualResourceAdd,
             deleteJob: this.deleteJob,
             deleteEvent: this.deleteEvent,
             deleteContact: this.deleteContact,
@@ -112,6 +118,8 @@ export class JobReelProvider extends Component {
             updateContact: this.updateContact,
             updateCompany: this.updateCompany,
             deleteCompany: this.deleteCompany,
+            updateResource: this.updateResource,
+            deleteResource: this.deleteResource
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -232,6 +240,10 @@ export class JobReelProvider extends Component {
         this.setState({ manualCompanyAdd: status })
     }
 
+    setManualResourceAdd = status => {
+        this.setState({ manualResourceAdd: status })
+    }
+
     //INDEED API METHOD
     // setJobDetails = (details, jobkey) => {
 
@@ -295,6 +307,12 @@ export class JobReelProvider extends Component {
         })
     }
 
+    deleteResource = resourceId => {
+        this.setState({
+            resources: this.state.resources.filter(resource => resource.resource_id !== resourceId)
+        })
+    }
+
     updateCompany = (updatedCompany) => {
         this.setState({
             companies: this.state.companies.map(company => 
@@ -306,6 +324,14 @@ export class JobReelProvider extends Component {
         this.setState({
             savedEvents: this.state.savedEvents.map(event => 
                (event.event_id !== updatedEvent.event_id) ? event : updatedEvent)
+        })
+    }
+
+    updateResource = (updatedResource) => {
+        this.setState({
+            resources: this.state.resources.map(resource => 
+                (resource.resource_id !== updatedResource.resource_id) ? resource : updatedResource    
+            )
         })
     }
 

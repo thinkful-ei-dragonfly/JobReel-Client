@@ -4,6 +4,7 @@ import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import SavedJob from '../SavedJob/SavedJob';
 import './SavedJobSummary.css'
+import { Label } from '../Form/Form';
 
 class SavedJobSummary extends React.Component {
 
@@ -28,29 +29,29 @@ class SavedJobSummary extends React.Component {
       let jobs = this.context.savedJobs
       mappedJobs = jobs
       .filter(j => j.status === this.state.filter)
-      .map(job => <SavedJob user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status} />)
+      .map(job => <SavedJob key={job.job_id} user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status} />)
     }
     if(this.context.savedJobs !== [] && (this.state.filter === '')){
       let jobs = this.context.savedJobs
       mappedJobs = jobs
-      .map(job => <SavedJob user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status}/>)
+      .map(job => <SavedJob key={job.job_id} user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status}/>)
     }
 
     return(
       <div className="saved-job-list">
-        <h2>Saved Jobs</h2>
-        <h3>Filters</h3>
-        <label>Filter by Job Status:</label>
-        <select
-              id='status-input'
-              name='status'
-              onChange={this.handleStatusFilter}
-            >
-              <option value="">N/A</option>
-              <option value="Interested">Interested</option>
-              <option value="Applied">Applied</option>
-            </select>
-        <Button onClick={() => this.context.setManualJobAdd(true)} type="button">Add Job</Button>
+        <div className='savedJobFilterControls'>
+          <Label id='savedJobFilterTitle'>Filter by Job Status:</Label>
+          <select
+            id='status-input'
+            name='status'
+            onChange={this.handleStatusFilter}
+          >
+            <option value="">N/A</option>
+            <option value="Interested">Interested</option>
+            <option value="Applied">Applied</option>
+          </select>
+          <Button id='addButton' onClick={() => this.context.setManualJobAdd(true)} type="button">Add Job</Button>
+        </div>
         {mappedJobs}
       </div>
     )

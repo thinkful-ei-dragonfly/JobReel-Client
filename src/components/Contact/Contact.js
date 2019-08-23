@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
+import { Input, Label } from '../../components/Form/Form';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 
@@ -60,7 +61,7 @@ class Contact extends React.Component {
     this.setState({ error })
   }
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault()
     const { contact_name, job_title, company, email, linkedin, comments } = this.state
     if (!this.validateUrl(linkedin)) {
@@ -77,10 +78,10 @@ class Contact extends React.Component {
         date_added: this.props.date,
         user_id: this.props.user
        }
-      await jobReelApiService.editContact(editedContact, this.props.id)
-      await this.context.updateContact(editedContact)
-      await this.handleToggle()
-      await this.handleError(null)
+      jobReelApiService.editContact(editedContact, this.props.id)
+      this.context.updateContact(editedContact)
+      this.handleToggle()
+      this.handleError(null)
     }
   }
 
@@ -102,9 +103,11 @@ class Contact extends React.Component {
       className='edit-contact-form'
       onSubmit={this.handleSubmit}>
         <div>
-          <div className="error-message">{error}</div>
-          <label htmlFor='name'>Contact Name</label>
-          <input
+          <div role='alert' className="error-message">
+            {error && <p>{error}</p>}
+          </div>
+          <Label htmlFor='name'>Contact Name</Label>
+          <Input
             type='text'
             name='name'
             id='name'
@@ -115,8 +118,8 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='title'>Job Title</label>
-          <input
+          <Label htmlFor='title'>Job Title</Label>
+          <Input
             type='text'
             name='title'
             id='title'
@@ -127,8 +130,8 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='company'>Company</label>
-          <input
+          <Label htmlFor='company'>Company</Label>
+          <Input
             type='text'
             name='company'
             id='company'
@@ -139,8 +142,8 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='email'>Email</label>
-          <input
+          <Label htmlFor='email'>Email</Label>
+          <Input
             type='text'
             name='email'
             id='email'
@@ -150,8 +153,8 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='linkedin'>Linkedin</label>
-          <input
+          <Label htmlFor='linkedin'>Linkedin</Label>
+          <Input
             type='text'
             name='linkedin'
             id='linkedin'
@@ -161,7 +164,7 @@ class Contact extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='comments'>Comments</label>
+          <Label htmlFor='comments'>Comments</Label>
           <textarea 
             name='comments'
             id='comments'

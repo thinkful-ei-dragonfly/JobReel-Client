@@ -1,13 +1,13 @@
 import React from 'react';
-import Summary from '../Summary/Summary';
+// import Summary from '../Summary/Summary';
 import DashJobSummary from '../DashJobSummary/DashJobSummary';
+import DashResourceSummary from '../DashResourceSummary/DashResourceSummary';
 import DashCompanySummary from '../DashCompanySummary/DashCompanySummary';
 import DashContactSummary from '../DashContactSummary/DashContactSummary';
 import DashEventSummary from '../DashEventSummary/DashEventSummary';
 import './SummaryContainer.css';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-
 class SummaryContainer extends React.Component {
   render() {
     return (
@@ -45,7 +45,7 @@ class SummaryContainer extends React.Component {
             </Slide>
             <Slide index={5}>
               <div className='summary-div'>
-                <Summary section="USEFUL RESOURCES" />
+              <DashResourceSummary section="USEFUL RESOURCES" />
               </div>
             </Slide>
           </Slider>

@@ -3,10 +3,20 @@ import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
 import './JobSearchForm.css';
 import JobReelContext from '../../context/JobReelContext';
+import jobReelApiService from '../../services/jobreel-api-service';
 import SideNav from '../../components/SideNav/SideNav'
 
 class JobSearchForm extends React.Component {
   static contextType = JobReelContext
+
+  componentDidMount() {
+    if (this.context.savedJobs.length === 0) {
+      jobReelApiService.getSavedJobs()
+        .then(res => {
+          this.context.setSavedJobs(res);
+        })
+    }
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +36,9 @@ class JobSearchForm extends React.Component {
   render() {
     return (
       <div className='job-search'>
-        <SideNav />
+        <div className='title'>
+          <h2>Search for Job</h2>
+        </div>
         <form className='JobSearchForm' onSubmit={this.handleSubmit}>
           {/* <div>
             <Label htmlFor='industry-input'>

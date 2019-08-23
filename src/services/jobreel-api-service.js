@@ -50,6 +50,21 @@ const JobReelApiService = {
                     : res.json()
             )
     },
+    submitResource(resourceData) {
+        return fetch(`${config.API_ENDPOINT}/resources`, {
+            method: 'POST',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(resourceData)
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
     deleteJob(jobId) {
         return fetch(`${config.API_ENDPOINT}/savedjobs/${jobId}`, {
             method: 'DELETE',
@@ -97,16 +112,16 @@ const JobReelApiService = {
             },
             body: JSON.stringify(editedJob)
         })
-            .then(res => {
-                if (!res.ok) {
-                    return res.json().then(e => Promise.reject(e))
-                } else {
-                    return res
-                }
-            })
-            .catch(error => {
-                console.error({ error })
-            })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }
+        })
+        .catch(error => {
+            console.error({ error })
+        })
     },
     editEvent(editedEvent, eventId) {
         return fetch(`${config.API_ENDPOINT}/events/${eventId}`, {
@@ -117,16 +132,16 @@ const JobReelApiService = {
             },
             body: JSON.stringify(editedEvent)
         })
-            .then(res => {
-                if (!res.ok) {
-                    return res.json().then(e => Promise.reject(e))
-                } else {
-                    return res
-                }
-            })
-            .catch(error => {
-                console.error({ error })
-            })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }
+        })
+        .catch(error => {
+            console.error({ error })
+        })
     },
     getSavedEvents() {
         return fetch(`${config.API_ENDPOINT}/events`, {
@@ -212,16 +227,16 @@ const JobReelApiService = {
             },
             body: JSON.stringify(editedCompany)
         })
-            .then(res => {
-                if (!res.ok) {
-                    return res.json().then(e => Promise.reject(e))
-                } else {
-                    return res
-                }
-            })
-            .catch(error => {
-                console.error({ error })
-            })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }
+        })
+        .catch(error => {
+            console.error({ error })
+        })
     },
     getSavedContacts() {
         return fetch(`${config.API_ENDPOINT}/contacts`, {
@@ -251,8 +266,76 @@ const JobReelApiService = {
                     : res.json()
             )
     },
+
+    getSavedResources() {
+        return fetch(`${config.API_ENDPOINT}/resources`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`
+            }
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+    },
+    // submitContact(contactData) {
+    //     return fetch(`${config.API_ENDPOINT}/contacts`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'authorization': `Bearer ${TokenService.getAuthToken()}`,
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(contactData)
+    //     })
+    //         .then(res =>
+    //             (!res.ok)
+    //                 ? res.json().then(e => Promise.reject(e))
+    //                 : res.json()
+    //         )
+    // },
     deleteContact(contactId) {
         return fetch(`${config.API_ENDPOINT}/contacts/${contactId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                } else {
+                    return res
+                }
+            })
+            .catch(error => {
+                console.error({ error })
+            })
+    },
+    editResource(editedResource, resourceId) {
+        return fetch(`${config.API_ENDPOINT}/resources/${resourceId}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedResource)
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }
+        })
+        .catch(error => {
+            console.error({ error })
+        })
+    },
+    deleteResource(resourceId) {
+        return fetch(`${config.API_ENDPOINT}/resources/${resourceId}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -279,16 +362,16 @@ const JobReelApiService = {
             },
             body: JSON.stringify(editedContact)
         })
-            .then(res => {
-                if (!res.ok) {
-                    return res.json().then(e => Promise.reject(e))
-                } else {
-                    return res
-                }
-            })
-            .catch(error => {
-                console.error({ error })
-            })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            } else {
+                return res
+            }
+        })
+        .catch(error => {
+            console.error({ error })
+        })
     },
     getProfessionalEmails(search) {
         console.log(search)

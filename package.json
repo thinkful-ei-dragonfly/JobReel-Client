@@ -3,15 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-brands-svg-icons": "^5.10.1",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "classnames": "^2.2.6",
     "client-oauth2": "^4.2.5",
+    "cuid": "^2.1.6",
     "date-fns": "^1.30.1",
     "jwt-decode": "^2.2.0",
     "pure-react-carousel": "^1.21.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-iframe": "^1.8.0",
+    "react-js-pagination": "^3.0.2",
     "react-oauth-flow": "^1.2.0",
+    "react-paginate": "^6.3.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.0",
@@ -23,6 +30,8 @@
     "prebuild": "CI=true react-scripts test --colors",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "now ./build",
@@ -42,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jsonwebtoken": "^8.5.1"
   }
 }
