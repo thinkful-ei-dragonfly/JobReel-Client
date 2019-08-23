@@ -6,9 +6,9 @@ import toJson from 'enzyme-to-json';
 
 describe('AddJobForm smoke test', () => {
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(<AddJobForm />, div);
-      ReactDOM.unmountComponentAtNode(div);
+    const div = document.createElement('div');
+    ReactDOM.render(<AddJobForm />, div);
+    ReactDOM.unmountComponentAtNode(div);
   })
 })
 

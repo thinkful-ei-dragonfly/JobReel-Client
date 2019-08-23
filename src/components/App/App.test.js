@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer'
 import App from './App';
 import { BrowserRouter } from 'react-router-dom'
 import { JobReelProvider } from '../../context/JobReelContext'
+import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
+
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
