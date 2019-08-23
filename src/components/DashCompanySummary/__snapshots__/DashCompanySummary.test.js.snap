@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashCompanySummary snapshot test renders the UI as expected 1`] = `
+Array [
+  <div
+    className="DashCompanySummary"
+  >
+    <h4 />
+  </div>,
+  <div
+    className="options"
+  >
+    <ul />
+  </div>,
+  <a
+    href="/companies"
+    onClick={[Function]}
+  >
+    View all
+  </a>,
+]
+`;

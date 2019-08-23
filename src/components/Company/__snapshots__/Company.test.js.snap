@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Company snapshot test renders the UI as expected 1`] = `
+<div
+  className="saved-event"
+>
+  <div
+    className="company-box"
+  >
+    <h3>
+      
+    </h3>
+    <h4>
+      Added on 
+      Invalid Date
+    </h4>
+    <p>
+      Industry: 
+      
+    </p>
+    <p>
+      
+      , 
+      
+    </p>
+    <p>
+      <a
+        href=""
+      >
+        
+      </a>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Contact(s): 
+      
+    </p>
+    <button
+      className="Button"
+      onClick={[Function]}
+      type="button"
+    >
+      Delete
+    </button>
+    <button
+      className="Button"
+      onClick={[Function]}
+      type="button"
+    >
+      Edit
+    </button>
+  </div>
+</div>
+`;

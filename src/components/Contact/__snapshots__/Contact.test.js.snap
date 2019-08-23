@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div
+  className="saved-contact"
+>
+  <div
+    className="contact-box"
+  >
+    <h3 />
+    <h4>
+       at 
+    </h4>
+    <p>
+      Email: 
+      <a
+        href="mailto:undefined"
+      />
+    </p>
+    <p>
+      Linkedin: 
+      <a />
+    </p>
+    <p />
+    <button
+      className="Button"
+      onClick={[Function]}
+      type="button"
+    >
+      Delete
+    </button>
+    <button
+      className="Button"
+      onClick={[Function]}
+      type="button"
+    >
+      Edit
+    </button>
+  </div>
+</div>
+`;

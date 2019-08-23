@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddContactForm snapshot test renders the UI as expected 1`] = `
+<div
+  className="AddContactForm"
+>
+  <div
+    role="alert"
+  />
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        className="Label"
+        htmlFor="contact-name-input"
+      >
+        Contact
+      </label>
+      <br />
+      <input
+        className="Input"
+        id="contact-name-input"
+        name="contact_name"
+        type="text"
+      />
+    </div>
+    <div>
+      <label
+        className="Label"
+        htmlFor="job-title-input"
+      >
+        Job Title
+      </label>
+      <br />
+      <input
+        className="Input"
+        id="job-title-input"
+        name="job_title"
+        type="text"
+      />
+    </div>
+    <div>
+      <label
+        className="Label"
+        htmlFor="company-input"
+      >
+        Company
+      </label>
+      <br />
+      <input
+        className="Input"
+        id="company-input"
+        name="company"
+        type="text"
+      />
+    </div>
+    <div>
+      <label
+        className="Label"
+        htmlFor="email-input"
+      >
+        Email
+      </label>
+      <br />
+      <input
+        className="Input"
+        id="email-input"
+        name="email"
+        type="text"
+      />
+    </div>
+    <div>
+      <label
+        className="Label"
+        htmlFor="linkedin-input"
+      >
+        LinkedIn
+      </label>
+      <br />
+      <input
+        className="Input"
+        id="linkedin-input"
+        name="linkedin"
+        type="text"
+      />
+    </div>
+    <div>
+      <label
+        className="Label"
+        htmlFor="comments-input"
+      >
+        Comments
+      </label>
+      <br />
+      <input
+        className="Input"
+        id="comments-input"
+        name="comments"
+        type="text"
+      />
+    </div>
+    <button
+      className="Button"
+      onClick={[Function]}
+      type="button"
+    >
+      Back
+    </button>
+    <button
+      className="Button"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
