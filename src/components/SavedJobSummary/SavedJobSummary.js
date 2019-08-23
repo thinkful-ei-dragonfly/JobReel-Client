@@ -4,39 +4,48 @@ import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
 import SavedJob from '../SavedJob/SavedJob';
 import './SavedJobSummary.css'
-import { Label } from '../Form/Form';
+import { Label, Input } from '../Form/Form';
 
 class SavedJobSummary extends React.Component {
 
   static contextType = JobReelContext;
 
   state = {
-    filter: ''
-  }
-
-  handleClickDelete(jobId){
-    jobReelApiService.deleteJob(jobId)
-    this.context.deleteJob(jobId)
+    filter: '',
+    search: ''
   }
 
   handleStatusFilter = e => {
     this.setState({ filter: e.target.value })
   }
 
-  render(){
-    let mappedJobs;
-    if (this.context.savedJobs !== [] && this.state.filter !== null){
-      let jobs = this.context.savedJobs
-      mappedJobs = jobs
-      .filter(j => j.status === this.state.filter)
-      .map(job => <SavedJob key={job.job_id} user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status} />)
-    }
-    if(this.context.savedJobs !== [] && (this.state.filter === '')){
-      let jobs = this.context.savedJobs
-      mappedJobs = jobs
-      .map(job => <SavedJob key={job.job_id} user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status}/>)
-    }
+  handleChangeSearchTerm = e => {
+    this.setState({ search: e.target.value })
+  }
 
+  renderJobs = () => {
+    let search = this.state.search
+    let filter = this.state.filter
+    let jobs = Array.from(this.context.savedJobs)
+    if(search !== ''){
+      jobs = jobs.filter(job => job.job_title.toLowerCase().includes(search.toLowerCase()) || 
+      job.company.toLowerCase().includes(search.toLowerCase()) || 
+      job.city.toLowerCase().includes(search.toLowerCase()) || 
+      job.description.toLowerCase().includes(search.toLowerCase())
+    )}
+    if(filter !== ''){
+      jobs = jobs.filter(job => job.status === filter)
+    }
+    jobs = jobs.map(job => <SavedJob key={job.job_id} user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status}/>)
+    
+    return (
+      <div>
+        {jobs}
+      </div>
+    )
+  }
+
+  render(){
     return(
       <div className="saved-job-list">
         <div className='savedJobFilterControls'>
@@ -50,9 +59,16 @@ class SavedJobSummary extends React.Component {
             <option value="Interested">Interested</option>
             <option value="Applied">Applied</option>
           </select>
-          <Button id='addButton' onClick={() => this.context.setManualJobAdd(true)} type="button">Add Job</Button>
+          <Label id='savedJobFilterSearch'>Search:</Label>
+          <Input
+            type='text'
+            name='saved-job-search'
+            id='saved-job-search'
+            value={this.state.search}
+            onChange={this.handleChangeSearchTerm}
+          />
         </div>
-        {mappedJobs}
+        {this.renderJobs()}
       </div>
     )
   }

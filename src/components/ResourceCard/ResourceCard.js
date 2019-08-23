@@ -106,7 +106,6 @@ export default class ResourceCard extends React.Component {
               <option value="magazine">Magazine</option>
               <option value="online publication">Online Publication</option>
               <option value="podcast">Podcast</option>
-              'website', 'book', 'github repository', 'magazine', 'online publication', 'podcast'
             </select>
         </div>
         <div>
