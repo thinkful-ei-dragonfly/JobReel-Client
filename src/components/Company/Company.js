@@ -151,7 +151,7 @@ class Company extends React.Component {
 
   render(){
     const { company_name, city, state, website, description, industry, contact, error, editing } = this.state
-    let event = 
+    let company = 
       <div className="company-box">
         <h3>{company_name}</h3>
         <h4>Added on {format(this.props.date, 'YYYY-MM-DD')}</h4>
@@ -161,7 +161,7 @@ class Company extends React.Component {
         <p>{description}</p>
         <p>Contact(s): {contact}</p>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
-        <Button onClick={this.handleToggle} type="button">Edit</Button>
+        <Button className="edit-button" onClick={this.handleToggle} type="button">Edit</Button>
       </div>
     let editCompany = 
       <form
@@ -248,7 +248,7 @@ class Company extends React.Component {
         <Button type="button" onClick={this.handleToggle}>Back</Button>
       </form>
       let display;
-      (editing === false) ? display = event : display = editCompany
+      (editing === false) ? display = company : display = editCompany
 
     return(
       <div className="saved-event">

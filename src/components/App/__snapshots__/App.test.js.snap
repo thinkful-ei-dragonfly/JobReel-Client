@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot test renders the UI as expected 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "authenticJobs": Array [],
+      "clearError": [Function],
+      "companies": Array [],
+      "contacts": Array [],
+      "deleteCompany": [Function],
+      "deleteContact": [Function],
+      "deleteEvent": [Function],
+      "deleteJob": [Function],
+      "deleteResource": [Function],
+      "error": null,
+      "findContactsMetaData": Object {},
+      "gitHubJobs": Array [],
+      "handleSubmit": undefined,
+      "jobData": Object {},
+      "manualCompanyAdd": false,
+      "manualContactAdd": false,
+      "manualEventAdd": false,
+      "manualJobAdd": false,
+      "manualResourceAdd": false,
+      "meetups": Array [],
+      "processLogin": [Function],
+      "processLogout": [Function],
+      "professionals": Array [],
+      "professionalsSearch": Object {},
+      "resources": Array [],
+      "savedEvents": Array [],
+      "savedJobs": Array [],
+      "search": Object {},
+      "setAuthenticJobs": [Function],
+      "setCompanies": [Function],
+      "setContacts": [Function],
+      "setError": [Function],
+      "setFindContactsMetaData": [Function],
+      "setGithubJobs": [Function],
+      "setJobData": [Function],
+      "setJobDetails": undefined,
+      "setJobStatus": [Function],
+      "setManualCompanyAdd": [Function],
+      "setManualContactAdd": [Function],
+      "setManualEventAdd": [Function],
+      "setManualJobAdd": [Function],
+      "setManualResourceAdd": [Function],
+      "setMeetups": [Function],
+      "setProfessionals": [Function],
+      "setProfessionalsSearch": [Function],
+      "setResources": [Function],
+      "setSavedEvents": [Function],
+      "setSavedJobs": [Function],
+      "setSearch": [Function],
+      "setUser": [Function],
+      "updateCompany": [Function],
+      "updateContact": [Function],
+      "updateEvent": [Function],
+      "updateJob": [Function],
+      "updateResource": [Function],
+      "user": Object {},
+    }
+  }
+>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+</ContextProvider>
+`;
