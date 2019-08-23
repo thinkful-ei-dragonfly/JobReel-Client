@@ -18,6 +18,7 @@ import SendToMeetup from '../Meetup/MeetupSender';
 import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRoute';
 import FindProfessionalsForm from '../FindProfessionalsForm/FindProfessionalsForm'
 import FindContactsRoute from '../../routes/FindContactsRoute/FindContacts';
+import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 
 export default function App() {
   return (
@@ -76,6 +77,9 @@ export default function App() {
           <PrivateRoute
             path={'/contacts'}
             component={SavedContactsRoute}
+          />
+          <Route
+          component={NotFoundRoute}
           />
         </Switch>
       </main>
