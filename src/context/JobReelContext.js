@@ -54,7 +54,7 @@ const JobReelContext = React.createContext({
     deleteEvent: () => { },
     updateCompany: () => { },
     deleteCompany: () => { },
-    udpateResource: () => { },
+    updateResource: () => { },
     deleteResource: () => { }
 })
 
@@ -118,7 +118,7 @@ export class JobReelProvider extends Component {
             updateContact: this.updateContact,
             updateCompany: this.updateCompany,
             deleteCompany: this.deleteCompany,
-            udpateResource: this.udpateResource,
+            updateResource: this.updateResource,
             deleteResource: this.deleteResource
         }
 
@@ -327,7 +327,7 @@ export class JobReelProvider extends Component {
         })
     }
 
-    udpateResource = (updatedResource) => {
+    updateResource = (updatedResource) => {
         this.setState({
             resources: this.state.resources.map(resource => 
                 (resource.resource_id !== updatedResource.resource_id) ? resource : updatedResource    

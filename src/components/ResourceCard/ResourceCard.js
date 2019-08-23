@@ -1,12 +1,13 @@
 import React from 'react';
 import './ResourceCard.css';
 import Button from '../../components/Button/Button';
-import JobReelContext from '../../context/JobReelContext';
-import JobReelApiService from '../../services/jobreel-api-service';
+import { Input, Label } from '../../components/Form/Form';
+import jobReelContext from '../../context/JobReelContext';
+import jobReelApiService from '../../services/jobreel-api-service';
 
 export default class ResourceCard extends React.Component {
 
-  static contextType = JobReelContext;
+  static contextType = jobReelContext;
 
   state = {
     error: null,
@@ -21,7 +22,7 @@ export default class ResourceCard extends React.Component {
   }
   
   handleClickDelete(resourceId){
-    JobReelApiService.deleteResource(resourceId)
+    jobReelApiService.deleteResource(resourceId)
     this.context.deleteResource(resourceId)
   };
 
@@ -41,10 +42,21 @@ export default class ResourceCard extends React.Component {
     this.setState({error})
   };
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault()
     const {title, type, description} = this.state
-    
+    const editedResource = { 
+      title,
+      type,
+      description,
+      resource_id: this.props.id,
+      date_added: this.props.date,
+      user_id: this.props.user
+      }
+      jobReelApiService.editResource(editedResource, this.props.id)
+      this.context.updateResource(editedResource)
+      this.handleToggle()
+      this.handleError(null)
   }
 
   render() {
@@ -69,8 +81,8 @@ export default class ResourceCard extends React.Component {
       onSubmit={this.handleSubmit}>
         <div>
           <div className="error-message">{error}</div>
-          <label htmlFor='title'>Title</label>
-          <input
+          <Label htmlFor='title'>Title</Label>
+          <Input
             type='text'
             name='title'
             id='title'
@@ -81,9 +93,9 @@ export default class ResourceCard extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor='type'>Resource Type</label>
+          <Label htmlFor='type'>Resource Type</Label>
           <select
-              id='type-input'
+              id='type-Input'
               name='type'
               onChange={this.handleChangeResourceType}
               value={type}
@@ -98,7 +110,7 @@ export default class ResourceCard extends React.Component {
             </select>
         </div>
         <div>
-          <label htmlFor='description'>Description</label>
+          <Label htmlFor='description'>Description</Label>
           <textarea
             name='description'
             id='description'

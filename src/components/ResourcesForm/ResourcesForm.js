@@ -23,18 +23,15 @@ export default class ResourcesForm extends React.Component {
     const userInput = { user_id: this.context.user.id, type, title, description, date_added };
     JobReelApiService.submitResource(userInput)
       .then(res => {
-        e.target.type.value = '';
-        e.target.title.value = '';
-        e.target.description.value = '';
         this.context.setResources([...this.context.resources, res]);
-      })
-      .then(() => {
-        console.log(this.context.resources)
+        this.context.setManualResourceAdd(false);
       })
       .catch(res => {
         this.setState({ error: res.error });
     })
-    this.context.setManualResourceAdd(false);
+        e.target.type.value = '';
+        e.target.title.value = '';
+        e.target.description.value = '';
   }
 
   renderTypeOptions = () => {
