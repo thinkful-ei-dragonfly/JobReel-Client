@@ -15,11 +15,6 @@ class SavedJobSummary extends React.Component {
     search: ''
   }
 
-  handleClickDelete(jobId){
-    jobReelApiService.deleteJob(jobId)
-    this.context.deleteJob(jobId)
-  }
-
   handleStatusFilter = e => {
     this.setState({ filter: e.target.value })
   }
