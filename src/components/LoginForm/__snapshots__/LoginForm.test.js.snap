@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Form snapshot test renders the UI as expected 1`] = `
+<form
+  className="LoginForm"
+  onSubmit={[Function]}
+>
+  <div
+    className="error-message"
+    role="alert"
+  />
+  <div>
+    <Label
+      htmlFor="login-username-input"
+    >
+      Username
+    </Label>
+    <br />
+    <ForwardRef
+      id="login-username-input"
+      name="username"
+      required={true}
+    />
+  </div>
+  <div>
+    <Label
+      htmlFor="login-password-input"
+    >
+      Password
+    </Label>
+    <br />
+    <ForwardRef
+      id="login-password-input"
+      name="password"
+      required={true}
+      type="password"
+    />
+  </div>
+  <br />
+  <div>
+    <ForwardRef
+      type="submit"
+    >
+      Log In
+    </ForwardRef>
+  </div>
+</form>
+`;

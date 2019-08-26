@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header snapshot test renders the UI as expected 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="logo"
+  >
+    <Link
+      to="/dashboard"
+    >
+      <img
+        alt="jobreel-logo"
+        src="jobreellogo200.png"
+      />
+    </Link>
+  </div>
+  <div
+    className="nav"
+  >
+    <nav
+      role="navigation"
+    >
+      <Link
+        to="/login"
+      >
+        Login
+      </Link>
+       
+      <Link
+        to="/"
+      >
+        Sign Up
+      </Link>
+    </nav>
+  </div>
+</header>
+`;

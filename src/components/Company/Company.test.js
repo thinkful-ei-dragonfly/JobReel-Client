@@ -4,20 +4,21 @@ import Company from './Company'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 
+const props = {
+  key: 1,
+  id: 1,
+  name: 'name',
+  city: 'city',
+  state: 'IL',
+  date: new Date(),
+  industry: 'industry',
+  desc: 'desc',
+  website: 'http://www.site.com',
+  contact: 'contact',
+  user: 2
+}
+
 describe('Company smoke test', () => {
-  const props = {
-    key: 1,
-    id: 1,
-    name: 'name',
-    city: 'city',
-    state: 'IL',
-    date: new Date(),
-    industry: 'industry',
-    desc: 'desc',
-    website: 'http://www.site.com',
-    contact: 'contact',
-    user: 2
-  }
   it('renders without crashing', () => {
       const div = document.createElement('div');
       ReactDOM.render(<Company {...props} />, div);
@@ -26,19 +27,6 @@ describe('Company smoke test', () => {
 })
 
 describe('Company snapshot test', () => {
-  const props = {
-    key: 1,
-    id: 1,
-    name: 'name',
-    city: 'city',
-    state: 'IL',
-    date: new Date(),
-    industry: 'industry',
-    desc: 'desc',
-    website: 'http://www.site.com',
-    contact: 'contact',
-    user: 2
-  }
   it('renders the UI as expected', () => {
     const wrapper = shallow(<Company {...props} />)
     expect(toJson(wrapper)).toMatchSnapshot();
