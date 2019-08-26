@@ -4,6 +4,26 @@ import TokenService from './token-service'
 const JobReelApiService = {
     getUserById(id) {
         console.log(`Getting user by id: ${id}`);
+        return fetch(`${config.API_ENDPOINT}/users/${id}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+            .then(res =>{
+                console.log('API');
+                console.log(res);
+                // console.log(res.json());
+                return (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()}
+            )
+            .then(data => {
+                console.log('data')
+                console.log(data)
+                return data
+            })
     },
     getJobs(search) {
         return fetch(`${config.API_ENDPOINT}/jobs`, {
