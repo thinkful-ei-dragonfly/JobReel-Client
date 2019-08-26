@@ -1,0 +1,38 @@
+.TopNav {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  border-radius: 10px;
+  background: #3C3230;
+  color: #eeebd9;
+  line-height: 168%;
+  text-align: center;
+}
+
+.TopNav:hover {
+  box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.05);
+}
+
+.topLink {
+  display: inline-block;
+  width: 50%;
+}
+
+.topLink:active, .topLink:hover {
+  transition: all 0.3s ease-in;
+  background: #9E4624;
+}
+
+.topLink > a {
+  font-size: 1em;
+}
+
+@media screen and (max-width: 380px) {
+  .topLink {
+    width: 50%;
+  }
+}

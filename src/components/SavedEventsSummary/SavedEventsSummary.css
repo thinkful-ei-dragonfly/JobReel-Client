@@ -18,3 +18,10 @@
     margin-left: 50%;
     margin-top: 0.5em; 
 }
+
+@media screen and (max-width: 960px) {
+    .saved-event-list {
+        grid-column-start: 1;
+        grid-column-end: 9;
+    }
+}

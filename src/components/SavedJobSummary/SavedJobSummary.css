@@ -1,30 +1,122 @@
-.saved-job-list{
-  grid-column-start: 3;
-  grid-column-end: 9;
-  border: 1px solid black;
-  border-radius: 10px;
-  height: 400px;
-  position: relative;
-  background: #3C3230;
-  color: #eeebd9;
-  text-align: center;
-  overflow-y: auto;
+@media (min-width: 961px) {
+  .saved-job-list{
+    grid-column-start: 4;
+    grid-column-end: 9;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 400px;
+    position: relative;
+    background: #3C3230;
+    color: #eeebd9;
+    text-align: center;
+    overflow-y: auto;
+  }
+  
+  .savedJobFilterControls {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto 50%;
+  }
+  
+  #savedJobFilterTitle {
+    vertical-align: middle;
+  }
+  
+  #statusInput {
+    vertical-align: middle;
+    margin-top: 0.5em;
+    height: 20px;
+    border-radius: 10px;
+  }
+  
+  #savedJobFilterTitle {
+    margin: 0.5em auto;
+  }
+  
+  #addButton {
+    margin-top: 0.5em;
+    margin: auto;
+  }
 }
 
-.savedJobFilterControls {
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto auto 50%;
+@media screen and (max-width: 960px) {
+  .saved-job-list{
+    grid-column-start: 1;
+    grid-column-end: 9;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 400px;
+    position: relative;
+    background: #3C3230;
+    color: #eeebd9;
+    text-align: center;
+    overflow-y: auto;
+  }
+  
+  .savedJobFilterControls {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto 50%;
+  }
+  
+  #savedJobFilterTitle {
+    vertical-align: middle;
+  }
+  
+  #statusInput {
+    vertical-align: middle;
+    margin-top: 0.5em;
+    height: 20px;
+    border-radius: 10px;
+  }
+  
+  #savedJobFilterTitle {
+    margin: 0.5em auto;
+  }
+  
+  #addButton {
+    margin-top: 0.5em;
+    margin: auto;
+  }
 }
 
-#savedJobFilterTitle {
-  vertical-align: middle;
-}
-
-#status-input {
-  vertical-align: middle;
-}
-
-#addButton {
-  margin: auto;
+@media (min-width: 320px) and (max-width: 480px) {
+  .saved-job-list{
+    grid-column-start: 1;
+    grid-column-end: 9;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 400px;
+    position: relative;
+    background: #3C3230;
+    color: #eeebd9;
+    text-align: center;
+    overflow-y: auto;
+  }
+  
+  .savedJobFilterControls {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto 50%;
+  }
+  
+  #savedJobFilterTitle {
+    vertical-align: middle;
+  }
+  
+  #statusInput {
+    vertical-align: middle;
+    margin-top: 0.5em;
+    height: 20px;
+    border-radius: 10px;
+  }
+  
+  #savedJobFilterTitle {
+    margin: 0.5em auto;
+  }
+  
+  #addButton {
+    margin-top: 0.5em;
+    margin: auto;
+  }
 }

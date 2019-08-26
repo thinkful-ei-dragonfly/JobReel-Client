@@ -168,7 +168,7 @@ class SavedJob extends React.Component {
         <p>Posted {format(this.props.date, 'Do MMM YYYY')}</p>
         <p>{location}</p>
         <div className='job-url'>
-          <p><a href={url}>{url}</a></p>
+          <a href={url}>{company}</a>
         </div>
         <div className='job-description'>
           {ReactHtmlParser(description)}

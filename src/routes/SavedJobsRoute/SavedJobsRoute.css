@@ -8,3 +8,22 @@
   grid-column-start: 6;
   grid-column-end: 9;
 }
+
+@media (min-width: 641px) and (max-width: 960px) {
+  .form {
+    grid-column-start: 2;
+    grid-column-end: 9;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 640px) {
+  .form {
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
+
+  .sideNavContainer {
+    display: none;
+  }
+}
+

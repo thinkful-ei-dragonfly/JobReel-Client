@@ -27,13 +27,12 @@
 }
 
 .link > a {
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 
 .link:active, .link:hover {
-  /* transform: scale(1.05);
-  transition: all 0.3s ease-in; */
+  transition: all 0.3s ease-in;
   background: #9E4624;
 }
 
@@ -45,3 +44,18 @@
 
 
 }
+
+@media screen and (max-width: 480px) {
+  .SideNav {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    width: 100%;
+    margin-bottom: 1em;
+    line-height: 168%;
+    text-align: center;
+  }
+
+
+}
+
+

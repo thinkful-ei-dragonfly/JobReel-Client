@@ -27,10 +27,13 @@
 
 #description {
     width: 15em;
+    border-radius: 10px;
 }
 
 #status-input {
     width: 15em;
     margin: 0 auto;
     margin-bottom: 1em;
+    border-radius: 10px;
+    height: 2em;
 }

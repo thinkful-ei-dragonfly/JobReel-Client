@@ -1,100 +1,315 @@
-.job-card {
-  width: 80%;
-  border: 1px black solid;
-  min-width: 300px;
-  padding: 0.5em;
-  border-radius: 10px;
-  margin: 0.75em auto;
-  background: #3b3a50;
-  color: #eeebd9;
-  box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: "title title location"
-                        "company apply apply"
-                        "type save url";
-  position: relative;
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .job-card {
+    width: 80%;
+    border: 1px black solid;
+    min-width: 300px;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 0.75em auto;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "title title location"
+                          "company apply apply"
+                          "type save url";
+    position: relative;
+  }
+  
+  .job-card-expanded {
+    width: 80%;
+    border: 1px black solid;
+    min-width: 300px;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 0.75em auto;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "title title location"
+                          "company apply apply"
+                          "type url url"
+                          "something save placeholder";
+    position: relative;
+  }
+  
+  .job-card-title {
+    grid-area: title;
+    text-align: left;
+  }
+  
+  .job-card-location {
+   grid-area: location;
+   text-align: right;
+  }
+  
+  .job-card-company {
+    grid-area: company;
+    text-align: left;
+  }
+  
+  .job-card-type {
+    grid-area: type;
+    text-align: left;
+  }
+  
+  .job-card-url {
+    grid-area: url;
+    text-align: right;
+  }
+  
+  .job-card-apply {
+    grid-area: apply;
+    text-align: right;
+  }
+  
+  .expandButton {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+  }
+  
+  .collapseButton {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+  }
+  
+  .save-button {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    position: relative;
+  }
+  
+  #save-button {
+    position: absolute;
+    bottom: 0.5em;
+    left:15%;
+    right:15%
+  }
+  
+  .collapseButton:hover {
+    transform: scale(0.8);
+  }
+  
+  .expandButton:hover {
+    transform: scale(1.2);
+  }
 }
 
-.job-card-expanded {
-  width: 80%;
-  border: 1px black solid;
-  min-width: 300px;
-  padding: 0.5em;
-  border-radius: 10px;
-  margin: 0.75em auto;
-  background: #3b3a50;
-  color: #eeebd9;
-  box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "title title location"
-                        "company apply apply"
-                        "type url url"
-                        "something save placeholder";
-  position: relative;
+@media (min-width: 481px) and (max-width: 960px) {
+  .job-card {
+    width: 80%;
+    border: 1px black solid;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 0.75em auto;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "title title location"
+                          "company apply apply"
+                          "type save url";
+    position: relative;
+  }
+  
+  .job-card-expanded {
+    width: 80%;
+    border: 1px black solid;
+    min-width: 300px;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 0.75em auto;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "title title location"
+                          "company apply apply"
+                          "type url url"
+                          "something save placeholder";
+    position: relative;
+  }
+  
+  .job-card-title {
+    grid-area: title;
+    text-align: left;
+  }
+  
+  .job-card-location {
+   grid-area: location;
+   text-align: right;
+  }
+  
+  .job-card-company {
+    grid-area: company;
+    text-align: left;
+  }
+  
+  .job-card-type {
+    grid-area: type;
+    text-align: left;
+  }
+  
+  .job-card-url {
+    grid-area: url;
+    text-align: right;
+  }
+  
+  .job-card-apply {
+    grid-area: apply;
+    text-align: right;
+  }
+  
+  .expandButton {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+  }
+  
+  .collapseButton {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+  }
+  
+  .save-button {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    position: relative;
+  }
+  
+  #save-button {
+    position: absolute;
+    bottom: 0.5em;
+    left:15%;
+    right:15%
+  }
+  
+  .collapseButton:hover {
+    transform: scale(0.8);
+  }
+  
+  .expandButton:hover {
+    transform: scale(1.2);
+  }
 }
 
-.job-card-title {
-  grid-area: title;
-  text-align: left;
-}
-
-.job-card-location {
- grid-area: location;
- text-align: right;
-}
-
-.job-card-company {
-  grid-area: company;
-  text-align: left;
-}
-
-.job-card-type {
-  grid-area: type;
-  text-align: left;
-}
-
-.job-card-url {
-  grid-area: url;
-  text-align: right;
-}
-
-.job-card-apply {
-  grid-area: apply;
-  text-align: right;
-}
-
-.expandButton {
-  position: absolute;
-  right: 0.5em;
-  bottom: 0.5em;
-}
-
-.collapseButton {
-  position: absolute;
-  right: 0.5em;
-  bottom: 0.5em;
-}
-
-.save-button {
-  grid-area: save;
-  position: relative;
-}
-
-#save-button {
-  position: absolute;
-  bottom: 0.5em;
-  left:15%;
-  right:15%
-}
-
-.collapseButton:hover {
-  transform: scale(0.8);
-}
-
-.expandButton:hover {
-  transform: scale(1.2);
+@media (min-width: 961px) {
+  .job-card {
+    width: 80%;
+    border: 1px black solid;
+    min-width: 300px;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 0.75em auto;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "title title location"
+                          "company apply apply"
+                          "type save url";
+    position: relative;
+  }
+  
+  .job-card-expanded {
+    width: 80%;
+    border: 1px black solid;
+    min-width: 300px;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 0.75em auto;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "title title location"
+                          "company apply apply"
+                          "type url url"
+                          "something save placeholder";
+    position: relative;
+  }
+  
+  .job-card-title {
+    grid-area: title;
+    text-align: left;
+  }
+  
+  .job-card-location {
+   grid-area: location;
+   text-align: right;
+  }
+  
+  .job-card-company {
+    grid-area: company;
+    text-align: left;
+  }
+  
+  .job-card-type {
+    grid-area: type;
+    text-align: left;
+  }
+  
+  .job-card-url {
+    grid-area: url;
+    text-align: right;
+  }
+  
+  .job-card-apply {
+    grid-area: apply;
+    text-align: right;
+  }
+  
+  .expandButton {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+  }
+  
+  .collapseButton {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+  }
+  
+  .save-button {
+    grid-area: save;
+    position: relative;
+  }
+  
+  #save-button {
+    position: absolute;
+    bottom: 0.5em;
+    left:15%;
+    right:15%
+  }
+  
+  .collapseButton:hover {
+    transform: scale(0.8);
+  }
+  
+  .expandButton:hover {
+    transform: scale(1.2);
+  }
 }
