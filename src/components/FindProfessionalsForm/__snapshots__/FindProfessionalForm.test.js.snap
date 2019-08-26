@@ -2,11 +2,17 @@
 
 exports[`FindProfessionalForm snapshot test renders the UI as expected 1`] = `
 <div
-  className="job-search"
+  className="professional-search"
 >
-  <SideNav />
+  <div
+    className="title"
+  >
+    <h2>
+      Find Professionals
+    </h2>
+  </div>
   <form
-    className="JobSearchForm"
+    className="ProfessionalSearchForm"
     onSubmit={[Function]}
   >
     <h4>

@@ -34,6 +34,7 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       >
         Industry
       </Label>
+      <br />
       <ForwardRef
         id="industry"
         name="industry"
@@ -49,6 +50,7 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       >
         City
       </Label>
+      <br />
       <ForwardRef
         id="city"
         name="city"
@@ -65,8 +67,9 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       >
         State
       </Label>
+      <br />
       <select
-        id="state-Input"
+        id="state-input"
         name="state"
         onChange={[Function]}
         value="IL"
@@ -379,6 +382,7 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       >
         Website
       </Label>
+      <br />
       <ForwardRef
         id="website"
         name="website"
@@ -394,6 +398,7 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       >
         Description
       </Label>
+      <br />
       <textarea
         id="description"
         name="description"
@@ -409,6 +414,7 @@ exports[`Company snapshot test opens the edit company form 1`] = `
       >
         Contact(s)
       </Label>
+      <br />
       <ForwardRef
         id="contact"
         name="contact"
@@ -418,17 +424,22 @@ exports[`Company snapshot test opens the edit company form 1`] = `
         value="contact"
       />
     </div>
-    <ForwardRef
-      type="submit"
+    <div
+      className="company-card-controls"
     >
-      Save Changes
-    </ForwardRef>
-    <ForwardRef
-      onClick={[Function]}
-      type="button"
-    >
-      Back
-    </ForwardRef>
+      <ForwardRef
+        type="submit"
+      >
+        Save Changes
+      </ForwardRef>
+       
+      <ForwardRef
+        onClick={[Function]}
+        type="button"
+      >
+        Back
+      </ForwardRef>
+    </div>
   </form>
 </div>
 `;
