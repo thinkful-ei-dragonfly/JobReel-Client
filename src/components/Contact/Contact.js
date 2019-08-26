@@ -17,7 +17,8 @@ class Contact extends React.Component {
     company: this.props.company,
     email: this.props.email,
     linkedin: this.props.linkedin,
-    comments: this.props.comments
+    comments: this.props.comments,
+    connected: this.props.connected
   }
 
   
@@ -50,6 +51,14 @@ class Contact extends React.Component {
     this.setState({ comments: e.target.value })
   };
 
+  handleChangeConnected = e => {
+    if(e.target.value === 'false'){
+      this.setState({ connected: false })
+    } else {
+      this.setState({ connected: true })
+    }
+  };
+
   handleToggle = () => {
     this.setState({ editing: !this.state.editing })
   }
@@ -62,9 +71,9 @@ class Contact extends React.Component {
     this.setState({ error })
   }
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault()
-    const { contact_name, job_title, company, email, linkedin, comments } = this.state
+    const { contact_name, job_title, company, email, linkedin, comments, connected } = this.state
     if (!this.validateUrl(linkedin)) {
       this.handleError('Please provide a valid Linkedin address starting with http:// or https://')
     } else {
@@ -75,29 +84,34 @@ class Contact extends React.Component {
         email, 
         linkedin,
         comments, 
+        connected,
         contact_id: this.props.id,
         date_added: this.props.date,
         user_id: this.props.user
        }
-      await jobReelApiService.editContact(editedContact, this.props.id)
-      await this.context.updateContact(editedContact)
-      await this.handleToggle()
-      await this.handleError(null)
+      jobReelApiService.editContact(editedContact, this.props.id)
+      this.context.updateContact(editedContact)
+      this.handleToggle()
+      this.handleError(null)
     }
   }
 
   render(){
-    const { contact_name, job_title, company, email, linkedin, comments, error, editing } = this.state
+    console.log(this.state.connected)
+    const { contact_name, job_title, company, email, linkedin, comments, error, editing, connected } = this.state
     let mail=`mailto:${email}`
+    let connectionStatus
+    (connected === false ) ? connectionStatus = "Not Connected" : connectionStatus = "Connected"
     let contact = 
       <div className="contact-box">
         <h3>{contact_name}</h3>
         <h4>{job_title} at {company}</h4>
+        <p>{connectionStatus}</p>
         <p>Email: <a href={mail}>{email}</a></p>
         <p>Linkedin: <a href={linkedin}>{linkedin}</a></p>
         <p>{comments}</p>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
-        <Button onClick={this.handleToggle} type="button">Edit</Button>
+        <Button className="edit-button" onClick={this.handleToggle} type="button">Edit</Button>
       </div>
     let editContact = 
       <form
@@ -178,6 +192,18 @@ class Contact extends React.Component {
             value={comments}
             onChange={this.handleChangeComments}
           />
+        </div>
+        <div>
+          <Label htmlFor='connected'>Connection Status</Label>
+          <select
+              id='connected-Input'
+              name='connected'
+              onChange={this.handleChangeConnected}
+              value={connected}
+            >
+              <option value="false">Not Connected</option>
+              <option value="true">Connected</option>
+            </select>
         </div>
         <Button type="submit">Save Changes</Button>
         <Button type="button" onClick={this.handleToggle}>Back</Button>

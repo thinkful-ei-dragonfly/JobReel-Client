@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SavedEvent snapshot test renders the UI as expected 1`] = `
+<SavedEvent
+  address="111 St"
+  city="city"
+  date="2019-08-26T15:03:05.646Z"
+  desc="description"
+  host="host"
+  id={1}
+  name="name"
+  state="MD"
+  status="Will Attend"
+  url="http://website.com"
+  user={1}
+/>
+`;

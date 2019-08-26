@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form smoke tests Input snapshot test renders the UI as expected 1`] = `
+<input
+  className="Input"
+  type="text"
+/>
+`;
+
+exports[`Form smoke tests Label snapshot test renders the UI as expected 1`] = `
+<label
+  className="Label"
+/>
+`;
+
+exports[`Form smoke tests Required snapshot test renders the UI as expected 1`] = `
+<span
+  className="Required"
+>
+  *
+</span>
+`;
+
+exports[`Form smoke tests Textarea snapshot test renders the UI as expected 1`] = `
+<textarea
+  className="Textarea"
+/>
+`;

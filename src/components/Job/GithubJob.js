@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
-import './Job.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Button from '../Button/Button';
 import jobReelApiService from '../../services/jobreel-api-service';
+import './Job.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export default class GithubJob extends Component {

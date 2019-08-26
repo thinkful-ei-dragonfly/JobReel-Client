@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SavedJob snapshot test renders the UI as expected 1`] = `
+<SavedJob
+  city="city"
+  company="company"
+  date="2019-08-26T15:03:05.646Z"
+  desc="description"
+  id={1}
+  state="MD"
+  status="Interested"
+  title="title"
+  url="http://website.com"
+  user={1}
+/>
+`;

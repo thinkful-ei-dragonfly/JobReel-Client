@@ -125,7 +125,7 @@ class Company extends React.Component {
     this.setState({ error })
   }
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault()
     const { company_name, city, state, website, description, industry, contact } = this.state
     if (!this.validateUrl(website)) {
@@ -143,16 +143,16 @@ class Company extends React.Component {
       date_added: this.props.date,
       user_id: this.props.user
      }
-    await jobReelApiService.editCompany(editedCompany, this.props.id)
-    await this.context.updateCompany(editedCompany)
-    await this.handleToggle()
-    await this.handleError(null)
+    jobReelApiService.editCompany(editedCompany, this.props.id)
+    this.context.updateCompany(editedCompany)
+    this.handleToggle()
+    this.handleError(null)
   } 
 }
 
   render(){
     const { company_name, city, state, website, description, industry, contact, error, editing } = this.state
-    let event = 
+    let company = 
       <div className="company-box">
         <h3>{company_name}</h3>
         <h4>Added on {format(this.props.date, 'YYYY-MM-DD')}</h4>
@@ -162,16 +162,17 @@ class Company extends React.Component {
         <p>{description}</p>
         <p>Contact(s): {contact}</p>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
-        <Button onClick={this.handleToggle} type="button">Edit</Button>
+        <Button className="edit-button" onClick={this.handleToggle} type="button">Edit</Button>
       </div>
     let editCompany = 
       <form
       className='edit-company-form'
       onSubmit={this.handleSubmit}>
         <div>
-          <div className="error-message">{error}</div>
+          <div role='alert' className="error-message">
+            {error && <p>{error}</p>}
+          </div>
           <Label htmlFor='name'>Company Name</Label>
-          <br />
           <Input
             type='text'
             name='name'
@@ -259,7 +260,7 @@ class Company extends React.Component {
 
       </form>
       let display;
-      (editing === false) ? display = event : display = editCompany
+      (editing === false) ? display = company : display = editCompany
 
     return(
       <div className="saved-event">

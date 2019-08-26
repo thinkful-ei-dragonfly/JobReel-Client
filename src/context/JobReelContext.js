@@ -54,7 +54,7 @@ const JobReelContext = React.createContext({
     deleteEvent: () => { },
     updateCompany: () => { },
     deleteCompany: () => { },
-    udpateResource: () => { },
+    updateResource: () => { },
     deleteResource: () => { }
 })
 
@@ -118,8 +118,8 @@ export class JobReelProvider extends Component {
             updateContact: this.updateContact,
             updateCompany: this.updateCompany,
             deleteCompany: this.deleteCompany,
-            udpateResource: this.udpateResource,
-            deleteResource: this.udpateResource
+            updateResource: this.updateResource,
+            deleteResource: this.deleteResource
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -307,6 +307,12 @@ export class JobReelProvider extends Component {
         })
     }
 
+    deleteResource = resourceId => {
+        this.setState({
+            resources: this.state.resources.filter(resource => resource.resource_id !== resourceId)
+        })
+    }
+
     updateCompany = (updatedCompany) => {
         this.setState({
             companies: this.state.companies.map(company => 
@@ -321,10 +327,10 @@ export class JobReelProvider extends Component {
         })
     }
 
-    udpateResource = (updatedResource) => {
+    updateResource = (updatedResource) => {
         this.setState({
-            savedResources: this.state.savedResources.map(resource => 
-                (resource.resorse_id !== this.udpateResource.event_id) ? resource : updatedResource    
+            resources: this.state.resources.map(resource => 
+                (resource.resource_id !== updatedResource.resource_id) ? resource : updatedResource    
             )
         })
     }

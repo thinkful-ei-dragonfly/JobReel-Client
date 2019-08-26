@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import JobReelContext from '../../context/JobReelContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import jobReelApiService from '../../services/jobreel-api-service';
 import Button from '../Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Job.css'
 
 

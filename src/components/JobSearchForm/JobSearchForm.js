@@ -4,7 +4,6 @@ import Button from '../../components/Button/Button'
 import './JobSearchForm.css';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
-import SideNav from '../../components/SideNav/SideNav'
 
 class JobSearchForm extends React.Component {
   static contextType = JobReelContext
@@ -23,12 +22,8 @@ class JobSearchForm extends React.Component {
     // const industry = e.target.industry.value;
     const jobTitle = e.target['job-title'].value;
     const location = e.target.location.value;
-    // const userInput = { industry, jobTitle, location };
-    this.takeToNext();
-    // Make api call
     this.context.setSearch({ jobTitle, location })
-    this.props.history.push(`/jobsearch/results`)
-    console.log(this.context)
+    this.props.history.push(`/jobslist`)
   }
 
   takeToNext = () => {

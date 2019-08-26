@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundRoute snapshot test renders the UI as expected 1`] = `
+<div>
+  <section
+    className="notfound"
+  >
+    <header>
+      <h3>
+        Sorry! Page Not Found
+      </h3>
+    </header>
+  </section>
+</div>
+`;

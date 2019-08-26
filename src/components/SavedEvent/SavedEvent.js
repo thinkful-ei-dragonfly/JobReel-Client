@@ -141,7 +141,7 @@ class SavedEvent extends React.Component {
     this.setState({ error })
   }
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault()
     const { event_name, host, city, state, address, date, url, description, status } = this.state
     if (!this.validateUrl(url)) {
@@ -160,10 +160,10 @@ class SavedEvent extends React.Component {
         date,
         user_id: this.props.user
        }
-      await jobReelApiService.editEvent(editedEvent, this.props.id)
-      await this.context.updateEvent(editedEvent)
-      await this.handleToggle()
-      await this.handleError(null)
+      jobReelApiService.editEvent(editedEvent, this.props.id)
+      this.context.updateEvent(editedEvent)
+      this.handleToggle()
+      this.handleError(null)
     }
   }
 
@@ -295,7 +295,7 @@ class SavedEvent extends React.Component {
           <Label htmlFor='status'>Status</Label>
           <br/>
           <select
-              id='status-input'
+              id='status-Input'
               name='status'
               onChange={this.handleChangeStatus}
               value={status}

@@ -126,7 +126,7 @@ class SavedJob extends React.Component {
     this.setState({ error })
   }
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault()
     const { title, company, city, state, url, status, description } = this.state
     if (!this.validateUrl(url)) {
@@ -144,10 +144,10 @@ class SavedJob extends React.Component {
         date_added: this.props.date,
         user_id: this.props.user
        }
-      await jobReelApiService.editJob(editedJob, this.props.id)
-      await this.context.updateJob(editedJob)
-      await this.handleToggle()
-      await this.handleError(null)
+      jobReelApiService.editJob(editedJob, this.props.id)
+      this.context.updateJob(editedJob)
+      this.handleToggle()
+      this.handleError(null)
     }
   }
 
@@ -256,7 +256,7 @@ class SavedJob extends React.Component {
           <Label htmlFor='status'>Status</Label>
           <br/>
           <select
-              id='status-input'
+              id='status-Input'
               name='status'
               onChange={this.handleChangeStatus}
               value={status}
