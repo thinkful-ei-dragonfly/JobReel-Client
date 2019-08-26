@@ -1,9 +1,10 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
-import { Input, Label } from '../../components/Form/Form';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
-import { format } from 'date-fns'
+import { format } from 'date-fns';
+import {Label, Input} from '../Form/Form';
+import './Company.css';
 
 class Company extends React.Component {
 
@@ -184,6 +185,7 @@ class Company extends React.Component {
         </div>
         <div>
           <Label htmlFor='industry'>Industry</Label>
+          <br/>
           <Input
             type='text'
             name='industry'
@@ -195,6 +197,7 @@ class Company extends React.Component {
         </div>
         <div>
           <Label htmlFor='city'>City</Label>
+          <br/>
           <Input
             type='text'
             name='city'
@@ -207,12 +210,14 @@ class Company extends React.Component {
         </div>
         <div>
           <Label htmlFor='state'>State</Label>
-          <select onChange={this.handleChangeState} name="state" id="state-Input" value={state}>
+          <br/>
+          <select onChange={this.handleChangeState} name="state" id="state-input" value={state}>
               {this.renderStateOptions()}
             </select>
         </div>
         <div>
           <Label htmlFor='website'>Website</Label>
+          <br/>
           <Input
             type='text'
             name='website'
@@ -224,6 +229,7 @@ class Company extends React.Component {
         </div>
         <div>
           <Label htmlFor='description'>Description</Label>
+          <br/>
           <textarea 
             name='description'
             id='description'
@@ -235,6 +241,7 @@ class Company extends React.Component {
         </div>
         <div>
           <Label htmlFor='contact'>Contact(s)</Label>
+          <br/>
           <Input
             type='text'
             name='contact'
@@ -244,8 +251,13 @@ class Company extends React.Component {
             onChange={this.handleChangeContact}
           />
         </div>
-        <Button type="submit">Save Changes</Button>
-        <Button type="button" onClick={this.handleToggle}>Back</Button>
+        <div className='company-card-controls'>
+          <Button type="submit">Save Changes</Button>
+          {' '}
+          <Button type="button" onClick={this.handleToggle}>Back</Button>
+        </div>
+
+
       </form>
       let display;
       (editing === false) ? display = company : display = editCompany

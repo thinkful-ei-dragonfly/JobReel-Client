@@ -1,49 +1,91 @@
-.registration-page {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
-  background-attachment: scroll;
-  position: relative;
-}
-
-.registration-image > img {
-  float: left;
-  height: 320px;
-  width: 320px;
-  position: absolute;
-  left: -35%;
-  z-index: -1;
-}
-
-.form-registration {
-  grid-column-start: 6;
-  grid-column-end: 9;
-  border: 1px black solid;
-  min-width: 300px;
-  margin: 0 auto;
-  padding: 5%;
-  line-height: 150%;
-  border-radius: 10px;
-  text-align: center;
-  height: 370px;
-  background: #3b3a50;
-  color: #eeebd9;
-  box-shadow: 0.5em 0.5em 0.2em rgb(48, 39, 39);
-}
-
-.registration-description {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  height: 25em;
-}
-
-.error {
-  color: red;
-}
-
-@media screen and (max-width: 960px) {
+@media (min-width: 761px) {
+  .registration-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    background-attachment: scroll;
+    position: relative;
+  }
+  
+  .registration-image > img {
+    float: left;
+    height: 320px;
+    width: 320px;
+    position: absolute;
+    left: -35%;
+    z-index: -1;
+  }
+  
   .form-registration {
-    grid-column-start: 2;
-    grid-column-end: 8;
+    grid-column-start: 6;
+    grid-column-end: 9;
+    border: 1px black solid;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 5%;
+    line-height: 150%;
+    border-radius: 10px;
+    text-align: center;
+    height: 100%;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow: 0.5em 0.5em 0.2em rgb(48, 39, 39);
+  }
+  
+  .registration-description {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    height: 25em;
+  }
+  
+  .error {
+    color: red;
   }
 }
+
+@media (min-width: 320px) and (max-width: 760px) {
+  .registration-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+    background-attachment: scroll;
+    position: relative;
+  }
+  
+  .registration-image > img {
+    float: left;
+    height: 320px;
+    width: 320px;
+    position: absolute;
+    left: -35%;
+    z-index: -1;
+  }
+  
+  .form-registration {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    border: 1px black solid;
+    min-width: 95%;
+    margin: 0 auto;
+    padding: 5%;
+    line-height: 150%;
+    border-radius: 10px;
+    text-align: center;
+    height: 100%;
+    background: #3b3a50;
+    color: #eeebd9;
+    box-shadow: 0.5em 0.5em 0.2em rgb(48, 39, 39);
+  }
+  
+  .registration-description {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    height: 25em;
+  }
+  
+  .error {
+    color: red;
+  }
+}
+
+

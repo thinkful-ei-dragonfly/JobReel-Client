@@ -4,6 +4,8 @@ import AddJobForm from '../../components/AddJobForm/AddJobForm';
 import SavedJobSummary from '../../components/SavedJobSummary/SavedJobSummary'
 import jobReelApiService from '../../services/jobreel-api-service';
 import JobReelContext from '../../context/JobReelContext';
+import MediaQuery from 'react-responsive';
+import TopNav from '../../components/TopNav/TopNav';
 import './SavedJobsRoute.css';
 
 class SavedJobsRoute extends React.Component {
@@ -25,7 +27,12 @@ class SavedJobsRoute extends React.Component {
         <div className='title'>
           <h2>Saved Jobs</h2>
         </div>
-        <SideNav />
+        <MediaQuery minDeviceWidth={960}>
+          <SideNav/>
+        </MediaQuery>
+        <MediaQuery maxDeviceWidth={959}>
+          <TopNav/>
+        </MediaQuery>
         {display}
       </div>
     )

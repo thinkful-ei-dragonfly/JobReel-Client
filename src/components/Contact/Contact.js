@@ -1,8 +1,9 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
-import { Input, Label } from '../../components/Form/Form';
+import { Label, Input } from '../Form/Form';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
+import './Contact.css'
 
 class Contact extends React.Component {
 
@@ -117,10 +118,9 @@ class Contact extends React.Component {
       className='edit-contact-form'
       onSubmit={this.handleSubmit}>
         <div>
-          <div role='alert' className="error-message">
-            {error && <p>{error}</p>}
-          </div>
+          <div className="error-message">{error}</div>
           <Label htmlFor='name'>Contact Name</Label>
+          <br/>
           <Input
             type='text'
             name='name'
@@ -133,6 +133,7 @@ class Contact extends React.Component {
         </div>
         <div>
           <Label htmlFor='title'>Job Title</Label>
+          <br/>
           <Input
             type='text'
             name='title'
@@ -145,6 +146,7 @@ class Contact extends React.Component {
         </div>
         <div>
           <Label htmlFor='company'>Company</Label>
+          <br/>
           <Input
             type='text'
             name='company'
@@ -157,6 +159,7 @@ class Contact extends React.Component {
         </div>
         <div>
           <Label htmlFor='email'>Email</Label>
+          <br/>
           <Input
             type='text'
             name='email'
@@ -168,6 +171,7 @@ class Contact extends React.Component {
         </div>
         <div>
           <Label htmlFor='linkedin'>Linkedin</Label>
+          <br/>
           <Input
             type='text'
             name='linkedin'
@@ -179,6 +183,7 @@ class Contact extends React.Component {
         </div>
         <div>
           <Label htmlFor='comments'>Comments</Label>
+          <br/>
           <textarea 
             name='comments'
             id='comments'

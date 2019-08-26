@@ -13,3 +13,10 @@
   grid-column-end: 9;
   box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
+
+@media screen and (max-width: 960px) {
+  .AddEventForm {
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
+}

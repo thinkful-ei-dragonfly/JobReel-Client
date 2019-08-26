@@ -3,6 +3,7 @@ import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import { Label, Input } from '../Form/Form';
 import Contact from '../Contact/Contact';
+import './ContactSummary.css';
 
 class SavedContactsSummary extends React.Component {
 
@@ -52,7 +53,6 @@ class SavedContactsSummary extends React.Component {
   render(){
     return(
       <div className="saved-contact-list">
-        <h2>Saved Contacts</h2>
         <div className='savedContactFilterControls'>
           <Label id='savedContactFilterTitle'>Filter by Job Status:</Label>
           <select
