@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfessionalContact snapshot test renders the UI as expected 1`] = `
+<Fragment>
+  <h2>
+    Name: 
+    first
+     
+  </h2>
+  <p>
+    Department: 
+    department
+  </p>
+  <p>
+    Position: 
+    position
+  </p>
+  <p>
+    Type: 
+    type
+  </p>
+  <p>
+    Email: 
+    email@email.com
+  </p>
+  <p>
+    Phone: 
+    111-111-1111
+  </p>
+  <p>
+    LinkedIn: 
+    http://linkedin.com/person
+  </p>
+</Fragment>
+`;
