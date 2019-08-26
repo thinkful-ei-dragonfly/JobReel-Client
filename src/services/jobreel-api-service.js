@@ -2,6 +2,9 @@ import config from '../config'
 import TokenService from './token-service'
 
 const JobReelApiService = {
+    getUserById(id) {
+        console.log(`Getting user by id: ${id}`);
+    },
     getJobs(search) {
         return fetch(`${config.API_ENDPOINT}/jobs`, {
             method: 'POST',
