@@ -73,7 +73,7 @@ export default class ResourceCard extends React.Component {
           {description}
         </div>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
-        <Button onClick={this.handleToggle} type="button">Edit</Button>
+        <Button className="edit-button" onClick={this.handleToggle} type="button">Edit</Button>
       </div>
     let editResource =
     <form

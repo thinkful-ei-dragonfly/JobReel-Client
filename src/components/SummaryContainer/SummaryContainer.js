@@ -1,5 +1,4 @@
 import React from 'react';
-// import Summary from '../Summary/Summary';
 import DashJobSummary from '../DashJobSummary/DashJobSummary';
 import DashResourceSummary from '../DashResourceSummary/DashResourceSummary';
 import DashCompanySummary from '../DashCompanySummary/DashCompanySummary';

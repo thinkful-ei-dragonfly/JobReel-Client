@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import SavedJobSummary from './SavedJobSummary'
+import ResourcesList from './ResourcesList'
 import PropTypes from 'prop-types'
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
@@ -12,40 +12,36 @@ class ContextProvider extends React.Component{
   
   getChildContext = () => ({
     myContext: {
-      savedJobs: [
+      resources: [
         {
-          job_title: 'title', 
-          company: 'company', 
-          city: 'city', 
-          state: 'MD', 
-          url: 'http://website.com', 
-          status: 'Interested', 
+          title: 'title',
+          type: 'type',
           description: 'description',
-          job_id: 1,
+          resource_id: 1,
           date_added: '2019-08-26T15:03:05.646Z',
           user_id: 1
         }
       ],
-      setManualEventAdd: () => { }
+      setManualResourceAdd: () => { }
     }
   })
-
+  
   render(){
     return this.props.children
+    }
   }
-}
 
-describe('SavedJobSummary smoke test', () => {
+describe('ResourcesList smoke test', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<SavedJobSummary />, div)
+    ReactDOM.render(<ResourcesList />, div)
     ReactDOM.unmountComponentAtNode(div)
   })
 })
 
-describe('SavedJobSummary snapshot test', () => {
+describe('ResourcesList snapshot test', () => {
   it('renders the UI as expected', () => {
-    const wrapper = shallow(<ContextProvider><SavedJobSummary/></ContextProvider>)
+    const wrapper = shallow(<ContextProvider><ResourcesList /></ContextProvider>)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

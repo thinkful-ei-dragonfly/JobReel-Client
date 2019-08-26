@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourcesForm snapshot test renders the UI as expected 1`] = `
+<div
+  className="resources-form"
+>
+  <div
+    role="alert"
+  />
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <Label
+        htmlFor="resource-type-input"
+      >
+        Type
+      </Label>
+      <br />
+      <select
+        id="resource-type-input"
+        name="type"
+      >
+        <option
+          key="0"
+          value="website"
+        >
+          website
+        </option>
+        <option
+          key="1"
+          value="book"
+        >
+          book
+        </option>
+        <option
+          key="2"
+          value="github repository"
+        >
+          github repository
+        </option>
+        <option
+          key="3"
+          value="magazine"
+        >
+          magazine
+        </option>
+        <option
+          key="4"
+          value="online publication"
+        >
+          online publication
+        </option>
+        <option
+          key="5"
+          value="podcast"
+        >
+          podcast
+        </option>
+      </select>
+    </div>
+    <div>
+      <Label
+        htmlFor="resource-title-input"
+      >
+        Title
+      </Label>
+      <br />
+      <ForwardRef
+        id="resource-title-input"
+        name="title"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="resources-description-input"
+      >
+        Description
+      </Label>
+      <br />
+      <textarea
+        id="resources-description-input"
+        name="description"
+      />
+    </div>
+    <ForwardRef
+      onClick={[Function]}
+      type="button"
+    >
+      Go Back
+    </ForwardRef>
+    <ForwardRef
+      type="submit"
+    >
+      Submit
+    </ForwardRef>
+  </form>
+</div>
+`;
