@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FindProfessionalForm snapshot test renders the UI as expected 1`] = `
+<div
+  className="job-search"
+>
+  <SideNav />
+  <form
+    className="JobSearchForm"
+    onSubmit={[Function]}
+  >
+    <h4>
+      Enter a domain or company name
+    </h4>
+    <div>
+      <div>
+        <Label
+          htmlFor="domain-input"
+        >
+          Domain
+        </Label>
+        <br />
+        <ForwardRef
+          disabled={null}
+          id="domain-input"
+          name="domain"
+          onChange={[Function]}
+          required={true}
+        />
+      </div>
+      <div>
+        <Label
+          htmlFor="company-input"
+        >
+          Company
+        </Label>
+        <br />
+        <ForwardRef
+          disabled={null}
+          id="company-input"
+          name="company"
+          onChange={[Function]}
+          required={true}
+        />
+      </div>
+    </div>
+    <div>
+      <Label
+        htmlFor="seniority-input"
+      >
+        Seniority
+      </Label>
+      <br />
+      <StateManager
+        className="basic-multi-select"
+        classNamePrefix="select"
+        defaultInputValue=""
+        defaultMenuIsOpen={false}
+        defaultValue={null}
+        id="seniority-input"
+        isMulti={true}
+        makeAnimated={true}
+        name="seniority"
+        options={
+          Array [
+            Object {
+              "label": "Junior",
+              "value": "junior",
+            },
+            Object {
+              "label": "Senior",
+              "value": "senior",
+            },
+            Object {
+              "label": "Executive",
+              "value": "executive",
+            },
+          ]
+        }
+        styles={
+          Object {
+            "option": [Function],
+            "singleValue": [Function],
+          }
+        }
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="department-input"
+      >
+        Department
+      </Label>
+      <br />
+      <StateManager
+        className="basic-multi-select"
+        classNamePrefix="select"
+        defaultInputValue=""
+        defaultMenuIsOpen={false}
+        defaultValue={null}
+        id="department-input"
+        isMulti={true}
+        makeAnimated={true}
+        name="department"
+        options={
+          Array [
+            Object {
+              "label": "IT",
+              "value": "it",
+            },
+            Object {
+              "label": "Finance",
+              "value": "finance",
+            },
+            Object {
+              "label": "Management",
+              "value": "management",
+            },
+            Object {
+              "label": "Sales",
+              "value": "sales",
+            },
+            Object {
+              "label": "Legal",
+              "value": "legal",
+            },
+            Object {
+              "label": "Support",
+              "value": "support",
+            },
+            Object {
+              "label": "HR",
+              "value": "hr",
+            },
+            Object {
+              "label": "Marketing",
+              "value": "marketing",
+            },
+            Object {
+              "label": "Communication",
+              "value": "communication",
+            },
+            Object {
+              "label": "Executive",
+              "value": "executive",
+            },
+          ]
+        }
+        styles={
+          Object {
+            "option": [Function],
+            "singleValue": [Function],
+          }
+        }
+      />
+    </div>
+    <br />
+    <ForwardRef
+      type="submit"
+    >
+      Submit
+    </ForwardRef>
+  </form>
+</div>
+`;

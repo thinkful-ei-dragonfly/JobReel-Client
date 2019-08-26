@@ -4,7 +4,6 @@ import Button from '../../components/Button/Button'
 import './JobSearchForm.css';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
-import SideNav from '../../components/SideNav/SideNav'
 
 class JobSearchForm extends React.Component {
   static contextType = JobReelContext
