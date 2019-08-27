@@ -8,11 +8,20 @@ export default class ProfessionalContact extends Component {
     static contextType = JobReelContext
 
     state = {
-        error: null
+        error: null,
+        saved: false
+    }
+
+    static getDerivedStateFromProps(props) {
+        const {professional = {}, savedContactEmails } = props
+        if (professional.value in savedContactEmails) {
+            return {saved: true};
+        }
+        return null;
     }
 
     handleClick = () => {
-        console.log('in handleClick')
+        this.setState({ saved: true })
         this.setState({ error: null });
         const contact_name = `${this.props.professional.first_name} ${this.props.professional.last_name}`
         const job_title = this.props.professional.position
@@ -21,15 +30,31 @@ export default class ProfessionalContact extends Component {
         const linkedin = this.props.professional.linkedin
         const connected = false
         const userInput = { user_id: this.context.user.id, job_title, company, contact_name, email, linkedin, connected }
-        console.log(userInput)
         jobReelApiService.submitContact(userInput)
             .then(res => {
-            console.log(res)
             this.context.setContacts([...this.context.contacts, res]);
             })
             .catch(res => {
             this.setState({ error: res.error })
             })
+    }
+
+    renderSaveButton() {
+        if (this.state.saved) {
+            return (
+                <div className='save-button'>
+                    <p>Saved &#10004;</p>
+                </div>
+            
+            )
+        } else {
+            return (
+                <div className='save-button'>
+                    <Button id='save-button' onClick={this.handleClick}>Save Job</Button>
+                </div>
+            
+            )  
+        } 
     }
 
     renderProfessionalContact() {
@@ -45,7 +70,8 @@ export default class ProfessionalContact extends Component {
         {/* {professional.phone_number ? <p>Phone: {professional.phone_number}</p> : ''} */}
         {professional.linkedin ?<p>LinkedIn: {professional.linkedin}</p> : ''}
         <p className="error-message">{this.state.error}</p>
-        <Button onClick={this.handleClick}>Add Contact</Button>
+        {this.renderSaveButton()}
+        {/* <Button onClick={this.handleClick}>Add Contact</Button> */}
         </>
         )
     }

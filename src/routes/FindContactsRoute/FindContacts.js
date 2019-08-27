@@ -10,30 +10,39 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class FindContactsRoute extends Component {
-    state = {
-        search: null
-    }
+
     static contextType = JobReelContext
+
+    state = {
+        search: null,
+        savedContactEmails: null,
+    }
 
     componentDidMount() {
         setTimeout(() => {
-            console.log(this.context.professionalsSearch)
+            JobReelService.getSavedContacts()
+                .then(res => {
+                    const savedContactEmails = res.map(contact => contact.email)
+                    let savedContactEmailsObj = {}
+                    savedContactEmails.forEach(email => {
+                        savedContactEmailsObj[email] = email
+                    })
+                    this.setState({ savedContactEmails: savedContactEmailsObj })
+                        })
             const search = this.context.professionalsSearch
             JobReelService.getProfessionalEmails(search)
                 .then(data => {
                     this.context.setProfessionals(data.data.emails)
                     this.context.setFindContactsMetaData(data.meta)
                 })
-                console.log(this.context)
         }, 500)
     }
 
     renderProfessionalContacts() {
         const { professionals = [], professionalsSearch = {} } = this.context
-        console.log(professionals)
         const professionalList = professionals.map((professional, i) => {
             if (professional.first_name) {
-                return <ProfessionalContact professional={professional} key={i} search={professionalsSearch}/>
+                return <ProfessionalContact professional={professional} key={i} search={professionalsSearch} savedContactEmails={this.state.savedContactEmails}/>
             }           
         })
         return (
