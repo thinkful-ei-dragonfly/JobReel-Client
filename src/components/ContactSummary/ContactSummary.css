@@ -1,4 +1,4 @@
-.saved-company-list {
+.saved-contact-list {
     position: relative;
     grid-column-start: 4;
     grid-column-end: 9;
@@ -13,14 +13,14 @@
     overflow-y: auto;
 }
 
-.saved-company-controls {
+.saved-contact-controls {
     width: 50%;
     margin-left: 50%;
-    margin-top: 0.5em;
+    margin-top: 0.5em; 
 }
 
 @media screen and (max-width: 960px) {
-    .saved-company-list {
+    .saved-contact-list {
         grid-column-start: 1;
         grid-column-end: 9;
     }
