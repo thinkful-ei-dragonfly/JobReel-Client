@@ -1,8 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Company from './Company'
+import PropTypes from 'prop-types'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json';
+
+class ContextProvider extends React.Component{
+  static childContextTypes = {
+    myContext: PropTypes.object,
+  }
+  
+  getChildContext = () => ({
+    myContext: {
+      updateCompany: () => { },
+      deleteCompany: () => { },
+    }
+  })
+  
+  render(){
+    return this.props.children
+  }
+  }
 
 const props = {
   key: 1,
@@ -28,7 +46,7 @@ describe('Company smoke test', () => {
 
 describe('Company snapshot test', () => {
   it('renders the UI as expected', () => {
-    const wrapper = shallow(<Company {...props} />)
+    const wrapper = shallow(<ContextProvider><Company {...props} /></ContextProvider>)
     expect(toJson(wrapper)).toMatchSnapshot();
   });
   

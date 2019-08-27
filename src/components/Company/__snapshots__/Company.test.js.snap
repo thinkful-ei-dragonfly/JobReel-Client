@@ -445,55 +445,17 @@ exports[`Company snapshot test opens the edit company form 1`] = `
 `;
 
 exports[`Company snapshot test renders the UI as expected 1`] = `
-<div
-  className="saved-event"
->
-  <div
-    className="company-box"
-  >
-    <h3>
-      name
-    </h3>
-    <h4>
-      Added on 
-      2019-08-27
-    </h4>
-    <p>
-      Industry: 
-      industry
-    </p>
-    <p>
-      city
-      , 
-      IL
-    </p>
-    <p>
-      <a
-        href="http://www.site.com"
-      >
-        http://www.site.com
-      </a>
-    </p>
-    <p>
-      desc
-    </p>
-    <p>
-      Contact(s): 
-      contact
-    </p>
-    <ForwardRef
-      onClick={[Function]}
-      type="button"
-    >
-      Delete
-    </ForwardRef>
-    <ForwardRef
-      className="edit-button"
-      onClick={[Function]}
-      type="button"
-    >
-      Edit
-    </ForwardRef>
-  </div>
-</div>
+<Company
+  city="city"
+  contact="contact"
+  date="2019-08-26T15:03:05.646Z"
+  desc="desc"
+  id={1}
+  industry="industry"
+  key="1"
+  name="name"
+  state="IL"
+  user={2}
+  website="http://www.site.com"
+/>
 `;
