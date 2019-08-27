@@ -57,6 +57,16 @@ exports[`AddContactForm snapshot test renders the UI as expected 1`] = `
         id="email-input"
         name="email"
       />
+      <p>
+        Need to verify email? Click 
+        <a
+          href="https://hunter.io/email-verifier"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          here
+        </a>
+      </p>
     </div>
     <div>
       <Label

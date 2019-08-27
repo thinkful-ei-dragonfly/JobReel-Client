@@ -10,7 +10,7 @@ const props = {
   name: 'name',
   city: 'city',
   state: 'IL',
-  date: new Date(),
+  date: '2019-08-26T15:03:05.646Z',
   industry: 'industry',
   desc: 'desc',
   website: 'http://www.site.com',
