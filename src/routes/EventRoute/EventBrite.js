@@ -3,44 +3,44 @@ import config from '../../config'
 import TokenService from '../../services/token-service'
 
 
-
 export default class EventBrite extends Component {
 
-    // state = {
-    //     url: null
-    // }
+    state = {
+        url: null
+    }
 
-    // componentDidMount () {
-    //     fetch(`${config.API_ENDPOINT}/eventbrite`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'authorization': `Bearer ${TokenService.getAuthToken()}`,
-    //         }
-    //     })
-    //         .then(res =>
-    //             (!res.ok)
-    //                 ? res.json().then(e => Promise.reject(e))
-    //                 : res.json()
-    //         )
-    //         .then(data => {
-    //             this.setState({url: data.url})
-    //         })
-    // }
+    componentDidMount () {
+        fetch(`${config.API_ENDPOINT}/eventbrite`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+            .then(data => {
+                this.setState({url: data.url})
+            })
+    }
 
-    // renderURL() {
-    //     const url = this.state.url
-    //     return (
-    //         <a href={url}>Connect to your events</a>
-    //     )
-    // }
+    renderURL() {
+        const url = this.state.url
+        return (
+            <a href={url}>Connect to your events</a>
+        )
+    }
+
+    
 
    
 
     render() {
         return (
             <>
-            <p> a pargraph </p>
-                {/* {this.state.url && this.renderURL()} */}
+                {this.state.url && this.renderURL()}
             </>
         );
     }
