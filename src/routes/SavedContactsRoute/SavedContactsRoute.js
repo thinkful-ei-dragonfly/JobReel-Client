@@ -4,6 +4,8 @@ import AddContactForm from '../../components/AddContactForm/AddContactForm';
 import jobReelApiService from '../../services/jobreel-api-service';
 import JobReelContext from '../../context/JobReelContext';
 import './SavedContactsRoute.css';
+import MediaQuery from 'react-responsive'
+import TopNav from '../../components/TopNav/TopNav'
 import ContactSummary from '../../components/ContactSummary/ContactSummary'
 
 class SavedContactsRoute extends React.Component {
@@ -25,7 +27,12 @@ class SavedContactsRoute extends React.Component {
         <div className='title'>
           <h2>Contacts</h2>
         </div>
-        <SideNav />
+        <MediaQuery minDeviceWidth={961}>
+          <SideNav/>
+        </MediaQuery>
+        <MediaQuery maxDeviceWidth={960}>
+          <TopNav/>
+        </MediaQuery>
         {display}
       </div>
     )

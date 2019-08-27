@@ -13,3 +13,12 @@
   color: #eeebd9;
   box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
+
+
+@media screen and (max-width: 480px) {
+  .LoginForm {
+    grid-column-start: 1;
+    grid-column-end: 13; 
+  }
+
+}

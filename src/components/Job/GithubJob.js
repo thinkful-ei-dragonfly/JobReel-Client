@@ -136,16 +136,27 @@ export default class GithubJob extends Component {
                 </div>
                 <div className='expandButton'>
                     <FontAwesomeIcon icon='expand-arrows-alt' onClick={this.handleExpand}/>
-                </div>   
+                </div>
+                {this.renderSaveButton()}  
             </div>
         )
     }
 
     renderSaveButton() {
         if (this.state.saved) {
-            return <p>Saved &#10004;</p>
+            return (
+                <div className='save-button'>
+                    <p>Saved &#10004;</p>
+                </div>
+            
+            )
         }
-        return <Button onClick={this.handleClick}>Save Job</Button>
+        return (
+            <div className='save-button'>
+                <Button id='save-button' onClick={this.handleClick}>Save Job</Button>
+            </div>
+        
+        )
     }
 
     renderJobDescription() {
@@ -177,6 +188,7 @@ export default class GithubJob extends Component {
                 <div className='collapseButton'>
                     <FontAwesomeIcon icon='compress-arrows-alt' onClick={this.handleCollapse}/>
                 </div>
+                {this.renderSaveButton()}
             </div>
         )
     }

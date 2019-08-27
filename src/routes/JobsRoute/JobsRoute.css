@@ -1,42 +1,94 @@
-.job-search-results {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 1em;
+@media screen and (min-width: 961px) {
+  .job-search-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+  }
+  
+  .job-results-container {
+    position: relative;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    border: 1px solid black;
+    border-radius: 18px;
+    height: 400px;
+    position: relative;
+    background: #3C3230;
+    color: #eeebd9;
+    text-align: center;
+  }
+  
+  #job-go-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #eeebd9;
+  }
+  
+  #job-go-back:hover {
+    color: #fc766a;
+  }
+  
+  .job-results > h2 {
+    text-align: center;
+  }
+  
+  .job-results {
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-block: inherit;
+  }
 }
 
-.results-container {
-  position: relative;
-  grid-column-start: 3;
-  grid-column-end: 9;
-  border: 1px solid black;
-  border-radius: 18px;
-  height: 400px;
-  position: relative;
-  background: #3C3230;
-  color: #eeebd9;
-  text-align: center;
+@media screen and (max-width: 960px) {
+  .job-search-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+  }
+  
+  .job-results-container {
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 9;
+    border: 1px solid black;
+    border-radius: 18px;
+    height: 400px;
+    position: relative;
+    background: #3C3230;
+    color: #eeebd9;
+    text-align: center;
+  }
+
+  .topNav {
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
+  
+  #job-go-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #eeebd9;
+  }
+  
+  #job-go-back:hover {
+    color: #fc766a;
+  }
+  
+  .job-results > h2 {
+    text-align: center;
+  }
+  
+  .job-results {
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-block: inherit;
+  }
 }
 
-#go-back {
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #eeebd9;
-}
 
-#go-back:hover {
-  color: #fc766a;
-}
 
-.results > h2 {
-  text-align: center;
-}
-
-.results {
-  max-height: 100%;
-  overflow-y: auto;
-  overflow-block: inherit;
-}
 
 
 

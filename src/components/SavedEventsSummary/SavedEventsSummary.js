@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import SavedEvent from '../SavedEvent/SavedEvent';
+import './SavedEventsSummary.css';
 import { Label, Input } from '../Form/Form';
 
 class SavedEventsSummary extends React.Component {

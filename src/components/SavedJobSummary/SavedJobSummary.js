@@ -51,7 +51,7 @@ class SavedJobSummary extends React.Component {
         <div className='savedJobFilterControls'>
           <Label id='savedJobFilterTitle'>Filter by Job Status:</Label>
           <select
-            id='status-input'
+            id='statusInput'
             name='status'
             onChange={this.handleStatusFilter}
           >
