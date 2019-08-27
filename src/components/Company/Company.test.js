@@ -44,7 +44,7 @@ describe('Company smoke test', () => {
   })
 })
 
-describe('Company snapshot test', () => {
+describe.skip('Company snapshot test', () => {
   it('renders the UI as expected', () => {
     const wrapper = shallow(<ContextProvider><Company {...props} /></ContextProvider>)
     expect(toJson(wrapper)).toMatchSnapshot();
