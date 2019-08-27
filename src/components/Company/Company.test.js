@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Company from './Company'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import toJson from 'enzyme-to-json';
 
 const props = {
   key: 1,
