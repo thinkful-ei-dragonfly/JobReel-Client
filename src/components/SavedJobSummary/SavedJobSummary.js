@@ -59,6 +59,7 @@ class SavedJobSummary extends React.Component {
             <option value="Interested">Interested</option>
             <option value="Applied">Applied</option>
           </select>
+          <br/>
           <Label id='savedJobFilterSearch'>Search:</Label>
           <Input
             type='text'
@@ -67,6 +68,8 @@ class SavedJobSummary extends React.Component {
             value={this.state.search}
             onChange={this.handleChangeSearchTerm}
           />
+          <br/>
+          <Button onClick={() => this.context.setManualJobAdd(true)} type="button">Add Job</Button>
         </div>
         {this.renderJobs()}
       </div>

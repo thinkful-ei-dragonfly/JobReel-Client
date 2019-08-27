@@ -33,7 +33,7 @@
 #status-input {
     width: 15em;
     margin: 0 auto;
-    margin-bottom: 1em;
+    /* margin-bottom: 0.5e,; */
     border-radius: 10px;
     height: 2em;
 }

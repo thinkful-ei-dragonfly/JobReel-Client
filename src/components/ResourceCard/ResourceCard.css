@@ -10,3 +10,8 @@
   color: #eeebd9;
   box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
+
+#type-Input {
+  width: 15em;
+  border-radius: 10px;
+}

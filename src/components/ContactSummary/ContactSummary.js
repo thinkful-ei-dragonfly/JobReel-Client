@@ -64,6 +64,7 @@ class SavedContactsSummary extends React.Component {
             <option value="false">Not Connected</option>
             <option value="true">Connected</option>
           </select>
+          <br/>
           <Label id='savedContactFilterSearch'>Search:</Label>
           <Input
             type='text'
@@ -72,8 +73,9 @@ class SavedContactsSummary extends React.Component {
             value={this.state.search}
             onChange={this.handleChangeSearchTerm}
           />
+          <br/>
+          <Button onClick={() => this.context.setManualContactAdd(true)} type="button">Add Contact</Button>
         </div>
-        <Button onClick={() => this.context.setManualContactAdd(true)} type="button">Add Contact</Button>
         {this.renderContacts()}
       </div>
     )

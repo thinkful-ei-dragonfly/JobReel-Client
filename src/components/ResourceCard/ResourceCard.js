@@ -64,14 +64,15 @@ export default class ResourceCard extends React.Component {
     let resource = 
     <div className='resource-card'>
         <div className='card-title'>
-          {title}
+          <h3>{title}</h3>
         </div>
         <div className='card-type'>
-          {type}
+          <p>{type}</p>
         </div>
         <div className='card-description'>
-          {description}
+          <a href={description} alt={title}>{description}</a>
         </div>
+        <br/>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
         <Button className="edit-button" onClick={this.handleToggle} type="button">Edit</Button>
       </div>
@@ -82,6 +83,7 @@ export default class ResourceCard extends React.Component {
         <div>
           <div className="error-message">{error}</div>
           <Label htmlFor='title'>Title</Label>
+          <br/>
           <Input
             type='text'
             name='title'
@@ -94,6 +96,7 @@ export default class ResourceCard extends React.Component {
         </div>
         <div>
           <Label htmlFor='type'>Resource Type</Label>
+          <br/>
           <select
               id='type-Input'
               name='type'
@@ -110,6 +113,7 @@ export default class ResourceCard extends React.Component {
         </div>
         <div>
           <Label htmlFor='description'>Description</Label>
+          <br/>
           <textarea
             name='description'
             id='description'
