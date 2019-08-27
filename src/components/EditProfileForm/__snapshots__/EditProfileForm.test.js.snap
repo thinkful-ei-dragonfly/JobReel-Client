@@ -33,19 +33,6 @@ exports[`EditProfileForm snapshot test renders the UI as expected 1`] = `
     </div>
     <div>
       <Label
-        htmlFor="user-name-input"
-      >
-        User Name
-      </Label>
-      <br />
-      <ForwardRef
-        defaultValue="test"
-        id="user-name-input"
-        name="user-name"
-      />
-    </div>
-    <div>
-      <Label
         htmlFor="email-input"
       >
         Email
