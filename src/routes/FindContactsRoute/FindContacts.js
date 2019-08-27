@@ -25,11 +25,11 @@ export default class FindContactsRoute extends Component {
     }
 
     renderProfessionalContacts() {
-        const { professionals = [] } = this.context
+        const { professionals = [], professionalsSearch = {} } = this.context
         console.log(professionals)
         const professionalList = professionals.map((professional, i) => {
             if (professional.first_name) {
-                return <ProfessionalContact professional={professional} key={i} />
+                return <ProfessionalContact professional={professional} key={i} search={professionalsSearch}/>
             }           
         })
         return (

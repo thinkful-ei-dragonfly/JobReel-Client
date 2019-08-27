@@ -96,7 +96,6 @@ class Contact extends React.Component {
   }
 
   render(){
-    console.log(this.state.connected)
     const { contact_name, job_title, company, email, linkedin, comments, error, editing, connected } = this.state
     let mail=`mailto:${email}`
     let connectionStatus
