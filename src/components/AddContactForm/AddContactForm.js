@@ -41,7 +41,6 @@ class AddContactForm extends React.Component {
       .catch(res => {
         this.setState({ error: res.error })
       })
-    
   }
 
   render() {
@@ -91,6 +90,7 @@ class AddContactForm extends React.Component {
               id='email-input'
               name='email'
             />
+            <p>Need to verify email? Click <a target="_blank" rel="noopener noreferrer" href="https://hunter.io/email-verifier">here</a></p>
           </div>
           <div>
             <Label htmlFor='linkedin-input'>
