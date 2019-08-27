@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import config from '../../config'
 import TokenService from '../../services/token-service'
 import JobReelContext from '../../context/JobReelContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Moment from 'react-moment';
+import Iframe from 'react-iframe'
 import './EventBriteItem.css'
 
 export default class EventBriteList extends Component {
     state = {
         host: '',
         address: '',
+        URL: false,
         expanded: false,
     }
 
@@ -35,10 +37,34 @@ export default class EventBriteList extends Component {
             )
             .then(data => {
                 console.log(data)
-                this.setState({host: data.name})
-                this.setState({address: data.address.localized_address_display})
+                this.setState({ host: data.name })
+                this.setState({ address: data.address.localized_address_display })
             })
     }
+
+    // componentDidMount() {
+    //     const event_id = this.props.event_id
+    //     const event = { id: event_id }
+    //     console.log(event)
+    //     fetch(`${config.API_ENDPOINT}/eventbrite/eventbyid`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': 'application/json',
+    //             'authorization': `Bearer ${TokenService.getAuthToken()}`,
+    //         },
+    //         body: JSON.stringify({
+    //             event,
+    //         }),
+    //     })
+    //         .then(res =>
+    //             (!res.ok)
+    //                 ? res.json().then(e => Promise.reject(e))
+    //                 : res.json()
+    //         )
+    //         .then(data => {
+    //             console.log(data)
+    //         })
+    // }
 
     handleExpand = () => {
         this.setState({ expanded: true })
@@ -48,20 +74,35 @@ export default class EventBriteList extends Component {
         this.setState({ expanded: false })
     }
 
+    handleURL = () => {
+        this.setState({ URL: true })
+    }
+
+    handleURLcollapse = () => {
+        this.setState({ URL: false })
+    }
+
     renderEvent() {
         const name = this.props.name
-        const uri = this.props.uri
+        const url = this.props.url
         const host = this.state.host
         const address = this.state.address
+        const date = this.props.date
         return (
             <li>
                 <h4>{name}</h4>
                 <p>Host: {host}</p>
                 <p>Address: {address}</p>
-                <a href={uri}>Go to event page</a>
+                <p>Date:<Moment format="MM/DD/YYYY">{date}</Moment></p>
+                <br />
+                {!this.state.URL && <button onClick={this.handleURL}>Event Page</button>}
                 <br/>
+                {this.state.URL && this.renderEventURL()}
+                <br/>
+                {this.state.URL && this.renderURLcollapse()}
+                <br />
                 <button onClick={this.handleExpand}>
-                More Details
+                    More Details
                 </button>
             </li>
         )
@@ -69,22 +110,52 @@ export default class EventBriteList extends Component {
 
     renderEventExpanded() {
         const name = this.props.name
-        const uri = this.props.uri
         const description = this.props.description
         const venue = this.state
         const address = venue.address
+        const date = this.props.date
         return (
             <li>
                 <h4>{name}</h4>
                 <p>Host: {venue.name}</p>
                 <p>Address: {address}</p>
-                <a href={uri}>Go to event page</a>
+                <p>Date:<Moment>{date}</Moment></p>
+                <br />
+                {!this.state.URL && <button onClick={this.handleURL}>Event Page</button>}
+                <br/>
+                {this.state.URL && this.renderEventURL()}
+                <br/>
+                {this.state.URL && this.renderURLcollapse()}
+                <br />
                 <p>{description}</p>
                 <br/>
                 <button onClick={this.handleCollapse}>
-                Collapse Description
+                    Collapse Description
                 </button>
             </li>
+        )
+    }
+
+    renderEventURL() {
+        const url = this.props.url
+        return (
+            <>
+                <Iframe url={url}
+                    width="450px"
+                    height="450px"
+                    id="myId"
+                    className="myClassname"
+                    display="initial"
+                    position="relative" />
+            </>
+        )
+    }
+
+    renderURLcollapse = () => {
+        return (
+            <button onClick={this.handleURLcollapse}>
+                Collapse URL
+            </button>
         )
     }
 
@@ -96,13 +167,13 @@ export default class EventBriteList extends Component {
             return this.renderEvent()
         }
     }
-    
+
 
 
     render() {
         return (
             <>
-            {this.renderFunction()}
+                {this.renderFunction()}
             </>
         );
     }

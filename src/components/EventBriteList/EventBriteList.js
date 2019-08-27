@@ -3,6 +3,7 @@ import config from '../../config'
 import TokenService from '../../services/token-service'
 import JobReelContext from '../../context/JobReelContext';
 import EventBriteItem from '../EventBriteItem/EventBriteItem'
+import SideNav from '../SideNav/SideNav';
 
 export default class EventBriteList extends Component {
     state = {
@@ -23,8 +24,9 @@ export default class EventBriteList extends Component {
             event={event} 
             name={event.name.text} 
             description={event.description.text} 
-            uri={event.resource_uri}
+            url={event.url}
             venue_id={event.venue_id}
+            date = {event.end.local}
             />
             )
         })
@@ -37,9 +39,12 @@ export default class EventBriteList extends Component {
 
     render() {
         return (
+            <>
+            <SideNav/>
             <ul>
                 {this.renderEvents()}
             </ul>
+            </>
         );
     }
 }
