@@ -50,7 +50,7 @@ export default class ProfessionalContact extends Component {
         } else {
             return (
                 <div className='save-button'>
-                    <Button id='save-button' onClick={this.handleClick}>Save Job</Button>
+                    <Button id='save-button' onClick={this.handleClick}>Save Contact</Button>
                 </div>
             
             )  
