@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditProfileForm snapshot test renders the UI as expected 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <Label
+        htmlFor="first-name-input"
+      >
+        First Name
+      </Label>
+      <br />
+      <ForwardRef
+        defaultValue="test"
+        id="first-name-input"
+        name="first-name"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="last-name-input"
+      >
+        Last Name
+      </Label>
+      <br />
+      <ForwardRef
+        defaultValue="test"
+        id="last-name-input"
+        name="last-name"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="user-name-input"
+      >
+        User Name
+      </Label>
+      <br />
+      <ForwardRef
+        defaultValue="test"
+        id="user-name-input"
+        name="user-name"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="email-input"
+      >
+        Email
+      </Label>
+      <br />
+      <ForwardRef
+        defaultValue="test"
+        id="email-input"
+        name="email"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="city-input"
+      >
+        City
+      </Label>
+      <br />
+      <ForwardRef
+        defaultValue="test"
+        id="city-input"
+        name="city"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="industry-input"
+      >
+        Industry
+      </Label>
+      <br />
+      <ForwardRef
+        defaultValue="test"
+        id="industry-input"
+        name="industry"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="job-title-input"
+      >
+        Job Title
+      </Label>
+      <br />
+      <ForwardRef
+        defaultValue="test"
+        id="job-title-input"
+        name="job-title"
+      />
+    </div>
+    <ForwardRef
+      onClick={[Function]}
+      type="button"
+    >
+      Cancel
+    </ForwardRef>
+    <ForwardRef
+      type="submit"
+    >
+      Submit
+    </ForwardRef>
+  </form>
+</div>
+`;

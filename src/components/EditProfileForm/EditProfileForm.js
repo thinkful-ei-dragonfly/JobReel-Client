@@ -1,24 +1,34 @@
 import React from 'react';
 import { Input, Label } from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
+import jobReelApiService from '../../services/jobreel-api-service';
+import AuthApiService from '../../services/auth-api-service';
+import tokenService from '../../services/token-service';
+import jobReelContext from '../../context/JobReelContext';
 
 class EditProfileForm extends React.Component {
+
+  static contextType = jobReelContext
+
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit');
-    const firstName = e.target['first-name'].value;
-    const lastName = e.target['last-name'].value;
-    const username = e.target['user-name'].value;
+    const first_name = e.target['first-name'].value;
+    const last_name = e.target['last-name'].value;
+    const username = this.props.user.username;
     const email = e.target.email.value;
-    const location = e.target.location.value;
+    const city = e.target.city.value;
     const industry = e.target.industry.value;
-    const jobTitle = e.target['job-title'].value;
-    const updatedUser = { id: this.props.user.id, firstName, lastName, username, email, location, industry, jobTitle }
-    console.log(updatedUser);
+    const job_title = e.target['job-title'].value;
+    const updatedUser = { id: this.props.user.id, first_name, last_name, username, email, city, industry, job_title };
+    jobReelApiService.editUserInfo(updatedUser)
+      .then(res => {
+        this.props.setUser(res);
+      })
+    this.props.updateEditingProfile();
   }
 
   handleClick = () => {
-    console.log(`Don't submit`);
+    this.props.updateEditingProfile();
   }
 
   render() {
@@ -49,17 +59,6 @@ class EditProfileForm extends React.Component {
             />
           </div>
           <div>
-            <Label htmlFor='user-name-input'>
-                User Name
-            </Label>
-            <br />
-            <Input
-                name="user-name"
-                id="user-name-input"
-                defaultValue={user.username}
-            />
-          </div>
-          <div>
             <Label htmlFor='email-input'>
                 Email
             </Label>
@@ -71,14 +70,14 @@ class EditProfileForm extends React.Component {
             />
           </div>
           <div>
-            <Label htmlFor='location-input'>
-                Location
+            <Label htmlFor='city-input'>
+                City
             </Label>
             <br />
             <Input
-                name="location"
-                id="location-input"
-                defaultValue={user.location}
+                name="city"
+                id="city-input"
+                defaultValue={user.city}
             />
           </div>
           <div>
@@ -103,7 +102,7 @@ class EditProfileForm extends React.Component {
                 defaultValue={user.job_title}
             />
           </div>
-          <Button onClick={this.handleClick}>Back</Button>
+          <Button type="button" onClick={this.handleClick}>Cancel</Button>
           <Button type="submit">Submit</Button>
         </form>
       </div>

@@ -20,8 +20,13 @@ class ProfileRoute extends React.Component {
   componentDidMount() {
     jobReelApiService.getUserById(this.context.user.id)
       .then(res => {
-        this.setState({ user: res});
+        this.setUser(res);
       })
+  }
+
+  setUser = (user) => {
+    user.id = this.context.user.id;
+    this.setState({ user })
   }
 
   updateEditingProfile = () => {
@@ -30,7 +35,7 @@ class ProfileRoute extends React.Component {
 
   render() {
     let display;
-    (this.state.editingProfile) ? display = <EditProfileForm user={this.state.user} updateEditingProfile={this.updateEditingProfile}/> : display = <UserProfile user={this.state.user} updateEditingProfile={this.updateEditingProfile}/>
+    (this.state.editingProfile) ? display = <EditProfileForm user={this.state.user} setUser={this.setUser} updateEditingProfile={this.updateEditingProfile}/> : display = <UserProfile user={this.state.user} updateEditingProfile={this.updateEditingProfile}/>
     return (
       <div className="ProfileRoute">
         <div className='title'>
