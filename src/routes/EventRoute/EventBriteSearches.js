@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import config from '../../config'
 import TokenService from '../../services/token-service'
-import EventBriteList from '../../components/EventBriteList/EventBriteList'
 import JobReelContext from '../../context/JobReelContext'
 import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
