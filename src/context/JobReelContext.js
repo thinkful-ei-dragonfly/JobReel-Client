@@ -343,7 +343,8 @@ export class JobReelProvider extends Component {
         const jwtPayload = TokenService.parseAuthToken()
         this.setUser({
             id: jwtPayload.user_id,
-            name: jwtPayload.name,
+            first_name: jwtPayload.first_name,
+            last_name: jwtPayload.last_name,
             username: jwtPayload.sub,
         })
         IdleService.registerIdleTimerResets()

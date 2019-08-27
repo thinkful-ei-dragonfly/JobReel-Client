@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SavedJob snapshot test renders the UI as expected 1`] = `
+<div
+  className="saved-job"
+>
+  <div
+    className="job-box"
+  >
+    <div
+      className="job-status yellow"
+    >
+      Interested
+    </div>
+    <h3>
+      company
+      : 
+      title
+    </h3>
+    <p>
+      Posted 
+      26th Aug 2019
+    </p>
+    <p>
+      city, MD
+    </p>
+    <div
+      className="job-url"
+    >
+      <a
+        href="http://website.com"
+      >
+        company
+      </a>
+    </div>
+    <div
+      className="job-description"
+    >
+      description
+    </div>
+    <ForwardRef
+      onClick={[Function]}
+      type="button"
+    >
+      Delete
+    </ForwardRef>
+    <ForwardRef
+      onClick={[Function]}
+      type="button"
+    >
+      Edit
+    </ForwardRef>
+  </div>
+</div>
+`;

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FindContactsRoute snapshot test renders the UI as expected 1`] = `
+<div
+  className="contacts-search-results"
+>
+  <div
+    className="title"
+  >
+    <h2>
+      Find Contacts
+    </h2>
+  </div>
+  <MediaQueryContextConsumer
+    minDeviceWidth={961}
+  >
+    <SideNav />
+  </MediaQueryContextConsumer>
+  <MediaQueryContextConsumer
+    maxDeviceWidth={960}
+  >
+    <TopNav />
+  </MediaQueryContextConsumer>
+  <div
+    className="results-container"
+  >
+    <Link
+      alt="goBack"
+      to="/professionalsearch"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon="times-circle"
+        id="go-back"
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size="2x"
+        spin={false}
+        symbol={false}
+        title=""
+        transform={null}
+      />
+    </Link>
+    <div
+      className="results"
+    />
+  </div>
+</div>
+`;

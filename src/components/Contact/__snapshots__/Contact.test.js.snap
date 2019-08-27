@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact snapshot test opens the edit form 1`] = `
+<div
+  className="saved-contact"
+>
+  <form
+    className="edit-contact-form"
+    onSubmit={[Function]}
+  >
+    <div>
+      <div
+        className="error-message"
+      />
+      <Label
+        htmlFor="name"
+      >
+        Contact Name
+      </Label>
+      <br />
+      <ForwardRef
+        id="name"
+        name="name"
+        onChange={[Function]}
+        placeholder="name"
+        required={true}
+        type="text"
+        value="name"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="title"
+      >
+        Job Title
+      </Label>
+      <br />
+      <ForwardRef
+        id="title"
+        name="title"
+        onChange={[Function]}
+        placeholder="job title"
+        required={true}
+        type="text"
+        value="job title"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="company"
+      >
+        Company
+      </Label>
+      <br />
+      <ForwardRef
+        id="company"
+        name="company"
+        onChange={[Function]}
+        placeholder="company"
+        required={true}
+        type="text"
+        value="company"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="email"
+      >
+        Email
+      </Label>
+      <br />
+      <ForwardRef
+        id="email"
+        name="email"
+        onChange={[Function]}
+        placeholder="email@email.com"
+        type="text"
+        value="email@email.com"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="linkedin"
+      >
+        Linkedin
+      </Label>
+      <br />
+      <ForwardRef
+        id="linkedin"
+        name="linkedin"
+        onChange={[Function]}
+        placeholder="http://www.linkedin.com"
+        type="text"
+        value="http://www.linkedin.com"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="comments"
+      >
+        Comments
+      </Label>
+      <br />
+      <textarea
+        id="comments"
+        name="comments"
+        onChange={[Function]}
+        placeholder="comment"
+        rows="3"
+        value="comment"
+      />
+    </div>
+    <div>
+      <Label
+        htmlFor="connected"
+      >
+        Connection Status
+      </Label>
+      <select
+        id="connected-Input"
+        name="connected"
+        onChange={[Function]}
+        value={true}
+      >
+        <option
+          value="false"
+        >
+          Not Connected
+        </option>
+        <option
+          value="true"
+        >
+          Connected
+        </option>
+      </select>
+    </div>
+    <ForwardRef
+      type="submit"
+    >
+      Save Changes
+    </ForwardRef>
+    <ForwardRef
+      onClick={[Function]}
+      type="button"
+    >
+      Back
+    </ForwardRef>
+  </form>
+</div>
+`;
+
+exports[`Contact snapshot test renders the UI as expected 1`] = `
+<div
+  className="saved-contact"
+>
+  <div
+    className="contact-box"
+  >
+    <h3>
+      name
+    </h3>
+    <h4>
+      job title
+       at 
+      company
+    </h4>
+    <p>
+      Connected
+    </p>
+    <p>
+      Email: 
+      <a
+        href="mailto:email@email.com"
+      >
+        email@email.com
+      </a>
+    </p>
+    <p>
+      Linkedin: 
+      <a
+        href="http://www.linkedin.com"
+      >
+        http://www.linkedin.com
+      </a>
+    </p>
+    <p>
+      comment
+    </p>
+    <ForwardRef
+      onClick={[Function]}
+      type="button"
+    >
+      Delete
+    </ForwardRef>
+    <ForwardRef
+      className="edit-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Edit
+    </ForwardRef>
+  </div>
+</div>
+`;

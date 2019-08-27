@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourceCard snapshot test renders the UI as expected 1`] = `
+<ResourceCard
+  date="2019-08-26T15:03:05.646Z"
+  desc="description"
+  id={1}
+  title="title"
+  type="book"
+  user={1}
+/>
+`;

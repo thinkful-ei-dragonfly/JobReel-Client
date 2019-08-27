@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationRoute snapshot test renders the UI as expected 1`] = `
+<div
+  className="registration-page"
+>
+  <div
+    className="registration-image"
+  >
+    <img
+      alt="registration-background"
+      src="registration.svg"
+    />
+  </div>
+  <Description
+    className="registration-description"
+  />
+  <div
+    className="form-registration"
+  >
+    <form
+      id="form-container"
+      onSubmit={[Function]}
+    >
+      <div
+        className="error-message"
+        role="alert"
+      />
+      <div>
+        <Label
+          htmlFor="registration-email-input"
+        >
+          Email:
+          <Required />
+        </Label>
+        <br />
+        <ForwardRef
+          id="registration-email-input"
+          name="email"
+          required={true}
+        />
+      </div>
+      <div>
+        <Label
+          htmlFor="registration-first-name-input"
+        >
+          First name:
+          <Required />
+        </Label>
+        <br />
+        <ForwardRef
+          id="registration-first-name-input"
+          name="first_name"
+          required={true}
+        />
+      </div>
+      <div>
+        <Label
+          htmlFor="registration-last-name-input"
+        >
+          Last name:
+          <Required />
+        </Label>
+        <br />
+        <ForwardRef
+          id="registration-last-name-input"
+          name="last_name"
+          required={true}
+        />
+      </div>
+      <div>
+        <Label
+          htmlFor="registration-username-input"
+        >
+          Choose a username
+          <Required />
+        </Label>
+        <br />
+        <ForwardRef
+          id="registration-username-input"
+          name="username"
+          required={true}
+        />
+      </div>
+      <div>
+        <Label
+          htmlFor="registration-password-input"
+        >
+          Choose a password
+          <Required />
+        </Label>
+        <br />
+        <ForwardRef
+          id="registration-password-input"
+          name="password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <br />
+      <div>
+        <ForwardRef
+          type="submit"
+        >
+          Sign up
+        </ForwardRef>
+      </div>
+       
+      <br />
+      <Link
+        className="already"
+        to="/login"
+      >
+        Already have an account?
+      </Link>
+    </form>
+  </div>
+</div>
+`;

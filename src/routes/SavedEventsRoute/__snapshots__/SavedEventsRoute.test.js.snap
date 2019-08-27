@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SavedEventsRoute snapshot test renders the UI as expected 1`] = `
+<div
+  className="SavedEventsRoute"
+>
+  <div
+    className="title"
+  >
+    <h2>
+      Events
+    </h2>
+  </div>
+  <MediaQueryContextConsumer
+    minDeviceWidth={961}
+  >
+    <SideNav />
+  </MediaQueryContextConsumer>
+  <MediaQueryContextConsumer
+    maxDeviceWidth={960}
+  >
+    <TopNav />
+  </MediaQueryContextConsumer>
+  <AddEventForm />
+</div>
+`;

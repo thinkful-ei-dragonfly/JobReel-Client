@@ -57,6 +57,16 @@ exports[`AddContactForm snapshot test renders the UI as expected 1`] = `
         id="email-input"
         name="email"
       />
+      <p>
+        Need to verify email? Click 
+        <a
+          href="https://hunter.io/email-verifier"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          here
+        </a>
+      </p>
     </div>
     <div>
       <Label
@@ -81,6 +91,28 @@ exports[`AddContactForm snapshot test renders the UI as expected 1`] = `
         id="comments-input"
         name="comments"
       />
+    </div>
+    <div>
+      <Label
+        htmlFor="connected"
+      >
+        Connection Status
+      </Label>
+      <select
+        id="connected-Input"
+        name="connected"
+      >
+        <option
+          value="false"
+        >
+          Not Connected
+        </option>
+        <option
+          value="true"
+        >
+          Connected
+        </option>
+      </select>
     </div>
     <ForwardRef
       onClick={[Function]}

@@ -73,7 +73,7 @@ export default class ResourceCard extends React.Component {
           {description}
         </div>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
-        <Button onClick={this.handleToggle} type="button">Edit</Button>
+        <Button className="edit-button" onClick={this.handleToggle} type="button">Edit</Button>
       </div>
     let editResource =
     <form
@@ -106,7 +106,6 @@ export default class ResourceCard extends React.Component {
               <option value="magazine">Magazine</option>
               <option value="online publication">Online Publication</option>
               <option value="podcast">Podcast</option>
-              'website', 'book', 'github repository', 'magazine', 'online publication', 'podcast'
             </select>
         </div>
         <div>

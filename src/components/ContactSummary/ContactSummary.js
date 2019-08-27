@@ -1,29 +1,86 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
-import jobReelApiService from '../../services/jobreel-api-service';
+import { Label, Input } from '../Form/Form';
 import Contact from '../Contact/Contact';
+import './ContactSummary.css';
 
-class SavedContactsSummary extends React.Component {
+class ContactSummary extends React.Component {
 
   static contextType = JobReelContext;
 
-  render(){
-    let mappedContacts;
-    if(this.context.contacts !== []){
-      let contacts = this.context.contacts
-      mappedContacts = contacts
-      .map(contact => <Contact key={contact.contact_id} id={contact.contact_id} name={contact.contact_name} job_title={contact.job_title} company={contact.company} email={contact.email} linkedin={contact.linkedin} comments={contact.comments} date={contact.date_added} connected={contact.connected} user={contact.user_id}/>)
-    }
+  state = {
+    filter: '',
+    search: ''
+  }
 
+  handleStatusFilter = e => {
+    if(e.target.value === 'false'){
+      this.setState({ filter: false })
+    } else if(e.target.value === 'true'){
+      this.setState({ filter: true })
+    } else {
+      this.setState({ filter: '' })
+    }
+  }
+
+  handleChangeSearchTerm = e => {
+    console.log(e.target.value)
+    this.setState({ search: e.target.value })
+  }
+
+  renderContacts = () => {
+    let search = this.state.search
+    let filter = this.state.filter
+    let contacts = Array.from(this.context.contacts)
+    console.log(contacts)
+    console.log(search.toLowerCase())
+    if(search !== ''){
+      contacts = contacts.filter(contact => contact.contact_name.toLowerCase().includes(search.toLowerCase()) || 
+      contact.job_title.toLowerCase().includes(search.toLowerCase()) || 
+      contact.company.toLowerCase().includes(search.toLowerCase()) || 
+      contact.comments.toLowerCase().includes(search.toLowerCase())
+    )}
+    if(filter !== ''){
+      contacts = contacts.filter(contact => contact.connected === filter)
+    }
+    contacts = contacts.map(contact => <Contact key={contact.contact_id} id={contact.contact_id} name={contact.contact_name} job_title={contact.job_title} company={contact.company} email={contact.email} linkedin={contact.linkedin} comments={contact.comments} date={contact.date_added} connected={contact.connected} user={contact.user_id}/>)
+    
+    return (
+      <div>
+        {contacts}
+      </div>
+    )
+  }
+
+  render(){
     return(
       <div className="saved-contact-list">
-        <h2>Saved Contacts</h2>
+        <div className='savedContactFilterControls'>
+          <Label id='savedContactFilterTitle'>Filter by Job Status:</Label>
+          <select
+            id='status-input'
+            name='status'
+            onChange={this.handleStatusFilter}
+          >
+            <option value="">N/A</option>
+            <option value="false">Not Connected</option>
+            <option value="true">Connected</option>
+          </select>
+          <Label id='savedContactFilterSearch'>Search:</Label>
+          <Input
+            type='text'
+            name='saved-contact-search'
+            id='saved-contact-search'
+            value={this.state.search}
+            onChange={this.handleChangeSearchTerm}
+          />
+        </div>
         <Button onClick={() => this.context.setManualContactAdd(true)} type="button">Add Contact</Button>
-        {mappedContacts}
+        {this.renderContacts()}
       </div>
     )
   }
 }
 
-export default SavedContactsSummary
+export default ContactSummary
