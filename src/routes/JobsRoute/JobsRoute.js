@@ -24,6 +24,7 @@ export default class JobsRoute extends Component {
         });
         this.setState({ savedJobUrls: savedJobUrlsObj });
         const search = this.context.search
+        console.log(search)
         setTimeout(() => {
             Promise.all([
                 fetch(`${config.API_ENDPOINT}/jobs/authentic`, {

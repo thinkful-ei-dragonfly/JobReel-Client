@@ -3,7 +3,6 @@ import config from '../../config'
 import TokenService from '../../services/token-service'
 
 
-
 export default class EventBrite extends Component {
 
     state = {
@@ -33,6 +32,8 @@ export default class EventBrite extends Component {
             <a href={url}>Connect to your events</a>
         )
     }
+
+    
 
    
 

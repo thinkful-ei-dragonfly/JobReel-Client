@@ -139,7 +139,7 @@ export default class JobSearchForm extends React.Component {
                         {!this.state.company && <div>
                             <Label htmlFor='domain-input'>
                                 Domain
-            </Label>
+                            </Label>
                             <br />
                             <Input
                                 ref={this.firstInput}
@@ -153,7 +153,7 @@ export default class JobSearchForm extends React.Component {
                         {!this.state.domain && <div>
                             <Label htmlFor='company-input'>
                                 Company
-            </Label>
+                            </Label>
                             <br />
                             <Input
                                 id='company-input'
@@ -167,7 +167,7 @@ export default class JobSearchForm extends React.Component {
                     <div>
                         <Label htmlFor='seniority-input'>
                             Seniority
-            </Label>
+                        </Label>
                         <br />
                         <Select
                             styles={customStyles}
@@ -183,7 +183,7 @@ export default class JobSearchForm extends React.Component {
                     <div>
                         <Label htmlFor='department-input'>
                             Department
-            </Label>
+                        </Label>
                         <br />
                         <Select
                             styles={customStyles}
@@ -196,17 +196,6 @@ export default class JobSearchForm extends React.Component {
                             classNamePrefix="select"
                         />
                     </div>
-                    {/* <div>
-                        <Label htmlFor='limit-input'>
-                            Results Limit
-            </Label>
-                        <br />
-                        <Input
-                            ref={this.firstInput}
-                            id='limit-input'
-                            name='limit'
-                        />
-                    </div> */}
                     <br />
                     <Button type="submit">Submit</Button>
                 </form>
