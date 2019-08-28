@@ -16,6 +16,8 @@ const JobReelContext = React.createContext({
     resources: [],
     contacts: [],
     events: [],
+    eventPageNumber: null,
+    eventNextPage: null,
     eventsSearch: {},
     professionals: [],
     findContactsMetaData: {},
@@ -36,6 +38,8 @@ const JobReelContext = React.createContext({
     setResources: () => { },
     setContacts: () => { },
     setEvents: () => { },
+    setEventPageNumber: () => { },
+    setEventNextPage: () => { },
     setProfessionals: () => { },
     setJobData: () => { },
     setSearch: () => { },
@@ -71,6 +75,8 @@ export class JobReelProvider extends Component {
             search: {},
             authenticJobs: [],
             events: [],
+            eventPageNumber: null,
+            eventNextPage: null,
             eventsSearch: {},
             gitHubJobs: [],
             companies: [],
@@ -98,6 +104,8 @@ export class JobReelProvider extends Component {
             setResources: this.setResources,
             setContacts: this.setContacts,
             setEvents: this.setEvents,
+            setEventPageNumber: this.setEventPageNumber,
+            setEventNextPage: this.setEventNextPage,
             setProfessionals: this.setProfessionals,
             setJobDetails: this.setJobDetails,
             setJobStatus: this.setJobStatus,
@@ -207,6 +215,14 @@ export class JobReelProvider extends Component {
 
     setEventsSearch = eventsSearch => {
         this.setState({eventsSearch})
+    }
+
+    setEventPageNumber = eventPageNumber => {
+        this.setState({eventPageNumber})
+    }
+
+    setEventNextPage = eventNextPage => {
+        this.setState({eventNextPage})
     }
 
     setProfessionals = professionals => {
