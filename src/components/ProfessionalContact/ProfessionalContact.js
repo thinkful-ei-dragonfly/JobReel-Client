@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ProfessionalContact.css';
 import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
-import jobReelApiService from '../../services/jobreel-api-service
+import jobReelApiService from '../../services/jobreel-api-service';
 export default class ProfessionalContact extends Component {
 
   

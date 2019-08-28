@@ -2,6 +2,7 @@ import React from 'react';
 import JobReelContext from '../../context/JobReelContext';
 import SavedJob from '../SavedJob/SavedJob';
 import './SavedJobSummary.css'
+import Button from '../Button/Button'
 import { Label, Input } from '../Form/Form';
 
 class SavedJobSummary extends React.Component {
