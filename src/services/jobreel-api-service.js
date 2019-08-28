@@ -388,6 +388,41 @@ const JobReelApiService = {
                     : res.json()
             )
     },
+    getUserById(id) {
+        return fetch(`${config.API_ENDPOINT}/users/${id}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+            .then(data => {
+                return data
+            })
+    },
+    editUserInfo(userData) {
+        return fetch(`${config.API_ENDPOINT}/users/${userData.id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+            .then(data => {
+                return data
+            })
+    },
     getEventBriteEvents(search) {
         return fetch(`${config.API_ENDPOINT}/eventbrite/events`, {
             method: 'POST',
@@ -405,25 +440,6 @@ const JobReelApiService = {
                     : res.json()
             )
     },
-    getEventBriteEventsPaginated(search, pagenumber) {
-        const page = {page_number: pagenumber}
-        return fetch(`${config.API_ENDPOINT}/eventbrite/paginated`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `Bearer ${TokenService.getAuthToken()}`,
-            },
-            body: JSON.stringify({
-                search,
-                page,
-            }),
-        })
-            .then(res =>
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            )
-    }
 }
 
 export default JobReelApiService

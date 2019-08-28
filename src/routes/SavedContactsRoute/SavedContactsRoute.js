@@ -5,6 +5,7 @@ import jobReelApiService from '../../services/jobreel-api-service';
 import JobReelContext from '../../context/JobReelContext';
 import './SavedContactsRoute.css';
 import MediaQuery from 'react-responsive'
+import savedContBack from '../../assests/savedContBack.svg'
 import TopNav from '../../components/TopNav/TopNav'
 import ContactSummary from '../../components/ContactSummary/ContactSummary'
 
@@ -26,6 +27,9 @@ class SavedContactsRoute extends React.Component {
       <div className="SavedContactsRoute">
         <div className='title'>
           <h2>Contacts</h2>
+        </div>
+        <div className='savedContBack'>
+          <img src={savedContBack} alt='saved-contact-background'/>
         </div>
         <MediaQuery minDeviceWidth={961}>
           <SideNav/>

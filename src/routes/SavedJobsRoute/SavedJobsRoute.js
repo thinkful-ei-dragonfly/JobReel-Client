@@ -6,6 +6,7 @@ import jobReelApiService from '../../services/jobreel-api-service';
 import JobReelContext from '../../context/JobReelContext';
 import MediaQuery from 'react-responsive';
 import TopNav from '../../components/TopNav/TopNav';
+import savedJobBack from '../../assests/savedJobsBack.svg'
 import './SavedJobsRoute.css';
 
 class SavedJobsRoute extends React.Component {
@@ -26,6 +27,9 @@ class SavedJobsRoute extends React.Component {
       <div className="saved-jobs-page">
         <div className='title'>
           <h2>Saved Jobs</h2>
+        </div>
+        <div className='savedJobBackgroundImage'>
+          <img src={savedJobBack} alt='saved-job-background'/>
         </div>
         <MediaQuery minDeviceWidth={960}>
           <SideNav/>

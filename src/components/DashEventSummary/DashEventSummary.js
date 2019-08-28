@@ -23,7 +23,7 @@ class DashEventSummary extends React.Component {
       return new Date(a.date) - new Date(b.date);
     });
     events = events.slice(0, 3).map(event => {
-      const date = new Date(event.date).toDateString()
+      const date = new Date(event.date.slice(0, -1)).toDateString()
       return (
         <li key={event.event_id}>{event.event_name}, {date} - <a href={event.url}>{event.url}</a></li>
         )

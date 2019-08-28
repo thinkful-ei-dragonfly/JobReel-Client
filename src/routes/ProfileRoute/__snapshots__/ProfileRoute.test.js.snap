@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileRoute snapshot test renders the UI as expected 1`] = `<ProfileRoute />`;

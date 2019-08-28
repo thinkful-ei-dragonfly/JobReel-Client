@@ -3,7 +3,7 @@ import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
 import JobReelContext from '../../context/JobReelContext';
 import Select from 'react-select';
-import SideNav from '../../components/SideNav/SideNav'
+import findProfessionalsBackgroundImage from '../../assests/findContactsFormBackground.svg'
 import './FindProfessionalForm.css'
 
 const seniorityOptions = [
@@ -135,6 +135,9 @@ export default class JobSearchForm extends React.Component {
       <div className='professional-search'>
         <div className='title'>
           <h2>Find Professionals</h2>
+        </div>
+        <div className='findProfessionalsBackgroundImage'>
+          <img src={findProfessionalsBackgroundImage} alt='contacts-form-background'/>
         </div>
         <form className='ProfessionalSearchForm' onSubmit={this.handleSubmit}>
           <h4>Enter a domain or company name</h4>

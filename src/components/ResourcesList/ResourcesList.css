@@ -1,6 +1,6 @@
 .resources-list {
   position: relative;
-  grid-column-start: 3;
+  grid-column-start: 4;
   grid-column-end: 9;
   height: 100%;
   max-height: 450px;
@@ -10,12 +10,17 @@
   background: #3C3230;
   color: #eeebd9;
   text-align: center;
+  overflow-y: auto;
 }
 
-.hidden-form {
-  display: none;
+.savedResourceFilterControls {
+  width: 90%;
+  text-align: right;
 }
 
-.revealed-form {
-  
+@media screen and (max-width: 960px) {
+  .resources-list {
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
 }
