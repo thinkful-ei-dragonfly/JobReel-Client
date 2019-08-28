@@ -157,7 +157,8 @@ class SavedJob extends React.Component {
         job_id: this.props.id,
         date_added: this.props.date,
         date_applied,
-        user_id: this.props.user
+        user_id: this.props.user,
+        notification: this.props.notification
        }
       jobReelApiService.editJob(editedJob, this.props.id)
       this.context.updateJob(editedJob)

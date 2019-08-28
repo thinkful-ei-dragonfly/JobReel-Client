@@ -40,7 +40,7 @@ class ContactSummary extends React.Component {
     if(filter !== ''){
       contacts = contacts.filter(contact => contact.connected === filter)
     }
-    contacts = contacts.map(contact => <Contact key={contact.contact_id} id={contact.contact_id} name={contact.contact_name} job_title={contact.job_title} company={contact.company} email={contact.email} linkedin={contact.linkedin} comments={contact.comments} date={contact.date_added} connected={contact.connected} date_connected={contact.date_connected} user={contact.user_id}/>)
+    contacts = contacts.map(contact => <Contact key={contact.contact_id} id={contact.contact_id} name={contact.contact_name} job_title={contact.job_title} company={contact.company} email={contact.email} linkedin={contact.linkedin} comments={contact.comments} date={contact.date_added} connected={contact.connected} date_connected={contact.date_connected} user={contact.user_id} notification={contact.notification}/>)
     
     return (
       <div>

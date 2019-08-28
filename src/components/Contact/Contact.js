@@ -109,6 +109,7 @@ class Contact extends React.Component {
         date_connected,
         contact_id: this.props.id,
         date_added: this.props.date,
+        notification: this.props.notification,
         user_id: this.props.user
        }
       jobReelApiService.editContact(editedContact, this.props.id)
