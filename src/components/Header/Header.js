@@ -45,7 +45,7 @@ class Header extends React.Component {
     if (this.context.user.username) {
       return (
         <>
-          Signed in as  {this.context.user.username.toUpperCase()}
+          Signed in as  {this.context.user.username.toUpperCase()} <Link to='/profile'><FontAwesomeIcon icon='user-cog'/></Link>
         </>
       )
     } else {
@@ -65,7 +65,7 @@ class Header extends React.Component {
           </Link>
         </div>
         <div className='username'>
-            {this.renderUsername()}{' '}<span><Link to='/profile'><FontAwesomeIcon icon='user-cog'/></Link></span>
+            {this.renderUsername()}
         </div>
           {TokenService.hasAuthToken()
           ? this.renderLogoutLink()

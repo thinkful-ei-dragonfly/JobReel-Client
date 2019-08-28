@@ -6,3 +6,14 @@
   margin: 10px;
   list-style: none;
 }
+
+.ul {
+  padding-left: 0;
+  width: 95%;
+  margin: auto;
+  height: 100%;
+}
+
+.viewAll {
+  text-align: center;
+}

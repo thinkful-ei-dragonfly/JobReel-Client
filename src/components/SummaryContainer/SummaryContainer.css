@@ -10,6 +10,11 @@
     background: #3C3230;
     color: #eeebd9;
   }
+
+  .summary-div {
+    height: 100%;
+    overflow-y: auto;
+  }
   
   .carousel__next-button {
     border-radius: 10px;

@@ -84,7 +84,6 @@ export default class EventBriteSearches extends Component {
 
     updateCategory(category) {
         this.setState({ category });
-        console.log(this.state.category)
     }
 
 
@@ -105,7 +104,6 @@ export default class EventBriteSearches extends Component {
         let subcategory = '';
         if (this.state.subcategory) {
             subcategory = e.target['subcategory'].value;
-            console.log(subcategory)
         }
         // const limit = e.target['limit'].value;
         this.context.setProfessionalsSearch({ query, location, category, subcategory })
@@ -130,8 +128,6 @@ export default class EventBriteSearches extends Component {
                 if (data.pagination.object_count < 51) {
                     this.context.setEvents(data.events)
                 }
-                console.log(data)
-                console.log(this.context)
                 this.props.history.push(`/eventbriteevents`)
             })
         }, 500)
@@ -139,9 +135,7 @@ export default class EventBriteSearches extends Component {
 
     handleChange = categoryValue => {
         this.setState({ category: categoryValue });
-        console.log(categoryValue)
         setTimeout(() => {
-            console.log(this.state)
             if (this.state.category) {
                 const category = { id: categoryValue.value }
                 fetch(`${config.API_ENDPOINT}/eventbrite/categoriesbyID`, {
@@ -168,7 +162,6 @@ export default class EventBriteSearches extends Component {
 
     handleSubChange = subCategoryValue => {
         this.setState({ subcategory: subCategoryValue });
-        console.log(subCategoryValue)
     };
 
     formatSubcategories(subcategories) {

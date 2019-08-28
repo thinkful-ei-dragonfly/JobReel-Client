@@ -29,7 +29,7 @@ class DashEventSummary extends React.Component {
         )
       })
       return (
-        <ul>
+        <ul className='ul'>
           {events}
         </ul>
     )
@@ -44,7 +44,10 @@ class DashEventSummary extends React.Component {
         <div className='options'>
             {this.renderEventSummaries()}
         </div>
-        <Link to="/saved-events">View all</Link>
+        <div className='viewAll'>
+          <Link to="/saved-events">View all</Link>
+        </div>
+        
       </>
     )
   }
