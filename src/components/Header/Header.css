@@ -39,6 +39,7 @@
   grid-column-end: 10;
   color: #FFDA71;
   margin: auto;
+  text-align: center;
 }
 
 nav a {
@@ -55,12 +56,14 @@ nav a {
     grid-column-start: 2;
     grid-column-end: 3;
     margin: auto;
+    text-align: center;
   }
 
   .nav {
     grid-column-start: 3;
     grid-column-end: 4;
     margin: auto;
+    text-align: center;
   }
 
   .logo {
