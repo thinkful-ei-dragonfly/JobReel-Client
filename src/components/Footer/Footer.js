@@ -1,6 +1,4 @@
 import React from 'react';
-import {Link, BrowserRouter} from 'react-router-dom';
-
 import './Footer.css'
 
 
@@ -9,12 +7,12 @@ function Footer(props) {
     return(
       <footer className='footer'>
         <div className='team-info'>
-          'Some Team Information goes here'
+          <p>Aldiyar Batyrbekov / Chris Fiander / Erin Dustin / Jonathan Moore / Michael Romero</p>
         </div>
         <div className='links-to-tech'>
-          <Link to='/'>GitHub Client</Link>
+          <a href='https://github.com/thinkful-ei-dragonfly/JobReel-client' rel='noopener noreferrer' target='_blank'>GitHub Client</a>
           <br/>
-          <Link to='/'>GitHub Server</Link>
+          <a href='https://github.com/thinkful-ei-dragonfly/JobReel-server' rel='noopener noreferrer' target='_blank'>GitHub Server</a>
         </div>
       </footer>
     )

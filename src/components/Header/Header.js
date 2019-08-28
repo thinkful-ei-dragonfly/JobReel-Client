@@ -5,6 +5,7 @@ import './Header.css';
 import JobReelContext from '../../context/JobReelContext';
 import './Header.css';
 import logo from '../../assests/jobreellogo200.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Header extends React.Component {
 
@@ -64,7 +65,7 @@ class Header extends React.Component {
           </Link>
         </div>
         <div className='username'>
-            {this.renderUsername()}  
+            {this.renderUsername()}{' '}<span><Link to='/profile'><FontAwesomeIcon icon='user-cog'/></Link></span>
         </div>
           {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
