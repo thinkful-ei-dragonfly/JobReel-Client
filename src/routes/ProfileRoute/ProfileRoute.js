@@ -4,6 +4,7 @@ import UserProfile from '../../components/UserProfile/UserProfile';
 import EditProfileForm from '../../components/EditProfileForm/EditProfileForm';
 import jobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
+import './ProfileRoute.css'
 
 class ProfileRoute extends React.Component {
   

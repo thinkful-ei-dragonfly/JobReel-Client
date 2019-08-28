@@ -2,16 +2,22 @@ import React from 'react';
 import { Input, Label } from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
 import jobReelApiService from '../../services/jobreel-api-service';
-import AuthApiService from '../../services/auth-api-service';
-import tokenService from '../../services/token-service';
 import jobReelContext from '../../context/JobReelContext';
+import './EditProfileForm.css';
 
 class EditProfileForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null
+    }
+  }
 
   static contextType = jobReelContext
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({ error: null });
     const first_name = e.target['first-name'].value;
     const last_name = e.target['last-name'].value;
     const username = this.props.user.username;
@@ -23,8 +29,11 @@ class EditProfileForm extends React.Component {
     jobReelApiService.editUserInfo(updatedUser)
       .then(res => {
         this.props.setUser(res);
+        this.props.updateEditingProfile();
       })
-    this.props.updateEditingProfile();
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
   }
 
   handleClick = () => {
@@ -32,10 +41,14 @@ class EditProfileForm extends React.Component {
   }
 
   render() {
-    const { user } = this.props
+    const { user } = this.props;
+    const { error } = this.state;
     return (
-      <div>
+      <div className="EditProfileForm">
         <form onSubmit={this.handleSubmit}>
+        <div role='alert'>
+          {error && <p>{error}</p>}
+        </div>
           <div>
             <Label htmlFor='first-name-input'>
                 First Name
