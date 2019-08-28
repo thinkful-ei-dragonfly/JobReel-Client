@@ -17,6 +17,21 @@
     color: #eeebd9;
     text-align: center;
   }
+
+  .jobsRouteImage {
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
+
+  .jobsRouteImage > img {
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: -100px;
+    right: -15%;
+    z-index: -1;
+  }
   
   #job-go-back {
     position: absolute;
@@ -45,6 +60,21 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1em;
+  }
+
+  .jobsRouteImage {
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
+
+  .jobsRouteImage > img {
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: -100px;
+    right: -5%;
+    z-index: -1;
   }
   
   .job-results-container {
