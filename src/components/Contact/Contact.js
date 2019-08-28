@@ -194,6 +194,7 @@ class Contact extends React.Component {
         </div>
         <div>
           <Label htmlFor='connected'>Connection Status</Label>
+          <br/>
           <select
               id='connected-Input'
               name='connected'
@@ -204,6 +205,7 @@ class Contact extends React.Component {
               <option value="true">Connected</option>
             </select>
         </div>
+        <br/>
         <Button type="submit">Save Changes</Button>
         <Button type="button" onClick={this.handleToggle}>Back</Button>
       </form>

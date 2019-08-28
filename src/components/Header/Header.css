@@ -4,7 +4,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
-  height: 50px;
+  min-height: 50px;
+  max-height: 100%;
   margin-left: 0%;
   position: relative;
 
@@ -25,13 +26,46 @@
 }
 
 .nav {
-  grid-column-start: 11;
-  grid-column-end: 13;
+  grid-column-start: 10;
+  grid-column-end: 12;
   margin: auto;
   width: 100%;
   text-decoration: none;
+  text-align: center;
+}
+
+.username {
+  grid-column-start: 8;
+  grid-column-end: 10;
+  color: #FFDA71;
+  margin: auto;
 }
 
 nav a {
   text-decoration: none;
+}
+
+
+@media screen and (max-width: 870px) {
+  .header {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .username {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin: auto;
+  }
+
+  .nav {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    margin: auto;
+  }
+
+  .logo {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin: auto;
+  }
 }
