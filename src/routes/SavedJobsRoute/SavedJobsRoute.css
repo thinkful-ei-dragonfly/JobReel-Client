@@ -11,7 +11,7 @@
 
 @media (min-width: 641px) and (max-width: 960px) {
   .form {
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 9;
   }
 }

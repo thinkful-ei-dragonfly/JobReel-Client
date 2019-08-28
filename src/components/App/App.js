@@ -23,6 +23,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import { faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase } from '@fortawesome/free-solid-svg-icons';
 import EventBrite from '../../routes/EventRoute/EventBrite';
+import EventBriteSearches from '../../routes/EventRoute/EventBriteSearches';
+import EventBriteList from '../EventBriteList/EventBriteList';
 
 
 library.add(fab, faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase);
@@ -33,6 +35,14 @@ export default function App() {
       <Header />
       <main>
         <Switch>
+        <PrivateRoute
+            path={'/eventbriteevents'}
+            component={EventBriteList}
+          />
+        <PrivateRoute
+            path={'/eventbritesearch'}
+            component={EventBriteSearches}
+          />
         <PrivateRoute
             path={'/eventbrite'}
             component={EventBrite}

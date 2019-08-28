@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, BrowserRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import './Header.css';
 import JobReelContext from '../../context/JobReelContext';

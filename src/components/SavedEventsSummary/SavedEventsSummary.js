@@ -47,7 +47,6 @@ class SavedEventsSummary extends React.Component {
   render(){
     return(
       <div className="saved-event-list">
-        <h2>Saved Events</h2>
         <div className='savedEventFilterControls'>
           <Label id='savedEventFilterTitle'>Filter by Job Status:</Label>
           <select
@@ -61,6 +60,7 @@ class SavedEventsSummary extends React.Component {
             <option value="Attended">Attended</option>
             <option value="Did Not Attend">Did Not Attend</option>
           </select>
+          <br/>
           <Label id='savedEventFilterSearch'>Search:</Label>
           <Input
             type='text'
@@ -69,8 +69,9 @@ class SavedEventsSummary extends React.Component {
             value={this.state.search}
             onChange={this.handleChangeSearchTerm}
           />
+          <br/>
+          <Button id='controlButton' onClick={() => this.context.setManualEventAdd(true)} type="button">Add Event</Button>
         </div>
-        <Button onClick={() => this.context.setManualEventAdd(true)} type="button">Add Event</Button>
         {this.renderEvents()}
       </div>
     )

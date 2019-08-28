@@ -13,10 +13,9 @@
     overflow-y: auto;
 }
 
-.saved-company-controls {
-    width: 50%;
-    margin-left: 50%;
-    margin-top: 0.5em;
+.savedCompanyFilterControls{
+    width: 90%;
+    text-align: right;
 }
 
 @media screen and (max-width: 960px) {
