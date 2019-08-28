@@ -389,6 +389,41 @@ const JobReelApiService = {
                     : res.json()
             )
     },
+    getUserById(id) {
+        return fetch(`${config.API_ENDPOINT}/users/${id}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+            .then(data => {
+                return data
+            })
+    },
+    editUserInfo(userData) {
+        return fetch(`${config.API_ENDPOINT}/users/${userData.id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+            .then(data => {
+                return data
+            })
+    }
 }
 
 export default JobReelApiService

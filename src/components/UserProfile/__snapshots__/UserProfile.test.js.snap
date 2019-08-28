@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfile snapshot test renders the UI as expected 1`] = `
+<div
+  className="UserProfile"
+>
+  <h3>
+    test
+     
+    test
+  </h3>
+  <p>
+    Username: 
+    test
+  </p>
+  <p>
+    Email: 
+    test
+  </p>
+  <p>
+    City: 
+    test
+  </p>
+  <p>
+    Industry: 
+    test
+  </p>
+  <p>
+    Job Title: 
+    test
+  </p>
+  <ForwardRef>
+    Edit
+  </ForwardRef>
+</div>
+`;
