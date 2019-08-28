@@ -58,7 +58,7 @@ describe('SavedJob snapshot test', () => {
   }
 
   it('renders the UI as expected', () => {
-    const wrapper = shallow(<ContextProvider><SavedJob {...props}/></ContextProvider>)
+    const wrapper = shallow(<SavedJob {...props}/>)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

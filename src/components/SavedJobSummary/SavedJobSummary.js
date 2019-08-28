@@ -1,7 +1,5 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
 import JobReelContext from '../../context/JobReelContext';
-import jobReelApiService from '../../services/jobreel-api-service';
 import SavedJob from '../SavedJob/SavedJob';
 import './SavedJobSummary.css'
 import { Label, Input } from '../Form/Form';

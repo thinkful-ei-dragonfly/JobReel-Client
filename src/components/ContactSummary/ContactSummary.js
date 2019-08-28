@@ -5,7 +5,7 @@ import { Label, Input } from '../Form/Form';
 import Contact from '../Contact/Contact';
 import './ContactSummary.css';
 
-class SavedContactsSummary extends React.Component {
+class ContactSummary extends React.Component {
 
   static contextType = JobReelContext;
 
@@ -25,6 +25,7 @@ class SavedContactsSummary extends React.Component {
   }
 
   handleChangeSearchTerm = e => {
+    console.log(e.target.value)
     this.setState({ search: e.target.value })
   }
 
@@ -32,6 +33,8 @@ class SavedContactsSummary extends React.Component {
     let search = this.state.search
     let filter = this.state.filter
     let contacts = Array.from(this.context.contacts)
+    console.log(contacts)
+    console.log(search.toLowerCase())
     if(search !== ''){
       contacts = contacts.filter(contact => contact.contact_name.toLowerCase().includes(search.toLowerCase()) || 
       contact.job_title.toLowerCase().includes(search.toLowerCase()) || 
@@ -82,4 +85,4 @@ class SavedContactsSummary extends React.Component {
   }
 }
 
-export default SavedContactsSummary
+export default ContactSummary

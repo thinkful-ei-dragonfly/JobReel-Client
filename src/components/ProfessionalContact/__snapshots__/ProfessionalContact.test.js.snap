@@ -2,6 +2,7 @@
 
 exports[`ProfessionalContact snapshot test renders the UI as expected 1`] = `
 <Fragment>
+<<<<<<< HEAD
   <div
     className="contact-card"
   >
@@ -64,6 +65,38 @@ exports[`ProfessionalContact snapshot test renders the UI as expected 1`] = `
         LinkedIn
       </a>
     </div>
+=======
+  <h2>
+    Name: 
+    first
+     
+  </h2>
+  <p>
+    Department: 
+    department
+  </p>
+  <p>
+    Position: 
+    position
+  </p>
+  <p>
+    Email: 
+    email@email.com
+  </p>
+  <p>
+    LinkedIn: 
+    http://linkedin.com/person
+  </p>
+  <p
+    className="error-message"
+  />
+  <div
+    className="save-button"
+  >
+    <p>
+      Saved ✔
+    </p>
+>>>>>>> b589b9a987612f9b6a28c9402f9416bf87ef0fcc
   </div>
 </Fragment>
 `;

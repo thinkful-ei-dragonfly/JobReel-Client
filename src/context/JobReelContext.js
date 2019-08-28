@@ -15,7 +15,8 @@ const JobReelContext = React.createContext({
     companies: [],
     resources: [],
     contacts: [],
-    meetups: [],
+    events: [],
+    eventsSearch: {},
     professionals: [],
     findContactsMetaData: {},
     professionalsSearch: {},
@@ -34,7 +35,7 @@ const JobReelContext = React.createContext({
     setCompanies: () => { },
     setResources: () => { },
     setContacts: () => { },
-    setMeetups: () => { },
+    setEvents: () => { },
     setProfessionals: () => { },
     setJobData: () => { },
     setSearch: () => { },
@@ -49,6 +50,7 @@ const JobReelContext = React.createContext({
     updateJob: () => { },
     setFindContactsMetaData: () => { },
     setProfessionalsSearch: () => { },
+    setEventsSearch: () => { },
     updateContact: () => { },
     updateEvent: () => { },
     deleteEvent: () => { },
@@ -68,11 +70,12 @@ export class JobReelProvider extends Component {
             user: {}, //nested Resume object assigned to User?
             search: {},
             authenticJobs: [],
+            events: [],
+            eventsSearch: {},
             gitHubJobs: [],
             companies: [],
             resources: [],
             contacts: [],
-            meetups: [],
             professionals: [],
             findContactsMetaData: {},
             professionalsSearch: {},
@@ -94,7 +97,7 @@ export class JobReelProvider extends Component {
             setCompanies: this.setCompanies,
             setResources: this.setResources,
             setContacts: this.setContacts,
-            setMeetups: this.setMeetups,
+            setEvents: this.setEvents,
             setProfessionals: this.setProfessionals,
             setJobDetails: this.setJobDetails,
             setJobStatus: this.setJobStatus,
@@ -114,6 +117,7 @@ export class JobReelProvider extends Component {
             updateJob: this.updateJob,
             setFindContactsMetaData: this.setFindContactsMetaData,
             setProfessionalsSearch: this.setProfessionalsSearch,
+            setEventsSearch: this.setEventsSearch,
             updateEvent: this.updateEvent,
             updateContact: this.updateContact,
             updateCompany: this.updateCompany,
@@ -162,11 +166,6 @@ export class JobReelProvider extends Component {
         this.setState({ user })
     }
 
-    setUserMeetupProfile = (user, accesstoken) => {
-        console.log(user, accesstoken)
-        user.meetupProfile = accesstoken
-    }
-
     setJobData = jobData => {
         this.setState({
             jobData
@@ -202,8 +201,12 @@ export class JobReelProvider extends Component {
         this.setState({ contacts })
     }
 
-    setMeetups = meetups => {
-        this.setState({ meetups })
+    setEvents = events => {
+        this.setState({ events })
+    }
+
+    setEventsSearch = eventsSearch => {
+        this.setState({eventsSearch})
     }
 
     setProfessionals = professionals => {
