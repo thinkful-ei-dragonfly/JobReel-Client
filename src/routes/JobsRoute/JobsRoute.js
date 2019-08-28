@@ -60,8 +60,6 @@ export default class JobsRoute extends Component {
   renderJobList() {
     const {gitHubJobs = [] } = this.context
     const {authenticJobs = [] } = this.context
-    console.log(gitHubJobs)
-    console.log(authenticJobs)
     const jobsListOne = gitHubJobs.map((job) => {
       return <GithubJob job={job} key={job.id} savedJobUrls={this.state.savedJobUrls}/>
     })

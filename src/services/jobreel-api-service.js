@@ -374,7 +374,6 @@ const JobReelApiService = {
         })
     },
     getProfessionalEmails(search) {
-        console.log(search)
         return fetch(`${config.API_ENDPOINT}/findcontacts`, {
             method: 'POST',
             headers: {
@@ -389,6 +388,42 @@ const JobReelApiService = {
                     : res.json()
             )
     },
+    getEventBriteEvents(search) {
+        return fetch(`${config.API_ENDPOINT}/eventbrite/events`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify({
+                search,
+            }),
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+    getEventBriteEventsPaginated(search, pagenumber) {
+        const page = {page_number: pagenumber}
+        return fetch(`${config.API_ENDPOINT}/eventbrite/paginated`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify({
+                search,
+                page,
+            }),
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    }
 }
 
 export default JobReelApiService

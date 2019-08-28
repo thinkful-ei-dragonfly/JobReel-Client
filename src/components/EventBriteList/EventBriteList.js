@@ -4,17 +4,14 @@ import TokenService from '../../services/token-service'
 import JobReelContext from '../../context/JobReelContext';
 import EventBriteItem from '../EventBriteItem/EventBriteItem'
 import SideNav from '../SideNav/SideNav';
+import JobReelService from '../../services/jobreel-api-service'
 
 export default class EventBriteList extends Component {
     state = {
-        events: null
+        events: null,
     }
 
     static contextType = JobReelContext
-
-    componentDidMount() {
-        
-    }
 
     renderEvents() {
         const {events = []} = this.context
@@ -33,7 +30,22 @@ export default class EventBriteList extends Component {
         return eventsList;
     }
 
-    
+    //eventbrite continuation tokens currently not working
+    // handleNextPage = () => {
+    //     const page = this.context.eventNextPage
+    //     const search =  this.context.professionalsSearch
+    //     JobReelService.getEventBriteEventsPaginated(search, page)
+    //         .then(data => {
+    //             if (data.pagination.page_count - data.pagination.page_number > 0) {
+    //                 this.context.setEventNextPage(data.pagination.page_number+1)
+    //             }
+    //             this.context.setEventPageNumber(data.pagination.page_number)
+    //             this.context.setEvents(data.events)
+    //             console.log(data)
+    //             console.log(this.context)
+    //             this.props.history.push(`/eventbriteevents`)
+    //         })
+    // }
 
    
 
