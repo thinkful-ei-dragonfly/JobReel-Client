@@ -15,7 +15,18 @@
 }
 
 #resources-description-input {
-  height: 150px;
   width: 15em;
   border-radius: 10px;
+}
+
+#resource-type-input {
+  width: 15em;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 960px) {
+  .resources-form {
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
 }

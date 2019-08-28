@@ -48,11 +48,6 @@ export default class ResourcesList extends React.Component {
   render() {
     return (
       <div className='resources-list'>
-        <div className='button-for-add-form'>
-          <Button onClick={() => this.context.setManualResourceAdd(true)} type='button' >Add Resource</Button>
-        </div>
-        <br />
-        <br />
         <div className='savedResourceFilterControls'>
           <Label id='savedResourceFilterTitle'>Filter by Job Status:</Label>
           <select
@@ -68,6 +63,7 @@ export default class ResourcesList extends React.Component {
             <option value="online publication">Online Publication</option>
             <option value="podcast">Podcast</option>
           </select>
+          <br/>
           <Label id='savedResourceFilterSearch'>Search:</Label>
           <Input
             type='text'
@@ -76,6 +72,8 @@ export default class ResourcesList extends React.Component {
             value={this.state.search}
             onChange={this.handleChangeSearchTerm}
           />
+          <br/>
+          <Button onClick={() => this.context.setManualResourceAdd(true)} type='button' >Add Resource</Button>
         </div>
         <div className='saved-resources'>
           {this.renderResources()}

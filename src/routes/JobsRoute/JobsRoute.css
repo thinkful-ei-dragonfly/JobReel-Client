@@ -7,7 +7,7 @@
   
   .job-results-container {
     position: relative;
-    grid-column-start: 3;
+    grid-column-start: 4;
     grid-column-end: 9;
     border: 1px solid black;
     border-radius: 18px;

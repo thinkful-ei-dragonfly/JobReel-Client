@@ -13,9 +13,8 @@
   }
   
   .savedJobFilterControls {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto auto 50%;
+    width: 90%;
+    text-align: right;
   }
   
   #savedJobFilterTitle {
@@ -54,9 +53,8 @@
   }
   
   .savedJobFilterControls {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto auto 50%;
+    width: 90%;
+    text-align: right;
   }
   
   #savedJobFilterTitle {
@@ -95,9 +93,8 @@
   }
   
   .savedJobFilterControls {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto auto 50%;
+    width: 90%;
+    text-align: right;
   }
   
   #savedJobFilterTitle {

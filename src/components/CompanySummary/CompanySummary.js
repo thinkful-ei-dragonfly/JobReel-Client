@@ -48,8 +48,10 @@ class CompanySummary extends React.Component {
             value={this.state.search}
             onChange={this.handleChangeSearchTerm}
           />
+          <br/>
+          <Button onClick={() => this.context.setManualCompanyAdd(true)} type="button">Add Company</Button>
         </div>
-        <Button onClick={() => this.context.setManualCompanyAdd(true)} type="button">Add Company</Button>
+        
         {this.renderCompanies()}
       </div>
     )
