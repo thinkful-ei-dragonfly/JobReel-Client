@@ -19,7 +19,6 @@ export default class EventBriteList extends Component {
     componentDidMount() {
         const venue_id = this.props.venue_id
         const venue = { id: venue_id }
-        console.log(venue)
         fetch(`${config.API_ENDPOINT}/eventbrite/venue`, {
             method: 'POST',
             headers: {
@@ -36,7 +35,6 @@ export default class EventBriteList extends Component {
                     : res.json()
             )
             .then(data => {
-                console.log(data)
                 this.setState({ host: data.name })
                 this.setState({ address: data.address.localized_address_display })
             })
@@ -45,7 +43,6 @@ export default class EventBriteList extends Component {
     // componentDidMount() {
     //     const event_id = this.props.event_id
     //     const event = { id: event_id }
-    //     console.log(event)
     //     fetch(`${config.API_ENDPOINT}/eventbrite/eventbyid`, {
     //         method: 'POST',
     //         headers: {
@@ -61,9 +58,6 @@ export default class EventBriteList extends Component {
     //                 ? res.json().then(e => Promise.reject(e))
     //                 : res.json()
     //         )
-    //         .then(data => {
-    //             console.log(data)
-    //         })
     // }
 
     handleExpand = () => {

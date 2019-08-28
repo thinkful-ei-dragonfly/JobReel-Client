@@ -1,0 +1,28 @@
+.eventBriteRoute {
+  height: 100%;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 40%;
+  bottom: 40%;
+  height: 10%;
+  text-align: center;
+  width: 100%;
+  
+}
+
+.eventBriteRoute a {
+  color: #ececec;
+  background: #f50606;
+  border-radius: 10px;
+  padding: 0.5em;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.content:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}

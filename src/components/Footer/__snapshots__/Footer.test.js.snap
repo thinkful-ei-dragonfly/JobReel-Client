@@ -7,9 +7,7 @@ exports[`Footer snapshot test renders the UI as expected 1`] = `
   <div
     className="team-info"
   >
-    <p>
-      Aldiyar Batyrbekov / Chris Fiander / Erin Dustin / Jonathan Moore / Michael Romero
-    </p>
+    Aldiyar Batyrbekov Chris Fiander Erin Dustin Jonathan Moore Michael Romero
   </div>
   <div
     className="links-to-tech"

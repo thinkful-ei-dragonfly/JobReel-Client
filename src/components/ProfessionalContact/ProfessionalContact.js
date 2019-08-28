@@ -43,15 +43,15 @@ handleClick = () => {
 renderSaveButton() {
     if (this.state.saved) {
         return (
-            <div className='save-button'>
+            <div className='contact-save-button'>
                 <p>Saved &#10004;</p>
             </div>
         
         )
     } else {
         return (
-            <div className='save-button'>
-                <Button id='save-button' onClick={this.handleClick}>Save Contact</Button>
+            <div className='contact-save-button'>
+                <Button id='contact-save-button' onClick={this.handleClick}>Save Contact</Button>
             </div>
         
         )  

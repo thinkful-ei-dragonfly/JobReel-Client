@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import DashJobSummary from '../DashJobSummary/DashJobSummary';
 import DashResourceSummary from '../DashResourceSummary/DashResourceSummary';
 import DashCompanySummary from '../DashCompanySummary/DashCompanySummary';
@@ -13,7 +14,7 @@ class SummaryContainer extends React.Component {
       <div className="SummaryContainer">
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={70}
+          naturalSlideHeight={100}
           totalSlides={6}
         >
           <Slider>

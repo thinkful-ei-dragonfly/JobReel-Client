@@ -123,7 +123,6 @@ export default class Job extends Component {
         const {type = {}} = this.props
         const {company = {}} = this.props
         const location = this.props.company.location.name
-        // console.log(job.category)
         return (
             <div className='job-card'>
                 <div className='job-card-title'>

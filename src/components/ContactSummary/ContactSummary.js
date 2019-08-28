@@ -25,7 +25,6 @@ class ContactSummary extends React.Component {
   }
 
   handleChangeSearchTerm = e => {
-    console.log(e.target.value)
     this.setState({ search: e.target.value })
   }
 
@@ -33,8 +32,6 @@ class ContactSummary extends React.Component {
     let search = this.state.search
     let filter = this.state.filter
     let contacts = Array.from(this.context.contacts)
-    console.log(contacts)
-    console.log(search.toLowerCase())
     if(search !== ''){
       contacts = contacts.filter(contact => contact.contact_name.toLowerCase().includes(search.toLowerCase()) || 
       contact.job_title.toLowerCase().includes(search.toLowerCase()) || 
