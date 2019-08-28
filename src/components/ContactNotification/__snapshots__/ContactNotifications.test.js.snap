@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactNotification snapshot test renders the UI as expected 1`] = `
+<div
+  className="contact-notification"
+>
+  <p
+    key="1"
+  >
+    You reached out to 
+     
+    25
+     days ago.  
+    <a
+      href="mailto:email@email.com"
+    >
+      Follow up
+    </a>
+     if you haven't received a response.
+    <button
+      onClick={[Function]}
+    >
+      Clear
+    </button>
+  </p>
+</div>
+`;
