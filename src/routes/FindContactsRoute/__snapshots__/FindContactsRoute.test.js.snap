@@ -5,6 +5,14 @@ exports[`FindContactsRoute snapshot test renders the UI as expected 1`] = `
   className="contacts-search-results"
 >
   <div
+    className="findContactsRouteImage"
+  >
+    <img
+      alt="find-contacts-route-background"
+      src="findContactsRouteImage.svg"
+    />
+  </div>
+  <div
     className="title"
   >
     <h2>
