@@ -17,6 +17,7 @@ import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRou
 import FindProfessionalsForm from '../FindProfessionalsForm/FindProfessionalsForm'
 import FindContactsRoute from '../../routes/FindContactsRoute/FindContacts';
 import ResourcesRoute from '../../routes/ResourcesRoute/ResourcesRoute';
+import ProfileRoute from '../../routes/ProfileRoute/ProfileRoute';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
@@ -97,6 +98,10 @@ export default function App() {
           <PrivateRoute
             path={'/contacts'}
             component={SavedContactsRoute}
+          />
+          <PrivateRoute
+            path={'/profile'}
+            component={ProfileRoute}
           />
           <Route
             component={NotFoundRoute}

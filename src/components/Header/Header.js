@@ -17,6 +17,12 @@ class Header extends React.Component {
   renderLogoutLink() {
     return (
       <div className='nav'>
+<<<<<<< HEAD
+=======
+        <Link to='/profile'>
+          {this.context.user.username}
+        </Link>
+>>>>>>> 0752ea2ee9df6f4a5f5f062f5f60e102510c8d4e
         <nav role ='navigation'>
           <Link 
             onClick={this.handleLogOutClick}
