@@ -5,6 +5,7 @@ import JobReelContext from '../../context/JobReelContext'
 import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
 import Select from 'react-select';
+import JobReelService from '../../services/jobreel-api-service';
 
 const categoryOptions = [
     { value: '101', label: 'Business & Professional' },
@@ -109,25 +110,14 @@ export default class EventBriteSearches extends Component {
         this.context.setProfessionalsSearch({ query, location, category, subcategory })
         setTimeout(() => {
         const search =  this.context.professionalsSearch
-        fetch(`${config.API_ENDPOINT}/eventbrite/events`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `Bearer ${TokenService.getAuthToken()}`,
-            },
-            body: JSON.stringify({
-                search,
-            }),
-        })
-            .then(res =>
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            )
+        JobReelService.getEventBriteEvents(search)
             .then(data => {
-                if (data.pagination.object_count < 51) {
-                    this.context.setEvents(data.events)
-                }
+                //continuation tokens currently non functional for eventbrite
+                // if (data.pagination.page_count - data.pagination.page_number > 0) {
+                //     this.context.setEventNextPage(data.pagination.page_number+1)
+                // }
+                this.context.setEventPageNumber(data.pagination.page_number)
+                this.context.setEvents(data.events)
                 this.props.history.push(`/eventbriteevents`)
             })
         }, 500)

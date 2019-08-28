@@ -68,7 +68,7 @@ exports[`ProfessionalContact snapshot test renders the UI as expected 1`] = `
       className="error-message"
     />
     <div
-      className="save-button"
+      className="contact-save-button"
     >
       <p>
         Saved ✔
