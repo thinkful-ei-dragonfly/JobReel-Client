@@ -20,7 +20,9 @@ class SavedJob extends React.Component {
     state: this.props.state || '',
     url: this.props.url || '',
     status: this.props.status || '',
-    description: this.props.desc || ''
+    description: this.props.desc || '',
+    date_applied: this.props.date_applied,
+    showDateApplied: false,
   };
 
   renderStateOptions = () => {
@@ -106,12 +108,24 @@ class SavedJob extends React.Component {
   };
 
   handleChangeStatus = e => {
-    this.setState({ status: e.target.value })
+    if(e.target.value === 'Applied'){
+      this.setState({ status: e.target.value })
+      this.setState({ showDateApplied: true })
+    } else {
+      this.setState({ status: e.target.value })
+      this.setState({ date_applied: null })
+      this.setState({ showDateApplied: false })
+    }
+  }
+
+  handleDateApplied = e => {
+    this.setState({ date_applied: e.target.value })
+    this.setState({ showDateApplied: false })
   };
 
   handleChangeDesc = e => {
     this.setState({ description: e.target.value })
-  };
+  }
 
   handleClickDelete(jobId){
     jobReelApiService.deleteJob(jobId)
@@ -128,7 +142,7 @@ class SavedJob extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { title, company, city, state, url, status, description } = this.state
+    const { title, company, city, state, url, status, description, date_applied } = this.state
     if (!this.validateUrl(url)) {
       this.handleError('Please provide a valid website address starting with http:// or https://')
     } else {
@@ -142,6 +156,7 @@ class SavedJob extends React.Component {
         description,
         job_id: this.props.id,
         date_added: this.props.date,
+        date_applied,
         user_id: this.props.user
        }
       jobReelApiService.editJob(editedJob, this.props.id)
@@ -151,8 +166,33 @@ class SavedJob extends React.Component {
     }
   }
 
+  convertDate = (date) => {
+    if (date) {
+      let offset = new Date(date)
+      offset.setMinutes(offset.getMinutes() + offset.getTimezoneOffset())
+      return format(offset, 'YYYY-MM-DD')
+    } else {
+      return null;
+    }
+  }
+
+  renderDateSelector(){
+    const { showDateApplied, date_applied } = this.state
+    let dateSelector;
+    (date_applied || showDateApplied)
+      ? dateSelector = 
+      <div>
+        <Label htmlFor='date-input'>Date Applied</Label>
+        <br/>
+        <Input type="date" id='date-input' name='date' value={this.convertDate(date_applied)} onChange={this.handleDateApplied}/>
+      </div>
+      : dateSelector = ''
+
+      return dateSelector;
+  }
+
   render(){
-    const { title, company, city, state, url, status, description, error, editing } = this.state
+    const { title, company, city, state, url, status, description, error, editing, date_applied } = this.state
     let location = city;
     if (state) {
       location = `${city}, ${state}`;
@@ -160,7 +200,8 @@ class SavedJob extends React.Component {
     let jobStatus;
     (status === 'Interested')
       ? jobStatus = <div className="job-status yellow">{status}</div>
-      : jobStatus = <div className="job-status green">{status}</div> 
+      : jobStatus = <div className="job-status green">{status} on {format(date_applied, 'Do MMM YYYY')}</div> 
+
     let job = 
       <div className="job-box">
         {jobStatus}
@@ -265,6 +306,7 @@ class SavedJob extends React.Component {
               <option value="Applied">Applied</option>
             </select>
         </div>
+        {this.renderDateSelector()}
         <Button type="submit">Save Changes</Button>
         <Button type="button" onClick={this.handleToggle}>Back</Button>
       </form>

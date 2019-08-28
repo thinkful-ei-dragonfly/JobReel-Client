@@ -34,7 +34,7 @@ class SavedJobSummary extends React.Component {
     if(filter !== ''){
       jobs = jobs.filter(job => job.status === filter)
     }
-    jobs = jobs.map(job => <SavedJob key={job.job_id} user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status}/>)
+    jobs = jobs.map(job => <SavedJob key={job.job_id} user={job.user_id} id={job.job_id} company={job.company} title={job.job_title} date={job.date_added} city={job.city} state={job.state} url={job.url} desc={job.description} status={job.status} date_applied={job.date_applied}/>)
     
     return (
       <div>
