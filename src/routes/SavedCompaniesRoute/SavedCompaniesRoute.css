@@ -3,3 +3,18 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1em;
 }
+
+.savedCompBack {
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
+
+.savedCompBack > img {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: -170px;
+  right: 0%;
+  z-index: -1;
+}

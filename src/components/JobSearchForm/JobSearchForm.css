@@ -12,3 +12,18 @@
   color: #eeebd9;
   box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
+
+.jobSearchFormImage {
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
+
+.jobSearchFormImage > img {
+  height: 320px;
+  width: 320px;
+  position: absolute;
+  top: -100px;
+  left: -15%;
+  z-index: -1;
+}

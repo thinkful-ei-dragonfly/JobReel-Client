@@ -11,6 +11,14 @@ exports[`SavedEventsRoute snapshot test renders the UI as expected 1`] = `
       Events
     </h2>
   </div>
+  <div
+    className="savedEventsBack"
+  >
+    <img
+      alt="saved-events-background"
+      src="savedEventsBack.svg"
+    />
+  </div>
   <MediaQueryContextConsumer
     minDeviceWidth={961}
   >

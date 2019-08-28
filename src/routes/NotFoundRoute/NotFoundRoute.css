@@ -1,0 +1,125 @@
+@keyframes bounce {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  5% {
+    transform:translateY(-100%);
+    opacity: 1;
+  }
+
+  15% {
+    transform:translateY(0);
+    padding-bottom: 5px;
+  }
+
+  30% {
+    transform:translateY(-50%);
+  }
+
+  40% {
+    transform:translateY(0%);
+    padding-bottom: 6px;
+  }
+
+  50% {
+    transform:translateY(-30%);
+  }
+
+  70% {
+      transform:translateY(0%);
+      padding-bottom: 7px;
+  }
+  80% {
+    transform:translateY(-15%);
+  }
+  90% {
+    transform:translateY(0%);
+    padding-bottom: 8px;
+  }
+  95% {
+    transform:translateY(-7%);
+  }
+  97% {
+    transform:translateY(0%);
+    padding-bottom: 9px;
+  }
+  99% {
+    transform:translateY(-3%);
+  }
+  100% {
+    transform:translateY(0);
+    padding-bottom: 9px;
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  position: relative;
+  background-image: url("../../assests/notFoundBackground.jpg");
+  height: 100%;
+  min-height: 450px;
+  width: 100%;
+  margin: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 2em;
+
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
+
+.description-title {
+  margin: auto;
+  text-align: center;
+  border-radius: 10px 44px 79px 63px;
+  border: 1px solid #ececec;
+  width: 30%;
+  background-color: rgb(35, 20, 78);
+
+}
+.description-title > h3 {
+  margin-top: 40%;
+  color: #ececec;
+}
+
+.description {
+  text-align: center;
+  margin-top: 10%;
+  width: 20%;
+  min-width: 250px;
+  margin-left:auto;
+  margin-right: auto;
+  z-index: 2;
+}
+
+.description > p, h4 {
+  color: #ececec
+}
+
+.backToDash:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 0.2s ease-in-out;
+}
+
+#backToDash > img {
+  width: 50px;
+  height: 50px;
+}
+.astro {
+  width: 100px;
+  height: 100px;
+  color: #ececec;
+  position: relative;
+  transform: rotate(45);
+  float: right;
+  margin-right: 10%;
+  z-index: 1;
+  animation: bounce 5s;
+  animation-iteration-count: infinite;
+}
+
+.credit {
+  display: none;
+}

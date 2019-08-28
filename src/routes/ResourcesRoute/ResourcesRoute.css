@@ -2,11 +2,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1em;
-  position: relative;
 }
 
-.button-for-add-form {
+.resourcesBack {
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
+
+.resourcesBack > img {
+  height: 250px;
+  width: 250px;
   position: absolute;
-  left: 10px;
-  top: 30px;
+  top: -170px;
+  left: 10%;
+  z-index: -1;
 }

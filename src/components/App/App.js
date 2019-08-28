@@ -17,14 +17,17 @@ import SavedContactsRoute from '../../routes/SavedContactsRoute/SavedContactsRou
 import FindProfessionalsForm from '../FindProfessionalsForm/FindProfessionalsForm'
 import FindContactsRoute from '../../routes/FindContactsRoute/FindContacts';
 import ResourcesRoute from '../../routes/ResourcesRoute/ResourcesRoute';
+import ProfileRoute from '../../routes/ProfileRoute/ProfileRoute';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
-import { faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase, faUserCog} from '@fortawesome/free-solid-svg-icons';
 import EventBrite from '../../routes/EventRoute/EventBrite';
+import EventBriteSearches from '../../routes/EventRoute/EventBriteSearches';
+import EventBriteList from '../EventBriteList/EventBriteList';
 
 
-library.add(fab, faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase);
+library.add(fab, faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase, faUserCog);
 
 export default function App() {
   return (
@@ -32,6 +35,14 @@ export default function App() {
       <Header />
       <main>
         <Switch>
+        <PrivateRoute
+            path={'/eventbriteevents'}
+            component={EventBriteList}
+          />
+        <PrivateRoute
+            path={'/eventbritesearch'}
+            component={EventBriteSearches}
+          />
         <PrivateRoute
             path={'/eventbrite'}
             component={EventBrite}
@@ -87,6 +98,10 @@ export default function App() {
           <PrivateRoute
             path={'/contacts'}
             component={SavedContactsRoute}
+          />
+          <PrivateRoute
+            path={'/profile'}
+            component={ProfileRoute}
           />
           <Route
             component={NotFoundRoute}

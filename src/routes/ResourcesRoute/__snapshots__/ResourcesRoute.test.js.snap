@@ -11,7 +11,24 @@ exports[`ResourcesRoute snapshot test renders the UI as expected 1`] = `
       Resources
     </h2>
   </div>
-  <SideNav />
+  <div
+    className="resourcesBack"
+  >
+    <img
+      alt="resources-background"
+      src="resourcesBack.svg"
+    />
+  </div>
+  <MediaQueryContextConsumer
+    minDeviceWidth={961}
+  >
+    <SideNav />
+  </MediaQueryContextConsumer>
+  <MediaQueryContextConsumer
+    maxDeviceWidth={960}
+  >
+    <TopNav />
+  </MediaQueryContextConsumer>
   <ResourcesForm />
 </div>
 `;

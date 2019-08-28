@@ -1,6 +1,7 @@
 import React from 'react';
 import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
+import jobSearchFormImage from '../../assests/jobSearchFormImage.svg'
 import './JobSearchForm.css';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
@@ -35,6 +36,9 @@ class JobSearchForm extends React.Component {
   render() {
     return (
       <div className='job-search'>
+        <div className='jobSearchFormImage'>
+          <img src={jobSearchFormImage} alt='job-search-background'/>
+        </div>
         <div className='title'>
           <h2>Search for Job</h2>
         </div>

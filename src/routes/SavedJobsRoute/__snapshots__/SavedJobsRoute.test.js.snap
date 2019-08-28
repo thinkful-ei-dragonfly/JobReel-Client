@@ -11,6 +11,14 @@ exports[`SavedJobsRoute snapshot test renders the UI as expected 1`] = `
       Saved Jobs
     </h2>
   </div>
+  <div
+    className="savedJobBackgroundImage"
+  >
+    <img
+      alt="saved-job-background"
+      src="savedJobsBack.svg"
+    />
+  </div>
   <MediaQueryContextConsumer
     minDeviceWidth={960}
   >

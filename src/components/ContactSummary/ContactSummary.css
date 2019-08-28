@@ -13,10 +13,9 @@
     overflow-y: auto;
 }
 
-.saved-contact-controls {
-    width: 50%;
-    margin-left: 50%;
-    margin-top: 0.5em; 
+.savedContactFilterControls {
+    width: 90%;
+    text-align: right; 
 }
 
 @media screen and (max-width: 960px) {
