@@ -3,6 +3,7 @@ import './DashboardRoute.css';
 import JobReelContext from '../../context/JobReelContext';
 import SideNav from '../../components/SideNav/SideNav';
 import TopNav from '../../components/TopNav/TopNav';
+import Notifications from '../../components/Notifications/Notifications';
 import SummaryContainer from '../../components/SummaryContainer/SummaryContainer';
 import summary from './summary.svg';
 import MediaQuery from 'react-responsive';
@@ -35,6 +36,7 @@ class DashboardRoute extends React.Component {
         <MediaQuery maxDeviceWidth={959}>
           <TopNav/>
         </MediaQuery>
+        <Notifications />
         <SummaryContainer />
       </div>
     )

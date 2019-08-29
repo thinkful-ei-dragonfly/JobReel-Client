@@ -3,6 +3,7 @@ import Button from '../../components/Button/Button';
 import { Label, Input } from '../Form/Form';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
+import { format } from 'date-fns'
 import './Contact.css'
 
 class Contact extends React.Component {
@@ -12,13 +13,15 @@ class Contact extends React.Component {
   state = {
     error: null,
     editing: false,
-    contact_name: this.props.name,
-    job_title: this.props.job_title,
-    company: this.props.company,
+    contact_name: this.props.name || '',
+    job_title: this.props.job_title || '',
+    company: this.props.company || '',
     email: this.props.email,
     linkedin: this.props.linkedin,
-    comments: this.props.comments,
-    connected: this.props.connected
+    comments: this.props.comments || '',
+    connected: this.props.connected,
+    date_connected: this.props.date_connected || '',
+    showDateConnected: false
   }
 
   
@@ -54,14 +57,22 @@ class Contact extends React.Component {
   handleChangeConnected = e => {
     if(e.target.value === 'false'){
       this.setState({ connected: false })
+      this.setState({ date_connected: null })
+      this.setState({ showDateConnected: false })
     } else {
       this.setState({ connected: true })
+      this.setState({ showDateConnected: true })
     }
-  };
+  }
 
   handleToggle = () => {
     this.setState({ editing: !this.state.editing })
   }
+
+  handleDateConnected = e => {
+    this.setState({ date_connected: e.target.value })
+    this.setState({ showDateConnected: false })
+  };
 
   validateUrl(url) {
     return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(url)
@@ -71,10 +82,20 @@ class Contact extends React.Component {
     this.setState({ error })
   }
 
+  convertDate = (date) => {
+    if (date) {
+      let offset = new Date(date)
+      offset.setMinutes(offset.getMinutes() + offset.getTimezoneOffset())
+      return format(offset, 'YYYY-MM-DD')
+    } else {
+      return '';
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault()
-    const { contact_name, job_title, company, email, linkedin, comments, connected } = this.state
-    if (!this.validateUrl(linkedin)) {
+    const { contact_name, job_title, company, email, linkedin, comments, connected, date_connected } = this.state
+    if (linkedin && !this.validateUrl(linkedin)) {
       this.handleError('Please provide a valid Linkedin address starting with http:// or https://')
     } else {
       const editedContact = { 
@@ -85,8 +106,10 @@ class Contact extends React.Component {
         linkedin,
         comments, 
         connected,
+        date_connected,
         contact_id: this.props.id,
         date_added: this.props.date,
+        notification: this.props.notification,
         user_id: this.props.user
        }
       jobReelApiService.editContact(editedContact, this.props.id)
@@ -96,19 +119,34 @@ class Contact extends React.Component {
     }
   }
 
+  renderDateSelector(){
+    const { showDateConnected, date_connected} = this.state
+    let dateSelector;
+    (date_connected || showDateConnected)
+      ? dateSelector = 
+      <div>
+        <Label htmlFor='date-input'>Date Applied</Label>
+        <br/>
+        <Input type="date" id='date-input' name='date' value={this.convertDate(date_connected)} onChange={this.handleDateConnected}/>
+      </div>
+      : dateSelector = ''
+
+      return dateSelector;
+  }
+
   render(){
-    const { contact_name, job_title, company, email, linkedin, comments, error, editing, connected } = this.state
+    const { contact_name, job_title, company, email, linkedin, comments, error, editing, connected, date_connected } = this.state
     let mail=`mailto:${email}`
     let connectionStatus
     (connected === false ) ? connectionStatus = "Not Connected" : connectionStatus = "Connected"
     let contact = 
       <div className="contact-box">
+        {date_connected ? <div className="connection-status green">{connectionStatus} on {format(date_connected, 'MM-DD-YYYY')}</div> : <div className="connection-status yellow">{connectionStatus}</div>}
         <h3>{contact_name}</h3>
         <h4>{job_title} at {company}</h4>
-        <p>{connectionStatus}</p>
-        <p>Email: <a href={mail}>{email}</a></p>
-        <p>Linkedin: <a href={linkedin}>{linkedin}</a></p>
-        <p>{comments}</p>
+        {email ? <p>Email: <a href={mail}>{email}</a></p> : ''}
+        {linkedin ? <p>Linkedin: <a href={linkedin}>{linkedin}</a></p> : ''}
+        {comments ? <p>{comments}</p> : ''}
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>
         <Button className="edit-button" onClick={this.handleToggle} type="button">Edit</Button>
       </div>
@@ -205,6 +243,7 @@ class Contact extends React.Component {
               <option value="true">Connected</option>
             </select>
         </div>
+        {this.renderDateSelector()}
         <br/>
         <Button type="submit">Save Changes</Button>
         <Button type="button" onClick={this.handleToggle}>Back</Button>
