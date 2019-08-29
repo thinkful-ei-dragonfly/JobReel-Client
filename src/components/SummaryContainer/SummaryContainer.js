@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import DashJobSummary from '../DashJobSummary/DashJobSummary';
 import DashResourceSummary from '../DashResourceSummary/DashResourceSummary';
 import DashCompanySummary from '../DashCompanySummary/DashCompanySummary';
