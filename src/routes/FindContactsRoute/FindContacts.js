@@ -43,7 +43,8 @@ export default class FindContactsRoute extends Component {
         const professionalList = professionals.map((professional, i) => {
             if (professional.first_name) {
                 return <ProfessionalContact professional={professional} key={i} search={professionalsSearch} savedContactEmails={this.state.savedContactEmails}/>
-            }           
+            }
+            return professional;
         })
         return (
             <div className='results'>

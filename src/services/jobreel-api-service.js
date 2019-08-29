@@ -374,7 +374,6 @@ const JobReelApiService = {
         })
     },
     getProfessionalEmails(search) {
-        console.log(search)
         return fetch(`${config.API_ENDPOINT}/findcontacts`, {
             method: 'POST',
             headers: {

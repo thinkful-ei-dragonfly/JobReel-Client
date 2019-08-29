@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import config from '../../config'
-import TokenService from '../../services/token-service'
 import JobReelContext from '../../context/JobReelContext';
 import EventBriteItem from '../EventBriteItem/EventBriteItem'
 import SideNav from '../SideNav/SideNav';
