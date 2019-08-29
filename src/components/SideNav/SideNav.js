@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SideNav.css';
+import EventBriteButton from '../EventBriteButton/EventBriteButton';
 
 class SideNav extends React.Component {
   render() {
@@ -27,7 +28,7 @@ class SideNav extends React.Component {
         </div>
         <br />
         <div className='link'>
-          <Link to='/eventbrite'>NETWORKING EVENTS</Link>
+          <EventBriteButton/>
         </div>
         <br />
         <div className='link'>

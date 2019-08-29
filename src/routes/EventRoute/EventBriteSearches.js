@@ -6,6 +6,7 @@ import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
 import Select from 'react-select';
 import JobReelService from '../../services/jobreel-api-service';
+import SideNav from '../../components/SideNav/SideNav';
 
 const categoryOptions = [
     { value: '101', label: 'Business & Professional' },
@@ -118,7 +119,7 @@ export default class EventBriteSearches extends Component {
                     //     this.context.setEventNextPage(data.pagination.page_number+1)
                     // }
                     if (data.events.length === 0) {
-                        this.setState({noResults : true})
+                        this.setState({ noResults: true })
                     } else {
                         this.context.setEventPageNumber(data.pagination.page_number)
                         this.context.setEvents(data.events)
@@ -246,7 +247,6 @@ export default class EventBriteSearches extends Component {
     }
 
     renderNoResultsMessage() {
-        console.log(this.state)
         return (
             <h2>
                 Sorry no results were found from that search.

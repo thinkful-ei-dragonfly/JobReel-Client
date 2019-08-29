@@ -122,7 +122,7 @@ export default class Job extends Component {
         const {job = {}} = this.props
         const {type = {}} = this.props
         const {company = {}} = this.props
-        const location = this.props.company.location.name
+        const location = this.props.location
         return (
             <div className='job-card'>
                 <div className='job-card-title'>
