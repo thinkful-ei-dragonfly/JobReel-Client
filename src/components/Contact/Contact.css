@@ -29,3 +29,10 @@
   width: 15em;
   border-radius: 10px;
 }
+
+.connection-status{
+  border: 1px solid black;
+  padding: 5px;
+  margin: 0px auto;
+  color: black;
+}

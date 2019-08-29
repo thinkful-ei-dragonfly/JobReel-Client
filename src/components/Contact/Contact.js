@@ -20,7 +20,7 @@ class Contact extends React.Component {
     linkedin: this.props.linkedin,
     comments: this.props.comments || '',
     connected: this.props.connected,
-    date_connected: this.props.date_connected,
+    date_connected: this.props.date_connected || '',
     showDateConnected: false
   }
 
@@ -88,7 +88,7 @@ class Contact extends React.Component {
       offset.setMinutes(offset.getMinutes() + offset.getTimezoneOffset())
       return format(offset, 'YYYY-MM-DD')
     } else {
-      return null;
+      return '';
     }
   }
 
@@ -141,9 +141,9 @@ class Contact extends React.Component {
     (connected === false ) ? connectionStatus = "Not Connected" : connectionStatus = "Connected"
     let contact = 
       <div className="contact-box">
+        {date_connected ? <div className="connection-status green">{connectionStatus} on {format(date_connected, 'MM-DD-YYYY')}</div> : <div className="connection-status yellow">{connectionStatus}</div>}
         <h3>{contact_name}</h3>
         <h4>{job_title} at {company}</h4>
-        {date_connected ? <p>{connectionStatus} on {format(date_connected, 'MM-DD-YYYY')}</p> : <p>{connectionStatus}</p>}
         {email ? <p>Email: <a href={mail}>{email}</a></p> : ''}
         {linkedin ? <p>Linkedin: <a href={linkedin}>{linkedin}</a></p> : ''}
         {comments ? <p>{comments}</p> : ''}

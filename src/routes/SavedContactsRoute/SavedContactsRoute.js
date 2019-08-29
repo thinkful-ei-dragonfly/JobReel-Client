@@ -16,7 +16,6 @@ class SavedContactsRoute extends React.Component {
   componentDidMount = () => {
     jobReelApiService.getSavedContacts()
       .then(res => {
-        console.log(res)
         this.context.setContacts(res);
       }) 
   }

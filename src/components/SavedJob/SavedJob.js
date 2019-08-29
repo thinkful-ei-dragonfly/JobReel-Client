@@ -21,7 +21,7 @@ class SavedJob extends React.Component {
     url: this.props.url || '',
     status: this.props.status || '',
     description: this.props.desc || '',
-    date_applied: this.props.date_applied,
+    date_applied: this.props.date_applied || '',
     showDateApplied: false,
   };
 
@@ -173,7 +173,7 @@ class SavedJob extends React.Component {
       offset.setMinutes(offset.getMinutes() + offset.getTimezoneOffset())
       return format(offset, 'YYYY-MM-DD')
     } else {
-      return null;
+      return '';
     }
   }
 
@@ -207,7 +207,7 @@ class SavedJob extends React.Component {
       <div className="job-box">
         {jobStatus}
         <h3>{company}: {title}</h3>
-        <p>Posted {format(this.props.date, 'Do MMM YYYY')}</p>
+        <p>Posted {format(this.props.date, 'YYYY-MM-DD')}</p>
         <p>{location}</p>
         <div className='job-url'>
           <a href={url}>{company}</a>
