@@ -21,9 +21,9 @@ export default class FindContactsRoute extends Component {
   }
 
   componentDidMount() {
-    if (Object.keys(this.context.professionalsSearch).length == 0) {
-      this.props.history.push(`/professionalsearch`)
-    }
+    // if (this.context.professionalsSearch) {
+    //   this.props.history.push(`/professionalsearch`)
+    // }
     setTimeout(() => {
       JobReelService.getSavedContacts()
         .then(res => {

@@ -22,9 +22,9 @@ export default class JobsRoute extends Component {
   static contextType = JobReelContext
 
   componentDidMount() {
-    if (Object.keys(this.context.search).length == 0) {
-      this.props.history.push(`/jobsearch`)
-    }
+    // if (Object.keys(this.context.search).length == 0) {
+    //   this.props.history.push(`/jobsearch`)
+    // }
     const savedJobUrls = this.context.savedJobs.map(job => job.url);
     let savedJobUrlsObj = {};
     savedJobUrls.forEach(url => {
