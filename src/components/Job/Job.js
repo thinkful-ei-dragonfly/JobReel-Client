@@ -135,7 +135,7 @@ export default class Job extends Component {
                     <p>{company.name}</p>
                 </div>
                 <div className='job-card-location'>
-                    <p>{this.location ? location.name : 'Remote'}</p>
+                    <p>{location ? location : 'Remote'}</p>
                 </div>
                 <div className='expandButton'>
                     <FontAwesomeIcon icon='expand-arrows-alt' onClick={this.handleExpand}/>

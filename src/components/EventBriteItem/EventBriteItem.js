@@ -40,26 +40,6 @@ export default class EventBriteList extends Component {
             })
     }
 
-    // componentDidMount() {
-    //     const event_id = this.props.event_id
-    //     const event = { id: event_id }
-    //     fetch(`${config.API_ENDPOINT}/eventbrite/eventbyid`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json',
-    //             'authorization': `Bearer ${TokenService.getAuthToken()}`,
-    //         },
-    //         body: JSON.stringify({
-    //             event,
-    //         }),
-    //     })
-    //         .then(res =>
-    //             (!res.ok)
-    //                 ? res.json().then(e => Promise.reject(e))
-    //                 : res.json()
-    //         )
-    // }
-
     handleExpand = () => {
         this.setState({ expanded: true })
     }

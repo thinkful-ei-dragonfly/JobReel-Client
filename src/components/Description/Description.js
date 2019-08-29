@@ -1,7 +1,7 @@
 import React from 'react';
 import './Description.css'
 
-export default function Description(props){
+export default function Description(){
   return(
     <section className='app-description'>
       <h1>JobReel</h1>
