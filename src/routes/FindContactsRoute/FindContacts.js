@@ -22,9 +22,9 @@ export default class FindContactsRoute extends Component {
 
   componentDidMount() {
     console.log(this.context.professionalsSearch)
-    // if (Object.keys(this.context.professionalsSearch).length == 0) {
-    //   this.props.history.push(`/professionalsearch`)
-    // }
+    if (Object.keys(this.context.professionalsSearch).length == 0) {
+      this.props.history.push(`/professionalsearch`)
+    }
     setTimeout(() => {
       JobReelService.getSavedContacts()
         .then(res => {
@@ -54,8 +54,7 @@ export default class FindContactsRoute extends Component {
     const professionalList = professionals.map((professional, i) => {
       if (professional.first_name) {
         return <ProfessionalContact professional={professional} key={i} search={professionalsSearch} savedContactEmails={this.state.savedContactEmails}/>
-      }
-      return <></>         
+      }           
     })
     return (
       <div className='results'>
