@@ -8,6 +8,7 @@
     grid-template-rows: 10% 1fr 10%;
     grid-gap: 16px;
     min-height: 100vh;
+    max-height: 100vh;
   }
   
   a {
