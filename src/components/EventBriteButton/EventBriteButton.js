@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import config from '../../config'
-import './EventBrite.css';
 import TokenService from '../../services/token-service'
 
 
@@ -31,7 +30,7 @@ export default class EventBriteButton extends Component {
     const url = this.state.url
     return (
       <div className='content'>
-        <h1><a href={url} rel='noopener noreferrer' target='_blank'>Find Events</a></h1>     
+        <a href={url} rel='noopener noreferrer' target='_blank'>FIND EVENTS</a>    
       </div>
       
     )
