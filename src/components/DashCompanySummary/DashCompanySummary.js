@@ -28,7 +28,7 @@ class DashCompanySummary extends React.Component {
       )
     })
     return (
-      <ul>
+      <ul className='ul'>
         {companies}
       </ul>
     )
@@ -43,7 +43,9 @@ class DashCompanySummary extends React.Component {
         <div className='options'>
             {this.renderCompanySummaries()}
         </div>
-        <Link to="/companies">View all</Link>
+        <div className='viewAll'>
+          <Link to="/companies">View all</Link>
+        </div>
       </>
     )
   }

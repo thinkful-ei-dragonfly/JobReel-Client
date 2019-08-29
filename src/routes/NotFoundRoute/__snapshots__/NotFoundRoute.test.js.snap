@@ -73,6 +73,7 @@ exports[`NotFoundRoute snapshot test renders the UI as expected 1`] = `
      is licensed by 
     <a
       href="http://creativecommons.org/licenses/by/3.0/"
+      rel="noopener noreferrer"
       target="_blank"
       title="Creative Commons BY 3.0"
     >

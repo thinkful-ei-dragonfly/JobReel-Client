@@ -22,7 +22,7 @@ class TopNav extends React.Component {
           <Link to='/contacts'>Saved Contacts</Link>
         </div>
         <div className='topLink'>
-          <Link to='/events'>Events Search</Link>
+          <Link to='/eventbrite'>Events Search</Link>
         </div>
         <div className='topLink'>
           <Link to='/saved-events'>Saved Events</Link>
