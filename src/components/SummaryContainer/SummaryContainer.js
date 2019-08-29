@@ -13,7 +13,7 @@ class SummaryContainer extends React.Component {
       <div className="SummaryContainer">
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={100}
+          naturalSlideHeight={80}
           totalSlides={6}
         >
           <Slider>

@@ -36,7 +36,7 @@ class DashboardRoute extends React.Component {
         <MediaQuery maxDeviceWidth={959}>
           <TopNav/>
         </MediaQuery>
-        <Notifications />
+        {/* <Notifications /> */}
         <SummaryContainer />
       </div>
     )
