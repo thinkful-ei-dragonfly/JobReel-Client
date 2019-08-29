@@ -118,7 +118,7 @@ export default class EventBriteSearches extends Component {
                     //     this.context.setEventNextPage(data.pagination.page_number+1)
                     // }
                     if (data.events.length === 0) {
-                        this.setState({noResults = true})
+                        this.setState({noResults : true})
                     } else {
                         this.context.setEventPageNumber(data.pagination.page_number)
                         this.context.setEvents(data.events)
