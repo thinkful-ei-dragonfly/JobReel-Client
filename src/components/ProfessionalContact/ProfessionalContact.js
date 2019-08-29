@@ -26,7 +26,7 @@ handleClick = () => {
     this.setState({ error: null });
     const contact_name = `${this.props.professional.first_name} ${this.props.professional.last_name}`
     const job_title = this.props.professional.position
-    const company = this.props.search.company
+    const company = this.props.search.company || this.props.search.domain
     const email = this.props.professional.value
     const linkedin = this.props.professional.linkedin
     const connected = false
