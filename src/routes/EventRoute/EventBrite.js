@@ -31,7 +31,7 @@ export default class EventBrite extends Component {
     const url = this.state.url
     return (
       <div className='content'>
-        <h1><a href={url} rel='noopener noreferrer' target='_blank'>Connect to your events</a></h1>     
+        <h1><a href={url} rel='noopener noreferrer' target='_blank'>Find Events</a></h1>     
       </div>
       
     )

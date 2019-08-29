@@ -14,12 +14,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class JobsRoute extends Component {
   state = {
+  error: null,
   search: null,
-  savedJobUrls: {}
+  savedJobUrls: {},
+  noResults: false
   }
   static contextType = JobReelContext
 
   componentDidMount() {
+    // if (Object.keys(this.context.search).length == 0) {
+    //   this.props.history.push(`/jobsearch`)
+    // }
     const savedJobUrls = this.context.savedJobs.map(job => job.url);
     let savedJobUrlsObj = {};
     savedJobUrls.forEach(url => {
@@ -27,6 +32,7 @@ export default class JobsRoute extends Component {
     });
     this.setState({ savedJobUrls: savedJobUrlsObj });
     const search = this.context.search
+    console.log(search)
     setTimeout(() => {
       Promise.all([
         fetch(`${config.API_ENDPOINT}/jobs/authentic`, {
@@ -52,9 +58,17 @@ export default class JobsRoute extends Component {
       ])
         .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
         .then(([data1, data2]) => {
+          console.log(data1.listings.listing[0], data2)
+          if ((data1.listings.listing.length === 0) && (data2.length === 0)) {
+            this.setState({noResults: true})
+          } else {
           this.context.setGithubJobs(data2)
           this.context.setAuthenticJobs(data1.listings.listing)
-        });
+          }
+        })
+        .catch(error => {
+          this.setState({error})
+        })
     }, 500)
   }
    
@@ -79,10 +93,24 @@ export default class JobsRoute extends Component {
     )
   }
 
+  renderNoResultsMessage() {
+    return (
+      <h2>
+        Sorry no results were found from that search. 
+      </h2>
+    )
+  }
+
+  renderError() {
+    return (
+      `${this.state.error}`
+    )
+  }
 
   render() {
     return (
       <div className='job-search-results'>
+      {this.state.error && this.renderError()}
         <div className='jobsRouteImage'>
           <img src={jobsRouteImage} alt='jobs-route-background'/>
         </div>
@@ -100,6 +128,7 @@ export default class JobsRoute extends Component {
               <FontAwesomeIcon id='job-go-back' icon='times-circle' size='2x'/>
           </Link>
           {this.renderJobList()}
+          {this.state.noResults && this.renderNoResultsMessage()}
         </div>
         
         
