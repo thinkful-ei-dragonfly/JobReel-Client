@@ -32,7 +32,6 @@ export default class JobsRoute extends Component {
     });
     this.setState({ savedJobUrls: savedJobUrlsObj });
     const search = this.context.search
-    console.log(search)
     setTimeout(() => {
       Promise.all([
         fetch(`${config.API_ENDPOINT}/jobs/authentic`, {
@@ -58,7 +57,6 @@ export default class JobsRoute extends Component {
       ])
         .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
         .then(([data1, data2]) => {
-          console.log(data1.listings.listing[0], data2)
           if ((data1.listings.listing.length === 0) && (data2.length === 0)) {
             this.setState({noResults: true})
           } else {
