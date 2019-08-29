@@ -1,3 +1,19 @@
+.green{
+  background: #3C824E;
+}
+
+.yellow{
+  background: #d7c49e;
+}
+
+.red{
+  background: #fc766a;
+}
+
+.job-status{
+  color: black;
+}
+
 @media screen and (min-width: 960px) {
   .job-box {
     width: 80%;
@@ -55,18 +71,6 @@
   .job-description > ul {
     text-align: left;
     margin-bottom: 1em;
-  }
-  
-  .green{
-    background: green;
-  }
-  
-  .yellow{
-    background: rgb(224, 193, 13)
-  }
-  
-  .red{
-    background: rgb(255, 78, 78);
   }
   
   .edit-job-form label, input{
@@ -143,17 +147,17 @@
     margin-bottom: 1em;
   }
   
-  .green{
+  /* .green{
     background: green;
   }
   
   .yellow{
-    background: rgb(224, 193, 13)
+    background: #d7c49e;
   }
   
   .red{
     background: rgb(255, 78, 78);
-  }
+  } */
   
   .edit-job-form label, input{
     display: inline block;
@@ -229,7 +233,7 @@
     margin-bottom: 1em;
   }
   
-  .green{
+  /* .green{
     background: green;
   }
   
@@ -239,7 +243,7 @@
   
   .red{
     background: rgb(255, 78, 78);
-  }
+  } */
   
   .edit-job-form label, input{
     display: inline block;

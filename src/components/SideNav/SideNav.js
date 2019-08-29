@@ -27,7 +27,7 @@ class SideNav extends React.Component {
         </div>
         <br />
         <div className='link'>
-          <Link to='/events'>NETWORKING EVENTS</Link>
+          <Link to='/eventbrite'>NETWORKING EVENTS</Link>
         </div>
         <br />
         <div className='link'>

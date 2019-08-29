@@ -7,6 +7,7 @@ import TokenService from '../../services/token-service'
 import GithubJob from '../../components/Job/GithubJob';
 import SideNav from '../../components/SideNav/SideNav';
 import MediaQuery from 'react-responsive';
+import jobsRouteImage from '../../assests/jobsRouteImage.svg';
 import TopNav from '../../components/TopNav/TopNav'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -60,8 +61,6 @@ export default class JobsRoute extends Component {
   renderJobList() {
     const {gitHubJobs = [] } = this.context
     const {authenticJobs = [] } = this.context
-    console.log(gitHubJobs)
-    console.log(authenticJobs)
     const jobsListOne = gitHubJobs.map((job) => {
       return <GithubJob job={job} key={job.id} savedJobUrls={this.state.savedJobUrls}/>
     })
@@ -84,6 +83,9 @@ export default class JobsRoute extends Component {
   render() {
     return (
       <div className='job-search-results'>
+        <div className='jobsRouteImage'>
+          <img src={jobsRouteImage} alt='jobs-route-background'/>
+        </div>
         <div className='title'>
           <h2>Jobs List</h2>
         </div>

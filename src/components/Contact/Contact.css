@@ -1,26 +1,38 @@
 .contact-box {
-    width: 80%;
-    border: 1px black solid;
-    min-width: 300px;
-    padding: 0.5em;
-    border-radius: 10px;
-    margin: 0.75em auto;
-    background: #3b3a50;
-    color: #eeebd9;
-    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+  width: 80%;
+  border: 1px black solid;
+  min-width: 300px;
+  padding: 0.5em;
+  border-radius: 10px;
+  margin: 0.75em auto;
+  background: #3b3a50;
+  color: #eeebd9;
+  box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
 
 .edit-contact-form {
-    width: 80%;
-    border: 1px black solid;
-    min-width: 300px;
-    margin: 0 auto;
-    padding: 5%;
-    line-height: 150%;
-    border-radius: 10px;
-    text-align: center;
-    margin: auto;
-    background: #3b3a50;
-    color: #eeebd9;
-    box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39); 
+  width: 80%;
+  border: 1px black solid;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 5%;
+  line-height: 150%;
+  border-radius: 10px;
+  text-align: center;
+  margin: auto;
+  background: #3b3a50;
+  color: #eeebd9;
+  box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39); 
+}
+
+#connected-Input {
+  width: 15em;
+  border-radius: 10px;
+}
+
+.connection-status{
+  border: 1px solid black;
+  padding: 5px;
+  margin: 0px auto;
+  color: black;
 }

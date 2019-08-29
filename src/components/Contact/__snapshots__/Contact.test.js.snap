@@ -116,6 +116,7 @@ exports[`Contact snapshot test opens the edit form 1`] = `
       >
         Connection Status
       </Label>
+      <br />
       <select
         id="connected-Input"
         name="connected"
@@ -134,6 +135,7 @@ exports[`Contact snapshot test opens the edit form 1`] = `
         </option>
       </select>
     </div>
+    <br />
     <ForwardRef
       type="submit"
     >
@@ -156,6 +158,11 @@ exports[`Contact snapshot test renders the UI as expected 1`] = `
   <div
     className="contact-box"
   >
+    <div
+      className="connection-status yellow"
+    >
+      Connected
+    </div>
     <h3>
       name
     </h3>
@@ -164,9 +171,6 @@ exports[`Contact snapshot test renders the UI as expected 1`] = `
        at 
       company
     </h4>
-    <p>
-      Connected
-    </p>
     <p>
       Email: 
       <a

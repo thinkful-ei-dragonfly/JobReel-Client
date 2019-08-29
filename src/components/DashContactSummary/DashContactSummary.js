@@ -28,7 +28,7 @@ class DashContactSummary extends React.Component {
       )
     })
     return (
-      <ul>
+      <ul className='ul'>
         {contacts}
       </ul>
     )
@@ -43,7 +43,9 @@ class DashContactSummary extends React.Component {
         <div className='options'>
             {this.renderContactSummaries()}
         </div>
-        <Link to="/contacts">View all</Link>
+        <div className='viewAll'>
+          <Link to="/contacts">View all</Link>
+        </div>
       </>
     )
   }

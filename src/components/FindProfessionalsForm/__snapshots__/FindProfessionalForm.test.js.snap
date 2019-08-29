@@ -11,6 +11,14 @@ exports[`FindProfessionalForm snapshot test renders the UI as expected 1`] = `
       Find Professionals
     </h2>
   </div>
+  <div
+    className="findProfessionalsBackgroundImage"
+  >
+    <img
+      alt="contacts-form-background"
+      src="findContactsFormBackground.svg"
+    />
+  </div>
   <form
     className="ProfessionalSearchForm"
     onSubmit={[Function]}

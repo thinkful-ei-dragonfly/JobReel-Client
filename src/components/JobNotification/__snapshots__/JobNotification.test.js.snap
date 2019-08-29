@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobNotification snapshot test renders the UI as expected 1`] = `
+<div
+  className="job-notification"
+>
+  <p
+    key="2"
+  >
+    You applied to 
+    Company B
+     
+    13
+     days ago.  Have you heard back? 
+    <button
+      onClick={[Function]}
+    >
+      Clear
+    </button>
+  </p>
+</div>
+`;

@@ -5,6 +5,7 @@ import './Header.css';
 import JobReelContext from '../../context/JobReelContext';
 import './Header.css';
 import logo from '../../assests/jobreellogo200.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Header extends React.Component {
 
@@ -17,9 +18,6 @@ class Header extends React.Component {
   renderLogoutLink() {
     return (
       <div className='nav'>
-        <Link to='/profile'>
-          {this.context.user.username}
-        </Link>
         <nav role ='navigation'>
           <Link 
             onClick={this.handleLogOutClick}
@@ -43,6 +41,21 @@ class Header extends React.Component {
     )
   }
 
+  renderUsername() {
+    if (this.context.user.username) {
+      return (
+        <>
+          Signed in as  {this.context.user.username.toUpperCase()} <Link to='/profile'><FontAwesomeIcon icon='user-cog'/></Link>
+        </>
+      )
+    } else {
+      return (
+        <>
+        </>
+      )
+    }
+  }
+
   render() {
     return (
       <header className='header'>
@@ -50,6 +63,9 @@ class Header extends React.Component {
           <Link to='/dashboard'>
             <img src={logo} alt='jobreel-logo'/>
           </Link>
+        </div>
+        <div className='username'>
+            {this.renderUsername()}
         </div>
           {TokenService.hasAuthToken()
           ? this.renderLogoutLink()

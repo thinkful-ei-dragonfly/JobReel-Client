@@ -28,7 +28,7 @@ class DashResourceSummary extends React.Component {
       )
     })
     return (
-      <ul>
+      <ul className='ul'>
         {resources}
       </ul>
     )
@@ -43,7 +43,10 @@ class DashResourceSummary extends React.Component {
         <div className='options'>
             {this.renderResourceSummaries()}
         </div>
-        <Link to="/resources">View all</Link>
+        <div className='viewAll'>
+          <Link to="/resources">View all</Link>
+        </div>
+        
       </>
     )
   }
