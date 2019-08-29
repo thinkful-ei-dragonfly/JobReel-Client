@@ -7,6 +7,7 @@ function Footer(props) {
     return(
       <footer className='footer'>
         <div className='team-info'>
+          Created by:
           Aldiyar Batyrbekov
           Chris Fiander
           Erin Dustin
