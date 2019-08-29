@@ -40,7 +40,6 @@ export default class FindContactsRoute extends Component {
           if (data.data.emails.length === 0) {
             this.setState({noResults : true })
           } else {
-          console.log(data.data.emails[0])
           this.context.setProfessionals(data.data.emails)
           this.context.setFindContactsMetaData(data.meta)
           }
@@ -53,13 +52,23 @@ export default class FindContactsRoute extends Component {
     const professionalList = professionals.map((professional, i) => {
       if (professional.first_name) {
         return <ProfessionalContact professional={professional} key={i} search={professionalsSearch} savedContactEmails={this.state.savedContactEmails}/>
+      } else {
+        return null
       }           
     })
+    if (this.state.noResults) {
+      return (
+        <>
+        {this.renderNoResultsMessage()}
+        </>
+        )
+    } else {
     return (
       <div className='results'>
         {professionalList}
       </div>
     )
+    }
   }
 
   renderNoResultsMessage() {
@@ -90,7 +99,6 @@ export default class FindContactsRoute extends Component {
             <FontAwesomeIcon id='go-back' icon='times-circle' size='2x'/>
           </Link>
           {this.renderProfessionalContacts()}
-          {this.state.noResults && this.renderNoResultsMessage()}
         </div>
         
       </div>

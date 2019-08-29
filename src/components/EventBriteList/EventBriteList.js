@@ -11,7 +11,7 @@ export default class EventBriteList extends Component {
     static contextType = JobReelContext
 
     componentDidMount() {
-        if (Object.keys(this.context.eventsSearch).length == 0) {
+        if (Object.keys(this.context.eventsSearch).length === 0) {
             this.props.history.push(`/eventbritesearch`)
           }
     }
