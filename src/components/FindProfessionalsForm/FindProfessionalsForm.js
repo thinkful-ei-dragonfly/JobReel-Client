@@ -45,8 +45,8 @@ const customStyles = {
 
 export default class JobSearchForm extends React.Component {
   state = {
-    domain: null,
-    company: null,
+    domain: '',
+    company: '',
     formValid: false,
     validationMessages: {
       domain: '',
