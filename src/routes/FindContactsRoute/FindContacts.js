@@ -16,12 +16,11 @@ export default class FindContactsRoute extends Component {
 
   state = {
     search: null,
-    savedContactEmails: null,
+    savedContactEmails: [],
     noResults: false,
   }
 
   componentDidMount() {
-    console.log(this.context.professionalsSearch)
     if (Object.keys(this.context.professionalsSearch).length == 0) {
       this.props.history.push(`/professionalsearch`)
     }
@@ -40,8 +39,8 @@ export default class FindContactsRoute extends Component {
         .then(data => {
           if (data.data.emails.length === 0) {
             this.setState({noResults : true })
-            console.log(this.setState)
           } else {
+          console.log(data.data.emails[0])
           this.context.setProfessionals(data.data.emails)
           this.context.setFindContactsMetaData(data.meta)
           }
@@ -64,7 +63,6 @@ export default class FindContactsRoute extends Component {
   }
 
   renderNoResultsMessage() {
-    console.log(this.state)
     return (
         <h2>
             Sorry no results were found from that search.

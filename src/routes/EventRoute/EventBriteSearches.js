@@ -108,9 +108,9 @@ export default class EventBriteSearches extends Component {
             subcategory = e.target['subcategory'].value;
         }
         // const limit = e.target['limit'].value;
-        this.context.setProfessionalsSearch({ query, location, category, subcategory })
+        this.context.setEventsSearch({ query, location, category, subcategory })
         setTimeout(() => {
-            const search = this.context.professionalsSearch
+            const search = this.context.eventsSearch
             JobReelService.getEventBriteEvents(search)
                 .then(data => {
                     //continuation tokens currently non functional for eventbrite
