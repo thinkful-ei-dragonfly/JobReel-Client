@@ -71,6 +71,7 @@ export default class EventBriteSearches extends Component {
         location: '',
         subcategoryOptions: [],
         subcategory: '',
+        noResults: false,
     }
 
     static contextType = JobReelContext
@@ -107,19 +108,23 @@ export default class EventBriteSearches extends Component {
             subcategory = e.target['subcategory'].value;
         }
         // const limit = e.target['limit'].value;
-        this.context.setProfessionalsSearch({ query, location, category, subcategory })
+        this.context.setEventsSearch({ query, location, category, subcategory })
         setTimeout(() => {
-        const search =  this.context.professionalsSearch
-        JobReelService.getEventBriteEvents(search)
-            .then(data => {
-                //continuation tokens currently non functional for eventbrite
-                // if (data.pagination.page_count - data.pagination.page_number > 0) {
-                //     this.context.setEventNextPage(data.pagination.page_number+1)
-                // }
-                this.context.setEventPageNumber(data.pagination.page_number)
-                this.context.setEvents(data.events)
-                this.props.history.push(`/eventbriteevents`)
-            })
+            const search = this.context.eventsSearch
+            JobReelService.getEventBriteEvents(search)
+                .then(data => {
+                    //continuation tokens currently non functional for eventbrite
+                    // if (data.pagination.page_count - data.pagination.page_number > 0) {
+                    //     this.context.setEventNextPage(data.pagination.page_number+1)
+                    // }
+                    if (data.events.length === 0) {
+                        this.setState({noResults : true})
+                    } else {
+                        this.context.setEventPageNumber(data.pagination.page_number)
+                        this.context.setEvents(data.events)
+                        this.props.history.push(`/eventbriteevents`)
+                    }
+                })
         }, 500)
     }
 
@@ -210,7 +215,7 @@ export default class EventBriteSearches extends Component {
                         options={categoryOptions}
                         className="basic-multi-select"
                         classNamePrefix="select"
-                        defaultValue={{ label: "Optionally Select Category", value: ''}}
+                        defaultValue={{ label: "Optionally Select Category", value: '' }}
                         value={category}
                         onChange={this.handleChange}
                     />
@@ -240,12 +245,22 @@ export default class EventBriteSearches extends Component {
         )
     }
 
+    renderNoResultsMessage() {
+        console.log(this.state)
+        return (
+            <h2>
+                Sorry no results were found from that search.
+          </h2>
+        )
+    }
+
 
 
     render() {
         return (
             <>
                 {this.renderForm()}
+                {this.state.noResults && this.renderNoResultsMessage()}
             </>
         );
     }

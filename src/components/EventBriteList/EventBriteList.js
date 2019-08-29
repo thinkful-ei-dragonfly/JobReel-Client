@@ -10,9 +10,15 @@ export default class EventBriteList extends Component {
 
     static contextType = JobReelContext
 
+    componentDidMount() {
+        if (Object.keys(this.context.eventsSearch).length === 0) {
+            this.props.history.push(`/eventbritesearch`)
+          }
+    }
+
     renderEvents() {
         const {events = []} = this.context
-        const eventsList = events.map(event => {
+        const eventsList = events.map((event, i) => {
             return (
             <EventBriteItem 
             event={event} 
@@ -21,6 +27,7 @@ export default class EventBriteList extends Component {
             url={event.url}
             venue_id={event.venue_id}
             date = {event.end.local}
+            key={i}
             />
             )
         })
@@ -30,7 +37,7 @@ export default class EventBriteList extends Component {
     //eventbrite continuation tokens currently not working
     // handleNextPage = () => {
     //     const page = this.context.eventNextPage
-    //     const search =  this.context.professionalsSearch
+    //     const search =  this.context.eventsSearch
     //     JobReelService.getEventBriteEventsPaginated(search, page)
     //         .then(data => {
     //             if (data.pagination.page_count - data.pagination.page_number > 0) {

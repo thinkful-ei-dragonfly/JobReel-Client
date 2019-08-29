@@ -19,7 +19,7 @@ exports[`ProfessionalContact snapshot test renders the UI as expected 1`] = `
     >
       <p>
         Department: 
-        department
+        DEPARTMENT
       </p>
     </div>
     <div
