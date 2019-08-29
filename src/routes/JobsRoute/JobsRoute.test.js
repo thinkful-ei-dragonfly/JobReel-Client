@@ -25,7 +25,7 @@ class ContextProvider extends React.Component {
 describe('JobsRoute smoke test', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<BrowserRouter><JobsRoute /></BrowserRouter>, div)
+    ReactDOM.render(<BrowserRouter><JobsRoute/></BrowserRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
   })
 })

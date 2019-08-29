@@ -16,10 +16,14 @@ export default class FindContactsRoute extends Component {
 
   state = {
     search: null,
-    savedContactEmails: null,
+    savedContactEmails: [],
+    noResults: false,
   }
 
   componentDidMount() {
+    // if (this.context.professionalsSearch) {
+    //   this.props.history.push(`/professionalsearch`)
+    // }
     setTimeout(() => {
       JobReelService.getSavedContacts()
         .then(res => {
@@ -33,8 +37,13 @@ export default class FindContactsRoute extends Component {
       const search = this.context.professionalsSearch
       JobReelService.getProfessionalEmails(search)
         .then(data => {
+          if (data.data.emails.length === 0) {
+            this.setState({noResults : true })
+          } else {
+          console.log(data.data.emails[0])
           this.context.setProfessionals(data.data.emails)
           this.context.setFindContactsMetaData(data.meta)
+          }
         })
     }, 500)
   }
@@ -45,7 +54,7 @@ export default class FindContactsRoute extends Component {
       if (professional.first_name) {
         return <ProfessionalContact professional={professional} key={i} search={professionalsSearch} savedContactEmails={this.state.savedContactEmails}/>
       }
-      return <></>         
+      return null           
     })
     return (
       <div className='results'>
@@ -53,6 +62,15 @@ export default class FindContactsRoute extends Component {
       </div>
     )
   }
+
+  renderNoResultsMessage() {
+    return (
+        <h2>
+            Sorry no results were found from that search.
+      </h2>
+    )
+}
+
   render() {
     return (
       <div className='contacts-search-results'>
@@ -73,6 +91,7 @@ export default class FindContactsRoute extends Component {
             <FontAwesomeIcon id='go-back' icon='times-circle' size='2x'/>
           </Link>
           {this.renderProfessionalContacts()}
+          {this.state.noResults && this.renderNoResultsMessage()}
         </div>
         
       </div>
