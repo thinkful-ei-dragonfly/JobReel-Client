@@ -14,7 +14,7 @@ state = {
 }
 
 static getDerivedStateFromProps(props) {
-    const {professional = {}, savedContactEmails } = props
+    const {professional = {}, savedContactEmails = {} } = props
     if (professional.value in savedContactEmails) {
         return {saved: true};
     }
@@ -25,8 +25,8 @@ handleClick = () => {
     this.setState({ saved: true })
     this.setState({ error: null });
     const contact_name = `${this.props.professional.first_name} ${this.props.professional.last_name}`
-    const job_title = this.props.professional.position
-    const company = this.props.search.company
+    const job_title = this.props.professional.position || 'unknown position'
+    const company = this.props.search.company || this.props.search.domain
     const email = this.props.professional.value
     const linkedin = this.props.professional.linkedin
     const connected = false
@@ -65,7 +65,7 @@ renderProfessionalContact() {
       <h4>Name: {professional.first_name} {professional.last_name}</h4>
     </div>
     <div className='contact-department'>  
-        {professional.department ? <p>Department: {professional.department}</p> : ''}
+        {professional.department ? <p>Department: {(professional.department).toUpperCase()}</p> : ''}
       </div>
       <div className='contact-position'>
         {professional.position ? <p>Position: {professional.position}</p> : ''}

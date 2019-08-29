@@ -2,44 +2,26 @@
   max-width: 100vw;
   background: #3C3230;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
   height: 100%;
 }
 
-.team-info {
+.frontEnd {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: auto;
+}
+
+.backEnd {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  margin: auto;
+}
+
+.contactUs {
   grid-column-start: 2;
-  grid-column-end: 6;
+  grid-column-end: 3;
   margin: auto;
-  width: 100%;
-  height: 100%;
-  line-height: 168%;
-  justify-content: space-evenly;
 }
-
-.links-to-tech {
-  grid-column-start: 9;
-  grid-column-end: 12;
-  margin: auto;
-  line-height: 168%;
-}
-
-@media screen and (max-width: 700px) {
-  .footer {
-    grid-template-columns: 2.3fr 1fr;
-    height: 100px;
-  }
-
-  .team-info {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    justify-content: space-evenly;
-  }
-
-  .links-to-tech {
-    grid-column-start: 2;
-    grid-column-end: 3;
-  }
-}
-
 
