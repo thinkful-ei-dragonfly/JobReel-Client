@@ -61,8 +61,10 @@ class Notifications extends React.Component {
   render() {
     return (
       <div className="notifications-box">
+        <div className='notification-header'>
+          <h3>Notifications</h3>
+        </div>
         <div className="notifications">
-          <h2>Notifications</h2>
             {this.renderDatesApplied()}
             {this.renderContactsConnected()}
         </div>

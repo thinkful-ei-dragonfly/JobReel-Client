@@ -19,15 +19,16 @@ import FindContactsRoute from '../../routes/FindContactsRoute/FindContacts';
 import ResourcesRoute from '../../routes/ResourcesRoute/ResourcesRoute';
 import ProfileRoute from '../../routes/ProfileRoute/ProfileRoute';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fab, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import { faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase, faUserCog} from '@fortawesome/free-solid-svg-icons';
 import EventBrite from '../../routes/EventRoute/EventBrite';
 import EventBriteSearches from '../../routes/EventRoute/EventBriteSearches';
 import EventBriteList from '../EventBriteList/EventBriteList';
+import ContactRoute from '../../routes/ContactRoute/ContactRoute';
 
 
-library.add(fab, faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase, faUserCog);
+library.add(fab, faChevronLeft, faTimesCircle, faCompressArrowsAlt, faExpandArrowsAlt, faLocationArrow, faSuitcase, faUserCog, faGithub, faLinkedin);
 
 export default function App() {
   return (
@@ -35,6 +36,10 @@ export default function App() {
       <Header />
       <main>
         <Switch>
+          <Route
+            path={'/communicate'}
+            component={ContactRoute}
+          />  
         <PrivateRoute
             path={'/eventbriteevents'}
             component={EventBriteList}

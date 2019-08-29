@@ -1,13 +1,8 @@
-.notifications-box{
-  background: #3C3230;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  grid-column-start: 4;
-  grid-column-end: 9;
-  height: 250px;
+.notification-header {
+  text-align: center;
 }
 
-.notifications h2{
- text-align: center;
+.notifications {
+  width: 90%;
+  margin: 0 auto;
 }
