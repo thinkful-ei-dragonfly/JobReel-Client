@@ -23,8 +23,8 @@ class AddContactForm extends React.Component {
     const email = e.target.email.value;
     const linkedin = e.target.linkedin.value;
     const comments = e.target.comments.value;
-    let connected;
-    (e.target.connected.value === 'false') ? connected = false : connected = true;
+    let connected = false;
+    // (e.target.connected.value === 'false') ? connected = false : connected = true;
     const userInput = { user_id: this.context.user.id, job_title, company, contact_name, email, linkedin, comments, connected };
     jobReelApiService.submitContact(userInput)
       .then(res => {
@@ -34,7 +34,7 @@ class AddContactForm extends React.Component {
         e.target.email.value = '';
         e.target.linkedin.value = '';
         e.target.comments.value = '';
-        e.target.connected.value = false;
+        // e.target.connected.value = false;
         this.context.setContacts([...this.context.contacts, res]);
         this.context.setManualContactAdd(false)
       })
@@ -112,7 +112,7 @@ class AddContactForm extends React.Component {
               name='comments'
             />
           </div>
-          <div>
+          {/* <div>
           <Label htmlFor='connected'>Connection Status</Label>
           <select
               id='connected-Input'
@@ -121,7 +121,7 @@ class AddContactForm extends React.Component {
               <option value="false">Not Connected</option>
               <option value="true">Connected</option>
             </select>
-        </div>
+        </div> */}
           <Button onClick={() => this.context.setManualContactAdd(false)} type="button">Back</Button>
           <Button type="submit">Submit</Button>
         </form>

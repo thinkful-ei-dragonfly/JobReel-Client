@@ -158,6 +158,11 @@ exports[`Contact snapshot test renders the UI as expected 1`] = `
   <div
     className="contact-box"
   >
+    <div
+      className="connection-status yellow"
+    >
+      Connected
+    </div>
     <h3>
       name
     </h3>
@@ -166,9 +171,6 @@ exports[`Contact snapshot test renders the UI as expected 1`] = `
        at 
       company
     </h4>
-    <p>
-      Connected
-    </p>
     <p>
       Email: 
       <a

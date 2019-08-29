@@ -29,6 +29,7 @@ exports[`DashboardRoute snapshot test renders the UI as expected 1`] = `
   >
     <TopNav />
   </MediaQueryContextConsumer>
+  <Notifications />
   <SummaryContainer />
 </div>
 `;

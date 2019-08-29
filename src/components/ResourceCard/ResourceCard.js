@@ -70,7 +70,7 @@ export default class ResourceCard extends React.Component {
           <p>{type}</p>
         </div>
         <div className='card-description'>
-          <a href={description} alt={title}>{description}</a>
+          <a href={description} target="_blank" rel="noopener noreferrer" alt={title}>{description}</a>
         </div>
         <br/>
         <Button onClick={() => this.handleClickDelete(this.props.id)} type="button">Delete</Button>

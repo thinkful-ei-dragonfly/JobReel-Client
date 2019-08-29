@@ -32,18 +32,18 @@ const categoryOptions = [
 ];
 
 
-const subcategoryOptions = [
-    { value: 'it', label: 'IT' },
-    { value: 'finance', label: 'Finance' },
-    { value: 'management', label: 'Management' },
-    { value: 'sales', label: 'Sales' },
-    { value: 'legal', label: 'Legal' },
-    { value: 'support', label: 'Support' },
-    { value: 'hr', label: 'HR' },
-    { value: 'marketing', label: 'Marketing' },
-    { value: 'communication', label: 'Communication' },
-    { value: 'executive', label: 'Executive' }
-];
+// const subcategoryOptions = [
+//     { value: 'it', label: 'IT' },
+//     { value: 'finance', label: 'Finance' },
+//     { value: 'management', label: 'Management' },
+//     { value: 'sales', label: 'Sales' },
+//     { value: 'legal', label: 'Legal' },
+//     { value: 'support', label: 'Support' },
+//     { value: 'hr', label: 'HR' },
+//     { value: 'marketing', label: 'Marketing' },
+//     { value: 'communication', label: 'Communication' },
+//     { value: 'executive', label: 'Executive' }
+// ];
 
 
 const customStyles = {
