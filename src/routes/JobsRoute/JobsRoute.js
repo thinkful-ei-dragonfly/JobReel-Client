@@ -15,7 +15,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default class JobsRoute extends Component {
   state = {
   search: null,
-  savedJobUrls: {}
+  savedJobUrls: {},
+  noResults: false
   }
   static contextType = JobReelContext
 
@@ -52,8 +53,13 @@ export default class JobsRoute extends Component {
       ])
         .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
         .then(([data1, data2]) => {
+          console.log(data1.listings.listing, data2)
+          if ((data1.listings.listing.length === 0) && (data2.length === 0)) {
+            this.setState({noResults: true})
+          } else {
           this.context.setGithubJobs(data2)
           this.context.setAuthenticJobs(data1.listings.listing)
+          }
         });
     }, 500)
   }
@@ -79,6 +85,15 @@ export default class JobsRoute extends Component {
     )
   }
 
+  renderNoResultsMessage() {
+    console.log(this.state)
+    return (
+      <h2>
+        Sorry no results were found from that search. 
+      </h2>
+    )
+  }
+
 
   render() {
     return (
@@ -100,6 +115,7 @@ export default class JobsRoute extends Component {
               <FontAwesomeIcon id='job-go-back' icon='times-circle' size='2x'/>
           </Link>
           {this.renderJobList()}
+          {this.state.noResults && this.renderNoResultsMessage()}
         </div>
         
         

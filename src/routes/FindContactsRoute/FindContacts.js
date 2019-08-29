@@ -17,9 +17,11 @@ export default class FindContactsRoute extends Component {
   state = {
     search: null,
     savedContactEmails: null,
+    noResults: false,
   }
 
   componentDidMount() {
+    console.log(this.state)
     setTimeout(() => {
       JobReelService.getSavedContacts()
         .then(res => {
@@ -33,8 +35,13 @@ export default class FindContactsRoute extends Component {
       const search = this.context.professionalsSearch
       JobReelService.getProfessionalEmails(search)
         .then(data => {
+          if (data.data.emails.length === 0) {
+            this.setState({noResults : true })
+            console.log(this.setState)
+          } else {
           this.context.setProfessionals(data.data.emails)
           this.context.setFindContactsMetaData(data.meta)
+          }
         })
     }, 500)
   }
@@ -52,6 +59,16 @@ export default class FindContactsRoute extends Component {
       </div>
     )
   }
+
+  renderNoResultsMessage() {
+    console.log(this.state)
+    return (
+        <h2>
+            Sorry no results were found from that search.
+      </h2>
+    )
+}
+
   render() {
     return (
       <div className='contacts-search-results'>
@@ -72,6 +89,7 @@ export default class FindContactsRoute extends Component {
             <FontAwesomeIcon id='go-back' icon='times-circle' size='2x'/>
           </Link>
           {this.renderProfessionalContacts()}
+          {this.state.noResults && this.renderNoResultsMessage()}
         </div>
         
       </div>
