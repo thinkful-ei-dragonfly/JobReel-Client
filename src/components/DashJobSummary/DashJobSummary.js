@@ -33,11 +33,11 @@ class DashJobSummary extends React.Component {
     }
     jobs = jobs.slice(0, 3).map(job => {
       return (
-        <li key={job.job_id}>{job.job_title}, {job.company} - <a href={job.url}>{job.url}</a></li>
+        <li key={job.job_id}>{job.company} - <a href={job.url}>{job.job_title}</a></li>
       )
     })
     return (
-      <ul>
+      <ul className='ul'>
         {jobs}
       </ul>
     )
@@ -52,7 +52,9 @@ class DashJobSummary extends React.Component {
         <div className='options'>
             {this.renderJobSummaries()}
         </div>
-        <Link to="/saved-jobs">View all</Link>
+        <div className='viewAll'>
+          <Link to="/saved-jobs">View all</Link>
+        </div>
       </>
     )
   }

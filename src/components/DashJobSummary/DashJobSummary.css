@@ -3,6 +3,17 @@
 }
 
 .options > ul > li {
-  margin: 10px;
   list-style: none;
+  width: 100%;
+}
+
+.ul {
+  padding-left: 0;
+  width: 95%;
+  margin: auto;
+  height: 100%;
+}
+
+.viewAll {
+  text-align: center;
 }
