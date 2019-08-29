@@ -4,7 +4,6 @@ import ResourceCard from '../ResourceCard/ResourceCard';
 import Button from '../Button/Button';
 import JobReelContext from '../../context/JobReelContext';
 import { Label, Input } from '../Form/Form';
-// import jobReelApiService from '../../services/jobreel-api-service';
 
 export default class ResourcesList extends React.Component {
 
