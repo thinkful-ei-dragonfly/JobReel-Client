@@ -78,7 +78,7 @@ export default class EventBriteList extends Component {
 
     renderEvent() {
         const name = this.props.name
-        const url = this.props.url
+        // const url = this.props.url
         const host = this.state.host
         const address = this.state.address
         const date = this.props.date
