@@ -4,7 +4,7 @@
     grid-column-end: 9;
     border: 1px solid black;
     border-radius: 10px;
-    height: 400px;
+    height: 500px;
     position: relative;
     background: #3C3230;
     color: #eeebd9;
@@ -15,6 +15,7 @@
   .savedJobFilterControls {
     width: 90%;
     text-align: right;
+    margin: 10px;
   }
   
   #savedJobFilterTitle {
@@ -30,6 +31,10 @@
   
   #savedJobFilterTitle {
     margin: 0.5em auto;
+  }
+
+  #saved-job-search{
+    margin-right: 0px;
   }
   
   #addButton {
@@ -55,6 +60,11 @@
   .savedJobFilterControls {
     width: 90%;
     text-align: right;
+    margin: 10px;
+  }
+
+  #saved-job-search{
+    margin-right: 0px;
   }
   
   #savedJobFilterTitle {
@@ -95,7 +105,13 @@
   .savedJobFilterControls {
     width: 90%;
     text-align: right;
+    margin: 10px;
   }
+
+  #saved-job-search{
+    margin-right: 0px;
+  }
+  
   
   #savedJobFilterTitle {
     vertical-align: middle;

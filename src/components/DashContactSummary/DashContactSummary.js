@@ -24,7 +24,7 @@ class DashContactSummary extends React.Component {
     });
     contacts = contacts.slice(0, 3).map(contact => {
       return (
-        <li key={contact.contact_id}>{contact.contact_name} - {contact.company} - {contact.email} - <a href={contact.linkedin}>LinkedIn</a></li>
+        <li key={contact.contact_id}>{contact.contact_name} - {contact.company} - {contact.email} </li>
       )
     })
     return (

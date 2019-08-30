@@ -6,7 +6,6 @@ import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
 import Select from 'react-select';
 import JobReelService from '../../services/jobreel-api-service';
-import SideNav from '../../components/SideNav/SideNav';
 
 const categoryOptions = [
     { value: '101', label: 'Business & Professional' },
@@ -242,6 +241,7 @@ export default class EventBriteSearches extends Component {
                 </div>}
                 <br />
                 <Button type="submit">Submit</Button>
+                <Button type="submit" onClick={() => this.props.history.push('/dashboard')}>Back</Button>
             </form>
         )
     }

@@ -24,6 +24,7 @@
     top: 50%;
     height: 2em;
     background: #3C824E;
+    color: white;
   }
   
   .carousel__back-button {
@@ -33,6 +34,7 @@
     top: 50%;
     height: 2em;
     background: #3C824E;
+    color: white;
   }
   
   .carousel__back-button:hover, .carousel__next-button:hover {
@@ -71,6 +73,7 @@
     top: 50%;
     height: 2em;
     background: #3C824E;
+    color: white;
   }
   
   .carousel__back-button {
@@ -80,6 +83,7 @@
     top: 50%;
     height: 2em;
     background: #3C824E;
+    color: white;
   }
   
   .carousel__back-button:hover, .carousel__next-button:hover {
@@ -115,6 +119,7 @@
     top: 50%;
     height: 2em;
     background: #3C824E;
+    color: white;
   }
   
   .carousel__back-button {
@@ -124,6 +129,7 @@
     top: 50%;
     height: 2em;
     background: #3C824E;
+    color: white;
   }
   
   .carousel__back-button:hover, .carousel__next-button:hover {

@@ -9,18 +9,26 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class EventBriteList extends Component {
-  state = {
-    events: null,
-    noResults: false,
-  }
 
-  static contextType = JobReelContext
+    static contextType = JobReelContext
 
-  componentDidMount() {
-    if (Object.keys(this.context.eventsSearch).length === 0) {
-      this.props.history.push(`/eventbritesearch`)
-      }
-  }
+    state = {
+        events: null,
+        savedEventUrls: {},
+        noResults: false,
+    }
+
+    componentDidMount() {
+        if (Object.keys(this.context.eventsSearch).length === 0) {
+            this.props.history.push(`/eventbritesearch`)
+          }
+        const savedEventUrls = this.context.savedEvents.map(event => event.url);
+        let savedEventUrlsObj = {};
+        savedEventUrls.forEach(url => {
+        savedEventUrlsObj[url] = url;
+        });
+        this.setState({ savedEventUrls: savedEventUrlsObj });
+    } 
 
   renderNoResultsMessage() {
     return (
@@ -41,9 +49,9 @@ export default class EventBriteList extends Component {
       url={event.url}
       venue_id={event.venue_id}
       date = {event.end.local}
+      savedEventUrls={this.state.savedEventUrls}
       key={i}
-      />
-      )
+      />)
     })
     return (
         <div className='results'>

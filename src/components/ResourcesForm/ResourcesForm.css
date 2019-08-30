@@ -1,6 +1,6 @@
 .resources-form {
-  grid-column-start: 6;
-  grid-column-end: 9;
+  grid-column-start: 4;
+  grid-column-end: 7;
   border: 1px black solid;
   min-width: 300px;
   margin: 0 auto;

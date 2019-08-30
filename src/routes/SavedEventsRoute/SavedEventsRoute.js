@@ -26,7 +26,7 @@ class SavedEventsRoute extends React.Component {
     return (
       <div className="SavedEventsRoute">
         <div className='title'>
-          <h2>Events</h2>
+          <h2>Saved Events</h2>
         </div>
         <div className='savedEventsBack'>
           <img src={savedEventsBack} alt='saved-events-background'/>

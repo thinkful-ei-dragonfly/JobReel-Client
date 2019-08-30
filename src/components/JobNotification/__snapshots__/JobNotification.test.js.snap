@@ -5,14 +5,16 @@ exports[`JobNotification snapshot test renders the UI as expected 1`] = `
   className="job-notification"
 >
   <p
+    className="notification"
     key="2"
   >
     You applied to 
     Company B
      
-    13
-     days ago.  Have you heard back? 
+    14
+     days ago.  Have you heard back?
     <button
+      className="notification-button"
       onClick={[Function]}
     >
       Clear

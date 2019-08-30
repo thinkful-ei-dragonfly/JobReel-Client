@@ -2,10 +2,9 @@
 
 exports[`AddJobForm snapshot test renders the UI as expected 1`] = `
 <div
-  className="form"
+  className="add-job-form"
 >
   <form
-    className="add-job-form"
     onSubmit={[Function]}
   >
     <div

@@ -19,6 +19,7 @@ export default class JobsRoute extends Component {
   savedJobUrls: {},
   noResults: false
   }
+  
   static contextType = JobReelContext
 
   componentDidMount() {

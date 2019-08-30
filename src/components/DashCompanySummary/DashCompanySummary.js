@@ -24,7 +24,7 @@ class DashCompanySummary extends React.Component {
     });
     companies = companies.slice(0, 3).map(company => {
       return (
-        <li key={company.company_id}>{company.company_name} - <a href={company.website}>{company.website}</a>- Contact: {company.contact}</li>
+        <li key={company.company_id}>{company.company_name} - <a target="_blank" rel="noopener noreferrer" href={company.website}>{company.website}</a></li>
       )
     })
     return (
