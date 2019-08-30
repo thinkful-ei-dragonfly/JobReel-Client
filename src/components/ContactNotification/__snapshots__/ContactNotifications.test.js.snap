@@ -5,19 +5,21 @@ exports[`ContactNotification snapshot test renders the UI as expected 1`] = `
   className="contact-notification"
 >
   <p
+    className="notification"
     key="1"
   >
     You reached out to 
      
     27
-     days ago.  
+     days ago.
     <a
       href="mailto:email@email.com"
     >
-      Follow up
+       Follow up 
     </a>
-     if you haven't received a response.
+    if you haven't received a response.
     <button
+      className="notification-button"
       onClick={[Function]}
     >
       Clear

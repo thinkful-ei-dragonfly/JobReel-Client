@@ -8,7 +8,7 @@ exports[`SavedEventsRoute snapshot test renders the UI as expected 1`] = `
     className="title"
   >
     <h2>
-      Events
+      Saved Events
     </h2>
   </div>
   <div
