@@ -1,5 +1,9 @@
 # JobReel
 
+##
+Creators:
+Aldiyar Batyrbekov, Chris Fiander, Erin Dustin, Jonathan Moore, Michael Romero
+
 ## Link to app
 
 https://jobreel-c7frxyvlr.now.sh
