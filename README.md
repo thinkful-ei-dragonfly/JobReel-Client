@@ -11,6 +11,12 @@ A section on the technology used.
 
 https://jobreel-c7frxyvlr.now.sh
 
+## Demo
+
+To see apps functionality just log in with demo credentials.
+Username: Demo
+Password: Asdf123!
+
 ## API Documentation
 
 ## Screenshots
