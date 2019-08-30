@@ -68,7 +68,7 @@ export default function App() {
             component={LoginRoute}
           />
           <PrivateRoute
-            path={'/dashboard'}
+            exact path={'/dashboard'}
             component={DashboardRoute}
           />
           <PrivateRoute

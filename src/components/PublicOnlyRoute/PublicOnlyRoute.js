@@ -11,7 +11,7 @@ export default function PublicOnlyRoute({ component, ...props }) {
         <JobReelContext.Consumer>
           {jobReelContext =>
             !!jobReelContext.user.id
-              ? <Redirect to={'/'} />
+              ? <Redirect to={'/dashboard'} />
               : <Component {...componentProps} />
           }
         </JobReelContext.Consumer>
