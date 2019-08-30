@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import config from '../../config';
-import Button from '../Button/Button';
 import TokenService from '../../services/token-service';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
