@@ -152,10 +152,13 @@ export default class EventBriteList extends Component {
                     {!this.state.URL && <button onClick={this.handleURL}>Event Page</button>}
                     <br/>
                     {this.state.URL && this.renderEventURL()}
+                    <br/>
                     {this.state.URL && this.renderURLcollapse()}
+                    <br/>
                     <button onClick={this.handleCollapse}>
                         Collapse Description
                     </button>
+                    <br/>
                     {this.renderSaveButton()}
                 </div>
             </div>
@@ -165,17 +168,11 @@ export default class EventBriteList extends Component {
     renderSaveButton() {
         if (this.state.saved) {
             return (
-                <div className='save-button'>
                     <p>Saved &#10004;</p>
-                </div>
-            
             )
         }
         return (
-            <div className='save-button'>
                 <button id='save-button' onClick={this.handleClick}>Save Event</button>
-            </div>
-        
         )   
     }
 
