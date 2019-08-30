@@ -22,10 +22,8 @@ export default class EventBriteList extends Component {
     }
 
     static getDerivedStateFromProps(props) {
-        const {event = {}, savedEventUrls} = props;
-        console.log(event.url)
-        console.log(savedEventUrls)
-        if (event.url in savedEventUrls) {
+        const {savedEventUrls, url} = props;
+        if (url in savedEventUrls) {
             return {saved: true};
         }
         return null;
@@ -50,7 +48,6 @@ export default class EventBriteList extends Component {
                     : res.json()
             )
             .then(data => {
-                console.log(data)
                 this.setState({ host: data.name })
                 this.setState({ address: data.address.localized_address_display })
                 this.setState({ city: data.address.city })
@@ -69,10 +66,8 @@ export default class EventBriteList extends Component {
             url: this.props.url,
             description: this.props.description,
         }
-        console.log(eventData)
         jobReelApiService.submitEvent(eventData)
             .then(res => {
-                console.log(res)
                 this.setState({saved: true});
                 this.context.setSavedEvents([...this.context.savedEvents, res]);
             })
@@ -226,7 +221,6 @@ export default class EventBriteList extends Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <>
                 {this.renderFunction()}
