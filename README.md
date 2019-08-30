@@ -12,15 +12,31 @@ Password: Asdf123!
 
 ## Landing and User Routes
 
-### Register: 
+### Register:
+
+![register](/src/images/registerpicture.jpg "Register Route")
+
+Registration route has information about the project as well as a form for a user to sign up for the application
 
 ### Login:
+![login](/src/images/loginpicture.jpg "Login")
 
+Simple login form to verify entered credentials.
 ### Profile:
+
+![profile](src/images/profilepicture.jpg "Profile-screen")
+
+We allow users to add their information or change it later on
 
 ### Dashboard:
 
+![dashboard](src/images/dashboardpic.jpg "Dashboard-screen")
+
+All the information that is needed to use the app is here
+
 ### NotFound:
+
+In an event of a bad request, user is taken to this page. Try something like "skyhigh" or "iwanttoseestarwars"
 
 ## API Documentation and Routes
 
@@ -40,13 +56,23 @@ The find events route uses the eventbrite API. The api is guarded with OAUTH2, t
 
 ### Resources:
 
+When you look for job every resuorce is great. Save the resources to this route to access it later when needed
+
 ### SavedCompanies:
+
+Save a list of companies that you want to be part of. Save information about their location. You can also add a contact to connect that who works at that company
 
 ### SavedContacts:
 
+List of your network. Very useful to stay up to date on job hunt market.
+
 ### SavedEvents:
 
+When jobseeking networking events are great place to be. See and alter a list of events that you have been part of or that you are planning to attend
+
 ### SavedJobs:
+
+You have applied for jobs. Here is the list of jobs that you have applied to.
 
 ## Summary
 
