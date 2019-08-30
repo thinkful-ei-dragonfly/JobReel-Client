@@ -31,6 +31,7 @@ export default class JobsRoute extends Component {
       savedJobUrlsObj[url] = url;
     });
     this.setState({ savedJobUrls: savedJobUrlsObj });
+    
     const search = this.context.search
     setTimeout(() => {
       Promise.all([

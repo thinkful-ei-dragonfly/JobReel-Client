@@ -6,6 +6,7 @@ import SideNav from '../SideNav/SideNav';
 export default class EventBriteList extends Component {
     state = {
         events: null,
+        savedEventUrls: {},
     }
 
     static contextType = JobReelContext
@@ -14,7 +15,13 @@ export default class EventBriteList extends Component {
         if (Object.keys(this.context.eventsSearch).length === 0) {
             this.props.history.push(`/eventbritesearch`)
           }
-    }
+        const savedEventUrls = this.context.savedEvents.map(event => event.url);
+        let savedEventUrlsObj = {};
+        savedEventUrls.forEach(url => {
+        savedEventUrlsObj[url] = url;
+        });
+        this.setState({ savedEventUrls: savedEventUrlsObj });
+    } 
 
     renderEvents() {
         const {events = []} = this.context
@@ -28,6 +35,7 @@ export default class EventBriteList extends Component {
             venue_id={event.venue_id}
             date = {event.end.local}
             key={i}
+            savedEventUrls={this.state.savedEventUrls}
             />
             )
         })

@@ -125,7 +125,7 @@ class Contact extends React.Component {
     (date_connected || showDateConnected)
       ? dateSelector = 
       <div>
-        <Label htmlFor='date-input'>Date Applied</Label>
+        <Label htmlFor='date-input'>Date Connected</Label>
         <br/>
         <Input type="date" id='date-input' name='date' value={this.convertDate(date_connected)} onChange={this.handleDateConnected}/>
       </div>
