@@ -77,7 +77,7 @@ export default class FindContactsRoute extends Component {
             Sorry no results were found from that search.
       </h2>
     )
-}
+  }
 
   render() {
     return (

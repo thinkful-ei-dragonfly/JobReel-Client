@@ -63,50 +63,72 @@ export default class EventBriteList extends Component {
         const address = this.state.address
         const date = this.props.date
         return (
-            <li>
-                <h4>{name}</h4>
-                <p>Host: {host}</p>
-                <p>Address: {address}</p>
-                <p>Date:<Moment format="MM/DD/YYYY">{date}</Moment></p>
-                <br />
-                {!this.state.URL && <button onClick={this.handleURL}>Event Page</button>}
-                <br/>
-                {this.state.URL && this.renderEventURL()}
-                <br/>
-                {this.state.URL && this.renderURLcollapse()}
-                <br />
-                <button onClick={this.handleExpand}>
-                    More Details
-                </button>
-            </li>
+            <div className='event-card'>
+                <div className='event-name'>
+                    <h4>{name}</h4>
+                </div>
+                <div className='event-host'>
+                    <p>Host: {host}</p>
+                </div>
+                <div className='event-address'>
+                    <p>Address: {address}</p>
+                </div>
+                <div className='event-date'>
+                    <p>Date:<Moment format="MM/DD/YYYY">{date}</Moment></p>
+                </div>
+                <div className='event-controls'>
+                    <br />
+                    {!this.state.URL && <button onClick={this.handleURL}>Event Page</button>}
+                    <br/>
+                    {this.state.URL && this.renderEventURL()}
+                    <br/>
+                    {this.state.URL && this.renderURLcollapse()}
+                    <br />
+                    <button onClick={this.handleExpand}>
+                        More Details
+                    </button>
+                </div>
+            </div>
         )
     }
 
     renderEventExpanded() {
         const name = this.props.name
         const description = this.props.description
+        const host = this.state.host
         const venue = this.state
         const address = venue.address
         const date = this.props.date
         return (
-            <li>
-                <h4>{name}</h4>
-                <p>Host: {venue.name}</p>
-                <p>Address: {address}</p>
-                <p>Date:<Moment>{date}</Moment></p>
-                <br />
-                {!this.state.URL && <button onClick={this.handleURL}>Event Page</button>}
-                <br/>
-                {this.state.URL && this.renderEventURL()}
-                <br/>
-                {this.state.URL && this.renderURLcollapse()}
-                <br />
-                <p>{description}</p>
-                <br/>
-                <button onClick={this.handleCollapse}>
-                    Collapse Description
-                </button>
-            </li>
+            <div className='event-card'>
+                <div className='event-name'>
+                    <h4>{name}</h4>
+                </div>
+                <div className='event-host'>
+                    <p>Host: {host}</p>
+                </div>
+                <div className='event-address'>
+                    <p>Address: {address}</p>
+                </div>
+                <div className='event-date'>
+                    <p>Date:<Moment format="MM/DD/YYYY">{date}</Moment></p>
+                </div>
+                <div className='event-description'>
+                    <p>{description}</p>
+                </div>
+                <div className='event-controls'>
+                    <br />
+                    {!this.state.URL && <button onClick={this.handleURL}>Event Page</button>}
+                    <br/>
+                    {this.state.URL && this.renderEventURL()}
+                    <br/>
+                    {this.state.URL && this.renderURLcollapse()}
+                    <br />
+                    <button onClick={this.handleCollapse}>
+                        Collapse Description
+                    </button>
+                </div>
+            </div>
         )
     }
 
@@ -115,8 +137,8 @@ export default class EventBriteList extends Component {
         return (
             <>
                 <Iframe url={url}
-                    width="450px"
-                    height="450px"
+                    width="300px"
+                    height="300px"
                     id="myId"
                     className="myClassname"
                     display="initial"
