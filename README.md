@@ -26,13 +26,15 @@ Simple login form to verify entered credentials.
 
 ![profile](src/images/profilepicture.jpg "Profile-screen")
 
-We allow users to add their information or change it later on
+The Profile route displays the user's account information stored in the database and allows the user to edit that information.
 
 ### Dashboard:
 
 ![dashboard](src/images/dashboardpic.jpg "Dashboard-screen")
 
 All the information that is needed to use the app is here
+
+The Dashboard route displays notifications as well as summary sections for applied jobs, saved jobs, saved companies, saved contacts, saved events, and saved resources. Each summary section displays the last three items added to that category.
 
 ### NotFound:
 
@@ -60,19 +62,19 @@ When you look for job every resuorce is great. Save the resources to this route 
 
 ### SavedCompanies:
 
-Save a list of companies that you want to be part of. Save information about their location. You can also add a contact to connect that who works at that company
+The SavedCompanies route displays all companies of interest that the user has stored to the database. This route also contains a form that allows users to manually add companies to the database. The user can also edit saved company information.
 
 ### SavedContacts:
 
-List of your network. Very useful to stay up to date on job hunt market.
+The SavedContacts route displays all contacts of interest that the user has stored to the database. This route also contains a form that allows users to manually add contacts to the database. The user can also edit saved contact information.
 
 ### SavedEvents:
 
-When jobseeking networking events are great place to be. See and alter a list of events that you have been part of or that you are planning to attend
+The SavedEvents route displays all events of interest that the user has stored to the database. This route also contains a form that allows users to manually add events to the database. The user can also edit saved event information.
 
 ### SavedJobs:
 
-You have applied for jobs. Here is the list of jobs that you have applied to.
+The SavedJobs route displays all jobs of interest that the user has stored to the database. This route also contains a form that allows users to manually add jobs to the database. The user can also edit saved job information.
 
 ## Summary
 
