@@ -9,8 +9,8 @@
   margin: auto;
   background: #3b3a50;
   color: #eeebd9;
-  grid-column-start: 6;
-  grid-column-end: 9;
+  grid-column-start: 4;
+  grid-column-end: 7;
   box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
 }
 

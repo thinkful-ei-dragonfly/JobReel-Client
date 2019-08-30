@@ -7,8 +7,8 @@
   height: 320px;
   width: 320px;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0px;
+  right: 0px;
   z-index: -1;
 }
 
