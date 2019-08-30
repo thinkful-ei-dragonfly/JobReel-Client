@@ -8,7 +8,8 @@
   background: #3C3230;
   color: #eeebd9;
   line-height: 168%;
-  text-align: center;
+  text-align: left;
+  padding: 10px;
 }
 
 .TopNav:hover {
@@ -19,6 +20,7 @@
 
 .topLink {
   display: inline-block;
+  padding-left: 10px;
   width: 50%;
 }
 
@@ -35,4 +37,8 @@
   .topLink {
     width: 50%;
   }
+  .TopNav {
+    padding: 5px;
+  }
+
 }

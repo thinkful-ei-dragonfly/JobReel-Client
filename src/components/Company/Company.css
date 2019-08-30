@@ -1,5 +1,5 @@
 .company-box {
-    width: 80%;
+    width: 90%;
     border: 1px black solid;
     min-width: 300px;
     padding: 0.5em;
@@ -23,4 +23,8 @@
     background: #3b3a50;
     color: #eeebd9;
     box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+}
+
+.Button{
+    margin: 10px auto;
 }

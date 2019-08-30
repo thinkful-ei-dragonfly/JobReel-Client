@@ -22,12 +22,12 @@ export default class EventBriteList extends Component {
         if (Object.keys(this.context.eventsSearch).length === 0) {
             this.props.history.push(`/eventbritesearch`)
           }
-        const savedEventUrls = this.context.savedEvents.map(event => event.url);
-        let savedEventUrlsObj = {};
-        savedEventUrls.forEach(url => {
-        savedEventUrlsObj[url] = url;
-        });
-        this.setState({ savedEventUrls: savedEventUrlsObj });
+        // const savedEventUrls = this.context.savedEvents.map(event => event.url);
+        // let savedEventUrlsObj = {};
+        // savedEventUrls.forEach(url => {
+        // savedEventUrlsObj[url] = url;
+        // });
+        // this.setState({ savedEventUrls: savedEventUrlsObj });
     } 
 
   renderNoResultsMessage() {
@@ -49,6 +49,7 @@ export default class EventBriteList extends Component {
       url={event.url}
       venue_id={event.venue_id}
       date = {event.end.local}
+      savedEventUrls={this.state.savedEventUrls}
       key={i}
       />)
     })

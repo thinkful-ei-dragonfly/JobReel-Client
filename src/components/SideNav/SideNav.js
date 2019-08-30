@@ -8,23 +8,7 @@ class SideNav extends React.Component {
     return (
       <div className="SideNav">
         <div className='link'>
-          <Link to='/jobsearch'>SEARCH MY DREAM JOB</Link>
-        </div>
-        <br />
-        <div className='link'>
-          <Link to='/professionalsearch'>SEARCH FOR PROFESSIONALS</Link>
-        </div>
-        <br />
-        <div className='link'>
-          <Link to='/saved-jobs'>JOBS THAT I LIKE</Link>
-        </div>
-        <br />
-        <div className='link'>
-          <Link to='/companies'>COMPANIES OF INTEREST</Link>
-        </div>
-        <br />
-        <div className='link'>
-          <Link to='/contacts'>PROFESSIONAL CONTACTS</Link>
+          <Link to='/jobsearch'>Search Jobs</Link>
         </div>
         <br />
         <div className='link'>
@@ -32,11 +16,27 @@ class SideNav extends React.Component {
         </div>
         <br />
         <div className='link'>
-          <Link to='/saved-events'>MY EVENTS</Link>
+          <Link to='/professionalsearch'>Search Contacts</Link>
+        </div>
+        <br />
+        <div className='link'>
+          <Link to='/saved-jobs'>My Saved Jobs</Link>
+        </div>
+        <br />
+        <div className='link'>
+          <Link to='/saved-events'>My Saved Events</Link>
+        </div>
+        <br />
+        <div className='link'>
+          <Link to='/contacts'>My Saved Contacts</Link>
+        </div>
+        <br />
+        <div className='link'>
+          <Link to='/companies'>My Saved Companies</Link>
         </div>
         <br />
         <div className="link">
-          <Link to='/resources'>USEFUL RESOURCES</Link>
+          <Link to='/resources'>My Saved Resources</Link>
         </div>
       </div>
     )

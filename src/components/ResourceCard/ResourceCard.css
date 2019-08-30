@@ -1,10 +1,11 @@
 .resource-card {
-  width: 80%;
+  width: 90%;
   border: 1px black solid;
   min-width: 300px;
   margin-bottom: 10px;
   padding: 0.5em;
   border-radius: 10px;
+  padding: 10px;
   margin: auto;
   background: #3b3a50;
   color: #eeebd9;
@@ -15,4 +16,16 @@
 #type-Input {
   width: 15em;
   border-radius: 10px;
+}
+
+.card-description{
+  overflow-wrap: break-word;
+}
+
+.savedResourceFilterControls{
+  margin: 15px;
+}
+
+#saved-resource-search{
+  margin-right: 0px;
 }
