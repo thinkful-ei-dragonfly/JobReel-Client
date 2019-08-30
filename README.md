@@ -10,7 +10,43 @@ To see apps functionality just log in with demo credentials.
 Username: Demo
 Password: Asdf123!
 
-## API Documentation
+## Landing and User Routes
+
+### Register: 
+
+### Login:
+
+### Profile:
+
+### Dashboard:
+
+### NotFound:
+
+## API Documentation and Routes
+
+### Jobs Route: Github and Authentic
+
+The jobs route relies on two simultaneous calls to two seperate external API's, passed through the server end. Seperate Job and GithubJob components take the data objects from the two respective API calls and reformat them to fit the same rendering object framework for the Jobs Route.
+
+### Find Contacts Route: Professional Contacts Route
+
+The professional contacts route is leveraged on the hunter.io API. This returns a large nested dataset matching either searches by domain (a url) or company name (a string). Within the API if domain is entered it ignores the company name in the search, so we only render one at a time as text is added to either input. Additional optional search criteria are, seniority and department. 
+
+### Find Events Route: Eventbrite Route
+
+The find events route uses the eventbrite API. The api is guarded with OAUTH2, thus emphasizing hte importance of sending the external api call through our server. Users are redirected to Eventbrite to give permissions to JobReel to use their account in searching for and RSVP'ing to events. OAUTH tokens are passed only to the server. Search criteria include jobtitle (a query string), city (a string), and optional category and subcagetories. Subcategories only render  when an indvidual category has been selected, after which appropriate subcategories render for a gvien category. 
+
+## Database Related Documentation and Routes
+
+### Resources:
+
+### SavedCompanies:
+
+### SavedContacts:
+
+### SavedEvents:
+
+### SavedJobs:
 
 ## Summary
 
