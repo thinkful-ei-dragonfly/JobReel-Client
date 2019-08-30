@@ -172,7 +172,7 @@ export default class EventBriteList extends Component {
             )
         }
         return (
-                <button id='save-button' onClick={this.handleClick}>Save Event</button>
+                <button id='save-button-event' onClick={this.handleClick}>Save Event</button>
         )   
     }
 
