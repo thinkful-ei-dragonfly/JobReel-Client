@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
-import config from '../../config'
-import TokenService from '../../services/token-service'
+import config from '../../config';
+import Button from '../Button/Button';
+import TokenService from '../../services/token-service';
 import JobReelContext from '../../context/JobReelContext';
+import jobReelApiService from '../../services/jobreel-api-service';
 import Moment from 'react-moment';
-import Iframe from 'react-iframe'
-import './EventBriteItem.css'
+import Iframe from 'react-iframe';
+import './EventBriteItem.css';
 
 export default class EventBriteList extends Component {
+    static contextType = JobReelContext
+
     state = {
         host: '',
         address: '',
         URL: false,
         expanded: false,
+        saved: false,
     }
 
-    static contextType = JobReelContext
+    // static getDerivedStateFromProps(props) {
+    //     const {event = {}, savedEventUrls} = props;
+    //     console.log(event.url)
+    //     console.log(savedEventUrls)
+    //     if (event.url in savedEventUrls) {
+    //         return {saved: true};
+    //     }
+    //     return null;
+    // }
 
     componentDidMount() {
         const venue_id = this.props.venue_id
@@ -35,10 +48,33 @@ export default class EventBriteList extends Component {
                     : res.json()
             )
             .then(data => {
+                console.log(data)
                 this.setState({ host: data.name })
                 this.setState({ address: data.address.localized_address_display })
             })
     }
+
+    // handleClick = () => {
+    //     const event = this.props.event;
+    //     const eventData = {
+    //         event_name: event.event_name,
+    //         host: event.host,
+    //         city: event.city,
+    //         state: event.state,
+    //         address: event.address,
+    //         date: event.date,
+    //         url: event.url,
+    //         description: event.description,
+    //         status: event.status,
+    //     }
+    //     console.log(eventData)
+    //     jobReelApiService.submitJob(eventData)
+    //         .then(res => {
+    //             console.log(res)
+    //             this.setState({saved: true});
+    //             this.context.setSavedJobs([...this.context.savedEvents, res]);
+    //         })
+    // }
 
     handleExpand = () => {
         this.setState({ expanded: true })
@@ -87,6 +123,7 @@ export default class EventBriteList extends Component {
                     <button onClick={this.handleExpand}>
                         More Details
                     </button>
+                    {/* {this.renderSaveButton()} */}
                 </div>
             </div>
         )
@@ -127,10 +164,28 @@ export default class EventBriteList extends Component {
                     <button onClick={this.handleCollapse}>
                         Collapse Description
                     </button>
+                    {/* {this.renderSaveButton()} */}
                 </div>
             </div>
         )
     }
+
+    // renderSaveButton() {
+    //     if (this.state.saved) {
+    //         return (
+    //             <div className='save-button'>
+    //                 <p>Saved &#10004;</p>
+    //             </div>
+            
+    //         )
+    //     }
+    //     return (
+    //         <div className='save-button'>
+    //             <Button id='save-button' onClick={this.handleClick}>Save Event</Button>
+    //         </div>
+        
+    //     )   
+    // }
 
     renderEventURL() {
         const url = this.props.url
