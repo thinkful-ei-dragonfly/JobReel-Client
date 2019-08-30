@@ -49,6 +49,7 @@ class JobNotification extends React.Component {
     let rounded = Math.round(diff)
     if (this.state.date_applied && (this.state.notification === true) && (rounded > 7)) {
     return <p 
+    className="notification"
     key={this.state.job_id}>
     You applied to {this.state.company} {rounded} days ago.  Have you heard back?
      <button className="notification-button" onClick={() => this.handleHideJob()}>Clear</button></p>
