@@ -16,9 +16,13 @@ Password: Asdf123!
 
 ### Login:
 
-### Profile:
+### Profile: 
+
+The Profile route displays the user's account information stored in the database and allows the user to edit that information.
 
 ### Dashboard:
+
+The Dashboard route displays notifications as well as summary sections for applied jobs, saved jobs, saved companies, saved contacts, saved events, and saved resources. Each summary section displays the last three items added to that category.
 
 ### NotFound:
 
@@ -42,11 +46,19 @@ The find events route uses the eventbrite API. The api is guarded with OAUTH2, t
 
 ### SavedCompanies:
 
+The SavedCompanies route displays all companies of interest that the user has stored to the database. This route also contains a form that allows users to manually add companies to the database. The user can also edit saved company information.
+
 ### SavedContacts:
+
+The SavedContacts route displays all contacts of interest that the user has stored to the database. This route also contains a form that allows users to manually add contacts to the database. The user can also edit saved contact information.
 
 ### SavedEvents:
 
+The SavedEvents route displays all events of interest that the user has stored to the database. This route also contains a form that allows users to manually add events to the database. The user can also edit saved event information.
+
 ### SavedJobs:
+
+The SavedJobs route displays all jobs of interest that the user has stored to the database. This route also contains a form that allows users to manually add jobs to the database. The user can also edit saved job information.
 
 ## Summary
 
