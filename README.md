@@ -12,6 +12,18 @@ Password: Asdf123!
 
 ## API Documentation
 
+### Jobs Route: `Github and Authentic`
+
+The jobs route relies on two simultaneous calls to two seperate external API's, passed through the server end. Seperate Job and GithubJob components take the data objects from the two respective API calls and reformat them to fit the same rendering object framework for the Jobs Route.
+
+### Find Contacts Route: `Professional Contacts Route`
+
+The professional contacts route is leveraged on the hunter.io API. This returns a large nested dataset matching either searches by domain (a url) or company name (a string). Within the API if domain is entered it ignores the company name in the search, so we only render one at a time as text is added to either input. Additional optional search criteria are, seniority and department. 
+
+### Find Events Route: `Eventbrite Route`
+
+The find events route uses the eventbrite API. The api is guarded with OAUTH2, thus emphasizing hte importance of sending the external api call through our server. Users are redirected to Eventbrite to give permissions to JobReel to use their account in searching for and RSVP'ing to events. OAUTH tokens are passed only to the server. Search criteria include jobtitle (a query string), city (a string), and optional category and subcagetories. Subcategories only render  when an indvidual category has been selected, after which appropriate subcategories render for a gvien category. 
+
 ## Summary
 
 JobReel simplifies the job search process for Thinkful Graduates. THe app is loaded with 3rd party API's to assist you in job search. Our database can hold entries such as jobs that user applied to, connects with people, and companies of interest. User is greated with user friendly dsahboard that has all information needed to start searching for the job and connect with people at different companies. The app is responsive and can be used on desktop, laptop, tablet, or phone! Choice is yours! JobReel is you job search companion!
