@@ -1,10 +1,3 @@
-The name of your app at the top of the file.
-A link to your live app.
-Documentation of your API.
-Screenshot(s) of your app. This makes your app description much easier to understand.
-A summary section. This should have a concise explanation of what your app does. Try to frame this from the standpoint of what the user does, or what the app enables for the user.
-A section on the technology used.
-
 # JobReel
 
 ## Link to app
@@ -17,9 +10,43 @@ To see apps functionality just log in with demo credentials.
 Username: Demo
 Password: Asdf123!
 
-## API Documentation
+## Landing and User Routes
 
-## Screenshots
+### Register: 
+
+### Login:
+
+### Profile:
+
+### Dashboard:
+
+### NotFound:
+
+## API Documentation and Routes
+
+### Jobs Route: Github and Authentic
+
+The jobs route relies on two simultaneous calls to two seperate external API's, passed through the server end. Seperate Job and GithubJob components take the data objects from the two respective API calls and reformat them to fit the same rendering object framework for the Jobs Route.
+
+### Find Contacts Route: Professional Contacts Route
+
+The professional contacts route is leveraged on the hunter.io API. This returns a large nested dataset matching either searches by domain (a url) or company name (a string). Within the API if domain is entered it ignores the company name in the search, so we only render one at a time as text is added to either input. Additional optional search criteria are, seniority and department. 
+
+### Find Events Route: Eventbrite Route
+
+The find events route uses the eventbrite API. The api is guarded with OAUTH2, thus emphasizing hte importance of sending the external api call through our server. Users are redirected to Eventbrite to give permissions to JobReel to use their account in searching for and RSVP'ing to events. OAUTH tokens are passed only to the server. Search criteria include jobtitle (a query string), city (a string), and optional category and subcagetories. Subcategories only render  when an indvidual category has been selected, after which appropriate subcategories render for a gvien category. 
+
+## Database Related Documentation and Routes
+
+### Resources:
+
+### SavedCompanies:
+
+### SavedContacts:
+
+### SavedEvents:
+
+### SavedJobs:
 
 ## Summary
 
@@ -40,6 +67,10 @@ PostgreSQL
 
 
 
+
+
+
+________________________________________________________________________________________________________________________________________
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -79,33 +110,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
