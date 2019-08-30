@@ -19,6 +19,11 @@ class DashEventSummary extends React.Component {
 
   renderEventSummaries = () => {
     let events = Array.from(this.context.savedEvents);
+    events = events.filter(event => {
+      const eventDate = new Date(event.date)
+      let today = new Date(Date.now());
+      return eventDate > today;
+    })
     events = events.sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
     });
