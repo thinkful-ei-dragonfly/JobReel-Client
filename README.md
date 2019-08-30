@@ -12,19 +12,33 @@ Password: Asdf123!
 
 ## Landing and User Routes
 
-### Register: 
+### Register:
+
+![register](/src/images/registerpicture.jpg "Register Route")
+
+Registration route has information about the project as well as a form for a user to sign up for the application
 
 ### Login:
+![login](/src/images/loginpicture.jpg "Login")
 
-### Profile: 
+Simple login form to verify entered credentials.
+### Profile:
+
+![profile](src/images/profilepicture.jpg "Profile-screen")
 
 The Profile route displays the user's account information stored in the database and allows the user to edit that information.
 
 ### Dashboard:
 
+![dashboard](src/images/dashboardpic.jpg "Dashboard-screen")
+
+All the information that is needed to use the app is here
+
 The Dashboard route displays notifications as well as summary sections for applied jobs, saved jobs, saved companies, saved contacts, saved events, and saved resources. Each summary section displays the last three items added to that category.
 
 ### NotFound:
+
+In an event of a bad request, user is taken to this page. Try something like "skyhigh" or "iwanttoseestarwars"
 
 ## API Documentation and Routes
 
@@ -43,6 +57,8 @@ The find events route uses the eventbrite API. The api is guarded with OAUTH2, t
 ## Database Related Documentation and Routes
 
 ### Resources:
+
+When you look for job every resuorce is great. Save the resources to this route to access it later when needed
 
 ### SavedCompanies:
 
