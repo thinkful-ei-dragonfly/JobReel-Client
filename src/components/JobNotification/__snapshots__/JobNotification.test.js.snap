@@ -5,6 +5,7 @@ exports[`JobNotification snapshot test renders the UI as expected 1`] = `
   className="job-notification"
 >
   <p
+    className="notification"
     key="2"
   >
     You applied to 
