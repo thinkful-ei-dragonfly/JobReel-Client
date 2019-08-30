@@ -25,7 +25,7 @@ class ResourcesRoute extends React.Component {
     return (
       <div className='resources-page'>
         <div className='title'>
-          <h2>Resources</h2>
+          <h2>Saved Resources</h2>
         </div>
         <div className='resourcesBack'>
           <img src={resourcesBack} alt='resources-background'/>

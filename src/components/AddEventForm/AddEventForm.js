@@ -16,7 +16,7 @@ class AddEventForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     e.persist();
-    this.setState({ error: null });
+    this.setState({ error: null }); 
     const event_name = e.target.event.value;
     const host = e.target.host.value;
     const city = e.target.city.value;
