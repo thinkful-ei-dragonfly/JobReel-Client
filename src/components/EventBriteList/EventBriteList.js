@@ -9,21 +9,15 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class EventBriteList extends Component {
-<<<<<<< HEAD
+
+    static contextType = JobReelContext
+
     state = {
         events: null,
         savedEventUrls: {},
+        noResults: false,
     }
-=======
-  state = {
-    events: null,
-    noResults: false,
-  }
->>>>>>> 6edf21671f753501ba1fa61764cb1059d1275af8
 
-  static contextType = JobReelContext
-
-<<<<<<< HEAD
     componentDidMount() {
         if (Object.keys(this.context.eventsSearch).length === 0) {
             this.props.history.push(`/eventbritesearch`)
@@ -36,31 +30,6 @@ export default class EventBriteList extends Component {
         this.setState({ savedEventUrls: savedEventUrlsObj });
     } 
 
-    renderEvents() {
-        const {events = []} = this.context
-        const eventsList = events.map((event, i) => {
-            return (
-            <EventBriteItem 
-            event={event} 
-            name={event.name.text} 
-            description={event.description.text} 
-            url={event.url}
-            venue_id={event.venue_id}
-            date = {event.end.local}
-            key={i}
-            savedEventUrls={this.state.savedEventUrls}
-            />
-            )
-        })
-        return eventsList;
-    }
-=======
-  componentDidMount() {
-    if (Object.keys(this.context.eventsSearch).length === 0) {
-      this.props.history.push(`/eventbritesearch`)
-      }
-  }
-
   renderNoResultsMessage() {
     return (
         <h2>
@@ -68,7 +37,6 @@ export default class EventBriteList extends Component {
       </h2>
     )
   }
->>>>>>> 6edf21671f753501ba1fa61764cb1059d1275af8
 
   renderEvents() {
     const {events = []} = this.context
@@ -82,8 +50,7 @@ export default class EventBriteList extends Component {
       venue_id={event.venue_id}
       date = {event.end.local}
       key={i}
-      />
-      )
+      />)
     })
     return (
         <div className='results'>
