@@ -48,7 +48,10 @@ class JobNotification extends React.Component {
     let diff = Math.abs((today - applied) / (1000 * 60 * 60 * 24))
     let rounded = Math.round(diff)
     if (this.state.date_applied && (this.state.notification === true) && (rounded > 7)) {
-    return <p key={this.state.job_id}>You applied to {this.state.company} {rounded} days ago.  Have you heard back? <button onClick={() => this.handleHideJob()}>Clear</button></p>
+    return <p 
+    key={this.state.job_id}>
+    You applied to {this.state.company} {rounded} days ago.  Have you heard back?
+     <button className="notification-button" onClick={() => this.handleHideJob()}>Clear</button></p>
       }
   }
   

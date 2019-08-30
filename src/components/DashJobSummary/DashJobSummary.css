@@ -8,12 +8,22 @@
 }
 
 .ul {
-  padding-left: 0;
+  /* padding-left: 0; */
   width: 95%;
   margin: auto;
   height: 100%;
+  background: #DCD7D4;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: black;
 }
 
 .viewAll {
   text-align: center;
+  margin: 15px auto
+}
+
+
+.ul a {
+  color: green;
 }

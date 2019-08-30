@@ -1,5 +1,7 @@
 .add-job-form {
   border: 1px black solid;
+  grid-column-start: 4;
+  grid-column-end: 7;
   min-width: 300px;
   margin: 0 auto;
   padding: 5%;
@@ -10,4 +12,11 @@
   background: #3b3a50;
   color: #eeebd9;
   box-shadow:  0.5em 0.5em 0.2em rgb(48, 39, 39);
+}
+
+@media screen and (max-width: 960px) {
+  .add-job-form {
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
 }

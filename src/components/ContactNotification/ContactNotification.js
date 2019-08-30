@@ -49,7 +49,13 @@ class ContactNotification extends React.Component {
     let rounded = Math.round(diff)
     let mail=`mailto:${this.state.email}`
     if (this.state.date_connected && (this.state.notification === true) && (rounded > 7)) {
-    return <p key={this.state.contact_id}>You reached out to {this.state.contact_name} {rounded} days ago.  <a href={mail}>Follow up</a> if you haven't received a response.<button onClick={() => this.handleHideContact()}>Clear</button></p>
+    return <p  
+    className="notification"
+    key={this.state.contact_id}>
+      You reached out to {this.state.contact_name} {rounded} days ago.  
+      <a href={mail}> Follow up </a>
+       if you haven't received a response.
+       <button className="notification-button" onClick={() => this.handleHideContact()}>Clear</button></p>
       }
   }
   
