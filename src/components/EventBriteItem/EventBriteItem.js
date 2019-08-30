@@ -65,10 +65,10 @@ export default class EventBriteList extends Component {
             url: this.props.url,
             description: this.props.description
         }
-        jobReelApiService.submitJob(eventData)
+        jobReelApiService.submitEvent(eventData)
             .then(res => {
                 this.setState({saved: true});
-                this.context.setSavedJobs([...this.context.savedEvents, res]);
+                this.context.setSavedEvents([...this.context.savedEvents, res]);
             })
     }
 
