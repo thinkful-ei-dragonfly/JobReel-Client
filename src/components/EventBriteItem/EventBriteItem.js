@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import config from '../../config';
-import Button from '../Button/Button';
 import TokenService from '../../services/token-service';
 import JobReelContext from '../../context/JobReelContext';
 import jobReelApiService from '../../services/jobreel-api-service';
@@ -14,20 +13,20 @@ export default class EventBriteList extends Component {
     state = {
         host: '',
         address: '',
+        city: '',
+        region: '',
         URL: false,
         expanded: false,
         saved: false,
     }
 
-    // static getDerivedStateFromProps(props) {
-    //     const {event = {}, savedEventUrls} = props;
-    //     console.log(event.url)
-    //     console.log(savedEventUrls)
-    //     if (event.url in savedEventUrls) {
-    //         return {saved: true};
-    //     }
-    //     return null;
-    // }
+    static getDerivedStateFromProps(props) {
+        const {savedEventUrls, url} = props;
+        if (url in savedEventUrls) {
+            return {saved: true};
+        }
+        return null;
+    }
 
     componentDidMount() {
         const venue_id = this.props.venue_id
@@ -48,32 +47,30 @@ export default class EventBriteList extends Component {
                     : res.json()
             )
             .then(data => {
+                this.setState({ city: data.address.city })
+                this.setState({ region: data.address.region })
                 this.setState({ host: data.name })
                 this.setState({ address: data.address.localized_address_display })
             })
     }
 
-    // handleClick = () => {
-    //     const event = this.props.event;
-    //     const eventData = {
-    //         event_name: event.event_name,
-    //         host: event.host,
-    //         city: event.city,
-    //         state: event.state,
-    //         address: event.address,
-    //         date: event.date,
-    //         url: event.url,
-    //         description: event.description,
-    //         status: event.status,
-    //     }
-    //     console.log(eventData)
-    //     jobReelApiService.submitJob(eventData)
-    //         .then(res => {
-    //             console.log(res)
-    //             this.setState({saved: true});
-    //             this.context.setSavedJobs([...this.context.savedEvents, res]);
-    //         })
-    // }
+    handleClick = () => {
+        const eventData = {
+            event_name: this.props.name,
+            host: this.state.host,
+            city: this.state.city,
+            state: this.state.region,
+            address: this.state.address,
+            date: this.props.date,
+            url: this.props.url,
+            description: this.props.description
+        }
+        jobReelApiService.submitJob(eventData)
+            .then(res => {
+                this.setState({saved: true});
+                this.context.setSavedJobs([...this.context.savedEvents, res]);
+            })
+    }
 
     handleExpand = () => {
         this.setState({ expanded: true })
@@ -116,13 +113,11 @@ export default class EventBriteList extends Component {
                     {!this.state.URL && <button onClick={this.handleURL}>Event Page</button>}
                     <br/>
                     {this.state.URL && this.renderEventURL()}
-                    <br/>
                     {this.state.URL && this.renderURLcollapse()}
-                    <br />
                     <button onClick={this.handleExpand}>
                         More Details
                     </button>
-                    {/* {this.renderSaveButton()} */}
+                    {this.renderSaveButton()}
                 </div>
             </div>
         )
@@ -157,34 +152,32 @@ export default class EventBriteList extends Component {
                     {!this.state.URL && <button onClick={this.handleURL}>Event Page</button>}
                     <br/>
                     {this.state.URL && this.renderEventURL()}
-                    <br/>
                     {this.state.URL && this.renderURLcollapse()}
-                    <br />
                     <button onClick={this.handleCollapse}>
                         Collapse Description
                     </button>
-                    {/* {this.renderSaveButton()} */}
+                    {this.renderSaveButton()}
                 </div>
             </div>
         )
     }
 
-    // renderSaveButton() {
-    //     if (this.state.saved) {
-    //         return (
-    //             <div className='save-button'>
-    //                 <p>Saved &#10004;</p>
-    //             </div>
+    renderSaveButton() {
+        if (this.state.saved) {
+            return (
+                <div className='save-button'>
+                    <p>Saved &#10004;</p>
+                </div>
             
-    //         )
-    //     }
-    //     return (
-    //         <div className='save-button'>
-    //             <Button id='save-button' onClick={this.handleClick}>Save Event</Button>
-    //         </div>
+            )
+        }
+        return (
+            <div className='save-button'>
+                <button id='save-button' onClick={this.handleClick}>Save Event</button>
+            </div>
         
-    //     )   
-    // }
+        )   
+    }
 
     renderEventURL() {
         const url = this.props.url

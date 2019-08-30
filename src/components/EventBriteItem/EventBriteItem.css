@@ -21,6 +21,7 @@
   color: #eeebd9;
   padding: 0.5em;
   border: 0.5px solid #eeebd9;
+  margin: 5px auto;
 }
 
 .event-controls button:hover {
