@@ -30,7 +30,7 @@ export default class EventBriteButton extends Component {
     const url = this.state.url
     return (
       <div className='content'>
-        <a href={url} rel='noopener noreferrer' target='_blank'>Search Events</a>    
+        <a href={url}>Search Events</a>    
       </div>
       
     )

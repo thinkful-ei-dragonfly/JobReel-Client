@@ -26,7 +26,7 @@ class SavedContactsRoute extends React.Component {
     return (
       <div className="SavedContactsRoute">
         <div className='title'>
-          <h2>Contacts</h2>
+          <h2>Saved Contacts</h2>
         </div>
         <div className='savedContBack'>
           <img src={savedContBack} alt='saved-contact-background'/>

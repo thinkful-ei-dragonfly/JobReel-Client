@@ -104,8 +104,8 @@ class AddJobForm extends React.Component {
   render() {
     const { error } = this.state;
     return (
-      <div className='form'>
-        <form className='add-job-form' onSubmit={this.handleSubmit}>
+      <div className='add-job-form'>
+        <form onSubmit={this.handleSubmit}>
           <div role='alert'>
             {error && <p>{error}</p>}
           </div>

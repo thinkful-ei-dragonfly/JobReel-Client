@@ -27,7 +27,7 @@ class SavedCompaniesRoute extends React.Component {
     return (
       <div className="SavedCompaniesRoute">
         <div className='title'>
-          <h2>Companies</h2>
+          <h2>Saved Companies</h2>
         </div>
         <div className='savedCompBack'>
           <img src={savedCompBack} alt='saved-company-bakcground'/>

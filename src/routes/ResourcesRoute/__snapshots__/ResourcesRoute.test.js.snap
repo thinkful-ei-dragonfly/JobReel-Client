@@ -8,7 +8,7 @@ exports[`ResourcesRoute snapshot test renders the UI as expected 1`] = `
     className="title"
   >
     <h2>
-      Resources
+      Saved Resources
     </h2>
   </div>
   <div

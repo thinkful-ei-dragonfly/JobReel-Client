@@ -11,8 +11,9 @@ exports[`JobNotification snapshot test renders the UI as expected 1`] = `
     Company B
      
     14
-     days ago.  Have you heard back? 
+     days ago.  Have you heard back?
     <button
+      className="notification-button"
       onClick={[Function]}
     >
       Clear

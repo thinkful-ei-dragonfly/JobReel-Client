@@ -33,7 +33,7 @@ class DashJobSummary extends React.Component {
     }
     jobs = jobs.slice(0, 3).map(job => {
       return (
-        <li key={job.job_id}>{job.company} - <a href={job.url}>{job.job_title}</a></li>
+        <li key={job.job_id}>{job.company} - <a target="_blank" rel="noopener noreferrer" href={job.url}>{job.job_title}</a></li>
       )
     })
     return (
