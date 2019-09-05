@@ -11,18 +11,18 @@
 .frontEnd {
   grid-column-start: 1;
   grid-column-end: 2;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .backEnd {
   grid-column-start: 3;
   grid-column-end: 4;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .contactUs {
   grid-column-start: 2;
   grid-column-end: 3;
-  margin: auto;
+  /* margin: auto; */
 }
 
