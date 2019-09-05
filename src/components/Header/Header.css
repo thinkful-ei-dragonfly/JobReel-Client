@@ -17,7 +17,8 @@
   grid-column-start: 2;
   grid-column-end: 4;
   text-decoration: none;
-  margin: auto;
+  margin-top: 10px;
+  /* margin: auto; */
 }
 
 .logo > a > img {
@@ -28,7 +29,8 @@
 .nav {
   grid-column-start: 10;
   grid-column-end: 12;
-  margin: auto;
+  margin-top: 20px;
+  /* margin: auto; */
   width: 100%;
   text-decoration: none;
   text-align: center;
@@ -38,7 +40,8 @@
   grid-column-start: 8;
   grid-column-end: 10;
   color: #FFDA71;
-  margin: auto;
+  margin-top: 20px;
+  /* margin: auto; */
   text-align: center;
 }
 
